@@ -12,13 +12,14 @@ from stim_functions import figure_style
 2) phase diagram of thetaE vs beta - to show adjustment of UP/DOWN state frequency
 '''
 
+# TODO: implement non absolute paths
 # set directories
-analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, os.pardir, os.pardir, 'ModelData', 'analysed_data'))
-figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, os.pardir, os.pardir, os.pardir, 'Writing', 'Figures', 'Methods', 'Figure2'))
+analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, '03_Analysis', 'analysed_data'))
+figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), 'Methods'))
 
 # load data 
 gIvsgE = pd.read_csv(os.path.join(analysed_data_dir, 'state_statistics_local_thetaE-1_beta6.csv'))
-thetaEvsbeta = pd.read_csv(os.path.join(analysed_data_dir, 'state_statistics_local_gI4_gE1.csv'))
+thetaEvsbeta = pd.read_csv(os.path.join(analysed_data_dir, 'state_statistics_local_gi4_gE1.csv')) # it was capital I before, typo?
 
 # %% gI vs gE phase diagram 
 

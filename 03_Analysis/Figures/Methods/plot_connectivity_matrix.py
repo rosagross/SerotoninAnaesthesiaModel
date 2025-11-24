@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from stim_functions import figure_style
 
-matrix_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, os.pardir))
-atlas_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, 'atlas_data'))
+matrix_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, '02_Data', 'connectivity'))
+atlas_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, 'atlas_data'))
 figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), "Methods"))
 
 # load data 

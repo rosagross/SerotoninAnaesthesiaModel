@@ -19,10 +19,11 @@ G = 0 vs G = 3
 '''
 
 # set directories
-analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, os.pardir, os.pardir, 'ModelData', 'analysed_data'))
-figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, os.pardir, os.pardir, os.pardir, 'Writing', 'Figures', 'Results', 'Figure5'))
-frate_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, os.pardir, os.pardir, 'ModelData', 'data', 'firing_rates'))
-atlas_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, 'atlas_data'))
+analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, '03_Analysis', 'analysed_data'))
+figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, '03_Analysis', 'Figures', 'Results'))
+frate_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, '02_Data', 'firing_rates'))
+atlas_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, '03_Analysis', 'atlas_data'))
+connectivity_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, '02_Data', 'connectivity'))
 
 # load data
 homogen_C_allG_df = pd.read_csv(os.path.join(analysed_data_dir, 'state_analysis_bins_S40_G[2, 3]_RateAdj1_C.csv'))
@@ -86,7 +87,7 @@ axs[1][0].plot([0, 2], [-0.26, -0.26], color='k', lw=0.8, clip_on=False)
 axs[1][0].text(1, -0.28, '2s', ha='center', va='top')
 fig.text(0.08, 0.5, u'Δ down state probability (%)', va='center', rotation='vertical')
 plt.subplots_adjust(hspace=0.4, wspace=0.)
-
+plt.savefig(os.path.join(figure_dir, f'downstate_probability_byRegion.pdf'), dpi=600, bbox_inches="tight")
 
 # %% Plot 14 areas - Heterogeneous vs Homogeneous connectivity
 
@@ -128,7 +129,7 @@ plt.savefig(os.path.join(figure_dir, f'heterogen_vs_homogen_connectivity.pdf'), 
 
 # %% Plot the difference between heterogeneous and homogeneous connectivity 
 
-connect_matrix = pd.read_csv(os.path.join(analysed_data_dir, 'MODEL_Cmatrix_grouped_cre-False_hemi-3_grouping-median_thresh-0.005.csv' ))
+connect_matrix = pd.read_csv(os.path.join(connectivity_dir, 'MODEL_Cmatrix_grouped_cre-False_hemi-3_grouping-median_thresh-0.005.csv' ))
 connect_matrix.drop('Unnamed: 0', inplace=True, axis=1)
 connect_matrix = np.array(connect_matrix)
 incoming_projections = np.mean(connect_matrix, axis=0)
@@ -210,8 +211,10 @@ for i in uncoupled_coupled_diff_df.index:
     txt = ax1.text(uncoupled_coupled_diff_df.loc[i, 'drn_connect'], uncoupled_coupled_diff_df.loc[i, 'p_down_delta'], uncoupled_coupled_diff_df.loc[i, 'abr_region'],
              color=uncoupled_coupled_diff_df.loc[i, 'color'], fontsize=8.5, fontweight='bold')
     r, p = pearsonr(uncoupled_coupled_diff_df['drn_connect'], uncoupled_coupled_diff_df['p_down_delta'])
+
     ax1.text(0.09, 0.24, f'r = {r:.2f}', fontsize=6)
     ax1.text(0.1, 0.3, f'**', fontsize=6)
+print('p-val.', p)
 
 ax1.set_yticks([-0.2, 0, 0.2, 0.4])
 ax1.set_yticklabels([-20, 0, 20, 40])
@@ -219,5 +222,5 @@ ax1.set_xticks([0, 0.05, 0.1, 0.15, 0.2])
 ax1.set_xlabel('Projection density (from DRN)')
 ax1.set_ylabel(u' G0v3 Δ down state prob. (%)')
 sns.despine(trim=True)
-plt.savefig(os.path.join(figure_dir, f'homogenG2_vs_uncoupled.pdf'), bbox_inches="tight")
+plt.savefig(os.path.join(figure_dir, f'homogenG3_vs_uncoupled.pdf'), bbox_inches="tight")
 plt.show()

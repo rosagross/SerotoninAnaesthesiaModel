@@ -8,7 +8,7 @@ from stim_functions import figure_style
 
 # set directories
 analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, 'analysed_data'))
-figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), 'paper_panel'))
+figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), 'ExtraFigures'))
 
 # load data 
 S = 40
@@ -46,3 +46,5 @@ ax.legend(title=None, loc='upper right', bbox_to_anchor=(0.95, 1.05))
 sns.despine(trim=True, bottom=True)
 plt.savefig(os.path.join(figure_dir, f'trajectory_serotonin_targets_G{G}_S{S}.png'), bbox_inches="tight")
 plt.show()
+
+# %%

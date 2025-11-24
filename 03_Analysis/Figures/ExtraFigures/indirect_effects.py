@@ -8,7 +8,7 @@ from stim_functions import figure_style
 
 # set directories
 analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, 'analysed_data'))
-figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), 'paper_panel'))
+figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), 'ExtraFigures'))
 
 # load data
 serotonin_df = pd.read_csv(os.path.join(analysed_data_dir, 'state_analysis_bins_S40_G[0, 1, 2, 3]_RateAdj1.csv'))

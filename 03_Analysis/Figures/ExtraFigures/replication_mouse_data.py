@@ -1,3 +1,4 @@
+# %%
 import pandas as pd
 import numpy as np
 import os 
@@ -7,7 +8,7 @@ from stim_functions import figure_style
 
 # set directories
 analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, 'analysed_data'))
-figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), 'paper_panel'))
+figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), 'ExtraFigures'))
 
 # load data
 S = 40 
@@ -89,3 +90,5 @@ plt.subplots_adjust(left=0.08, bottom=0.15, right=1, top=0.85, wspace=0, hspace=
 plt.tight_layout(h_pad=-10, w_pad=0)
 plt.savefig(os.path.join(figure_dir, f'downstate_replication_S{S}_G{G}.pdf'), dpi=600)
 
+
+# %%

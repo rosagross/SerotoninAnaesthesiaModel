@@ -70,7 +70,7 @@ class SimulationSession():
         outdir = self.output_dir
         if not os.path.exists(outdir):
             os.mkdir(outdir)
-        outname = self.file_addon + self.session + '_stimulation_times.csv'
+        outname = self.file_addon + self.session + '_stimtimes.csv'
         stim_times = pd.DataFrame(self.stimulation_times)
         stim_times.to_csv(os.path.join(outdir, outname), index=False)
 
