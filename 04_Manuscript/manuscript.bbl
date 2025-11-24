@@ -1,0 +1,52 @@
+\begin{thebibliography}{1}
+
+\bibitem{jercogUPDOWNCorticalDynamics2017}
+Daniel Jercog, Alex Roxin, Peter Barthó, Artur Luczak, Albert Compte, and
+  Jaime De~La~Rocha.
+\newblock {UP}-{DOWN} cortical dynamics reflect state transitions in a bistable
+  network.
+\newblock 6.
+\newblock Publisher: {eLife} Sciences Publications Ltd.
+
+\bibitem{deisseroth2015optogenetics}
+Karl Deisseroth.
+\newblock Optogenetics: 10 years of microbial opsins in neuroscience.
+\newblock {\em Nature neuroscience}, 18(9):1213--1225, 2015.
+
+\bibitem{ruiz-mejiasSlowFastRhythms2011}
+Marcel Ruiz-Mejias, Laura Ciria-Suarez, Maurizio Mattia, and Maria~V.
+  Sanchez-Vives.
+\newblock Slow and fast rhythms generated in the cerebral cortex of the
+  anesthetized mouse.
+\newblock 106(6):2910--2921, 2011.
+\newblock Publisher: American Physiological Society Bethesda, {MD}.
+
+\bibitem{fulcherBenfulcherAllenSDKInitial2020}
+Ben Fulcher.
+\newblock benfulcher/{AllenSDK}: Initial version.
+
+\bibitem{Linderman_SSM_Bayesian_Learning_2020}
+Scott Linderman, Benjamin Antin, David Zoltowski, and Joshua Glaser.
+\newblock {SSM}: Bayesian learning and inference for state space models.
+
+\bibitem{varelaBrainwebPhaseSynchronization2001}
+Francisco Varela, Jean-Philippe Lachaux, Eugenio Rodriguez, and Jacques
+  Martinerie.
+\newblock The brainweb: Phase synchronization and large-scale integration.
+\newblock 2(4):229--239.
+\newblock Number: 4 Publisher: Nature Publishing Group.
+
+\bibitem{holcmanEmergenceStatesCortical2006}
+David Holcman and Misha Tsodyks.
+\newblock The emergence of up and down states in cortical networks.
+\newblock 2(3):e23.
+\newblock Publisher: Public Library of Science.
+
+\bibitem{brunelCommunicatedPaulTiesinga2006}
+Nicolas Brunel and David Hansel.
+\newblock Communicated by paul tiesinga how noise affects the synchronization
+  properties of recurrent networks of inhibitory neurons synchronization
+  properties of inhibitory networks.
+\newblock Publication Title: Neural Computation Volume: 18.
+
+\end{thebibliography}

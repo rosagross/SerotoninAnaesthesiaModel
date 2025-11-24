@@ -1,0 +1,32 @@
+\documentclass[11pt, a4paper]{report}
+\usepackage[lmargin = 2cm, rmargin = 2cm]{geometry}                
+\usepackage{graphicx}
+%\usepackage[backend=biber,style=numeric]{biblatex}
+%\addbibresource{./bib/manual.bib}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{epstopdf}
+\usepackage{xcolor}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+%%% user defined functions
+\newcommand{\elif}[1]{\textcolor{purple}{#1}}
+
+\title{Modulation of Neural Dynamics by Serotonin in Anaesthetized Mice: A Computational Study}
+\author{Guido Meijer, Rosa Großmann, Jorge Mejias, Zachary Mainen}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section*{Abstract}
+
+(* Possible journals: J Comput Neurosci, PLOS Comp Biol, ? *)
+\cite{jercogUPDOWNCorticalDynamics2017}
+%\mainmatter % comment single chapters for faster compilation
+    \input{./chapters/introduction}
+    \input{./chapters/methods}
+
+%\backmatter % no page numbering from here
+    \bibliographystyle{unsrt}
+    \bibliography{./bib/manual}
+\end{document}

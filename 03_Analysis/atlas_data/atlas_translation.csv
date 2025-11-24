@@ -1,0 +1,169 @@
+,beryl,allen,structure_id,combined_beryl
+7,RT,RT,262,Thalamus
+11,ORBl,ORBl2/3,412,Orbitofrontal cortex
+16,RSPv,RSPv5,687,Retrosplenial cortex
+19,CA3,CA3so,486,Hippocampus
+20,CA3,CA3slu,479,Hippocampus
+25,DG,DGlb-po,782,Hippocampus
+27,RSPd,RSPd2/3,434,Retrosplenial cortex
+29,SSp-bfd,SSp-bfd4,1047,Barrel cortex
+32,SCm,SCiw,17,Superior colliculus
+36,VISp,VISp2/3,821,Visual cortex
+41,VISp,VISp5,778,Visual cortex
+57,PL,PL5,363,Medial prefrontal cortex
+74,ACAd,ACAd5,1015,Medial prefrontal cortex
+82,VISpm,VISpm2/3,41,Visual cortex
+91,DP,DP5,646,Olfactory areas
+95,DP,DP6a,267,Olfactory areas
+96,COAa,COAa2,200,Amygdala
+98,VISpm,VISpm6b,469,Visual cortex
+101,DG,DG-po,10704,Hippocampus
+103,MEA,MEApd-b,480,Amygdala
+109,CEA,CEAl,551,Amygdala
+127,AON,AON2,168,Olfactory areas
+130,TTd,TTd4,1059,Olfactory areas
+132,VISam,VISam4,401,Visual cortex
+139,MOs,MOs6b,1085,Secondary motor cortex
+142,VISa,VISa6b,312782570,Visual cortex
+154,PIR,PIR1-3,152,Piriform
+160,VISam,VISam1,281,Visual cortex
+161,SCs,SCop,851,Superior colliculus
+164,CEA,CEAm,559,Amygdala
+165,RSPd,RSPd6a,274,Retrosplenial cortex
+173,CA1,CA1so,399,Hippocampus
+174,CA3,CA3sr,504,Hippocampus
+185,ORBl,ORBl6b,488,Orbitofrontal cortex
+186,AON,AONd,167,Olfactory areas
+190,DG,DG-sg,632,Hippocampus
+202,PL,PL1,171,Medial prefrontal cortex
+204,MOs,MOs2/3,962,Secondary motor cortex
+206,DG,DG-mo,10703,Hippocampus
+210,VISpm,VISpm6a,257,Visual cortex
+214,ACAv,ACAv5,772,Medial prefrontal cortex
+218,VISp,VISp4,721,Visual cortex
+219,DG,DGmb-sg,823,Hippocampus
+220,AON,AONpv,199,Olfactory areas
+221,DG,DGmb-po,815,Hippocampus
+226,ILA,ILA1,707,Medial prefrontal cortex
+230,SCm,SCig-a,494,Superior colliculus
+232,VISa,VISa6a,312782566,Visual cortex
+233,PAG,INC,67,Periaqueductal gray
+234,SSp-bfd,SSp-bfd6a,1038,Barrel cortex
+235,DG,DG-sgz,10702,Hippocampus
+238,ACAv,ACAv2/3,296,Medial prefrontal cortex
+246,SSp-bfd,VISrll5,480149218,Barrel cortex
+255,TTd,TTd2,1042,Olfactory areas
+259,CEA,CEAc,544,Amygdala
+262,VISam,VISam6a,1046,Visual cortex
+264,MRN,MRNm,539,Midbrain reticular nucleus
+267,PL,PL6a,84,Medial prefrontal cortex
+273,VISp,VISp6b,305,Visual cortex
+280,ACAd,ACAd6a,919,Medial prefrontal cortex
+293,VAL,VAL,629,Thalamus
+294,ORBm,ORBm6b,527696977,Orbitofrontal cortex
+295,COAa,COAa3,208,Amygdala
+296,PAG,PRC,50,Periaqueductal gray
+301,VISpm,VISpm5,565,Visual cortex
+302,SSp-bfd,VISrll1,480149206,Barrel cortex
+304,MEA,MEApd-c,487,Amygdala
+310,ORBm,ORBm2/3,582,Orbitofrontal cortex
+317,AON,AONl,183,Olfactory areas
+322,DG,DGcr-mo,742,Hippocampus
+324,PAG,ND,587,Periaqueductal gray
+328,ACAd,ACAd2/3,211,Medial prefrontal cortex
+331,DG,DGcr-sg,758,Hippocampus
+332,MEA,MEApd-a,472,Amygdala
+335,ORBl,ORBl6a,440,Orbitofrontal cortex
+344,SSp-bfd,VISrll6b,480149226,Barrel cortex
+346,ORBl,ORBl1,448,Orbitofrontal cortex
+360,BLA,BLAa,303,Amygdala
+361,PO,PO,1020,Thalamus
+367,MEA,MEApv,435,Amygdala
+372,VISp,VISp1,593,Visual cortex
+382,SCs,SCzo,834,Superior colliculus
+385,ORBl,ORBl5,630,Orbitofrontal cortex
+389,ACAd,ACAd6b,927,Medial prefrontal cortex
+396,CP,CP,672,Tail of the striatum
+407,VISpm,VISpm1,805,Visual cortex
+411,DP,DP1,496,Olfactory areas
+416,ILA,ILA5,827,Medial prefrontal cortex
+420,ACAv,ACAv6a,810,Medial prefrontal cortex
+422,RSPv,RSPv6a,590,Retrosplenial cortex
+430,MOs,MOs1,656,Secondary motor cortex
+433,RSPv,RSPv6b,622,Retrosplenial cortex
+440,RSPd,RSPd6b,330,Retrosplenial cortex
+444,VISa,VISa1,312782550,Visual cortex
+447,ILA,ILA6b,1081,Medial prefrontal cortex
+450,BLA,BLAp,311,Amygdala
+458,ILA,ILA2/3,556,Medial prefrontal cortex
+477,RSPd,RSPd4,545,Retrosplenial cortex
+481,VISa,VISa5,312782562,Visual cortex
+489,COAa,COAa1,192,Amygdala
+492,VISa,VISa2/3,312782554,Visual cortex
+495,PIR,PIR3,291,Piriform
+500,SSp-bfd,SSp-bfd6b,1062,Barrel cortex
+507,ORBm,ORBm5,620,Orbitofrontal cortex
+508,PL,PL2/3,304,Medial prefrontal cortex
+509,ORBm,ORBm2,524,Orbitofrontal cortex
+512,DG,DGlb-sg,790,Hippocampus
+528,VISam,VISam6b,441,Visual cortex
+531,AON,AONm,191,Olfactory areas
+544,SCm,SCig-c,511,Superior colliculus
+562,PIR,PIR2,284,Piriform
+563,AON,AON1,160,Olfactory areas
+565,CA3,CA3slm,471,Hippocampus
+566,ACAd,ACAd1,935,Medial prefrontal cortex
+569,RSPv,RSPv2,606,Retrosplenial cortex
+572,RSPv,RSPv1,542,Retrosplenial cortex
+577,RSPd,RSPd5,610,Retrosplenial cortex
+582,VISpm,VISpm4,501,Visual cortex
+590,RSPv,RSPv2/3,430,Retrosplenial cortex
+592,PIR,PIR1,276,Piriform
+596,VISp,VISp6a,33,Visual cortex
+601,MOs,MOs5,767,Secondary motor cortex
+604,SSp-bfd,SSp-bfd2/3,201,Barrel cortex
+607,PAG,Su3,614454277,Periaqueductal gray
+611,TTd,TTd3,1050,Olfactory areas
+634,ZI,FF,804,Zona incerta
+635,ILA,ILA6a,1054,Medial prefrontal cortex
+637,DP,DP2,535,Olfactory areas
+642,PL,PL6b,132,Medial prefrontal cortex
+645,CA3,CA3sp,495,Hippocampus
+646,SSp-bfd,SSp-bfd1,981,Barrel cortex
+653,PL,PL2,195,Medial prefrontal cortex
+661,ACAv,ACAv6b,819,Medial prefrontal cortex
+668,ACAv,ACAv1,588,Medial prefrontal cortex
+677,VISam,VISam2/3,1066,Visual cortex
+679,SCm,SCdg,26,Superior colliculus
+691,TTd,TTd1,1034,Olfactory areas
+692,VISa,VISa4,312782558,Visual cortex
+694,CA1,CA1slm,391,Hippocampus
+697,BLA,BLAv,451,Amygdala
+700,SSp-bfd,VISrll4,480149214,Barrel cortex
+702,VISam,VISam5,433,Visual cortex
+708,DG,DGmb-mo,807,Hippocampus
+709,LP,LP,218,Thalamus
+711,CA1,CA1sr,415,Hippocampus
+718,DG,DGlb-mo,775,Hippocampus
+721,SSp-bfd,VISrll6a,480149222,Barrel cortex
+724,SSp-bfd,VISrll2/3,480149210,Barrel cortex
+725,AON,AONe,175,Olfactory areas
+727,SCm,SCdw,42,Superior colliculus
+729,ILA,ILA2,747,Medial prefrontal cortex
+730,MEA,MEAav,418,Amygdala
+735,MOs,MOs6a,1021,Secondary motor cortex
+736,TTd,TTd1-4,297,Olfactory areas
+739,RSPd,RSPd1,442,Retrosplenial cortex
+743,DP,DP2/3,360,Olfactory areas
+745,MEA,MEAad,411,Amygdala
+746,SCm,SCig-b,503,Superior colliculus
+750,ORBm,ORBm1,484,Orbitofrontal cortex
+753,DG,DGcr-po,751,Hippocampus
+755,MRN,MRNp,555,Midbrain reticular nucleus
+761,ORBm,ORBm6a,910,Orbitofrontal cortex
+762,SSp-bfd,SSp-bfd5,1070,Barrel cortex
+766,MRN,MRNmg,548,Midbrain reticular nucleus
+767,SCs,SCsg,842,Superior colliculus
+768,CA1,CA1sp,407,Hippocampus
+770,LD,LD,155,Thalamus
+776,ZI,A13,796,Zona incerta

@@ -1,0 +1,62 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: manuscript.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: unsrt.bst
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+Database file #1: ./bib/manual.bib
+Warning--entry type for "brunelCommunicatedPaulTiesinga2006" isn't style-file defined
+--line 10635 of file ./bib/manual.bib
+Warning--entry type for "Linderman_SSM_Bayesian_Learning_2020" isn't style-file defined
+--line 11003 of file ./bib/manual.bib
+Warning--entry type for "fulcherBenfulcherAllenSDKInitial2020" isn't style-file defined
+--line 11366 of file ./bib/manual.bib
+Warning--empty journal in jercogUPDOWNCorticalDynamics2017
+Warning--empty year in jercogUPDOWNCorticalDynamics2017
+Warning--empty journal in ruiz-mejiasSlowFastRhythms2011
+Warning--empty journal in varelaBrainwebPhaseSynchronization2001
+Warning--empty year in varelaBrainwebPhaseSynchronization2001
+Warning--empty journal in holcmanEmergenceStatesCortical2006
+Warning--empty year in holcmanEmergenceStatesCortical2006
+You've used 8 entries,
+            1791 wiz_defined-function locations,
+            496 strings with 5448 characters,
+and the built_in function-call counts, 1652 in all, are:
+= -- 130
+> -- 86
+< -- 0
++ -- 32
+- -- 24
+* -- 115
+:= -- 268
+add.period$ -- 26
+call.type$ -- 8
+change.case$ -- 8
+chr.to.int$ -- 0
+cite$ -- 15
+duplicate$ -- 59
+empty$ -- 165
+format.name$ -- 24
+if$ -- 348
+int.to.chr$ -- 0
+int.to.str$ -- 8
+missing$ -- 5
+newline$ -- 45
+num.names$ -- 8
+pop$ -- 30
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 35
+stack$ -- 0
+substring$ -- 96
+swap$ -- 4
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 7
+while$ -- 15
+width$ -- 9
+write$ -- 81
+(There were 10 warnings)

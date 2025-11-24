@@ -1,0 +1,53 @@
+Parameter:
+  # local circuit connectivity parameters
+  Jee: 5
+  Jei: 1
+  Jie: 10
+  Jii: 0.5
+
+  # the effective threshold for population activation  
+  thetaE: -1
+  thetaI: 0
+  betaE: 6
+  betaI: 0
+  Eslope: [1,0.5,2,1,2,2,1,2,2,2,1,1,1,2] # adjusted firing rates (+/- 5 spikes close to mouse data)
+  Edesp: 5
+  Islope: [5,2,4,2,4,4,2,4,4,4,3,2,3,4] # adjusted firing rates 
+  Idesp: 25
+
+  # thetaE and betaE for UP-state regions
+  thetaE_UP: -1 # 0
+  betaE_UP: 6 # 1
+  Up_areas:
+    - 1 # Hippocampus 
+    - 3 # MRN
+    - 6 # PAG
+    - 10 # SC
+
+  # thetaE and betaE for unclear Up/Down-state regions
+  thetaE_un: -1 # 0
+  betaE_un: 6 # 3
+  un_areas:
+    - 0 # amygdala
+    - 7 # piriform 
+    - 12 # Thalamus
+
+  G: None # parameter determining strength of connectivity, actual value saved when simulation runs 
+  S: None # serotonin stimulation strength, actual value saved when simulation runs 
+  stim_ITI: [3, 6] # stimulation inter-trial interval 
+  stim_dur: 1 # in sec
+  post_stim_time: 2
+
+  # (original) time constants and noise parameter
+  tauE: 10 
+  tauI: 2
+  tauAdapt: 500
+  tauN: 1
+  sigmaN: 3.5
+
+Session settings:
+  # read in arguments
+  total_sim: 20 # in sec
+  sigmaN: 3.5
+  dt: 0.2
+  x0: 0
