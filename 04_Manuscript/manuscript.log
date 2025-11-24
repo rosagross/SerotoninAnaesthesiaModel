@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.16)  16 NOV 2025 21:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.16)  24 NOV 2025 16:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/gross/OneDrive - UvA/Documents/MBCS Amsterdam/Research_Project_2_Champalimaud/Paper/SerotoninUpDownModel/04_Manuscript/manuscript.tex"
-(c:/Users/gross/OneDrive - UvA/Documents/MBCS Amsterdam/Research_Project_2_Champalimaud/Paper/SerotoninUpDownModel/04_Manuscript/manuscript.tex
+**"c:/Users/gross/OneDrive - UvA/Documents/MBCS Amsterdam/Research_Project_2_Champalimaud/Paper/SerotoninAnaesthesiaModel/04_Manuscript/manuscript.tex"
+(c:/Users/gross/OneDrive - UvA/Documents/MBCS Amsterdam/Research_Project_2_Champalimaud/Paper/SerotoninAnaesthesiaModel/04_Manuscript/manuscript.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\Users\gross\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
@@ -357,14 +357,14 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 20.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/gross/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (chapters/introduction.tex
+{C:/Users/gross/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (chapters/01_introduction.tex
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.1 \chapter
             {Introduction\label{cha:introduction}} [1]
 Chapter 1.
-) (chapters/methods.tex [2
+) (chapters/02_methods.tex [2
 
 ]
 Chapter 2.
@@ -381,18 +381,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--51
  []
 
 [4]
-<img/Methods/Figure2_1.pdf, id=120, 426.39299pt x 144.54pt>
+<img/Methods/Figure2_1.pdf, id=184, 426.39299pt x 144.54pt>
 File: img/Methods/Figure2_1.pdf Graphic file (type pdf)
 <use img/Methods/Figure2_1.pdf>
 Package pdftex.def Info: img/Methods/Figure2_1.pdf  used on input line 70.
 (pdftex.def)             Requested size: 426.39194pt x 144.53963pt.
-<img/Methods/Figure2_2.pdf, id=125, 484.209pt x 144.54pt>
+<img/Methods/Figure2_2.pdf, id=189, 484.209pt x 144.54pt>
 File: img/Methods/Figure2_2.pdf Graphic file (type pdf)
 <use img/Methods/Figure2_2.pdf>
 Package pdftex.def Info: img/Methods/Figure2_2.pdf  used on input line 82.
 (pdftex.def)             Requested size: 483.69687pt x 144.39185pt.
  [5 <./img/Methods/Figure2_1.pdf>] [6 <./img/Methods/Figure2_2.pdf>]
-<img/Methods/figure1.pdf, id=652, 271.0125pt x 144.54pt>
+<img/Methods/figure1.pdf, id=716, 271.0125pt x 144.54pt>
 File: img/Methods/figure1.pdf Graphic file (type pdf)
 <use img/Methods/figure1.pdf>
 Package pdftex.def Info: img/Methods/figure1.pdf  used on input line 103.
@@ -402,7 +402,7 @@ Package pdftex.def Info: img/Methods/figure1.pdf  used on input line 103.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [7]
-<img/Methods/serotonin_trajectory.pdf, id=664, 152.71115pt x 134.8927pt>
+<img/Methods/serotonin_trajectory.pdf, id=728, 152.71115pt x 134.8927pt>
 File: img/Methods/serotonin_trajectory.pdf Graphic file (type pdf)
 <use img/Methods/serotonin_trajectory.pdf>
 Package pdftex.def Info: img/Methods/serotonin_trajectory.pdf  used on input line 133.
@@ -417,7 +417,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 138--140
  []
 
 [8 <./img/Methods/figure1.pdf>]
-<img/Methods/GlobalModel.pdf, id=700, 108.405pt x 126.4725pt>
+<img/Methods/GlobalModel.pdf, id=764, 108.405pt x 126.4725pt>
 File: img/Methods/GlobalModel.pdf Graphic file (type pdf)
 <use img/Methods/GlobalModel.pdf>
 Package pdftex.def Info: img/Methods/GlobalModel.pdf  used on input line 143.
@@ -426,28 +426,144 @@ Package pdftex.def Info: img/Methods/GlobalModel.pdf  used on input line 143.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9 <./img/Methods/serotonin_trajectory.pdf>] [10 <./img/Methods/GlobalModel.pdf>]) (manuscript.bbl [11]) [12
+[9 <./img/Methods/serotonin_trajectory.pdf>] [10 <./img/Methods/GlobalModel.pdf>]) (chapters/03_results.tex [11]
+Chapter 3.
+<img/Results/heterogeneous_UP-DOWN_states_S0_G2.pdf, id=849, 429.2838pt x 138.11293pt>
+File: img/Results/heterogeneous_UP-DOWN_states_S0_G2.pdf Graphic file (type pdf)
+<use img/Results/heterogeneous_UP-DOWN_states_S0_G2.pdf>
+Package pdftex.def Info: img/Results/heterogeneous_UP-DOWN_states_S0_G2.pdf  used on input line 14.
+(pdftex.def)             Requested size: 483.69687pt x 155.619pt.
 
-] (manuscript.aux)
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12
+
+]
+<img/Results/network_synchrony_brunelX.pdf, id=858, 156.77321pt x 134.8927pt>
+File: img/Results/network_synchrony_brunelX.pdf Graphic file (type pdf)
+<use img/Results/network_synchrony_brunelX.pdf>
+Package pdftex.def Info: img/Results/network_synchrony_brunelX.pdf  used on input line 27.
+(pdftex.def)             Requested size: 217.66211pt x 187.29034pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<img/Results/Figure2.pdf, id=863, 534.79805pt x 224.03702pt>
+File: img/Results/Figure2.pdf Graphic file (type pdf)
+<use img/Results/Figure2.pdf>
+Package pdftex.def Info: img/Results/Figure2.pdf  used on input line 48.
+(pdftex.def)             Requested size: 435.32422pt x 182.36804pt.
+[13 <./img/Results/heterogeneous_UP-DOWN_states_S0_G2.pdf>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<img/Results/downstate_replicationS40_G[2].pdf, id=877, 144.54pt x 126.4725pt>
+File: img/Results/downstate_replicationS40_G[2].pdf Graphic file (type pdf)
+<use img/Results/downstate_replicationS40_G[2].pdf>
+Package pdftex.def Info: img/Results/downstate_replicationS40_G[2].pdf  used on input line 60.
+(pdftex.def)             Requested size: 217.66211pt x 190.46475pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[14 <./img/Results/network_synchrony_brunelX.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 71--76
+
+ []
+
+[15 <./img/Results/Figure2.pdf>]
+<img/Results/couplingstrength_trajectories_S40.pdf, id=1159, 433.79616pt x 127.153pt>
+File: img/Results/couplingstrength_trajectories_S40.pdf Graphic file (type pdf)
+<use img/Results/couplingstrength_trajectories_S40.pdf>
+Package pdftex.def Info: img/Results/couplingstrength_trajectories_S40.pdf  used on input line 80.
+(pdftex.def)             Requested size: 435.32422pt x 127.60474pt.
+<img/Results/Figure3.pdf, id=1162, 505.89pt x 144.54pt>
+File: img/Results/Figure3.pdf Graphic file (type pdf)
+<use img/Results/Figure3.pdf>
+Package pdftex.def Info: img/Results/Figure3.pdf  used on input line 88.
+(pdftex.def)             Requested size: 435.32422pt x 124.38135pt.
+ [16 <./img/Results/downstate_replicationS40_G[2].pdf> <./img/Results/couplingstrength_trajectories_S40.pdf
+
+pdfTeX warning: pdflatex (file ./img/Results/couplingstrength_trajectories_S40.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>] [17 <./img/Results/Figure3.pdf>]
+<img/Results/Figure5.pdf, id=1253, 433.61996pt x 274.62598pt>
+File: img/Results/Figure5.pdf Graphic file (type pdf)
+<use img/Results/Figure5.pdf>
+Package pdftex.def Info: img/Results/Figure5.pdf  used on input line 106.
+(pdftex.def)             Requested size: 459.51054pt x 291.03928pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[18]
+<img/Results/Figure4_1.pdf, id=1264, 455.30098pt x 245.718pt>
+File: img/Results/Figure4_1.pdf Graphic file (type pdf)
+<use img/Results/Figure4_1.pdf>
+Package pdftex.def Info: img/Results/Figure4_1.pdf  used on input line 122.
+(pdftex.def)             Requested size: 483.69687pt x 261.05223pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[19 <./img/Results/Figure5.pdf>]
+<img/Results/Figure4.pdf, id=1611, 274.62598pt x 122.85901pt>
+File: img/Results/Figure4.pdf Graphic file (type pdf)
+<use img/Results/Figure4.pdf>
+Package pdftex.def Info: img/Results/Figure4.pdf  used on input line 135.
+(pdftex.def)             Requested size: 386.95897pt x 173.11308pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[20 <./img/Results/Figure4_1.pdf>]) (chapters/04_discussion.tex [21 <./img/Results/Figure4.pdf>]
+Chapter 4.
+[22
+
+] [23]
+Underfull \hbox (badness 10000) in paragraph at lines 34--39
+
+ []
+
+[24] [25]) (chapters/05_conclusion.tex [26]
+Chapter 5.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--15
+
+ []
+
+[27
+
+]) (manuscript.bbl [28] [29
+
+]) [30] (manuscript.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: 392FA27107F011933C18C7BAA8335CE3;3355.
+(rerunfilecheck)             Checksum: 988E6CF3296F400CDAE0C0FF71A4DEBA;7046.
  ) 
 Here is how much of TeX's memory you used:
- 10792 strings out of 474485
- 168449 string characters out of 5743734
+ 10976 strings out of 474485
+ 174113 string characters out of 5743734
  1938542 words of memory out of 5000000
- 32876 multiletter control sequences out of 15000+600000
+ 32999 multiletter control sequences out of 15000+600000
  567507 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,7n,79p,1644b,460s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,7n,79p,1889b,555s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on manuscript.pdf (13 pages, 995917 bytes).
+Output written on manuscript.pdf (31 pages, 3353075 bytes).
 PDF statistics:
- 856 PDF objects out of 1000 (max. 8388607)
- 58 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2201 PDF objects out of 2487 (max. 8388607)
+ 110 named destinations out of 1000 (max. 500000)
+ 335 words of extra memory for PDF output out of 10000 (max. 10000000)
 

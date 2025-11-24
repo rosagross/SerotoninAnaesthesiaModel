@@ -18,45 +18,57 @@ Warning--empty journal in varelaBrainwebPhaseSynchronization2001
 Warning--empty year in varelaBrainwebPhaseSynchronization2001
 Warning--empty journal in holcmanEmergenceStatesCortical2006
 Warning--empty year in holcmanEmergenceStatesCortical2006
-You've used 8 entries,
+Warning--empty journal in puigSerotoninModulatesFastSpiking2010
+Warning--empty year in puigSerotoninModulatesFastSpiking2010
+Warning--empty journal in puigSerotoninModulationPrefrontoHippocampal2015
+Warning--empty year in puigSerotoninModulationPrefrontoHippocampal2015
+Warning--empty journal in tsodyksParadoxicalEffectsExternal1997a
+Warning--empty year in tsodyksParadoxicalEffectsExternal1997a
+Warning--empty journal in garciadelmolinoParadoxicalResponseReversal2017
+Warning--empty year in garciadelmolinoParadoxicalResponseReversal2017
+Warning--empty journal in celadaSerotoninModulationCortical2013
+Warning--empty year in celadaSerotoninModulationCortical2013
+Warning--empty journal in vicenteDynamicalRelayingCan2008
+Warning--empty year in vicenteDynamicalRelayingCan2008
+You've used 16 entries,
             1791 wiz_defined-function locations,
-            496 strings with 5448 characters,
-and the built_in function-call counts, 1652 in all, are:
-= -- 130
-> -- 86
+            552 strings with 7569 characters,
+and the built_in function-call counts, 3746 in all, are:
+= -- 305
+> -- 198
 < -- 0
-+ -- 32
-- -- 24
-* -- 115
-:= -- 268
-add.period$ -- 26
-call.type$ -- 8
-change.case$ -- 8
++ -- 72
+- -- 56
+* -- 305
+:= -- 604
+add.period$ -- 54
+call.type$ -- 16
+change.case$ -- 16
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 59
-empty$ -- 165
-format.name$ -- 24
-if$ -- 348
+cite$ -- 35
+duplicate$ -- 130
+empty$ -- 351
+format.name$ -- 56
+if$ -- 780
 int.to.chr$ -- 0
-int.to.str$ -- 8
-missing$ -- 5
-newline$ -- 45
-num.names$ -- 8
-pop$ -- 30
+int.to.str$ -- 16
+missing$ -- 13
+newline$ -- 89
+num.names$ -- 16
+pop$ -- 52
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 35
+skip$ -- 60
 stack$ -- 0
-substring$ -- 96
-swap$ -- 4
+substring$ -- 278
+swap$ -- 6
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 7
-while$ -- 15
-width$ -- 9
-write$ -- 81
-(There were 10 warnings)
+warning$ -- 19
+while$ -- 35
+width$ -- 18
+write$ -- 165
+(There were 22 warnings)

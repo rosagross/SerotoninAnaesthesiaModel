@@ -119,7 +119,7 @@ all_targets_df.to_csv(os.path.join(analysed_data_dir, f'serotonin_targets_state_
 G_parameters = [2]
 S = 0
 brunel_X_df = pd.DataFrame()
-extra = 'RateAdj1_B'
+extra = 'RateAdj1_K'
 thetaE = -1
 beta = 6
 sessions = np.arange(0, 10, 1)

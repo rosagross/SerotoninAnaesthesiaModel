@@ -8,8 +8,8 @@ import seaborn as sns
 from stim_functions import figure_style
 
 # set directories
-analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, os.pardir, os.pardir, 'ModelData', 'analysed_data'))
-figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, os.pardir, os.pardir, os.pardir, 'Writing', 'Figures', 'Results', 'Figure2'))
+analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, '03_Analysis', 'analysed_data'))
+figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, '03_Analysis', 'Figures', 'Results'))
 
 # load data
 S = 40 
@@ -149,3 +149,4 @@ for i, region in enumerate(regions):
 axs[-1].axis('off')
 plt.tight_layout()
 sns.despine(trim=True)
+plt.savefig(os.path.join(figure_dir, f'downstate_transitions_S{S}_G{G}.pdf'), dpi=600)

@@ -21,6 +21,7 @@ serotonin_df['p_down_delta'] = (serotonin_df['p_down'].values - baseline_df['p_d
 
 # choose which area to plot 
 plot_area = 'Visual cortex'
+sensory_areas = ['Piriform', 'Visual cortex'] # TODO: list and plot only for sensory areas
 region_df = serotonin_df[serotonin_df['region_name'] == plot_area]
 
 # define window of serotonin effect 

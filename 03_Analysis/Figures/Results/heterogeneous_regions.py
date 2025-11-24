@@ -10,7 +10,7 @@ from stim_functions import figure_style
 
 '''
 Plot homogeneous regions vs. not homogeneous regions
-1) traces of all areas
+1) traces of all areas (for both homogeneous and heterogeneous)
 2) barplot showing the grouped regions, hue= heterogen vs. homogen
 '''
 
@@ -20,7 +20,7 @@ figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardi
 frate_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, '02_Data', 'firing_rates'))
 atlas_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, '03_Analysis', 'atlas_data'))
 
-# load firing rate data 
+# load firing rate data - homogeneous 
 file_dir = "14areas_G2.0_S40.0_thetaE-1_beta6RateAdj1_B_sessions"
 file_name = "14areas_G2.0_S40.0_thetaE-1_beta6RateAdj1_B_sessions_0"
 start = 0*1000
@@ -31,6 +31,16 @@ frate_A_sync = pd.read_csv(os.path.join(frate_dir, file_dir, f'frateA_{file_name
 example_rates = np.array((frate_E_sync, frate_I_sync, frate_A_sync))
 example_rates = example_rates[:,start:stop,:]
 
+# load firing rate data - heterogeneous
+file_dir_het = "14areas_G2.0_S40.0_thetaE-1_beta6RateAdj1_K_sessions"
+file_name_het = "14areas_G2.0_S40.0_thetaE-1_beta6RateAdj1_K_sessions_0"
+start = 0*1000
+stop = 8*1000
+frate_E_sync_het = pd.read_csv(os.path.join(frate_dir, file_dir_het, f'frateE_{file_name_het}.csv'))
+frate_I_sync_het = pd.read_csv(os.path.join(frate_dir, file_dir_het, f'frateI_{file_name_het}.csv'))
+frate_A_sync_het = pd.read_csv(os.path.join(frate_dir, file_dir_het, f'frateA_{file_name_het}.csv')) 
+example_rates_het = np.array((frate_E_sync_het, frate_I_sync_het, frate_A_sync_het))
+example_rates_het = example_rates_het[:,start:stop,:]
 
 # load state data
 homogen_df = pd.read_csv(os.path.join(analysed_data_dir, 'state_analysis_bins_S40_G[2]_RateAdj1_B.csv'))
@@ -94,6 +104,28 @@ print(start, stop)
 fig.text(0.08, 0.5, "firing rate (spike/s)", va='center', rotation='vertical')
 plt.subplots_adjust(wspace=0.33, hspace=0.2)
 plt.savefig(os.path.join(figure_dir, f'homogeneous_UP-DOWN_states_S0_G2.pdf'), dpi=600, bbox_inches="tight")
+
+# %%
+
+colors, dpi = figure_style()
+fig, axes = plt.subplots(2, 7, sharex=True, sharey=False, figsize=(7,2))
+
+for i, ax in enumerate(axes.flatten()):
+    
+    ax.plot(example_rates_het[1,start:stop,i], label='I', color='#ff7f0e')
+    ax.plot(example_rates_het[0,start:stop,i], label='E', color='#1f77b4')
+    ax.set_title(all_regions[i], pad=0.5)
+    ax.get_xaxis().set_visible(False)
+    #ax.legend()
+    ax.tick_params(axis='y', which='major', pad=0)
+
+axes[1][0].plot([0*1000, 5*1000], [-3, -3], color='k', lw=0.8, clip_on=False)
+axes[1][0].text(2.5*1000, -5, '5s', ha='center', va='top')
+sns.despine(trim=True, bottom=True)
+print(start, stop)
+fig.text(0.08, 0.5, "firing rate (spike/s)", va='center', rotation='vertical')
+plt.subplots_adjust(wspace=0.33, hspace=0.2)
+plt.savefig(os.path.join(figure_dir, f'heterogeneous_UP-DOWN_states_S0_G2.pdf'), dpi=600, bbox_inches="tight")
 
 # %% Plot barplot 
 
