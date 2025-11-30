@@ -1,0 +1,194 @@
+\begin{thebibliography}{16}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{}\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[1]{\href{http://arxiv.org/abs/#1}{arXiv:#1}}
+
+\bibitem[{\citenamefont{Deisseroth}(2015)}]{deisseroth2015optogenetics}
+\bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Deisseroth}},
+  \bibinfo{title}{Optogenetics: 10 years of microbial opsins in neuroscience},
+  \emph{\bibinfo{journal}{Nature neuroscience}} \textbf{\bibinfo{volume}{18}},
+  \bibinfo{pages}{1213} (\bibinfo{year}{2015}).
+
+\bibitem[{\citenamefont{{Ruiz-Mejias} et~al.}(2011)\citenamefont{{Ruiz-Mejias},
+  {Ciria-Suarez}, Mattia, and
+  {Sanchez-Vives}}}]{ruiz-mejiasSlowFastRhythms2011}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{{Ruiz-Mejias}}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{{Ciria-Suarez}}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Mattia}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{{Sanchez-Vives}}},
+  \bibinfo{title}{Slow and fast rhythms generated in the cerebral cortex of the
+  anesthetized mouse},
+  \href{http://dx.doi.org/10.1152/JN.00440.2011/ASSET/IMAGES/LARGE/Z9K0121110550008.JPEG}{\emph{\bibinfo{journal}{Journal
+  of Neurophysiology}}
+  }\href{http://dx.doi.org/10.1152/JN.00440.2011/ASSET/IMAGES/LARGE/Z9K0121110550008.JPEG}{\textbf{\bibinfo{volume}{106}},
+  \bibinfo{pages}{2910}} (\bibinfo{year}{2011}), ISSN \bibinfo{issn}{00223077}.
+
+\bibitem[{\citenamefont{Jercog et~al.}(2017)\citenamefont{Jercog, Roxin,
+  Barth{\'o}, Luczak, Compte, and
+  De~La~Rocha}}]{jercogUPDOWNCorticalDynamics2017}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Jercog}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Roxin}},
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Barth{\'o}}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Luczak}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Compte}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{De~La~Rocha}},
+  \bibinfo{title}{{{UP-DOWN}} cortical dynamics reflect state transitions in a
+  bistable network},
+  \href{http://dx.doi.org/10.7554/ELIFE.22425}{\emph{\bibinfo{journal}{eLife}}
+  }\href{http://dx.doi.org/10.7554/ELIFE.22425}{\textbf{\bibinfo{volume}{6}}}
+  (\bibinfo{year}{2017}), ISSN \bibinfo{issn}{2050084X}.
+
+\bibitem[{\citenamefont{Fulcher}(2020)}]{fulcherBenfulcherAllenSDKInitial2020}
+\bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Fulcher}},
+  \bibinfo{title}{Benfulcher/{{AllenSDK}}: {{Initial}} version},
+  \bibinfo{howpublished}{Zenodo} (\bibinfo{year}{2020}).
+
+\bibitem[{\citenamefont{Linderman et~al.}()\citenamefont{Linderman, Antin,
+  Zoltowski, and Glaser}}]{Linderman_SSM_Bayesian_Learning_2020}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Linderman}},
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Antin}},
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Zoltowski}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Glaser}},
+  \bibinfo{title}{{SSM}: Bayesian learning and inference for state space
+  models}, \urlprefix\url{https://github.com/lindermanlab/ssm}.
+
+\bibitem[{\citenamefont{Varela et~al.}(2001)\citenamefont{Varela, Lachaux,
+  Rodriguez, and Martinerie}}]{varelaBrainwebPhaseSynchronization2001}
+\bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Varela}},
+  \bibinfo{author}{\bibfnamefont{J.-P.} \bibnamefont{Lachaux}},
+  \bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Rodriguez}},
+  \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Martinerie}},
+  \href{http://dx.doi.org/10.1038/35067550}{\bibinfo{title}{The brainweb: Phase
+  synchronization and large-scale integration}},
+  \href{http://dx.doi.org/10.1038/35067550}{\textbf{\bibinfo{volume}{2}},
+  \bibinfo{pages}{229}} (\bibinfo{year}{2001}), ISSN \bibinfo{issn}{1471-0048},
+  \bibinfo{note}{number: 4 Publisher: Nature Publishing Group}.
+
+\bibitem[{\citenamefont{Holcman and
+  Tsodyks}(2006)}]{holcmanEmergenceStatesCortical2006}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Holcman}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Tsodyks}},
+  \bibinfo{title}{The {{Emergence}} of {{Up}} and {{Down States}} in {{Cortical
+  Networks}}},
+  \href{http://dx.doi.org/10.1371/JOURNAL.PCBI.0020023}{\emph{\bibinfo{journal}{PLOS
+  Computational Biology}}
+  }\href{http://dx.doi.org/10.1371/JOURNAL.PCBI.0020023}{\textbf{\bibinfo{volume}{2}},
+  \bibinfo{pages}{e23}} (\bibinfo{year}{2006}), ISSN \bibinfo{issn}{1553-7358}.
+
+\bibitem[{\citenamefont{Brunel and
+  Hansel}(2006)}]{brunelCommunicatedPaulTiesinga2006}
+\bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Brunel}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Hansel}},
+  \bibinfo{type}{Tech. Rep.} (\bibinfo{year}{2006}).
+
+\bibitem[{\citenamefont{Puig et~al.}(2010)\citenamefont{Puig, Watakabe,
+  Ushimaru, Yamamori, and Kawaguchi}}]{puigSerotoninModulatesFastSpiking2010}
+\bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{Puig}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Watakabe}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ushimaru}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Yamamori}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Kawaguchi}},
+  \bibinfo{title}{Serotonin {{Modulates Fast-Spiking Interneuron}} and
+  {{Synchronous Activity}} in the {{Rat Prefrontal Cortex}} through 5-{{HT1A}}
+  and 5-{{HT2A Receptors}}},
+  \href{http://dx.doi.org/10.1523/JNEUROSCI.3335-09.2010}{\emph{\bibinfo{journal}{Journal
+  of Neuroscience}}
+  }\href{http://dx.doi.org/10.1523/JNEUROSCI.3335-09.2010}{\textbf{\bibinfo{volume}{30}},
+  \bibinfo{pages}{2211}} (\bibinfo{year}{2010}), ISSN
+  \bibinfo{issn}{0270-6474}.
+
+\bibitem[{\citenamefont{Puig and
+  Gener}(2015)}]{puigSerotoninModulationPrefrontoHippocampal2015}
+\bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{Puig}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Gener}},
+  \bibinfo{title}{Serotonin {{Modulation}} of {{Prefronto-Hippocampal Rhythms}}
+  in {{Health}} and {{Disease}}},
+  \href{http://dx.doi.org/10.1021/cn500350e}{\emph{\bibinfo{journal}{ACS
+  chemical neuroscience}}
+  }\href{http://dx.doi.org/10.1021/cn500350e}{\textbf{\bibinfo{volume}{6}},
+  \bibinfo{pages}{1017}} (\bibinfo{year}{2015}), ISSN
+  \bibinfo{issn}{1948-7193}.
+
+\bibitem[{\citenamefont{Roelfsema et~al.}(1997)\citenamefont{Roelfsema, Engel,
+  K{\"o}nig, and Singer}}]{roelfsema1997visuomotor}
+\bibinfo{author}{\bibfnamefont{P.~R.} \bibnamefont{Roelfsema}},
+  \bibinfo{author}{\bibfnamefont{A.~K.} \bibnamefont{Engel}},
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{K{\"o}nig}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{W.}~\bibnamefont{Singer}},
+  \bibinfo{title}{Visuomotor integration is associated with zero time-lag
+  synchronization among cortical areas}, \emph{\bibinfo{journal}{Nature}}
+  \textbf{\bibinfo{volume}{385}}, \bibinfo{pages}{157} (\bibinfo{year}{1997}).
+
+\bibitem[{\citenamefont{Tsodyks et~al.}(1997)\citenamefont{Tsodyks, Skaggs,
+  Sejnowski, and McNaughton}}]{tsodyksParadoxicalEffectsExternal1997a}
+\bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{Tsodyks}},
+  \bibinfo{author}{\bibfnamefont{W.~E.} \bibnamefont{Skaggs}},
+  \bibinfo{author}{\bibfnamefont{T.~J.} \bibnamefont{Sejnowski}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{B.~L.}
+  \bibnamefont{McNaughton}}, \bibinfo{title}{Paradoxical effects of external
+  modulation of inhibitory interneurons},
+  \href{http://dx.doi.org/10.1523/JNEUROSCI.17-11-04382.1997}{\emph{\bibinfo{journal}{The
+  Journal of Neuroscience: The Official Journal of the Society for
+  Neuroscience}}
+  }\href{http://dx.doi.org/10.1523/JNEUROSCI.17-11-04382.1997}{\textbf{\bibinfo{volume}{17}},
+  \bibinfo{pages}{4382}} (\bibinfo{year}{1997}), ISSN
+  \bibinfo{issn}{0270-6474}.
+
+\bibitem[{\citenamefont{Garcia Del~Molino et~al.}(2017)\citenamefont{Garcia
+  Del~Molino, Yang, Mejias, and
+  Wang}}]{garciadelmolinoParadoxicalResponseReversal2017}
+\bibinfo{author}{\bibfnamefont{L.~C.} \bibnamefont{Garcia Del~Molino}},
+  \bibinfo{author}{\bibfnamefont{G.~R.} \bibnamefont{Yang}},
+  \bibinfo{author}{\bibfnamefont{J.~F.} \bibnamefont{Mejias}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{X.~J.} \bibnamefont{Wang}},
+  \bibinfo{title}{Paradoxical response reversal of top- down modulation in
+  cortical circuits with three interneuron types},
+  \href{http://dx.doi.org/10.7554/ELIFE.29742}{\emph{\bibinfo{journal}{eLife}}
+  }\href{http://dx.doi.org/10.7554/ELIFE.29742}{\textbf{\bibinfo{volume}{6}}}
+  (\bibinfo{year}{2017}), ISSN \bibinfo{issn}{2050084X}.
+
+\bibitem[{\citenamefont{Clarke et~al.}()\citenamefont{Clarke, Dalley, and
+  Crofts}}]{clarkeCognitiveInflexibilityPrefrontal}
+\bibinfo{author}{\bibfnamefont{H.~F.} \bibnamefont{Clarke}},
+  \bibinfo{author}{\bibfnamefont{J.~W.} \bibnamefont{Dalley}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{H.~S.}
+  \bibnamefont{Crofts}}, \bibinfo{title}{Cognitive inflexibility after
+  prefrontal serotonin depletion - {{PubMed}}},
+  \bibinfo{howpublished}{https://pubmed.ncbi.nlm.nih.gov/15131308/}.
+
+\bibitem[{\citenamefont{Celada et~al.}(2013)\citenamefont{Celada,
+  Victoria~Puig, and Artigas}}]{celadaSerotoninModulationCortical2013}
+\bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Celada}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Victoria~Puig}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Artigas}},
+  \bibinfo{title}{Serotonin modulation of cortical neurons and networks},
+  \href{http://dx.doi.org/10.3389/FNINT.2013.00025/BIBTEX}{\emph{\bibinfo{journal}{Frontiers
+  in Integrative Neuroscience}}
+  }\href{http://dx.doi.org/10.3389/FNINT.2013.00025/BIBTEX}{\textbf{\bibinfo{volume}{7}},
+  \bibinfo{pages}{25}} (\bibinfo{year}{2013}), ISSN \bibinfo{issn}{16625145}.
+
+\bibitem[{\citenamefont{Vicente et~al.}(2008)\citenamefont{Vicente, Gollo,
+  Mirasso, Fischer, and Pipa}}]{vicenteDynamicalRelayingCan2008}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Vicente}},
+  \bibinfo{author}{\bibfnamefont{L.~L.} \bibnamefont{Gollo}},
+  \bibinfo{author}{\bibfnamefont{C.~R.} \bibnamefont{Mirasso}},
+  \bibinfo{author}{\bibfnamefont{I.}~\bibnamefont{Fischer}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Pipa}},
+  \bibinfo{title}{Dynamical relaying can yield zero time lag neuronal synchrony
+  despite long conduction delays},
+  \href{http://dx.doi.org/10.1073/pnas.0809353105}{\emph{\bibinfo{journal}{Proceedings
+  of the National Academy of Sciences}}
+  }\href{http://dx.doi.org/10.1073/pnas.0809353105}{\textbf{\bibinfo{volume}{105}},
+  \bibinfo{pages}{17157}} (\bibinfo{year}{2008}).
+
+\end{thebibliography}
