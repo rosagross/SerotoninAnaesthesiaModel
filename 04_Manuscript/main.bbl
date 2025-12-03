@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{23}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname bibnamefont\endcsname\relax
   \def\bibnamefont#1{#1}\fi
@@ -12,25 +12,123 @@
 \providecommand{\bibinfo}[2]{#2}
 \providecommand{\eprint}[1]{\href{http://arxiv.org/abs/#1}{arXiv:#1}}
 
+\bibitem[{\citenamefont{Celada et~al.}(2013)\citenamefont{Celada,
+  Victoria~Puig, and Artigas}}]{celadaSerotoninModulationCortical2013}
+\bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Celada}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Victoria~Puig}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Artigas}},
+  \bibinfo{title}{Serotonin modulation of cortical neurons and networks},
+  \href{http://dx.doi.org/10.3389/FNINT.2013.00025/BIBTEX}{\emph{\bibinfo{journal}{Frontiers
+  in Integrative Neuroscience}}
+  }\href{http://dx.doi.org/10.3389/FNINT.2013.00025/BIBTEX}{\textbf{\bibinfo{volume}{7}},
+  \bibinfo{pages}{25}} (\bibinfo{year}{2013}), ISSN \bibinfo{issn}{16625145}.
+
+\bibitem[{\citenamefont{Neske}(2015)}]{neskeSlowOscillationCortical2015}
+\bibinfo{author}{\bibfnamefont{G.~T.} \bibnamefont{Neske}}, \bibinfo{title}{The
+  {{Slow Oscillation}} in {{Cortical}} and {{Thalamic Networks}}:
+  {{Mechanisms}} and {{Functions}}},
+  \href{http://dx.doi.org/10.3389/fncir.2015.00088}{\emph{\bibinfo{journal}{Frontiers
+  in Neural Circuits}}
+  }\href{http://dx.doi.org/10.3389/fncir.2015.00088}{\textbf{\bibinfo{volume}{9}},
+  \bibinfo{pages}{88}} (\bibinfo{year}{2015}), ISSN \bibinfo{issn}{1662-5110}.
+
+\bibitem[{\citenamefont{Akeju and
+  Brown}(2017)}]{akejuNeuralOscillationsDemonstrate2017}
+\bibinfo{author}{\bibfnamefont{O.}~\bibnamefont{Akeju}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{E.~N.} \bibnamefont{Brown}},
+  \bibinfo{title}{Neural oscillations demonstrate that general anesthesia and
+  sedative states are neurophysiologically distinct from sleep},
+  \href{http://dx.doi.org/10.1016/j.conb.2017.04.011}{\emph{\bibinfo{journal}{Current
+  opinion in neurobiology}}
+  }\href{http://dx.doi.org/10.1016/j.conb.2017.04.011}{\textbf{\bibinfo{volume}{44}},
+  \bibinfo{pages}{178}} (\bibinfo{year}{2017}), ISSN \bibinfo{issn}{0959-4388}.
+
+\bibitem[{\citenamefont{{de Filippo} et~al.}(2021)\citenamefont{{de Filippo},
+  Rost, Stumpf, Cooper, Tukker, Harms, Beed, and
+  Schmitz}}]{defilippoSomatostatinInterneuronsActivated2021}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{{de Filippo}}},
+  \bibinfo{author}{\bibfnamefont{B.~R.} \bibnamefont{Rost}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Stumpf}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Cooper}},
+  \bibinfo{author}{\bibfnamefont{J.~J.} \bibnamefont{Tukker}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Harms}},
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Beed}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Schmitz}},
+  \bibinfo{title}{Somatostatin interneurons activated by 5-{{HT2A}} receptor
+  suppress slow oscillations in medial entorhinal cortex},
+  \href{http://dx.doi.org/10.7554/eLife.66960}{\emph{\bibinfo{journal}{eLife}}
+  }\href{http://dx.doi.org/10.7554/eLife.66960}{\textbf{\bibinfo{volume}{10}},
+  \bibinfo{pages}{e66960}} (\bibinfo{year}{2021}), ISSN
+  \bibinfo{issn}{2050-084X}.
+
 \bibitem[{\citenamefont{Deisseroth}(2015)}]{deisseroth2015optogenetics}
 \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Deisseroth}},
   \bibinfo{title}{Optogenetics: 10 years of microbial opsins in neuroscience},
   \emph{\bibinfo{journal}{Nature neuroscience}} \textbf{\bibinfo{volume}{18}},
   \bibinfo{pages}{1213} (\bibinfo{year}{2015}).
 
-\bibitem[{\citenamefont{{Ruiz-Mejias} et~al.}(2011)\citenamefont{{Ruiz-Mejias},
-  {Ciria-Suarez}, Mattia, and
-  {Sanchez-Vives}}}]{ruiz-mejiasSlowFastRhythms2011}
-\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{{Ruiz-Mejias}}},
-  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{{Ciria-Suarez}}},
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Mattia}}, \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{{Sanchez-Vives}}},
-  \bibinfo{title}{Slow and fast rhythms generated in the cerebral cortex of the
-  anesthetized mouse},
-  \href{http://dx.doi.org/10.1152/JN.00440.2011/ASSET/IMAGES/LARGE/Z9K0121110550008.JPEG}{\emph{\bibinfo{journal}{Journal
-  of Neurophysiology}}
-  }\href{http://dx.doi.org/10.1152/JN.00440.2011/ASSET/IMAGES/LARGE/Z9K0121110550008.JPEG}{\textbf{\bibinfo{volume}{106}},
-  \bibinfo{pages}{2910}} (\bibinfo{year}{2011}), ISSN \bibinfo{issn}{00223077}.
+\bibitem[{\citenamefont{Hamada et~al.}(2022)\citenamefont{Hamada, Abe, Takata,
+  Taira, Tanaka, and Doya}}]{hamadaOptogeneticActivationDorsal2022}
+\bibinfo{author}{\bibfnamefont{H.~T.} \bibnamefont{Hamada}},
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Abe}},
+  \bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Takata}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Taira}},
+  \bibinfo{author}{\bibfnamefont{K.~F.} \bibnamefont{Tanaka}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Doya}},
+  \bibinfo{title}{Optogenetic activation of dorsal raphe serotonin neurons
+  induces a brain-wide response in reward network},
+  \href{http://dx.doi.org/10.1101/2022.08.07.503074}{\emph{\bibinfo{journal}{bioRxiv}}
+  }\href{http://dx.doi.org/10.1101/2022.08.07.503074}{
+  \bibinfo{pages}{2022.08.07.503074}} (\bibinfo{year}{2022}).
+
+\bibitem[{\citenamefont{Grandjean et~al.}(2019)\citenamefont{Grandjean,
+  Corcoba, Kahn, Upton, Deneris, Seifritz, Helmchen, Mann, Rudin, and
+  Saab}}]{grandjeanBrainwideFunctionalMap2019}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Grandjean}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Corcoba}},
+  \bibinfo{author}{\bibfnamefont{M.~C.} \bibnamefont{Kahn}},
+  \bibinfo{author}{\bibfnamefont{A.~L.} \bibnamefont{Upton}},
+  \bibinfo{author}{\bibfnamefont{E.~S.} \bibnamefont{Deneris}},
+  \bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Seifritz}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Helmchen}},
+  \bibinfo{author}{\bibfnamefont{E.~O.} \bibnamefont{Mann}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Rudin}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{B.~J.} \bibnamefont{Saab}}, \bibinfo{title}{A
+  brain-wide functional map of the serotonergic responses to acute stress and
+  fluoxetine},
+  \href{http://dx.doi.org/10.1038/s41467-018-08256-w}{\emph{\bibinfo{journal}{Nature
+  Communications 2019 10:1}}
+  }\href{http://dx.doi.org/10.1038/s41467-018-08256-w}{\textbf{\bibinfo{volume}{10}},
+  \bibinfo{pages}{1}} (\bibinfo{year}{2019}), ISSN \bibinfo{issn}{2041-1723}.
+
+\bibitem[{\citenamefont{Puig et~al.}(2010)\citenamefont{Puig, Watakabe,
+  Ushimaru, Yamamori, and Kawaguchi}}]{puigSerotoninModulatesFastSpiking2010}
+\bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{Puig}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Watakabe}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ushimaru}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Yamamori}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Kawaguchi}},
+  \bibinfo{title}{Serotonin {{Modulates Fast-Spiking Interneuron}} and
+  {{Synchronous Activity}} in the {{Rat Prefrontal Cortex}} through 5-{{HT1A}}
+  and 5-{{HT2A Receptors}}},
+  \href{http://dx.doi.org/10.1523/JNEUROSCI.3335-09.2010}{\emph{\bibinfo{journal}{Journal
+  of Neuroscience}}
+  }\href{http://dx.doi.org/10.1523/JNEUROSCI.3335-09.2010}{\textbf{\bibinfo{volume}{30}},
+  \bibinfo{pages}{2211}} (\bibinfo{year}{2010}), ISSN
+  \bibinfo{issn}{0270-6474}.
+
+\bibitem[{\citenamefont{Mejias et~al.}(2010)\citenamefont{Mejias, Kappen, and
+  Torres}}]{mejiasIrregularDynamicsCortical2010}
+\bibinfo{author}{\bibfnamefont{J.~F.} \bibnamefont{Mejias}},
+  \bibinfo{author}{\bibfnamefont{H.~J.} \bibnamefont{Kappen}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.~J.}
+  \bibnamefont{Torres}}, \bibinfo{title}{Irregular {{Dynamics}} in {{Up}} and
+  {{Down Cortical States}}},
+  \href{http://dx.doi.org/10.1371/JOURNAL.PONE.0013651}{\emph{\bibinfo{journal}{PLOS
+  ONE}}
+  }\href{http://dx.doi.org/10.1371/JOURNAL.PONE.0013651}{\textbf{\bibinfo{volume}{5}},
+  \bibinfo{pages}{e13651}} (\bibinfo{year}{2010}), ISSN
+  \bibinfo{issn}{1932-6203}.
 
 \bibitem[{\citenamefont{Jercog et~al.}(2017)\citenamefont{Jercog, Roxin,
   Barth{\'o}, Luczak, Compte, and
@@ -46,6 +144,40 @@
   \href{http://dx.doi.org/10.7554/ELIFE.22425}{\emph{\bibinfo{journal}{eLife}}
   }\href{http://dx.doi.org/10.7554/ELIFE.22425}{\textbf{\bibinfo{volume}{6}}}
   (\bibinfo{year}{2017}), ISSN \bibinfo{issn}{2050084X}.
+
+\bibitem[{\citenamefont{Wilson and
+  Cowan}()}]{wilsonExcitatoryInhibitoryInteractions1972}
+\bibinfo{author}{\bibfnamefont{H.~R.} \bibnamefont{Wilson}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.~D.} \bibnamefont{Cowan}},
+  \href{http://dx.doi.org/10.1016/S0006-3495(72)86068-5}{\bibinfo{title}{Excitatory
+  and inhibitory interactions in localized populations of model neurons}},
+  \href{http://dx.doi.org/10.1016/S0006-3495(72)86068-5}{\textbf{\bibinfo{volume}{12}},
+  \bibinfo{pages}{1}} (????), ISSN \bibinfo{issn}{0006-3495}, \eprint{4332108}.
+
+\bibitem[{\citenamefont{Holcman and
+  Tsodyks}(2006)}]{holcmanEmergenceStatesCortical2006}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Holcman}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Tsodyks}},
+  \bibinfo{title}{The {{Emergence}} of {{Up}} and {{Down States}} in {{Cortical
+  Networks}}},
+  \href{http://dx.doi.org/10.1371/JOURNAL.PCBI.0020023}{\emph{\bibinfo{journal}{PLOS
+  Computational Biology}}
+  }\href{http://dx.doi.org/10.1371/JOURNAL.PCBI.0020023}{\textbf{\bibinfo{volume}{2}},
+  \bibinfo{pages}{e23}} (\bibinfo{year}{2006}), ISSN \bibinfo{issn}{1553-7358}.
+
+\bibitem[{\citenamefont{{Ruiz-Mejias} et~al.}(2011)\citenamefont{{Ruiz-Mejias},
+  {Ciria-Suarez}, Mattia, and
+  {Sanchez-Vives}}}]{ruiz-mejiasSlowFastRhythms2011}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{{Ruiz-Mejias}}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{{Ciria-Suarez}}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Mattia}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{{Sanchez-Vives}}},
+  \bibinfo{title}{Slow and fast rhythms generated in the cerebral cortex of the
+  anesthetized mouse},
+  \href{http://dx.doi.org/10.1152/JN.00440.2011/ASSET/IMAGES/LARGE/Z9K0121110550008.JPEG}{\emph{\bibinfo{journal}{Journal
+  of Neurophysiology}}
+  }\href{http://dx.doi.org/10.1152/JN.00440.2011/ASSET/IMAGES/LARGE/Z9K0121110550008.JPEG}{\textbf{\bibinfo{volume}{106}},
+  \bibinfo{pages}{2910}} (\bibinfo{year}{2011}), ISSN \bibinfo{issn}{00223077}.
 
 \bibitem[{\citenamefont{Fulcher}(2020)}]{fulcherBenfulcherAllenSDKInitial2020}
 \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Fulcher}},
@@ -74,38 +206,11 @@
   \bibinfo{pages}{229}} (\bibinfo{year}{2001}), ISSN \bibinfo{issn}{1471-0048},
   \bibinfo{note}{number: 4 Publisher: Nature Publishing Group}.
 
-\bibitem[{\citenamefont{Holcman and
-  Tsodyks}(2006)}]{holcmanEmergenceStatesCortical2006}
-\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Holcman}} \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Tsodyks}},
-  \bibinfo{title}{The {{Emergence}} of {{Up}} and {{Down States}} in {{Cortical
-  Networks}}},
-  \href{http://dx.doi.org/10.1371/JOURNAL.PCBI.0020023}{\emph{\bibinfo{journal}{PLOS
-  Computational Biology}}
-  }\href{http://dx.doi.org/10.1371/JOURNAL.PCBI.0020023}{\textbf{\bibinfo{volume}{2}},
-  \bibinfo{pages}{e23}} (\bibinfo{year}{2006}), ISSN \bibinfo{issn}{1553-7358}.
-
 \bibitem[{\citenamefont{Brunel and
   Hansel}(2006)}]{brunelCommunicatedPaulTiesinga2006}
 \bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Brunel}} \bibnamefont{and}
   \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Hansel}},
   \bibinfo{type}{Tech. Rep.} (\bibinfo{year}{2006}).
-
-\bibitem[{\citenamefont{Puig et~al.}(2010)\citenamefont{Puig, Watakabe,
-  Ushimaru, Yamamori, and Kawaguchi}}]{puigSerotoninModulatesFastSpiking2010}
-\bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{Puig}},
-  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Watakabe}},
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ushimaru}},
-  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Yamamori}}, \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Kawaguchi}},
-  \bibinfo{title}{Serotonin {{Modulates Fast-Spiking Interneuron}} and
-  {{Synchronous Activity}} in the {{Rat Prefrontal Cortex}} through 5-{{HT1A}}
-  and 5-{{HT2A Receptors}}},
-  \href{http://dx.doi.org/10.1523/JNEUROSCI.3335-09.2010}{\emph{\bibinfo{journal}{Journal
-  of Neuroscience}}
-  }\href{http://dx.doi.org/10.1523/JNEUROSCI.3335-09.2010}{\textbf{\bibinfo{volume}{30}},
-  \bibinfo{pages}{2211}} (\bibinfo{year}{2010}), ISSN
-  \bibinfo{issn}{0270-6474}.
 
 \bibitem[{\citenamefont{Puig and
   Gener}(2015)}]{puigSerotoninModulationPrefrontoHippocampal2015}
@@ -165,17 +270,6 @@
   \bibnamefont{Crofts}}, \bibinfo{title}{Cognitive inflexibility after
   prefrontal serotonin depletion - {{PubMed}}},
   \bibinfo{howpublished}{https://pubmed.ncbi.nlm.nih.gov/15131308/}.
-
-\bibitem[{\citenamefont{Celada et~al.}(2013)\citenamefont{Celada,
-  Victoria~Puig, and Artigas}}]{celadaSerotoninModulationCortical2013}
-\bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Celada}},
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Victoria~Puig}},
-  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Artigas}},
-  \bibinfo{title}{Serotonin modulation of cortical neurons and networks},
-  \href{http://dx.doi.org/10.3389/FNINT.2013.00025/BIBTEX}{\emph{\bibinfo{journal}{Frontiers
-  in Integrative Neuroscience}}
-  }\href{http://dx.doi.org/10.3389/FNINT.2013.00025/BIBTEX}{\textbf{\bibinfo{volume}{7}},
-  \bibinfo{pages}{25}} (\bibinfo{year}{2013}), ISSN \bibinfo{issn}{16625145}.
 
 \bibitem[{\citenamefont{Vicente et~al.}(2008)\citenamefont{Vicente, Gollo,
   Mirasso, Fischer, and Pipa}}]{vicenteDynamicalRelayingCan2008}

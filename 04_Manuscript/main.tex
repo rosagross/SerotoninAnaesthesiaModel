@@ -95,6 +95,31 @@ Abstract goes here
 %---------------------------------------------------------------------------
 \section*{Introduction}
 
+Serotonin is a neuromodulator that plays a crucial role in many brain functions and can affect neural activity in various ways \cite{celadaSerotoninModulationCortical2013}. 
+Slow oscillations (SOs), which appear during anaesthesia and slow-wave sleep and are curcial for learning and other important behavioural processes \cite{neskeSlowOscillationCortical2015}, belong to the activity patterns that are modulated by serotonin. 
+Even though researcher agree that serotonin shows modulate brain activity during an unconscious state, the direction of the effect as well as the neural mechanisms are still unknown. 
+
+The mechanism behind SOs are variations in neuronal membrane potential, resulting in alternating states of high and low activity. 
+Although there are differences between oscillation frequencies in anaesthesia and sleep \cite{akejuNeuralOscillationsDemonstrate2017}, the states in low-delta frequency, referred to as UP and DOWN states, are specific to unconscious conditions and reflect the idle state of the neural circuits (SanchezVives et al., 2017; Wolansky et al., 2006. 
+Researchers found that serotonin release triggered by fenfluramine and MDMA supresses slow oscillations in anaesthetised mice \cite{defilippoSomatostatinInterneuronsActivated2021}. 
+Though, the administered drugs induce serotonin release on longer timescale, therefore, the process does not show transient effects. 
+Optogenetics provides the tool to look at short term activity modulation \cite{deisseroth2015optogenetics}. 
+Stimulation of the DRN using optogenetics in anaesthetised mice revealed that 5-HT suppresses neural activity across the brain \cite{hamadaOptogeneticActivationDorsal2022}. 
+Similarly, Grandjean et al. \cite{grandjeanBrainwideFunctionalMap2019} used to stimulate the DRN, which induced widespread suppression of cortical activity. Even though the modulated areas have different receptor distributions, the direction of the modulatory effect was negative.
+In contrast to those findings, it was discovered that in anaesthetized rats, serotonin release induced by electrical stimulation of 1 Hz in the DRN leads to an increased frequency of the UP-DOWN dynamics in the frontal cortex. 
+When the electrical stimulation was applied during UP periods, it seems to initiate UP states, while suppressing existing DOWN states. 
+The synchronisation of the excitation of cortical neurons seemed enhanced by serotonin, leading to an UP state \cite{puigSerotoninModulatesFastSpiking2010}.
+In light of the mentioned contrasting findings and different measurement techniques it is crucial to closely investigate the modulatory effect of serotonin across the brain. 
+We also aim to explain the mechanism of serotonin’s effects during anaesthesia using a biophysical modelling approach. UP and DOWN states have previously been modelled, for example by implementing a network of excitatory and inhibitory neurons including short-term depression \cite{mejiasIrregularDynamicsCortical2010}, or adaptation \cite{jercogUPDOWNCorticalDynamics2017}, based on the classical form of the Wilson and Cowan model \cite{wilsonExcitatoryInhibitoryInteractions1972}. 
+Others used a network model of only excitatory neurons \cite{holcmanEmergenceStatesCortical2006}.
+In this paper, we follow the implementation by Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017} who implemented a firing rate model comprising an interconnected excitatory (E) and inhibitory (I) population. The model provides bistability emerging from the balance between E and I populations and facilitates state transitions by switching between the two stable states in response to excitatory adaptation or noise, which can push the network from one state to the other.
+
+Teaser of Results
+-	Experimental data shows that there is an induced Down state
+-	We can replicate the data (show that down states are induced by serotonin stimulation) with the model 
+-	Targeting the E population with an inhibitory current is crucial to induce DOWN states (instead of targeting I population)
+-	We show that there is an indirect effect of serotonin in some areas (through communication of other areas), and in other areas the effect is direct (through DRN connectivity).
+
 
 \section*{Methods}
 
