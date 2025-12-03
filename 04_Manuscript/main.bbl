@@ -1,4 +1,4 @@
-\begin{thebibliography}{23}
+\begin{thebibliography}{24}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname bibnamefont\endcsname\relax
   \def\bibnamefont#1{#1}\fi
@@ -42,6 +42,18 @@
   opinion in neurobiology}}
   }\href{http://dx.doi.org/10.1016/j.conb.2017.04.011}{\textbf{\bibinfo{volume}{44}},
   \bibinfo{pages}{178}} (\bibinfo{year}{2017}), ISSN \bibinfo{issn}{0959-4388}.
+
+\bibitem[{\citenamefont{{Sanchez-Vives}
+  et~al.}(2017)\citenamefont{{Sanchez-Vives}, Massimini, and
+  Mattia}}]{sanchez-vivesShapingDefaultActivity2017}
+\bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{{Sanchez-Vives}}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Massimini}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Mattia}},
+  \bibinfo{title}{Shaping the {{Default Activity Pattern}} of the {{Cortical
+  Network}}},
+  \href{http://dx.doi.org/10.1016/j.neuron.2017.05.015}{\emph{\bibinfo{journal}{Neuron}}
+  }\href{http://dx.doi.org/10.1016/j.neuron.2017.05.015}{\textbf{\bibinfo{volume}{94}},
+  \bibinfo{pages}{993}} (\bibinfo{year}{2017}), ISSN \bibinfo{issn}{0896-6273}.
 
 \bibitem[{\citenamefont{{de Filippo} et~al.}(2021)\citenamefont{{de Filippo},
   Rost, Stumpf, Cooper, Tukker, Harms, Beed, and

@@ -100,7 +100,7 @@ Slow oscillations (SOs), which appear during anaesthesia and slow-wave sleep and
 Even though researcher agree that serotonin shows modulate brain activity during an unconscious state, the direction of the effect as well as the neural mechanisms are still unknown. 
 
 The mechanism behind SOs are variations in neuronal membrane potential, resulting in alternating states of high and low activity. 
-Although there are differences between oscillation frequencies in anaesthesia and sleep \cite{akejuNeuralOscillationsDemonstrate2017}, the states in low-delta frequency, referred to as UP and DOWN states, are specific to unconscious conditions and reflect the idle state of the neural circuits (SanchezVives et al., 2017; Wolansky et al., 2006. 
+Although there are differences between oscillation frequencies in anaesthesia and sleep \cite{akejuNeuralOscillationsDemonstrate2017}, the states in low-delta frequency, referred to as UP and DOWN states, are specific to unconscious conditions and reflect the idle state of the neural circuits \cite{sanchez-vivesShapingDefaultActivity2017,neskeSlowOscillationCortical2015} 
 Researchers found that serotonin release triggered by fenfluramine and MDMA supresses slow oscillations in anaesthetised mice \cite{defilippoSomatostatinInterneuronsActivated2021}. 
 Though, the administered drugs induce serotonin release on longer timescale, therefore, the process does not show transient effects. 
 Optogenetics provides the tool to look at short term activity modulation \cite{deisseroth2015optogenetics}. 
@@ -109,16 +109,21 @@ Similarly, Grandjean et al. \cite{grandjeanBrainwideFunctionalMap2019} used to s
 In contrast to those findings, it was discovered that in anaesthetized rats, serotonin release induced by electrical stimulation of 1 Hz in the DRN leads to an increased frequency of the UP-DOWN dynamics in the frontal cortex. 
 When the electrical stimulation was applied during UP periods, it seems to initiate UP states, while suppressing existing DOWN states. 
 The synchronisation of the excitation of cortical neurons seemed enhanced by serotonin, leading to an UP state \cite{puigSerotoninModulatesFastSpiking2010}.
-In light of the mentioned contrasting findings and different measurement techniques it is crucial to closely investigate the modulatory effect of serotonin across the brain. 
-We also aim to explain the mechanism of serotonin’s effects during anaesthesia using a biophysical modelling approach. UP and DOWN states have previously been modelled, for example by implementing a network of excitatory and inhibitory neurons including short-term depression \cite{mejiasIrregularDynamicsCortical2010}, or adaptation \cite{jercogUPDOWNCorticalDynamics2017}, based on the classical form of the Wilson and Cowan model \cite{wilsonExcitatoryInhibitoryInteractions1972}. 
+
+To understand the mechanism behind UP and DOWN states, the phenomenon has been investigated using biophysical modelling techniques. For example by implementing a network of excitatory and inhibitory neurons including short-term depression \cite{mejiasIrregularDynamicsCortical2010}, or adaptation \cite{jercogUPDOWNCorticalDynamics2017}, based on the classical form of the Wilson and Cowan model \cite{wilsonExcitatoryInhibitoryInteractions1972}. 
 Others used a network model of only excitatory neurons \cite{holcmanEmergenceStatesCortical2006}.
-In this paper, we follow the implementation by Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017} who implemented a firing rate model comprising an interconnected excitatory (E) and inhibitory (I) population. The model provides bistability emerging from the balance between E and I populations and facilitates state transitions by switching between the two stable states in response to excitatory adaptation or noise, which can push the network from one state to the other.
+
+In light of the mentioned contrasting findings and different measurement techniques it is crucial to closely investigate the effect and the mechanisms of serotonergic modulation across the brain. 
+To do this, we conducted and experiment 
+Furthermore, we use a biophysical modelling approach to gain insights into the mechanismsof serotonin’s modulatory effects during anaesthesia.
+We follow the firing rate model implementation by Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, which provides bistability emerging from the balance between E and I populations and facilitates state transitions by switching between the two stable states in response to excitatory adaptation or noise.
 
 Teaser of Results
 -	Experimental data shows that there is an induced Down state
 -	We can replicate the data (show that down states are induced by serotonin stimulation) with the model 
 -	Targeting the E population with an inhibitory current is crucial to induce DOWN states (instead of targeting I population)
 -	We show that there is an indirect effect of serotonin in some areas (through communication of other areas), and in other areas the effect is direct (through DRN connectivity).
+
 
 
 \section*{Methods}
@@ -465,6 +470,26 @@ The graph reveals that, in many regions such as the Amygdala, cortical areas (OL
 
 
 \section*{Discussion}
+
+Additional ideas for the discussion:
+\begin{itemize}
+\item De Filippo et al., (2021) find that targeting SST interneurons with 5HT2A receptor enables inducing the DOWN state. We find that targeting excitatory population is crucial for inducing a DOWN state. This might be because the model does not incorporate different receptor types. Also, they did record this with fMRI in combination with electrophysiological recordings - more long term effect?
+\item The different receptor type distribution of post-synaptic 5-HT receptors is more relevant for functional connectivity than the anatomical DRN projection density. This 
+\item Our model does not include different receptor types
+\item There is a need for another modelling study investigating this
+\item Grandjean (2019):
+\begin{itemize}
+    \item Even though the areas have different receptor distributions, all showed a negative effect
+    \item More negative in: medial prefrontal cortex (mPFC), amygdala, striatum, hippocampal formation, cortical subplate, and isocortex  	
+    \item Downside of MRI: indirect measurement, and temporal resolution is limited
+\end{itemize}
+\item What could be the potential modulatory mechanism of serotonin be?
+\begin{itemize}
+\item UP states are sharp wave ripples
+\item During quite wakefulness, stimulation of serotonergic neurons in the DRN supresses hippocampal sharp wave ripples
+\item Previously it was found that serotonin suppresses hippocampal sharp wave ripples. Therefore, one possible mechanism might be that serotonin induces a DOWN state by supressing sharp wave ripples during the UP state 
+\end{itemize}
+\end{itemize}
 
 \noindent
 \indent Insights from electrophysiological recordings from anaesthetized mice during optogenetic stimulation of the DRN showed that serotonin stimulation induces a DOWN state, mainly in frontal and sensory cortices as well as in the amygdala and striatum. These findings were the basis for the implementation of a firing rate model that simulates the brain activity of the measured regions and aims to uncover the mechanisms of serotonin modulation on oscillatory neural activity during anaesthesia. 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.16)  3 DEC 2025 14:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.9.16)  3 DEC 2025 16:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -436,126 +436,126 @@ Package caption Info: End \AtBeginDocument code.
 [1
 
 {C:/Users/gross/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (2.51042pt too wide) in paragraph at lines 127--130
+Overfull \hbox (2.51042pt too wide) in paragraph at lines 132--135
 \OT1/cmr/m/n/10.95 measured using Neuro-pixels (electrodes measuring electrophysiological activity), after transient stimula-
  []
 
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 138.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 143.
 (C:\Users\gross\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 138.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 143.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 138.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 143.
 
-Underfull \hbox (badness 10000) in paragraph at lines 154--162
+Underfull \hbox (badness 10000) in paragraph at lines 159--167
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 167--171
+Underfull \hbox (badness 10000) in paragraph at lines 172--176
 
  []
 
 
-Overfull \hbox (3.2204pt too wide) in paragraph at lines 172--175
+Overfull \hbox (3.2204pt too wide) in paragraph at lines 177--180
 []\OT1/cmr/m/n/10.95 Several components of the model play a role to generate the UP-DOWN dynamics. Most importantly,
  []
 
-<img/Methods/Figure2_1.pdf, id=173, 426.39299pt x 144.54pt>
+<img/Methods/Figure2_1.pdf, id=176, 426.39299pt x 144.54pt>
 File: img/Methods/Figure2_1.pdf Graphic file (type pdf)
 <use img/Methods/Figure2_1.pdf>
-Package pdftex.def Info: img/Methods/Figure2_1.pdf  used on input line 190.
+Package pdftex.def Info: img/Methods/Figure2_1.pdf  used on input line 195.
 (pdftex.def)             Requested size: 426.39194pt x 144.53963pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<img/Methods/Figure2_2.pdf, id=178, 484.209pt x 144.54pt>
+<img/Methods/Figure2_2.pdf, id=181, 484.209pt x 144.54pt>
 File: img/Methods/Figure2_2.pdf Graphic file (type pdf)
 <use img/Methods/Figure2_2.pdf>
-Package pdftex.def Info: img/Methods/Figure2_2.pdf  used on input line 202.
+Package pdftex.def Info: img/Methods/Figure2_2.pdf  used on input line 207.
 (pdftex.def)             Requested size: 485.40396pt x 144.90132pt.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 203.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 208.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 203.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 208.
 [3] [4 <./img/Methods/Figure2_1.pdf> <./img/Methods/Figure2_2.pdf
 
 pdfTeX warning: pdflatex (file ./img/Methods/Figure2_2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<img/Methods/figure1.pdf, id=703, 271.0125pt x 144.54pt>
+<img/Methods/figure1.pdf, id=706, 271.0125pt x 144.54pt>
 File: img/Methods/figure1.pdf Graphic file (type pdf)
 <use img/Methods/figure1.pdf>
-Package pdftex.def Info: img/Methods/figure1.pdf  used on input line 223.
+Package pdftex.def Info: img/Methods/figure1.pdf  used on input line 228.
 (pdftex.def)             Requested size: 388.32465pt x 207.11406pt.
  [5 <./img/Methods/figure1.pdf>]
-Overfull \hbox (0.6159pt too wide) in paragraph at lines 242--243
+Overfull \hbox (0.6159pt too wide) in paragraph at lines 247--248
 []\OT1/cmr/m/n/10.95 To simulate the inhibitory effect that serotonin seems to have on most brain areas during anaesthesia,
  []
 
-<img/Methods/serotonin_trajectory.pdf, id=742, 152.71115pt x 134.8927pt>
+<img/Methods/serotonin_trajectory.pdf, id=745, 152.71115pt x 134.8927pt>
 File: img/Methods/serotonin_trajectory.pdf Graphic file (type pdf)
 <use img/Methods/serotonin_trajectory.pdf>
-Package pdftex.def Info: img/Methods/serotonin_trajectory.pdf  used on input line 253.
+Package pdftex.def Info: img/Methods/serotonin_trajectory.pdf  used on input line 258.
 (pdftex.def)             Requested size: 194.15862pt x 171.51147pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--260
+Underfull \hbox (badness 10000) in paragraph at lines 263--265
 
  []
 
 [6 <./img/Methods/serotonin_trajectory.pdf>]
-<img/Methods/GlobalModel.pdf, id=762, 108.405pt x 126.4725pt>
+<img/Methods/GlobalModel.pdf, id=765, 108.405pt x 126.4725pt>
 File: img/Methods/GlobalModel.pdf Graphic file (type pdf)
 <use img/Methods/GlobalModel.pdf>
-Package pdftex.def Info: img/Methods/GlobalModel.pdf  used on input line 263.
+Package pdftex.def Info: img/Methods/GlobalModel.pdf  used on input line 268.
 (pdftex.def)             Requested size: 194.15862pt x 226.54646pt.
  [7 <./img/Methods/GlobalModel.pdf>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 295.
+(hyperref)                than one, level fixed on input line 300.
 
 [8]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 331.
+(hyperref)                than one, level fixed on input line 336.
 
-<img/Results/heterogeneous_UP-DOWN_states_S0_G2.pdf, id=834, 429.2838pt x 138.11293pt>
+<img/Results/heterogeneous_UP-DOWN_states_S0_G2.pdf, id=837, 429.2838pt x 138.11293pt>
 File: img/Results/heterogeneous_UP-DOWN_states_S0_G2.pdf Graphic file (type pdf)
 <use img/Results/heterogeneous_UP-DOWN_states_S0_G2.pdf>
-Package pdftex.def Info: img/Results/heterogeneous_UP-DOWN_states_S0_G2.pdf  used on input line 337.
+Package pdftex.def Info: img/Results/heterogeneous_UP-DOWN_states_S0_G2.pdf  used on input line 342.
 (pdftex.def)             Requested size: 485.40396pt x 156.16693pt.
-<img/Results/network_synchrony_brunelX.pdf, id=836, 156.77321pt x 134.8927pt>
+<img/Results/network_synchrony_brunelX.pdf, id=839, 156.77321pt x 134.8927pt>
 File: img/Results/network_synchrony_brunelX.pdf Graphic file (type pdf)
 <use img/Results/network_synchrony_brunelX.pdf>
-Package pdftex.def Info: img/Results/network_synchrony_brunelX.pdf  used on input line 350.
+Package pdftex.def Info: img/Results/network_synchrony_brunelX.pdf  used on input line 355.
 (pdftex.def)             Requested size: 218.4303pt x 187.95107pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [9 <./img/Results/heterogeneous_UP-DOWN_states_S0_G2.pdf>]
-<img/Results/Figure2.pdf, id=855, 534.79805pt x 224.03702pt>
+<img/Results/Figure2.pdf, id=858, 534.79805pt x 224.03702pt>
 File: img/Results/Figure2.pdf Graphic file (type pdf)
 <use img/Results/Figure2.pdf>
-Package pdftex.def Info: img/Results/Figure2.pdf  used on input line 371.
+Package pdftex.def Info: img/Results/Figure2.pdf  used on input line 376.
 (pdftex.def)             Requested size: 436.8606pt x 183.01414pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [10 <./img/Results/network_synchrony_brunelX.pdf>]
-<img/Results/downstate_replicationS40_G[2].pdf, id=874, 144.54pt x 126.4725pt>
+<img/Results/downstate_replicationS40_G[2].pdf, id=877, 144.54pt x 126.4725pt>
 File: img/Results/downstate_replicationS40_G[2].pdf Graphic file (type pdf)
 <use img/Results/downstate_replicationS40_G[2].pdf>
-Package pdftex.def Info: img/Results/downstate_replicationS40_G[2].pdf  used on input line 383.
+Package pdftex.def Info: img/Results/downstate_replicationS40_G[2].pdf  used on input line 388.
 (pdftex.def)             Requested size: 218.4303pt x 191.13632pt.
 
-Overfull \hbox (9.58885pt too wide) in paragraph at lines 394--399
+Overfull \hbox (9.58885pt too wide) in paragraph at lines 399--404
 []\OT1/cmr/m/n/10.95 In this section, the potential underlying mechanisms behind serotonergic modulation will be addressed.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 394--399
+Underfull \hbox (badness 10000) in paragraph at lines 399--404
 
  []
 
@@ -563,48 +563,48 @@ Underfull \hbox (badness 10000) in paragraph at lines 394--399
 
 pdfTeX warning: pdflatex (file ./img/Results/downstate_replicationS40_G[2].pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<img/Results/couplingstrength_trajectories_S40.pdf, id=1148, 433.79616pt x 127.153pt>
+<img/Results/couplingstrength_trajectories_S40.pdf, id=1151, 433.79616pt x 127.153pt>
 File: img/Results/couplingstrength_trajectories_S40.pdf Graphic file (type pdf)
 <use img/Results/couplingstrength_trajectories_S40.pdf>
-Package pdftex.def Info: img/Results/couplingstrength_trajectories_S40.pdf  used on input line 403.
+Package pdftex.def Info: img/Results/couplingstrength_trajectories_S40.pdf  used on input line 408.
 (pdftex.def)             Requested size: 436.8606pt x 128.05486pt.
-<img/Results/Figure3.pdf, id=1151, 505.89pt x 144.54pt>
+<img/Results/Figure3.pdf, id=1154, 505.89pt x 144.54pt>
 File: img/Results/Figure3.pdf Graphic file (type pdf)
 <use img/Results/Figure3.pdf>
-Package pdftex.def Info: img/Results/Figure3.pdf  used on input line 411.
+Package pdftex.def Info: img/Results/Figure3.pdf  used on input line 416.
 (pdftex.def)             Requested size: 436.8606pt x 124.82025pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [12 <./img/Results/couplingstrength_trajectories_S40.pdf>]
-<img/Results/Figure5.pdf, id=1172, 433.61996pt x 274.62598pt>
+<img/Results/Figure5.pdf, id=1175, 433.61996pt x 274.62598pt>
 File: img/Results/Figure5.pdf Graphic file (type pdf)
 <use img/Results/Figure5.pdf>
-Package pdftex.def Info: img/Results/Figure5.pdf  used on input line 429.
+Package pdftex.def Info: img/Results/Figure5.pdf  used on input line 434.
 (pdftex.def)             Requested size: 461.13228pt x 292.06593pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [13 <./img/Results/Figure3.pdf>]
-<img/Results/Figure4_1.pdf, id=1240, 455.30098pt x 245.718pt>
+<img/Results/Figure4_1.pdf, id=1243, 455.30098pt x 245.718pt>
 File: img/Results/Figure4_1.pdf Graphic file (type pdf)
 <use img/Results/Figure4_1.pdf>
-Package pdftex.def Info: img/Results/Figure4_1.pdf  used on input line 445.
+Package pdftex.def Info: img/Results/Figure4_1.pdf  used on input line 450.
 (pdftex.def)             Requested size: 485.40396pt x 261.97456pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [14 <./img/Results/Figure5.pdf>]
-<img/Results/Figure4.pdf, id=1587, 274.62598pt x 122.85901pt>
+<img/Results/Figure4.pdf, id=1590, 274.62598pt x 122.85901pt>
 File: img/Results/Figure4.pdf Graphic file (type pdf)
 <use img/Results/Figure4.pdf>
-Package pdftex.def Info: img/Results/Figure4.pdf  used on input line 458.
+Package pdftex.def Info: img/Results/Figure4.pdf  used on input line 463.
 (pdftex.def)             Requested size: 388.32465pt x 173.72423pt.
 
-Overfull \hbox (3.5043pt too wide) in paragraph at lines 462--465
+Overfull \hbox (3.5043pt too wide) in paragraph at lines 467--470
 []\OT1/cmr/m/n/10.95 To uncover the effects of other options for modelling serotonin stimulation, targeting the E population
  []
 
@@ -612,21 +612,31 @@ Overfull \hbox (3.5043pt too wide) in paragraph at lines 462--465
 
 pdfTeX warning: pdflatex (file ./img/Results/Figure4.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-Overfull \hbox (10.92561pt too wide) in paragraph at lines 479--488
-\OT1/cmr/m/n/10.95 system. As the weight between the areas strengthens, areas with a strong influence on others communicate
+Overfull \hbox (20.05962pt too wide) in paragraph at lines 489--490
+[]\OT1/cmr/m/n/10.95 During quite wakefulness, stimulation of serotonergic neurons in the DRN supresses hippocampal
+ []
+
+
+Overfull \hbox (4.87276pt too wide) in paragraph at lines 490--491
+[]\OT1/cmr/m/n/10.95 Previously it was found that serotonin suppresses hippocampal sharp wave ripples. Therefore,
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 500--505
+Overfull \hbox (10.92561pt too wide) in paragraph at lines 504--513
+\OT1/cmr/m/n/10.95 system. As the weight between the areas strengthens, areas with a strong influence on others communicate
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 525--530
 
  []
 
-[17] [18] (main.bbl [19] [20])
+[18] [19] (main.bbl [20] [21])
 
 Package caption Warning: Unused \captionsetup[table] on input line 50.
 See the caption package documentation for explanation.
 
-[21] (main.aux)
+[22] (main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -635,17 +645,17 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D91784DB9F24FCBE82FEAFBB7E739CAD;5901.
  ) 
 Here is how much of TeX's memory you used:
- 13151 strings out of 474485
- 218260 string characters out of 5743734
+ 13161 strings out of 474485
+ 218549 string characters out of 5743734
  1942542 words of memory out of 5000000
- 35144 multiletter control sequences out of 15000+600000
- 570334 words of font info for 83 fonts, out of 8000000 for 9000
+ 35151 multiletter control sequences out of 15000+600000
+ 570675 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,7n,79p,1846b,628s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (21 pages, 3371845 bytes).
+ <C:\Users\gross\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/gross/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on main.pdf (22 pages, 3375740 bytes).
 PDF statistics:
- 2199 PDF objects out of 2487 (max. 8388607)
- 108 named destinations out of 1000 (max. 500000)
+ 2215 PDF objects out of 2487 (max. 8388607)
+ 110 named destinations out of 1000 (max. 500000)
  287 words of extra memory for PDF output out of 10000 (max. 10000000)
 
