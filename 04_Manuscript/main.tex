@@ -96,27 +96,29 @@ Abstract goes here
 \section*{Introduction}
 
 Serotonin is a neuromodulator that plays a crucial role in many brain functions and can affect neural activity in various ways \cite{celadaSerotoninModulationCortical2013}. 
-Slow oscillations (SOs), which appear during anaesthesia and slow-wave sleep and are curcial for learning and other important behavioural processes \cite{neskeSlowOscillationCortical2015}, belong to the activity patterns that are modulated by serotonin. 
-Even though researcher agree that serotonin shows modulate brain activity during an unconscious state, the direction of the effect as well as the neural mechanisms are still unknown. 
+Slow oscillations (SOs), with alternating states of high and low activity, also referred to as UP and DOWN states, belong to the activity patterns that are modulated by serotonin. They appear during anaesthesia and slow-wave sleep and are important for learning, memory consolidation and plasticity \cite{neskeSlowOscillationCortical2015}.
+Although there are differences between oscillation frequencies in anaesthesia and sleep \cite{akejuNeuralOscillationsDemonstrate2017}, the states in low-delta frequency, are specific to unconscious conditions and reflect the idle state of the neural circuits \cite{sanchez-vivesShapingDefaultActivity2017,neskeSlowOscillationCortical2015}.
+Even though researcher agree that serotonin shows modulate brain activity during those unconscious states, the direction of the effect as well as the neural mechanisms are still unknown. 
 
-The mechanism behind SOs are variations in neuronal membrane potential, resulting in alternating states of high and low activity. 
-Although there are differences between oscillation frequencies in anaesthesia and sleep \cite{akejuNeuralOscillationsDemonstrate2017}, the states in low-delta frequency, referred to as UP and DOWN states, are specific to unconscious conditions and reflect the idle state of the neural circuits \cite{sanchez-vivesShapingDefaultActivity2017,neskeSlowOscillationCortical2015} 
 Researchers found that serotonin release triggered by fenfluramine and MDMA supresses slow oscillations in anaesthetised mice \cite{defilippoSomatostatinInterneuronsActivated2021}. 
 Though, the administered drugs induce serotonin release on longer timescale, therefore, the process does not show transient effects. 
 Optogenetics provides the tool to look at short term activity modulation \cite{deisseroth2015optogenetics}. 
-Stimulation of the DRN using optogenetics in anaesthetised mice revealed that 5-HT suppresses neural activity across the brain \cite{hamadaOptogeneticActivationDorsal2022}. 
+Stimulation of the dorsal raphe nucleus (DRN) using optogenetics in anaesthetised mice revealed that 5-HT suppresses neural activity across the brain \cite{hamadaOptogeneticActivationDorsal2022}. 
 Similarly, Grandjean et al. \cite{grandjeanBrainwideFunctionalMap2019} used to stimulate the DRN, which induced widespread suppression of cortical activity. Even though the modulated areas have different receptor distributions, the direction of the modulatory effect was negative.
-In contrast to those findings, it was discovered that in anaesthetized rats, serotonin release induced by electrical stimulation of 1 Hz in the DRN leads to an increased frequency of the UP-DOWN dynamics in the frontal cortex. 
+During cortical UP states hippocampal sharp wave ripples occur. Recent studies show that serotonin release supresses those fast oscillations \cite{kandilakisOppositeSerotonergicModulation2025,meijerSerotoninDrivesChoiceindependent2025}, suggesting a mechanism that is responsible for the termination of UP states. 
+In contrast to the previous findings, it was discovered that in anaesthetized rats, serotonin release induced by electrical stimulation of 1 Hz in the DRN leads to an increased frequency of the UP-DOWN dynamics in the frontal cortex. 
 When the electrical stimulation was applied during UP periods, it seems to initiate UP states, while suppressing existing DOWN states. 
 The synchronisation of the excitation of cortical neurons seemed enhanced by serotonin, leading to an UP state \cite{puigSerotoninModulatesFastSpiking2010}.
+
 
 To understand the mechanism behind UP and DOWN states, the phenomenon has been investigated using biophysical modelling techniques. For example by implementing a network of excitatory and inhibitory neurons including short-term depression \cite{mejiasIrregularDynamicsCortical2010}, or adaptation \cite{jercogUPDOWNCorticalDynamics2017}, based on the classical form of the Wilson and Cowan model \cite{wilsonExcitatoryInhibitoryInteractions1972}. 
 Others used a network model of only excitatory neurons \cite{holcmanEmergenceStatesCortical2006}.
 
 In light of the mentioned contrasting findings and different measurement techniques it is crucial to closely investigate the effect and the mechanisms of serotonergic modulation across the brain. 
-To do this, we conducted and experiment 
+To do this, we conducted an experiment on anaesthetized mice stimulating serotonergic neurons in the DRN using optogenetics.  
 Furthermore, we use a biophysical modelling approach to gain insights into the mechanismsof serotonin’s modulatory effects during anaesthesia.
 We follow the firing rate model implementation by Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, which provides bistability emerging from the balance between E and I populations and facilitates state transitions by switching between the two stable states in response to excitatory adaptation or noise.
+
 
 Teaser of Results
 -	Experimental data shows that there is an induced Down state
@@ -474,9 +476,9 @@ The graph reveals that, in many regions such as the Amygdala, cortical areas (OL
 Additional ideas for the discussion:
 \begin{itemize}
 \item De Filippo et al., (2021) find that targeting SST interneurons with 5HT2A receptor enables inducing the DOWN state. We find that targeting excitatory population is crucial for inducing a DOWN state. This might be because the model does not incorporate different receptor types. Also, they did record this with fMRI in combination with electrophysiological recordings - more long term effect?
-\item The different receptor type distribution of post-synaptic 5-HT receptors is more relevant for functional connectivity than the anatomical DRN projection density. This 
-\item Our model does not include different receptor types
-\item There is a need for another modelling study investigating this
+ The different receptor type distribution of post-synaptic 5-HT receptors is more relevant for functional connectivity than the anatomical DRN projection density.
+ Our model does not include different receptor types, therefore, there is a need for another modelling study investigating this
+\item In contrast to de Filippo (2021), Nekse (2016) describes that there is a "lack of an observed increase in inhibitory cell firing relative to Up state termination" and that "synaptic inhibition is not an important factor for Up state termination".
 \item Grandjean (2019):
 \begin{itemize}
     \item Even though the areas have different receptor distributions, all showed a negative effect

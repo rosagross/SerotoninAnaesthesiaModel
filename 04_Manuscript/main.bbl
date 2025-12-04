@@ -1,4 +1,4 @@
-\begin{thebibliography}{24}
+\begin{thebibliography}{26}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname bibnamefont\endcsname\relax
   \def\bibnamefont#1{#1}\fi
@@ -112,6 +112,30 @@
   Communications 2019 10:1}}
   }\href{http://dx.doi.org/10.1038/s41467-018-08256-w}{\textbf{\bibinfo{volume}{10}},
   \bibinfo{pages}{1}} (\bibinfo{year}{2019}), ISSN \bibinfo{issn}{2041-1723}.
+
+\bibitem[{\citenamefont{Kandilakis and
+  Papatheodoropoulos}(2025)}]{kandilakisOppositeSerotonergicModulation2025}
+\bibinfo{author}{\bibfnamefont{C.~L.} \bibnamefont{Kandilakis}}
+  \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Papatheodoropoulos}},
+  \bibinfo{title}{Opposite serotonergic modulation of sharp waves in the dorsal
+  and ventral hippocampus},
+  \href{http://dx.doi.org/10.3389/fnsyn.2025.1701349}{\emph{\bibinfo{journal}{Frontiers
+  in Synaptic Neuroscience}}
+  }\href{http://dx.doi.org/10.3389/fnsyn.2025.1701349}{\textbf{\bibinfo{volume}{17}}}
+  (\bibinfo{year}{2025}), ISSN \bibinfo{issn}{1663-3563}.
+
+\bibitem[{\citenamefont{Meijer et~al.}(2025)\citenamefont{Meijer, Catarino,
+  {Freitas-Silva}, Laranjeira, Laboratory, and
+  Mainen}}]{meijerSerotoninDrivesChoiceindependent2025}
+\bibinfo{author}{\bibfnamefont{G.~T.} \bibnamefont{Meijer}},
+  \bibinfo{author}{\bibfnamefont{J.~A.} \bibnamefont{Catarino}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{{Freitas-Silva}}},
+  \bibinfo{author}{\bibfnamefont{I.}~\bibnamefont{Laranjeira}},
+  \bibinfo{author}{\bibfnamefont{I.~B.} \bibnamefont{Laboratory}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{Z.~F.}
+  \bibnamefont{Mainen}}, \bibinfo{title}{Serotonin drives choice-independent
+  reconfiguration of distributed neural activity} (\bibinfo{year}{2025}).
 
 \bibitem[{\citenamefont{Puig et~al.}(2010)\citenamefont{Puig, Watakabe,
   Ushimaru, Yamamori, and Kawaguchi}}]{puigSerotoninModulatesFastSpiking2010}
