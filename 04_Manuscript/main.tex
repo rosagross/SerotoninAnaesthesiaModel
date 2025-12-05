@@ -71,9 +71,12 @@
 %  fill in the paper's title, author(s), and corresponding institutions
 %--------------------------------------------------------------------------
 
-\title{Modulation of Neural Dynamics by Serotonin in Anaesthetized Mice: A Computational Study}
-\author{Rosa Großmann, Jorge Mejias, Zachary Mainen, Guido Meijer}
-\affil{Donders Centre for Neuroscience, Radboud University Nijmegen, The Netherlands}
+\title{Serotonin induces a down-state across the brain under anesthesia}
+\author{Rosa Großmann\textsuperscript{1}, Jorge Mejias\textsuperscript{2}, Zachary Mainen\textsuperscript{3} \& Guido Meijer\textsuperscript{3,4}}
+\affil{\textsuperscript{1}Max Planck Institute for Human Cognitive and Brain Science, Leipzig, Germany\newline
+\textsuperscript{2} Cognitive and Systems Neuroscience Group, Swammerdam Institute for Life Sciences, University of Amsterdam, Amsterdam, The Netherlands\newline
+\textsuperscript{3}Champalimaud Foundation, Lisbon, Portugal\newline
+\textsuperscript{4}Donders Centre for Neuroscience, Radboud University Nijmegen, The Netherlands}
 
 \date{}
 
@@ -95,47 +98,20 @@ Abstract goes here
 %---------------------------------------------------------------------------
 \section*{Introduction}
 
-Serotonin is a neuromodulator that plays a crucial role in many brain functions and can affect neural activity in various ways \cite{celadaSerotoninModulationCortical2013}. 
-Slow oscillations (SOs), with alternating states of high and low activity, also referred to as UP and DOWN states, belong to the activity patterns that are modulated by serotonin. They appear during anaesthesia and slow-wave sleep and are important for learning, memory consolidation and plasticity \cite{neskeSlowOscillationCortical2015}.
-Although there are differences between oscillation frequencies in anaesthesia and sleep \cite{akejuNeuralOscillationsDemonstrate2017}, the states in low-delta frequency, are specific to unconscious conditions and reflect the idle state of the neural circuits \cite{sanchez-vivesShapingDefaultActivity2017,neskeSlowOscillationCortical2015}.
-Even though researcher agree that serotonin shows modulate brain activity during those unconscious states, the direction of the effect as well as the neural mechanisms are still unknown. 
+Serotonin (5-HT) is a neuromodulator which plays a crucial role in many brain functions and modulates neural activity in various ways \cite{celadaSerotoninModulationCortical2013}. One of the activity patterns in the brain which is modulated by serotonin are slow oscillations, with alternating states of high and low activity, also referred to as UP and DOWN states. Slow oscillations appear during anaesthesia and slow-wave sleep and are important for learning, memory consolidation and plasticity \cite{neskeSlowOscillationCortical2015}, they are thought to be the default emergent activity of neural networks \cite{sanchez-vivesShapingDefaultActivity2017,neskeSlowOscillationCortical2015}. Altough it is clear that serotonin affects slow oscillations, different studies arrive at conflicting conclusions as to the directionality of its effect.
 
-Researchers found that serotonin release triggered by fenfluramine and MDMA supresses slow oscillations in anaesthetised mice \cite{defilippoSomatostatinInterneuronsActivated2021}. 
-Though, the administered drugs induce serotonin release on longer timescale, therefore, the process does not show transient effects. 
-Optogenetics provides the tool to look at short term activity modulation \cite{deisseroth2015optogenetics}. 
-Stimulation of the dorsal raphe nucleus (DRN) using optogenetics in anaesthetised mice revealed that 5-HT suppresses neural activity across the brain \cite{hamadaOptogeneticActivationDorsal2022}. 
-Similarly, Grandjean et al. \cite{grandjeanBrainwideFunctionalMap2019} used to stimulate the DRN, which induced widespread suppression of cortical activity. Even though the modulated areas have different receptor distributions, the direction of the modulatory effect was negative.
-During cortical UP states hippocampal sharp wave ripples occur. Recent studies show that serotonin release supresses those fast oscillations \cite{kandilakisOppositeSerotonergicModulation2025,meijerSerotoninDrivesChoiceindependent2025}, suggesting a mechanism that is responsible for the termination of UP states. 
-In contrast to the previous findings, it was discovered that in anaesthetized rats, serotonin release induced by electrical stimulation of 1 Hz in the DRN leads to an increased frequency of the UP-DOWN dynamics in the frontal cortex. 
-When the electrical stimulation was applied during UP periods, it seems to initiate UP states, while suppressing existing DOWN states. 
-The synchronisation of the excitation of cortical neurons seemed enhanced by serotonin, leading to an UP state \cite{puigSerotoninModulatesFastSpiking2010}.
+It was shown that inceasing tonic levels of serotonin by administering MDMA supresses slow oscillations in anaesthetised mice. Furthermore, bath application of 5-HT to acute brain slices completely abolishes slow oscillations \cite{defilippoSomatostatinInterneuronsActivated2021}. Besides these slow tonic increases in serotonin, also transient pulses of 5-HT suppress neural activity across the brain, as measured with fMRI \cite{hamadaOptogeneticActivationDorsal2022,grandjeanBrainwideFunctionalMap2019}. Altough these studies suggest that serotonin induces a DOWN state, they lack the temporal precision to directly establish this. Another piece of evidence which supports the notion that serotonin should induce a DOWN state is that 5-HT stimulation suppresses hippocampal sharp wave ripples \cite{kandilakisOppositeSerotonergicModulation2025,meijerSerotoninDrivesChoiceindependent2025}. Since sharp wave ripples occur during UP states it is likely that serotonin transitions the neural network into a DOWN state. This is, however, only indirect evidence. In contrast to the previous findings, one study showed that electrical stimulation of the dorsal raphe nucleus (DRN) in rats induces an UP state in frontal cortex \cite{puigSerotoninModulatesFastSpiking2010}. To our knowledge, this is the only study which investigated the direct effect of a transient increase of serotonin on UP-DOWN dynamics with high temporal resolution. Their findings, however, are in direct conflict with a body of literature which indicates that serotonin suppresses neural activity and transitions the network into a DOWN state. Serotonin's effect on UP-DOWN state dynamics under anesthesia is therefore still a topic for debate.
 
-
-To understand the mechanism behind UP and DOWN states, the phenomenon has been investigated using biophysical modelling techniques. For example by implementing a network of excitatory and inhibitory neurons including short-term depression \cite{mejiasIrregularDynamicsCortical2010}, or adaptation \cite{jercogUPDOWNCorticalDynamics2017}, based on the classical form of the Wilson and Cowan model \cite{wilsonExcitatoryInhibitoryInteractions1972}. 
-Others used a network model of only excitatory neurons \cite{holcmanEmergenceStatesCortical2006}.
-
-In light of the mentioned contrasting findings and different measurement techniques it is crucial to closely investigate the effect and the mechanisms of serotonergic modulation across the brain. 
-To do this, we conducted an experiment on anaesthetized mice stimulating serotonergic neurons in the DRN using optogenetics.  
-Furthermore, we use a biophysical modelling approach to gain insights into the mechanismsof serotonin’s modulatory effects during anaesthesia.
-We follow the firing rate model implementation by Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, which provides bistability emerging from the balance between E and I populations and facilitates state transitions by switching between the two stable states in response to excitatory adaptation or noise.
-
-
-Teaser of Results
--	Experimental data shows that there is an induced Down state
--	We can replicate the data (show that down states are induced by serotonin stimulation) with the model 
--	Targeting the E population with an inhibitory current is crucial to induce DOWN states (instead of targeting I population)
--	We show that there is an indirect effect of serotonin in some areas (through communication of other areas), and in other areas the effect is direct (through DRN connectivity).
-
-
+To shed light on this issue, we stimulated serotonin by optogenetically activating DRN neurons in the anesthetized mouse while recording single cell spiking activity across the brain with Neuropixel probes. We found that 5-HT stimulation rapidly induced a DOWN state in cortex, amygdala, striatum, hippocampus, thalamus, but not the midbrain. To investigate the underlaying mechanism of this effect we modelled UP-DOWN state dynamics with a firing rate model with realistic inter-area connectivity which replicates the experimental data \cite{mejiasIrregularDynamicsCortical2010,jercogUPDOWNCorticalDynamics2017}. 
 
 \section*{Methods}
 
-\subsection{Experimental data aqcuisition}\label{sec:expdata}
+\subsection*{Experimental data aqcuisition}\label{sec:expdata}
 \indent The model implemented in this project aims to explain the mechanism of serotonin's effects during anaesthesia. Particularly, the model is tailored to the recording procedure and findings that were obtained in an experiment designed and conducted by Dr. Guido Meijer at the Champalimaud Foundation in Lisbon, Portugal. In this experiment, neural activity in several brain regions was measured using Neuro\-pixels (electrodes measuring electrophysiological activity), after transient stimula\-tion of the serotonergic neurons in the DRN. For precise and local stimula\-tion, optogenetics \cite{deisseroth2015optogenetics} was used. The experiment was conducted on anaesthetized mice.\\
 \indent The following areas were recorded and replicated in the model: superior colliculus (SC), midbrain reticular nucleus (MRN), secondary motor cortex (M2), medial prefrontal cortex (mPFC), 
 orbitofrontal cortex (OFC), piriform cortex (PIR), striatum (STR), Amygdala (Amyg), retrosplenial cortex (RSP),  visual cortex (VIS), hippocampus (Hipp), striatum (Str), olfactory cortex (OLF), and piriform cortex (Pir).
 
-\subsection{Model structure}
+\subsection*{Model structure}
 
 \noindent
 \indent The model implemented in this project is a bistable firing rate model, consisting of multiple local circuits that all-to-all connected form a global network. The local circuits represent the relevant brain areas from the experimental recordings. Serotonin stimulation is modelled by inducing a current to all regions, originating from the DRN. Furthermore, it includes connectivity data from the Allen Brain Atlas that define the connectivity between the regions in the model as well as the projection density from the DRN to the different regions.  
