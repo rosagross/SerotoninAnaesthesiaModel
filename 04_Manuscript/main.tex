@@ -153,8 +153,19 @@ In case the input reaches the threshold level, the slope $g$ determines the outp
 \\
 By combining several local circuits, we implement a network of brain areas. The goal is to simulate the brain areas that were measured experimentally.
 \\
+\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{img/Methods/methodsFigureSerotonin.pdf}
+    \caption[Structure and dynamics of the firing rate model]{Structure and dynamics of the firing rate model. A) The effect of the populations rates (rE and rI) nullclines’ slope on the firing rate. The purple square indicates the default parameter setting.  B) Phase diagram showing the frequency of UP-DOWN states depending on the
+excitatory threshold and adaptation strength (using original time constant scaled by 3). Empty fields indicate
+absence of UP-DOWN states. The purple square indicates the setting for regions that show UP and DOWN
+states.}
+    \label{fig:methods}
+\end{figure}
 
-\subsubsection{Heterogeneity in the global ciruit}
+
+\subsubsection*{Heterogeneity}
 \noindent
 \indent The brain regions that are modelled in this project are heterogeneous in terms of firing rate, and characteristics of UP and DOWN states. The electrophysiological measurements show that some regions only show UP states, whereas others show a clear UP-DOWN dynamic. The goal is to incorporate this behaviour in the network model. As we know from the local circuit model, the frequency of the UP and DOWN states can be modified by changing the adaptation strength $\beta$ and the threshold of the E population $\theta_E$. Areas that show UP-DOWN dynamics in the electrophysiological recordings in anaesthetised mice are cortical areas as well as the striatum. A value of $\beta = 6$ and $\theta_E = 4$ is set for those regions, since a strong adaptation value leads to reliable generation of UP and DOWN states. Areas that do not show DOWN states, are midbrain areas as well as the hippocampus. This behaviour is achieved by using a low adaptation value $\beta = 1$ and a slightly higher threshold for E $\theta_E = 5$. Regions that show more unclear UP-DOWN states in the electrophysiological data receive a parameter setting of a medium adaptation value $\beta = 3$ and $\theta_E = 5$.
 \\
@@ -163,13 +174,6 @@ By combining several local circuits, we implement a network of brain areas. The 
 \noindent
 \indent The Allen Brain Institute provides an atlas of the mouse brain, including the connectivity between brain regions. This allows for more realistic modelling of the global circuit, and the investigation of the question of how relevant (heterogeneous) projections are.
 The Allen Brain Atlas can be accessed by using the API that is provided. The package \verb|allensdk| \cite{fulcherBenfulcherAllenSDKInitial2020} was used for this purpose. The Mouse Connectivity Atlas contains experiments about the projections between brain areas in Cre-modified and normal mice. In each experiment, the researchers injected a retrograde viral tracer into a brain structure. The brain areas that were downloaded from the Mouse Connectivity Atlas were chosen based on the areas identified in the recordings of the experimental study (Meijer et al., in preparation). The areas in the experimental study were defined in terms of the Beryl atlas, which is an atlas that is mapping brain structures with acronyms and parcellations slightly different from the Allen Brain Atlas. The regions defined in Beryl annotations were translated to the appropriate brain regions in the Allen atlas and grouped together to higher level areas. For each area, we obtained the projection density values to all relevant areas. Results from all experiments per region were averaged. Since some experiments do not show any projection values, a threshold of a projection density of 0.005 was applied for the experiment to be included. As a next step, the obtained values of the fine grained areas were grouped together into higher level brain areas that each represent one component of the network (see Figure \ref{fig:connectivity}).
-\\
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/Methods/figure1.pdf}
-    \caption[Connectivity from the Allen Brain Atlas]{Connectivity from the Allen Brain Atlas. A) shows the long-range projections between areas (x-axis: target regions) and B) the serotonergic projections originating from the DRN.}
-    \label{fig:connectivity}
-\end{figure}
 
 \indent Besides the connectivity values between the areas within the network, the serotonergic projections originating from the DRN are required to simulate the release of serotonin, since the DRN projects to some regions more than to others. For this, we used experiments in which selectively serotonergic projections are traced. Similar to the connectivity matrix, the results are grouped together into the areas that are relevant in the network model (see Figure \ref{fig:connectivity}). 
 \\
@@ -193,23 +197,8 @@ To simulate the inhibitory effect that serotonin seems to have on most brain are
 \end{equation}
 
 The recorded neurons in the mouse brain react to serotonin release in a trajectory in which there is a peak modulation observed after 0.5 seconds and a decay of this effect until it returns to the original state before optogenetic stimulation after 3 seconds. The time curve of this trajectory, here defined as $u(t)$ (see Figure \ref{fig:serotonin_release}) is multiplied with the parameter for serotonin stimulation strength $S$ and is therefore simulating the gradual serotonin release and delayed decay. The stimulation is applied for 1 second, in an inter-trial interval of 3-6 seconds, simulating transient optogenetic stimulation, mimicking the experimental procedure.
-\\
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.4\textwidth]{img/Methods/serotonin_trajectory.pdf}
-    \caption[Serotonin release trajectory]{Serotonin release trajectory $u(t)$. Estimated based on experimental data. A serotonin release of 1 indicates the full possible capacity of its release.}
-    \label{fig:serotonin_release} 
-\end{figure}
-
 Now, the target of the serotonin stimulation $I_{DRN}$ in the model is considered. The transition from an UP towards a DOWN state is influenced by the threshold $\theta_E$ and the E populations' capability of reaching this threshold. Lowering the input to the E population makes it more difficult for the E population to reach $\theta_E$. At the same time, as the adaptation towards E increases, it makes it even harder to reach the threshold and the system can eventually not stay in an UP state anymore, and therefore transitions into a DOWN state. By introducing an inhibitory current to the E population (subtracting  $I_{DRN}$ from $r_E$), it becomes harder to cross the threshold and it is more likely that the system eventually transitions into a DOWN state, which is exactly the effect that serotonin seems to have on the brain network. 
 \\
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.4\textwidth]{img/Methods/GlobalModel.pdf}
-    \caption[Global network model]{Global network model. The implemented model comprises 14 areas (3 example regions are displayed), which are interconnected.}
-    \label{fig:connect} 
-\end{figure}
 
 The described global model is extending the local circuit model proposed by Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}. The dynamics of the global model are formulated in Equation \ref{eq:6} (for the E population) and Equation \ref{eq:7} (for the I population). The formula for the adaptation remains as described in Equation \ref{eq:3}
 
@@ -250,15 +239,6 @@ oan each isolated area and compare it to the variance of the entire network. $N$
 \end{equation}
 
 This formula will provide us with information about the synchrony of every region compared to the global synchrony.
-
-
-\subsection*{Sub heading}
-\vspace{-7pt}
-Some sub headings
-
-\subsubsection*{Sub heading}
-\vspace{-7pt}
-Some sub headings
 
 \section*{Results}
 
