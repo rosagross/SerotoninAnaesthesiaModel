@@ -14,8 +14,8 @@ from stim_functions import figure_style
 
 # TODO: implement non absolute paths
 # set directories
-analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, '03_Analysis', 'analysed_data'))
-figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), 'Methods'))
+analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), 'SerotoninAnaesthesiaModel', '03_Analysis', 'analysed_data'))
+figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), 'SerotoninAnaesthesiaModel', '03_Analysis', 'Figures', 'Methods'))
 
 # load data 
 gIvsgE = pd.read_csv(os.path.join(analysed_data_dir, 'state_statistics_local_thetaE-1_beta6.csv'))
@@ -27,7 +27,7 @@ thetaEvsbeta = pd.read_csv(os.path.join(analysed_data_dir, 'state_statistics_loc
 # x axes: values of gE
 # y axes: value for gI
 
-color_parameter = 'rateI'
+color_parameter = 'rateE'
 gIvsgE.loc[gIvsgE[color_parameter]>1000, color_parameter] = 0
 gIvsgE[color_parameter] = gIvsgE[color_parameter].fillna(0)
 gIvsgE[color_parameter+'_log'] = np.log(gIvsgE[color_parameter])
@@ -40,7 +40,7 @@ ax = sns.heatmap(matrix_gIvsgE, cmap='turbo', square=True, rasterized=True) #, n
 ax.invert_yaxis()
 plt.ylabel('rI slope (gI)')
 plt.xlabel('rE slope (gE)')
-plt.title('Firing rate population I')
+plt.title('Firing rate population E')
 plt.savefig(os.path.join(figure_dir , f"phase_diagram_gIvsgE_{color_parameter}.pdf"), bbox_inches="tight")
 plt.show()
 
@@ -52,7 +52,7 @@ plt.show()
 # x axes: values of thetaE
 # y axes: value for beta
 
-thetaEvsbeta.loc[thetaEvsbeta['state_frequency']>15, 'state_frequency'] = np.NaN
+thetaEvsbeta.loc[thetaEvsbeta['state_frequency']>15, 'state_frequency'] = np.nan
 thetaEvsbeta = thetaEvsbeta[thetaEvsbeta['betaE']>0] 
 matrix_thetaEvsbeta = thetaEvsbeta.pivot(index='betaE', columns='thetaE', values='state_frequency')
 
