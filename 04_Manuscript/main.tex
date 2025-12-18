@@ -151,43 +151,8 @@ The threshold that has to be reached until the population reacts to incoming inp
 \\
 In case the input reaches the threshold level, the slope $g$ determines the output. The $g$ controls how sensitive the population reacts to input. A higher $g$ will lead to a stronger output than a lower $g$. The original values are $g_E = 1Hz$ and $g_I = 4Hz$, which will be manipulated later on, in order to reach firing rates that are more similar to the experimentally measured firing rates. 
 \\
-
-\noindent\textbf{UP and DOWN state dynamics}
-\\
-\indent Several components of the model play a role to generate the UP-DOWN dynamics. Most importantly, the system requires bistability, meaning that the model has two stable states of activity, which are called stable attractor points. When one of those points is reached, the network stays at that rate of activity if there is no perturbing signal from the outside reaching the network. The first attractor point represents the DOWN state, in which no firing rate is observed. The second attractor point represents the UP state, with an average firing rate that depends on the setting of local connectivity parameters (self coupling and coupling between E and I). The bistability of the local circuit is reached by the coupling between E and I population and the way the transfer functions are implemented. To find the two attractor points of the system, refer to the nullclines of $r_E(t)$ and $r_I(t)$. Equation \ref{eq:4} and \ref{eq:5} describes $r_E(t)$ and $r_I(t)$, and when solving the equation with setting $r_E=0$ and $r_I=0$, it yields the nullcline of each population. Under specific conditions the nullclines intersect at two points, which are the two attractor points in which both firing rates stay the same.
-
-\begin{equation}\label{eq:5}
-    r_E = g_E[J_EEr_E-J_EIrI-a-\theta_E]_+
-\end{equation}
-
-\begin{equation} %\label{eq:5}
-    r_I = g_I[J_IEr_E-J_IIrI-\theta_I]_+
-\end{equation}
-
-Where the two nullclines intersect depends on the threshold $\theta$ of both populations, since it defines the start of the incline of the linear function. If $\theta_E < \theta_I$, the nullcline of $r_E$ has time to incline linearly, whereas the nullcline of $r_I$ starts rising from zero only later on (see Figure \ref{fig:phase_diagram1} A). The fact that $g_E < g_I$, allows the nullclines to intersect and therefore allowing the stable attractor point for the UP state arise (see Figure \ref{fig:phase_diagram2} A). 
-
-
-
-\begin{figure}[h]
-    \centering
-    \includegraphics{img/Methods/Figure2_1.pdf}
-    \caption[Nullclines of rE and rI and the effect of their slope on E and I firing rates]{A) Nullclines of rE and rI (taken from Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}). The effect of the nullclines' slope on the B) E and C) I populations' firing rate. The purple square indicates the default parameter setting.}
-    \label{fig:phase_diagram1}
-\end{figure}
-
-
-Adaptation and the fluctuating noise in both populations can initiate the change between the two attractor points of the system. The threshold of the excitatory population $\theta_E$ and the adaptation strength $\beta$ are two parameters that determine the transitions between one state to the other. Figure \ref{fig:phase_diagram2} C) visualises the change of UP and DOWN state frequencies in a phase diagram of the parameters $\beta$ and $\theta_E$.
-\\
-\indent The circuit dynamics can be described with a limit cycle regime with oscillatory pattern of $\frac{1}{tau_A} Hz$. The originally defined time constants produce UP and DOWN activity with the frequency of 2 Hz. Since the electrophysiological recordings from the mouse brain showed that the UP and DOWN states have a frequency of 0.5-1 Hz, all time constants in the model were multiplied by 3, which leads to lower frequencies (see Figure \ref{fig:phase_diagram2} C).
 By combining several local circuits, we implement a network of brain areas. The goal is to simulate the brain areas that were measured experimentally.
 \\
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{img/Methods/Figure2_2.pdf}
-    \caption[The role of the excitatory firing threshold and the adaptation strength in the UP-DOWN dynamics]{The role of the excitatory firing threshold and the adaptation strength in the UP-DOWN dynamics. A) Adapted from Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, showing the two attractor points (U and D for UP and DOWN state) where the nullclines of rE and rI intersect. The current adaptation $\alpha$ value determines the position of the rE nullcline on the y-axis which can lead to the switch between the two attractor points. B) Taken from Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, showing the phases in which the cuircuit switches between states with transitions induced by noise fluctuations or adaptation. C) Phase diagram showing the frequency of UP-DOWN states depending on the excitatory threshold and adaptation strength (using original time constant scaled by 3). Empty fields indicate absence of UP-DOWN states. The purple square indicates the setting for regions that show UP and DOWN states.}
-    \label{fig:phase_diagram2}
-\end{figure}
-
 
 \subsubsection{Heterogeneity in the global ciruit}
 \noindent
@@ -531,6 +496,40 @@ The author of this preprint declares to have no financial conflict of interest w
 \section*{Appendix}
 
 
+\noindent\textbf{UP and DOWN state dynamics}
+\\
+\indent Several components of the model play a role to generate the UP-DOWN dynamics. Most importantly, the system requires bistability, meaning that the model has two stable states of activity, which are called stable attractor points. When one of those points is reached, the network stays at that rate of activity if there is no perturbing signal from the outside reaching the network. The first attractor point represents the DOWN state, in which no firing rate is observed. The second attractor point represents the UP state, with an average firing rate that depends on the setting of local connectivity parameters (self coupling and coupling between E and I). The bistability of the local circuit is reached by the coupling between E and I population and the way the transfer functions are implemented. To find the two attractor points of the system, refer to the nullclines of $r_E(t)$ and $r_I(t)$. Equation \ref{eq:4} and \ref{eq:5} describes $r_E(t)$ and $r_I(t)$, and when solving the equation with setting $r_E=0$ and $r_I=0$, it yields the nullcline of each population. Under specific conditions the nullclines intersect at two points, which are the two attractor points in which both firing rates stay the same.
+
+\begin{equation}\label{eq:5}
+    r_E = g_E[J_EEr_E-J_EIrI-a-\theta_E]_+
+\end{equation}
+
+\begin{equation} %\label{eq:5}
+    r_I = g_I[J_IEr_E-J_IIrI-\theta_I]_+
+\end{equation}
+
+Where the two nullclines intersect depends on the threshold $\theta$ of both populations, since it defines the start of the incline of the linear function. If $\theta_E < \theta_I$, the nullcline of $r_E$ has time to incline linearly, whereas the nullcline of $r_I$ starts rising from zero only later on (see Figure \ref{fig:phase_diagram1} A). The fact that $g_E < g_I$, allows the nullclines to intersect and therefore allowing the stable attractor point for the UP state arise (see Figure \ref{fig:phase_diagram2} A). 
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{img/Methods/Figure2_1.pdf}
+    \caption[Nullclines of rE and rI and the effect of their slope on E and I firing rates]{A) Nullclines of rE and rI (taken from Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}). The effect of the nullclines' slope on the B) E and C) I populations' firing rate. The purple square indicates the default parameter setting.}
+    \label{fig:phase_diagram1}
+\end{figure}
+
+
+Adaptation and the fluctuating noise in both populations can initiate the change between the two attractor points of the system. The threshold of the excitatory population $\theta_E$ and the adaptation strength $\beta$ are two parameters that determine the transitions between one state to the other. Figure \ref{fig:phase_diagram2} C) visualises the change of UP and DOWN state frequencies in a phase diagram of the parameters $\beta$ and $\theta_E$.
+\\
+\indent The circuit dynamics can be described with a limit cycle regime with oscillatory pattern of $\frac{1}{tau_A} Hz$. The originally defined time constants produce UP and DOWN activity with the frequency of 2 Hz. Since the electrophysiological recordings from the mouse brain showed that the UP and DOWN states have a frequency of 0.5-1 Hz, all time constants in the model were multiplied by 3, which leads to lower frequencies (see Figure \ref{fig:phase_diagram2} C).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{img/Methods/Figure2_2.pdf}
+    \caption[The role of the excitatory firing threshold and the adaptation strength in the UP-DOWN dynamics]{The role of the excitatory firing threshold and the adaptation strength in the UP-DOWN dynamics. A) Adapted from Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, showing the two attractor points (U and D for UP and DOWN state) where the nullclines of rE and rI intersect. The current adaptation $\alpha$ value determines the position of the rE nullcline on the y-axis which can lead to the switch between the two attractor points. B) Taken from Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, showing the phases in which the cuircuit switches between states with transitions induced by noise fluctuations or adaptation. C) Phase diagram showing the frequency of UP-DOWN states depending on the excitatory threshold and adaptation strength (using original time constant scaled by 3). Empty fields indicate absence of UP-DOWN states. The purple square indicates the setting for regions that show UP and DOWN states.}
+    \label{fig:phase_diagram2}
+\end{figure}
 
 \vfill\null
 
