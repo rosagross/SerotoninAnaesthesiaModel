@@ -107,20 +107,20 @@ To shed light on this issue, we stimulated serotonin by optogenetically activati
 \section*{Methods}
 
 \subsection*{Experimental data aqcuisition}\label{sec:expdata}
-\indent The model implemented in this project aims to explain the mechanism of serotonin's effects during anaesthesia. Particularly, the model is tailored to the recording procedure and findings that were obtained in an experiment designed and conducted by Dr. Guido Meijer at the Champalimaud Foundation in Lisbon, Portugal. In this experiment, neural activity in several brain regions was measured using Neuro\-pixels (electrodes measuring electrophysiological activity), after transient stimula\-tion of the serotonergic neurons in the DRN. For precise and local stimula\-tion, optogenetics \cite{deisseroth2015optogenetics} was used. The experiment was conducted on anaesthetized mice.\\
+\indent Neural activity in several brain regions was measured using Neuro\-pixels (electrodes measuring electrophysiological activity), after transient stimula\-tion of the serotonergic neurons in the DRN. For precise and local stimula\-tion, optogenetics \cite{deisseroth2015optogenetics} was used. The experiment was conducted on anaesthetized mice.\\
 \indent The following areas were recorded and replicated in the model: superior colliculus (SC), midbrain reticular nucleus (MRN), secondary motor cortex (M2), medial prefrontal cortex (mPFC), 
 orbitofrontal cortex (OFC), piriform cortex (PIR), striatum (STR), Amygdala (Amyg), retrosplenial cortex (RSP),  visual cortex (VIS), hippocampus (Hipp), striatum (Str), olfactory cortex (OLF), and piriform cortex (Pir).
 
-\subsection*{Model structure}
+
+
+\subsection*{Firing rate model}
 
 \noindent
-\indent The model implemented in this project is a bistable firing rate model, consisting of multiple local circuits that all-to-all connected form a global network. The local circuits represent the relevant brain areas from the experimental recordings. Serotonin stimulation is modelled by inducing a current to all regions, originating from the DRN. Furthermore, it includes connectivity data from the Allen Brain Atlas that define the connectivity between the regions in the model as well as the projection density from the DRN to the different regions.  
+\indent We implemented a bistable firing rate model, consisting of multiple local circuits that all-to-all connected form a global network. The local circuits represent the relevant brain areas from the experimental recordings. Serotonin stimulation is modelled by inducing a current to all regions, originating from the DRN. Furthermore, it includes connectivity data from the Allen Brain Atlas that define the connectivity between the regions in the model as well as the projection density from the DRN to the different regions.  
 
-\subsubsection{Local circuit model \label{sec:lc}}
-\noindent
-\indent This section describes the local circuit model which is used to simulate the average firing rate in individual brain areas in the model. The local circuit model has to fulfil the condition that it is a dynamical firing rate model, which produces UP and DOWN states similar to the states that could be recorded during anaesthesia \cite{ruiz-mejiasSlowFastRhythms2011}. Therefore, we chose a model proposed by Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, which is a simplistic model including one excitatory population $E$ and one inhibitory population $I$. Furthermore, it includes an adaptation module $a$, which simulates synaptic fatigue in pyramidal cells, as well as background noise which is introduced to the E and I population. There are projections implemented between both populations, as well as a self coupling mechanism. 
+The local circuit model is based on the implementation by Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, including one excitatory population $E$ and one inhibitory population $I$. Furthermore, it includes an adaptation module $a$, simulating synaptic fatigue in pyramidal cells, as well as background noise which is introduced to the E and I population. There are projections implemented between both populations, as well as a self coupling mechanism. 
 
-The local circuit model follows three main equations, as defined in Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, which describe the change of the populations $E$ and $I$ firing rate $r$ (see Equation \ref{eq:1} and \ref{eq:2}), as well as the strength of adaptation $a$ (see Equation \ref{eq:3}) over time, where $\tau_E, \tau_I$ and $\tau_a$ are time constants.
+The following equations describe the change of the populations $E$ and $I$ firing rate $r$ (see Equation \ref{eq:1} and \ref{eq:2}), as well as the strength of adaptation $a$ (see Equation \ref{eq:3}) over time, where $\tau_E, \tau_I$ and $\tau_a$ are time constants:
 
 \begin{equation}\label{eq:1}
     \tau_E \frac{dr_E}{dt} = -r_E(t) + \varphi_E (J_{EE}r_E(t) - J_{EI}r_I(t)-a(t)+\sigma\xi_E(t))
@@ -179,6 +179,7 @@ Where the two nullclines intersect depends on the threshold $\theta$ of both pop
 Adaptation and the fluctuating noise in both populations can initiate the change between the two attractor points of the system. The threshold of the excitatory population $\theta_E$ and the adaptation strength $\beta$ are two parameters that determine the transitions between one state to the other. Figure \ref{fig:phase_diagram2} C) visualises the change of UP and DOWN state frequencies in a phase diagram of the parameters $\beta$ and $\theta_E$.
 \\
 \indent The circuit dynamics can be described with a limit cycle regime with oscillatory pattern of $\frac{1}{tau_A} Hz$. The originally defined time constants produce UP and DOWN activity with the frequency of 2 Hz. Since the electrophysiological recordings from the mouse brain showed that the UP and DOWN states have a frequency of 0.5-1 Hz, all time constants in the model were multiplied by 3, which leads to lower frequencies (see Figure \ref{fig:phase_diagram2} C).
+By combining several local circuits, we implement a network of brain areas. The goal is to simulate the brain areas that were measured experimentally.
 \\
 \begin{figure}[h]
     \centering
@@ -186,17 +187,14 @@ Adaptation and the fluctuating noise in both populations can initiate the change
     \caption[The role of the excitatory firing threshold and the adaptation strength in the UP-DOWN dynamics]{The role of the excitatory firing threshold and the adaptation strength in the UP-DOWN dynamics. A) Adapted from Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, showing the two attractor points (U and D for UP and DOWN state) where the nullclines of rE and rI intersect. The current adaptation $\alpha$ value determines the position of the rE nullcline on the y-axis which can lead to the switch between the two attractor points. B) Taken from Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, showing the phases in which the cuircuit switches between states with transitions induced by noise fluctuations or adaptation. C) Phase diagram showing the frequency of UP-DOWN states depending on the excitatory threshold and adaptation strength (using original time constant scaled by 3). Empty fields indicate absence of UP-DOWN states. The purple square indicates the setting for regions that show UP and DOWN states.}
     \label{fig:phase_diagram2}
 \end{figure}
-\subsubsection{Global circuit\label{sec:gc}}
-\noindent
-\indent By combining several local circuits, we implement a network of brain areas. The goal is to simulate the brain areas that were measured experimentally (see \ref{sec:expdata} for names of all simulated regions).
 
 
-\subsubsection{Heterogeneity}
+\subsubsection{Heterogeneity in the global ciruit}
 \noindent
 \indent The brain regions that are modelled in this project are heterogeneous in terms of firing rate, and characteristics of UP and DOWN states. The electrophysiological measurements show that some regions only show UP states, whereas others show a clear UP-DOWN dynamic. The goal is to incorporate this behaviour in the network model. As we know from the local circuit model, the frequency of the UP and DOWN states can be modified by changing the adaptation strength $\beta$ and the threshold of the E population $\theta_E$. Areas that show UP-DOWN dynamics in the electrophysiological recordings in anaesthetised mice are cortical areas as well as the striatum. A value of $\beta = 6$ and $\theta_E = 4$ is set for those regions, since a strong adaptation value leads to reliable generation of UP and DOWN states. Areas that do not show DOWN states, are midbrain areas as well as the hippocampus. This behaviour is achieved by using a low adaptation value $\beta = 1$ and a slightly higher threshold for E $\theta_E = 5$. Regions that show more unclear UP-DOWN states in the electrophysiological data receive a parameter setting of a medium adaptation value $\beta = 3$ and $\theta_E = 5$.
 \\
 \indent Besides the state frequency, the average firing rate of the E and I populations in each area can be adapted to match the experimental data. The adjustment is realised by cautiously modifying the slope of each populations transfer function (the $g$ in Equation \ref{eq:4}). This modification of the firing rates in each of the local circuit models (brain areas) so that the average firing rate of the E and I population is slightly below the value measured in the mouse brain, since this value will increase later on due to the communication between the areas. The average firing rate values in the model therefore approximate the measured rates (+-5 spikes per seconds).  
-\subsection{Connectivity\label{sec:abc}}
+\subsection*{Connectivity\label{sec:abc}}
 \noindent
 \indent The Allen Brain Institute provides an atlas of the mouse brain, including the connectivity between brain regions. This allows for more realistic modelling of the global circuit, and the investigation of the question of how relevant (heterogeneous) projections are.
 The Allen Brain Atlas can be accessed by using the API that is provided. The package \verb|allensdk| \cite{fulcherBenfulcherAllenSDKInitial2020} was used for this purpose. The Mouse Connectivity Atlas contains experiments about the projections between brain areas in Cre-modified and normal mice. In each experiment, the researchers injected a retrograde viral tracer into a brain structure. The brain areas that were downloaded from the Mouse Connectivity Atlas were chosen based on the areas identified in the recordings of the experimental study (Meijer et al., in preparation). The areas in the experimental study were defined in terms of the Beryl atlas, which is an atlas that is mapping brain structures with acronyms and parcellations slightly different from the Allen Brain Atlas. The regions defined in Beryl annotations were translated to the appropriate brain regions in the Allen atlas and grouped together to higher level areas. For each area, we obtained the projection density values to all relevant areas. Results from all experiments per region were averaged. Since some experiments do not show any projection values, a threshold of a projection density of 0.005 was applied for the experiment to be included. As a next step, the obtained values of the fine grained areas were grouped together into higher level brain areas that each represent one component of the network (see Figure \ref{fig:connectivity}).
@@ -218,7 +216,7 @@ The Allen Brain Atlas can be accessed by using the API that is provided. The pac
 
 
 
-\subsubsection{Modelling Serotonin Stimulation\label{sec:mss}}
+\subsection*{Modelling Serotonin Stimulation\label{sec:mss}}
 
 \indent 
 
@@ -258,29 +256,22 @@ The described global model is extending the local circuit model proposed by Jerc
         \tau \frac{dr_I}{dt} = -r_I(t) J_{II} r_I(t) - J_{IE} r_E(t) + \theta_I + \sigma \xi_X(t) \\[20pt]
 \end{equation}
 
-\subsection{Model modifications}
+\subsection*{Simulation modifications}
 \noindent
 \indent To examine which components of the model are crucial for the replication of serotonin's effect, a subset of the simulations are run with a slightly modified model. 
-\subsection{Modified connectivity}
-\noindent
-\indent The goal is to shine light on the role of connectivity in the brain on the effect of serotonin, and therefore understand the importance of communication between the different areas. For this purpose, two aspects are examined: 1) the strength, and 2) the heterogeneity of the coupling. The coupling strength was modified by changing the value of $G$. To test the relevance of heterogeneous coupling, the connectivity matrix was replaced by a unique value for all brain areas. To ensure that this homogeneous connectivity is not too strong or too weak, the value is calculated from the mean of the connectivity matrix, so that $W$ is replaced by \(\bar{W} = \frac{1}{n} \sum W\).
+\indent The first goal is to shine light on the role of connectivity in the brain on the effect of serotonin, and therefore understand the importance of communication between the different areas. For this purpose, two aspects are examined: 1) the strength, and 2) the heterogeneity of the coupling. The coupling strength was modified by changing the value of $G$. To test the relevance of heterogeneous coupling, the connectivity matrix was replaced by a unique value for all brain areas. To ensure that this homogeneous connectivity is not too strong or too weak, the value is calculated from the mean of the connectivity matrix, so that $W$ is replaced by \(\bar{W} = \frac{1}{n} \sum W\).
 
-\subsection{Modulating the mechanism of modelling serotonin}
-\noindent
-\indent Intuitively, adding a current to the I populations rate should lead to the same effect, as it shifts the I nullcline to the left, such that the attractor point representing the UP state (intersection of the two nullclines) eventually disappears and the system would transition into a DOWN state. 
+\indent The second goal is to investigate the mechanism of serotonin modulation. We implement serotonin modulation via an inhibitory current targeting E populations.
+Intuitively, adding a current to the I populations rate should lead to the same effect, as it shifts the I nullcline to the left, such that the attractor point representing the UP state (intersection of the two nullclines) eventually disappears and the system would transition into a DOWN state. 
 To validate the assumption and determine if stimulation can induce DOWN states through alternative means, simulations in which population I is targeted by an excitatory current were run. This is achieved by adding 
 $I_{DRN}$ to $r_I$ instead of subtracting $I_{DRN}$ from $r_E$.
 \\
 \indent Given the potential for unexpected results in exploring the different mechanisms of serotonin stimulation, additional simulations were performed by targeting the E population with an excitatory current (reverting the sign of $I_{DRN}$ in Equation \ref{eq:6}) and the I population with an inhibitory current (subtracting $I_{DRN}$ from $r_I$). These simulations aim to determine if these mechanisms would also lead to a comparable effect and to evaluate the significance of the chosen approach for modelling serotonin stimulation in achieving the observed effects in the experimental data.
 
-\section{Analysis methodologies}
+\section*{Analysis of UP and DOWN states}
 
-\subsubsection{Hidden Markov Model for state classification\label{sec:hmm}}
-\noindent
 \indent To analyse the UP and DOWN states in the simulated activity, a Hidden Markov Model (HMM) was applied. We used the package \verb|ssm| developed by Linderman et al. \cite{Linderman_SSM_Bayesian_Learning_2020}, which implements state classification with HMMs using Bayesian inference. To classify the states using HMMs, first, a HMM model has to be defined, and the number of possible states has to be specified. Then, the HMM is fit to the firing rate data. Here, we used the I population's firing rate, since it is easier to classify based on its high firing rate relative to the E population's firing rate. It is now possible to predict the most likely state for every time step. Based on the HMM state classification, analyses of the probability of a certain state at a given time are possible.
 
-\subsection{Synchrony in the global network model}\label{cha:brunel}
-\noindent
 \indent Previous evidence showed that inter-area communication introduces synchrony within a network \cite{varelaBrainwebPhaseSynchronization2001, holcmanEmergenceStatesCortical2006}. This might also be the case of the UP-DOWN dynamics that occur in each area. For example, if an UP state is induced in one area, the elevated firing rate is propagated to the E population of the other areas, increasing the chance of a simultaneous transition into an UP state in the targeted areas. To measure the synchrony of the areas in the network, we computed the parameter $\chi(N)$ proposed by Brunel \cite{brunelCommunicatedPaulTiesinga2006} (see Equation \ref{eq:brunel1} and \ref{eq:brunel2}). The idea behind the formula is to take the variance
 oan each isolated area and compare it to the variance of the entire network. $N$ denotes the number of local areas in the network, and r is the I population's firing rate.  
 
@@ -536,6 +527,10 @@ Some acknoledgments
 
 \section*{Conflict of interest disclosure}
 The author of this preprint declares to have no financial conflict of interest with the content of this article.
+
+\section*{Appendix}
+
+
 
 \vfill\null
 
