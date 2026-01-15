@@ -12,10 +12,9 @@ import seaborn as sns
 from os.path import join, realpath, dirname, split
 from brainbox.io.one import SpikeSortingLoader
 from brainbox.processing import bincount2D
-from stim_functions import (query_ephys_sessions, high_level_regions, get_neuron_qc, remap,
-                            figure_style, load_passive_opto_times, paths)
+from updown_functions import query_ephys_sessions, figure_style, load_passive_opto_times, paths
 from one.api import ONE
-from ibllib.atlas import AllenAtlas
+from iblatlas.atlas import AllenAtlas
 ba = AllenAtlas()
 one = ONE()
 
@@ -30,11 +29,7 @@ f_path, save_path = paths()
 fig_path = join(f_path, split(dirname(realpath(__file__)))[-1])
 
 # Query sessions
-rec_both = query_ephys_sessions(anesthesia='both', one=one)
-rec_both['anesthesia'] = 'both'
-rec_anes = query_ephys_sessions(anesthesia='yes', one=one)
-rec_anes['anesthesia'] = 'yes'
-rec = pd.concat((rec_both, rec_anes)).reset_index(drop=True)
+rec = query_ephys_sessions(one=one)
 
 updown_psd_df = pd.DataFrame()
 updown_max_df = pd.DataFrame()

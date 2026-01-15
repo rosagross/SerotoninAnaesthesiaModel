@@ -40,7 +40,7 @@ SMOOTHING = 0.025
 
 # Get paths
 f_path, save_path = paths()
-fig_path = join(f_path, split(dirname(realpath(__file__)))[-1])
+fig_path = join(f_path, 'ephys_updown_states')
 
 # Get session details
 ins = one.alyx.rest('insertions', 'list', date=DATE, subject=SUBJECT, name=PROBE)

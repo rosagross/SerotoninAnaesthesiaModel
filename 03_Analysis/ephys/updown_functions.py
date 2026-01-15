@@ -11,7 +11,6 @@ import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
 import tkinter as tk
-import patsy
 import statsmodels.api as sm
 from sklearn.model_selection import KFold
 from scipy.stats import binned_statistic
@@ -21,7 +20,6 @@ from scipy.signal.windows import gaussian
 import pathlib
 from brainbox import singlecell
 from os.path import join, realpath, dirname, isfile
-from glob import glob
 from matplotlib import colors as matplotlib_colors
 from scipy.interpolate import interp1d
 import json
@@ -296,7 +294,7 @@ def query_ephys_sessions(acronym=None, one=None):
     # Only include subjects from subjects.csv
     incl_subjects = load_subjects()
     ins = [i for i in ins if i['session_info']['subject'] in incl_subjects['subject'].values]
-
+    
     # Get list of eids and probes
     rec = pd.DataFrame()
     rec['pid'] = np.array([i['id'] for i in ins])
@@ -305,6 +303,7 @@ def query_ephys_sessions(acronym=None, one=None):
     rec['subject'] = np.array([i['session_info']['subject'] for i in ins])
     rec['date'] = np.array([i['session_info']['start_time'][:10] for i in ins])
     rec = rec.drop_duplicates('pid', ignore_index=True)
+    rec = rec.merge(incl_subjects[['subject', 'expression', 'also_awake']], on='subject', how='left')
     return rec
 
 
@@ -505,10 +504,12 @@ def load_passive_opto_times(eid, one=None, freq=25):
     # Load in pulses from disk if already extracted
     _, save_path = paths()
     save_path = join(save_path, 'OptoTimes')
-    if isfile(join(save_path, f'{subject}_{date}_pulse_trains.npy')):
+    if isfile(join(save_path, f'{subject}_{date}_pulse_trains_{freq}hz.npy')):
         opto_train_times = np.load(join(save_path, f'{subject}_{date}_pulse_trains_{freq}hz.npy'))
         opto_on_times = np.load(join(save_path, f'{subject}_{date}_ind_pulses_{freq}hz.npy'))
         return opto_train_times, opto_on_times
+    else:
+        return None, None
    
 
 def load_trials(eid, laser_stimulation=False, invert_choice=False, invert_stimside=False, one=None):
