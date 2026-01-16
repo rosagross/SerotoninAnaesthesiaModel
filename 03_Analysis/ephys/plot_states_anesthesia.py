@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 from os.path import join, realpath, dirname, split
 import pandas as pd
 from matplotlib.patches import Rectangle
-from stim_functions import figure_style, paths, load_subjects
+from updown_functions import figure_style, paths, load_subjects
 
 # Paths
 f_path, save_path = paths()
@@ -22,13 +22,8 @@ fig_path = join(f_path, split(dirname(realpath(__file__)))[-1])
 p_state_df = pd.read_csv(join(save_path, 'updown_states_anesthesia.csv'))
 
 # Average over mice first
-p_state_df = p_state_df.groupby(['subject', 'time', 'region', 'opto']).mean(numeric_only=True).reset_index()
+p_state_df = p_state_df.groupby(['subject', 'time', 'region', 'expression']).mean(numeric_only=True).reset_index()
 
-# Only select sert-cre mice
-subjects = load_subjects()
-for i, nickname in enumerate(np.unique(subjects['subject'])):
-    p_state_df.loc[p_state_df['subject'] == nickname, 'sert-cre'] = subjects.loc[subjects['subject'] == nickname, 'sert-cre'].values[0]
-p_state_df = p_state_df[p_state_df['sert-cre'] == 1]
 
 # %% Plot
 colors, dpi = figure_style()
@@ -41,7 +36,7 @@ titles = ['Frontal cortex', 'Striatum', 'Amygdala', 'Sensory ctx', 'Hippocampus'
 for i, region in enumerate(regions):
 
     axs[i].add_patch(Rectangle((0, -0.25), 1, 0.75, color='royalblue', alpha=0.25, lw=0))
-    sns.lineplot(data=p_state_df[p_state_df['region'] == region], x='time', y='p_down_bl', hue='opto',
+    sns.lineplot(data=p_state_df[p_state_df['region'] == region], x='time', y='p_down_bl', hue='expression',
                  hue_order=[1, 0], palette=[colors['stim'], colors['no-stim']], errorbar='se',
                  err_kws={'lw': 0}, ax=axs[i])
     axs[i].set(xlabel='Time (s)', title=titles[i], ylim=[-0.1, 0.3],
@@ -81,7 +76,7 @@ titles = ['Frontal cortex', 'Amygdala', 'Striatum', 'Sensory ctx', 'Hippocampus'
 for i, region in enumerate(regions):
 
     axs[i].add_patch(Rectangle((0, -0.25), 1, 0.75, color='royalblue', alpha=0.25, lw=0))
-    sns.lineplot(data=p_state_df[p_state_df['region'] == region], x='time', y='p_down', hue='opto',
+    sns.lineplot(data=p_state_df[p_state_df['region'] == region], x='time', y='p_down', hue='expression',
                  hue_order=[1, 0], palette=[colors['stim'], colors['no-stim']], errorbar='se',
                  err_kws={'lw': 0}, ax=axs[i])
     #axs[i].set(xlabel='Time (s)', title=titles[i], ylim=[-0.1, 0.3],

@@ -446,7 +446,7 @@ def high_level_regions(acronyms, merge_cortex=False, only_vis=False, input_atlas
     regions[cosmos_regions == 'MB'] = 'Midbrain'
     regions[cosmos_regions == 'HPF'] = 'Hippocampus'
     regions[cosmos_regions == 'TH'] = 'Thalamus'
-    regions[np.in1d(first_level_regions, ['Amyg'])] = 'Amygdala'
+    regions[np.in1d(first_level_regions, ['Amyg.'])] = 'Amygdala'
     regions[np.in1d(acronyms, ['CP', 'ACB', 'FS'])] = 'Striatum'
     return regions
 

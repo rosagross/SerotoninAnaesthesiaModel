@@ -31,7 +31,7 @@ PRE_TIME = 1  # final time window to use
 POST_TIME = 4
 HMM_PRE_TIME = 2  # time window to run HMM on
 HMM_POST_TIME = 5
-OVERWRITE = False
+OVERWRITE = True
 
 # Get path
 fig_path, save_path = paths()
@@ -53,7 +53,7 @@ for i in rec.index.values:
     # Get session details
     pid, eid, probe = rec.loc[i, 'pid'], rec.loc[i, 'eid'], rec.loc[i, 'probe']
     subject, date = rec.loc[i, 'subject'], rec.loc[i, 'date']
-    sert_cre = subjects.loc[subjects['subject'] == subject, 'sert-cre'].values[0]
+    expression = subjects.loc[subjects['subject'] == subject, 'expression'].values[0]
     print(f'\nStarting {subject}, {date}, {probe} ({i+1} of {len(rec)})')
 
     if not OVERWRITE:
@@ -62,9 +62,6 @@ for i in rec.index.values:
 
     # Load opto times
     opto_times, _ = load_passive_opto_times(eid, one=one)
-
-    # Generate random onset times
-    random_times = np.sort(np.random.uniform(opto_times[0], opto_times[-1], size=opto_times.shape[0]))
 
     # Load in spikes
     sl = SpikeSortingLoader(pid=pid, one=one, atlas=ba)
@@ -103,7 +100,7 @@ for i in rec.index.values:
 
         # Get binned spikes centered at stimulation onset
         peth, binned_spikes = calculate_peths(spikes.times, spikes.clusters, clusters_in_region, 
-                                              np.concatenate((random_times, opto_times)),
+                                              opto_times,
                                               pre_time=HMM_PRE_TIME, post_time=HMM_POST_TIME, bin_size=BIN_SIZE,
                                               smoothing=0, return_fr=False)
         binned_spikes = binned_spikes.astype(int)
@@ -150,17 +147,13 @@ for i in rec.index.values:
         state_mat = state_mat[:, np.concatenate(([False], use_timepoints[:-1]))]  
 
         # Get down state probability over trials
-        p_down = np.mean(prob_mat[int(prob_mat.shape[0]/2):], axis=0)
-        p_down_null = np.mean(prob_mat[:int(prob_mat.shape[0]/2)], axis=0)
+        p_down = np.mean(prob_mat, axis=0)
         p_down_bl = p_down - np.mean(p_down[time_ax < 0])
-        p_down_null_bl = p_down_null - np.mean(p_down_null[time_ax < 0])
 
         up_down_state_df = pd.concat((up_down_state_df, pd.DataFrame(data={
-            'p_down': p_down, 'p_down_bl': p_down_bl, 'time': time_ax, 'opto': 1,
-            'subject': subject, 'pid': pid, 'region': region})))
-        up_down_state_df = pd.concat((up_down_state_df, pd.DataFrame(data={
-            'p_down': p_down_null, 'p_down_bl': p_down_null_bl, 'time': time_ax, 'opto': 0,
-            'subject': subject, 'pid': pid, 'region': region})))
+            'p_down': p_down, 'p_down_bl': p_down_bl, 'time': time_ax, 
+            'subject': subject, 'pid': pid, 'region': region,
+            'expression': expression})))
 
     # Save result
     up_down_state_df.to_csv(join(save_path, 'updown_states_anesthesia.csv'))
