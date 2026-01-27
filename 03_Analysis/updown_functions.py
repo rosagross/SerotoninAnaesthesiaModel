@@ -11,23 +11,15 @@ import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
 import tkinter as tk
-import statsmodels.api as sm
-from sklearn.model_selection import KFold
 from scipy.stats import binned_statistic
 from scipy.signal import convolve
 from scipy.stats import binned_statistic_2d
 from scipy.signal.windows import gaussian
 import pathlib
-from brainbox import singlecell
 from os.path import join, realpath, dirname, isfile
 from matplotlib import colors as matplotlib_colors
-from scipy.interpolate import interp1d
 import json
 from pathlib import Path
-from brainbox.io.one import SessionLoader
-from brainbox.io.spikeglx import spikeglx
-from brainbox.metrics.single_units import spike_sorting_metrics
-from brainbox.io.one import SpikeSortingLoader
 from iblutil.numerical import ismember
 from iblatlas.regions import BrainRegions
 from iblatlas.atlas import AllenAtlas
@@ -46,21 +38,13 @@ def init_one(local=False, open_one=False):
     if local:
         mode='local'
     else:
-        mode='auto'
+        mode='remote'
     if open_one:
         one = ONE(mode=mode, base_url='https://openalyx.internationalbrainlab.org',
                   password='international', silent=True)
     else:
         one = ONE(mode=mode)
     return one
-
-
-def load_subjects():
-    subjects = pd.read_csv(join(pathlib.Path(__file__).parent.resolve(), 'subjects.csv'),
-                           delimiter=';|,', engine='python')
-    subjects['subject_nr'] = subjects['subject_nr'].astype(int)
-    subjects = subjects.reset_index(drop=True)
-    return subjects
 
 
 def paths(save_dir='repo'):
@@ -87,7 +71,7 @@ def paths(save_dir='repo'):
     if not isfile(join(dirname(realpath(__file__)), 'paths.json')):
         path_dict = dict()
         path_dict['fig_path'] = input('Path folder to save figures: ')
-        path_dict['save_path'] = join(dirname(realpath(__file__)), 'Data')
+        path_dict['save_path'] = input('Path folder to data: ')
         path_file = open(join(dirname(realpath(__file__)), 'paths.json'), 'w')
         json.dump(path_dict, path_file)
         path_file.close()
@@ -102,6 +86,17 @@ def paths(save_dir='repo'):
     else:
         print('save_dir must be either repo or cache')
     return path_dict['fig_path'], save_dir
+
+
+def load_subjects(only_expression=True):
+    _, data_path = paths()
+    subjects = pd.read_csv(join(data_path, 'subjects.csv'),
+                           delimiter=';|,', engine='python')
+    subjects['subject_nr'] = subjects['subject_nr'].astype(int)
+    if only_expression:
+        subjects = subjects[subjects['expression'] == 1]
+    subjects = subjects.reset_index(drop=True)
+    return subjects
 
 
 def figure_style():
@@ -134,9 +129,7 @@ def figure_style():
                 })
     matplotlib.rcParams['pdf.fonttype'] = 42
     matplotlib.rcParams['ps.fonttype'] = 42
-    subject_pal = sns.color_palette(
-        np.concatenate((sns.color_palette('tab20'),
-                        [matplotlib_colors.to_rgb('maroon'), np.array([0, 0, 0])])))
+    subject_pal = sns.color_palette(sns.color_palette('Dark2'))
     frontal = sns.color_palette('Dark2')[1]
     sensory = sns.color_palette('Dark2')[5]
     hipp = sns.color_palette('Dark2')[4]
@@ -244,8 +237,8 @@ def get_artifact_neurons():
 
 
 def remove_artifact_neurons(df):
-    artifact_neurons = pd.read_csv(
-        join(pathlib.Path(__file__).parent.resolve(), 'artifact_neurons.csv'))
+    _, data_path = paths()
+    artifact_neurons = pd.read_csv(join(data_path, 'artifact_neurons.csv'))
     for i, column in enumerate(df.columns):
         if df[column].dtype == bool:
             df[column] = df[column].astype('boolean')
@@ -258,12 +251,14 @@ def remove_artifact_neurons(df):
     return df
 
 
-def query_ephys_sessions(acronym=None, one=None):
+def query_ephys_sessions(only_expression=True, acronym=None, one=None):
     """
     Query ephys recordings from the database.
 
     Parameters
     ----------
+    only_expression : boolean
+        Only return sessions from mice with expression
     acronym : string, optional
         Only return recordings that include the brain region with this Allen acronym
     one : Initialized connection to the ONE database
@@ -292,7 +287,7 @@ def query_ephys_sessions(acronym=None, one=None):
             ins = ins + one.alyx.rest('insertions', 'list', django=DJANGO_STR, atlas_acronym=ac)
 
     # Only include subjects from subjects.csv
-    incl_subjects = load_subjects()
+    incl_subjects = load_subjects(only_expression=only_expression)
     ins = [i for i in ins if i['session_info']['subject'] in incl_subjects['subject'].values]
     
     # Get list of eids and probes
@@ -629,7 +624,8 @@ def get_neuron_qc(pid, one=None, ba=None, force_rerun=False):
     - QC metrics are saved to a CSV file in the session's ALF directory after computation.
     - The function uses spike sorting data to calculate QC metrics, which include spike times, cluster IDs, amplitudes, and depths.
     """
-
+    from brainbox.metrics.single_units import spike_sorting_metrics    
+    from brainbox.io.one import SpikeSortingLoader
     one = one or ONE()
 
     # Check if QC is already computed
@@ -655,67 +651,6 @@ def get_neuron_qc(pid, one=None, ba=None, force_rerun=False):
                                           cluster_ids=np.arange(clusters.channels.size))
     qc_metrics.to_csv(join(session_path, 'alf', probe, 'neuron_qc_metrics.csv'))
     return qc_metrics
-
-
-def load_lfp(eid, probe, time_start, time_end, relative_to='begin', destriped=False, one=None):
-    """
-    Load a slice of local field potential (LFP) data for a specified time range.
-    Parameters:
-        eid (str): Experiment ID for the session to load data from.
-        probe (str): Name of the probe to load LFP data for.
-        time_start (float): Start time of the LFP slice in seconds.
-        time_end (float): End time of the LFP slice in seconds.
-        relative_to (str, optional): Reference point for the time range. 
-            Options are 'begin' (default) or 'end'.
-        destriped (bool, optional): If True, load destriped LFP data. 
-            Defaults to False.
-        one (ONE, optional): Instance of the ONE API for data access. 
-            If None, a new instance is created.
-    Returns:
-        tuple:
-            - signal (numpy.ndarray): The LFP signal for the specified time range, 
-              with shape (channels, time).
-            - time (numpy.ndarray): Array of time points corresponding to the LFP signal.
-    Raises:
-        ValueError: If the `relative_to` parameter is not 'begin' or 'end'.
-    Notes:
-        - If `destriped` is True, the function attempts to load pre-destriped LFP data 
-          from a predefined path.
-        - If `destriped` is False, the function downloads the raw LFP data using the ONE API.
-        - The function uses the `spikeglx.Reader` to read the LFP data and extract the 
-          specified time slice.
-    """
-
-    one = one or ONE()
-    destriped_lfp_path = join(paths()[1], 'LFP')
-
-    # Download LFP data
-    if destriped:
-        ses_details = one.get_details(eid)
-        subject = ses_details['subject']
-        date = ses_details['start_time'][:10]
-        lfp_path = join(destriped_lfp_path, f'{subject}_{date}_{probe}_destriped_lfp.cbin')
-    else:
-        lfp_paths, _ = one.load_datasets(eid, download_only=True, datasets=[
-            '_spikeglx_ephysData_g*_t0.imec*.lf.cbin', '_spikeglx_ephysData_g*_t0.imec*.lf.meta',
-            '_spikeglx_ephysData_g*_t0.imec*.lf.ch'], collections=[f'raw_ephys_data/{probe}'] * 3)
-        lfp_path = lfp_paths[0]
-    sr = spikeglx.Reader(lfp_path)
-
-    # Convert time to samples
-    if relative_to == 'begin':
-        samples_start = int(time_start * sr.fs)
-        samples_end = int(time_end * sr.fs)
-    elif relative_to == 'end':
-        samples_start = sr.shape[0] - int(time_start * sr.fs)
-        samples_end = sr.shape[0] - int(time_end * sr.fs)
-
-    # Load in lfp slice
-    signal = sr.read(nsel=slice(samples_start, samples_end, None), csel=slice(None, None, None))[0]
-    signal = signal.T
-    time = np.arange(samples_start, samples_end) / sr.fs
-
-    return signal, time
 
 
 def plot_scalar_on_slice(
@@ -1114,6 +1049,7 @@ def peri_multiple_events_time_histogram(
         ax : matplotlib axes
             Axes with all of the plots requested.
     """
+    from brainbox import singlecell
 
     # Check to make sure if we fail, we fail in an informative way
     if not len(spike_times) == len(spike_clusters):
@@ -1185,539 +1121,3 @@ def peri_multiple_events_time_histogram(
     ax.spines['right'].set_visible(False)
     ax.set_xlabel('Time (s) after event')
     return ax
-
-
-def calculate_mi(spike_counts_A, spike_counts_B):
-
-    # Calculate joint probability distribution
-    joint_hist, _, _ = np.histogram2d(spike_counts_A, spike_counts_B, bins=spike_counts_A.shape[0])
-    joint_prob = joint_hist / np.sum(joint_hist)
-
-    # Calculate marginal probabilities
-    marg_prob_A = np.sum(joint_prob, axis=1)
-    marg_prob_B = np.sum(joint_prob, axis=0)
-
-    # Calculate mutual information
-    non_zero_indices = joint_prob > 0
-    mutual_info = np.sum(joint_prob[non_zero_indices] * \
-                         np.log2(joint_prob[non_zero_indices] / \
-                                 (np.outer(marg_prob_A, marg_prob_B))[non_zero_indices]))
-
-    return mutual_info
-
-
-def get_dlc_XYs_old(one, eid, view='left', likelihood_thresh=0.9):
-    ses_details = one.get_details(eid)
-    subject = ses_details['subject']
-    date = ses_details['date']
-    _, save_path = paths()
-    if f'alf/_ibl_{view}Camera.times.npy' in one.list_datasets(eid):
-        times = one.load_dataset(eid, f'_ibl_{view}Camera.times.npy')
-    elif isfile(join(save_path, 'CameraTimestamps', f'{subject}_{date}_{view}Camera.npy')):
-        times = np.load(join(save_path, 'CameraTimestamps', f'{subject}_{date}_{view}Camera.npy'))
-    else:
-        print('could not load camera timestamps')
-        return None, None
-    try:
-        cam = one.load_dataset(eid, '_ibl_%sCamera.dlc.pqt' % view)
-    except KeyError:
-        print('not all dlc data available')
-        return None, None
-    points = np.unique(['_'.join(x.split('_')[:-1]) for x in cam.keys()])
-    # Set values to nan if likelyhood is too low # for pqt: .to_numpy()
-    XYs = {}
-    for point in points:
-        x = np.ma.masked_where(cam[point + '_likelihood'] < likelihood_thresh, cam[point + '_x'])
-        x = x.filled(np.nan)
-        y = np.ma.masked_where(cam[point + '_likelihood'] < likelihood_thresh, cam[point + '_y'])
-        y = y.filled(np.nan)
-        XYs[point] = np.array([x, y]).T
-    return times, XYs
-
-
-def get_dlc_XYs(one, eid, view='left'):
-
-    # Load in DLC
-    sl = SessionLoader(one=one, eid=eid)
-    sl.load_pose(views=[view])
-    dlc_df = sl.pose[f'{view}Camera']
-
-    # Transform to dict for backwards compatibility reasons
-    X = [dlc_df[i].values for i in dlc_df.columns if i[-1] == 'x']
-    Y = [dlc_df[i].values for i in dlc_df.columns if i[-1] == 'y']
-    key_names = [i[:-2] for i in dlc_df.columns if i[-1:] == 'x']
-
-    XYs = {}
-    for i, this_key in enumerate(key_names):
-        XYs[this_key] = np.array([X[i], Y[i]]).T
-
-    return dlc_df['times'].values, XYs
-
-
-def smooth_interpolate_signal_sg(signal, window=31, order=3, interp_kind='cubic'):
-    """Run savitzy-golay filter on signal, interpolate through nan points.
-
-    Parameters
-    ----------
-    signal : np.ndarray
-        original noisy signal of shape (t,), may contain nans
-    window : int
-        window of polynomial fit for savitzy-golay filter
-    order : int
-        order of polynomial for savitzy-golay filter
-    interp_kind : str
-        type of interpolation for nans, e.g. 'linear', 'quadratic', 'cubic'
-    Returns
-    -------
-    np.array
-        smoothed, interpolated signal for each time point, shape (t,)
-
-    """
-
-    signal_noisy_w_nans = np.copy(signal)
-    timestamps = np.arange(signal_noisy_w_nans.shape[0])
-    good_idxs = np.where(~np.isnan(signal_noisy_w_nans))[0]
-    # perform savitzky-golay filtering on non-nan points
-    signal_smooth_nonans = non_uniform_savgol(
-        timestamps[good_idxs], signal_noisy_w_nans[good_idxs], window=window, polynom=order)
-    signal_smooth_w_nans = np.copy(signal_noisy_w_nans)
-    signal_smooth_w_nans[good_idxs] = signal_smooth_nonans
-    # interpolate nan points
-    interpolater = interp1d(
-        timestamps[good_idxs], signal_smooth_nonans, kind=interp_kind, fill_value='extrapolate')
-
-    signal = interpolater(timestamps)
-
-    return signal
-
-
-def non_uniform_savgol(x, y, window, polynom):
-    """Applies a Savitzky-Golay filter to y with non-uniform spacing as defined in x.
-    This is based on
-    https://dsp.stackexchange.com/questions/1676/savitzky-golay-smoothing-filter-for-not-equally-spaced-data
-    The borders are interpolated like scipy.signal.savgol_filter would do
-    https://dsp.stackexchange.com/a/64313
-    Parameters
-    ----------
-    x : array_like
-        List of floats representing the x values of the data
-    y : array_like
-        List of floats representing the y values. Must have same length as x
-    window : int (odd)
-        Window length of datapoints. Must be odd and smaller than x
-    polynom : int
-        The order of polynom used. Must be smaller than the window size
-    Returns
-    -------
-    np.array
-        The smoothed y values
-    """
-
-    if len(x) != len(y):
-        raise ValueError('"x" and "y" must be of the same size')
-
-    if len(x) < window:
-        raise ValueError('The data size must be larger than the window size')
-
-    if type(window) is not int:
-        raise TypeError('"window" must be an integer')
-
-    if window % 2 == 0:
-        raise ValueError('The "window" must be an odd integer')
-
-    if type(polynom) is not int:
-        raise TypeError('"polynom" must be an integer')
-
-    if polynom >= window:
-        raise ValueError('"polynom" must be less than "window"')
-
-    half_window = window // 2
-    polynom += 1
-
-    # Initialize variables
-    A = np.empty((window, polynom))  # Matrix
-    tA = np.empty((polynom, window))  # Transposed matrix
-    t = np.empty(window)  # Local x variables
-    y_smoothed = np.full(len(y), np.nan)
-
-    # Start smoothing
-    for i in range(half_window, len(x) - half_window, 1):
-        # Center a window of x values on x[i]
-        for j in range(0, window, 1):
-            t[j] = x[i + j - half_window] - x[i]
-
-        # Create the initial matrix A and its transposed form tA
-        for j in range(0, window, 1):
-            r = 1.0
-            for k in range(0, polynom, 1):
-                A[j, k] = r
-                tA[k, j] = r
-                r *= t[j]
-
-        # Multiply the two matrices
-        tAA = np.matmul(tA, A)
-
-        # Invert the product of the matrices
-        tAA = np.linalg.inv(tAA)
-
-        # Calculate the pseudoinverse of the design matrix
-        coeffs = np.matmul(tAA, tA)
-
-        # Calculate c0 which is also the y value for y[i]
-        y_smoothed[i] = 0
-        for j in range(0, window, 1):
-            y_smoothed[i] += coeffs[0, j] * y[i + j - half_window]
-
-        # If at the end or beginning, store all coefficients for the polynom
-        if i == half_window:
-            first_coeffs = np.zeros(polynom)
-            for j in range(0, window, 1):
-                for k in range(polynom):
-                    first_coeffs[k] += coeffs[k, j] * y[j]
-        elif i == len(x) - half_window - 1:
-            last_coeffs = np.zeros(polynom)
-            for j in range(0, window, 1):
-                for k in range(polynom):
-                    last_coeffs[k] += coeffs[k, j] * y[len(y) - window + j]
-
-    # Interpolate the result at the left border
-    for i in range(0, half_window, 1):
-        y_smoothed[i] = 0
-        x_i = 1
-        for j in range(0, polynom, 1):
-            y_smoothed[i] += first_coeffs[j] * x_i
-            x_i *= x[i] - x[half_window]
-
-    # Interpolate the result at the right border
-    for i in range(len(x) - half_window, len(x), 1):
-        y_smoothed[i] = 0
-        x_i = 1
-        for j in range(0, polynom, 1):
-            y_smoothed[i] += last_coeffs[j] * x_i
-            x_i *= x[i] - x[-half_window - 1]
-
-    return y_smoothed
-
-
-def get_pupil_diameter(XYs):
-    """Estimate pupil diameter by taking median of different computations.
-
-    In the two most obvious ways:
-    d1 = top - bottom, d2 = left - right
-
-    In addition, assume the pupil is a circle and estimate diameter from other pairs of
-    points
-
-    Author: Michael Schartner
-
-    Parameters
-    ----------
-    XYs : dict
-        keys should include `pupil_top_r`, `pupil_bottom_r`,
-        `pupil_left_r`, `pupil_right_r`
-    Returns
-    -------
-    np.array
-        pupil diameter estimate for each time point, shape (n_frames,)
-
-    """
-
-    # direct diameters
-    t = XYs['pupil_top_r'][:, :2]
-    b = XYs['pupil_bottom_r'][:, :2]
-    l = XYs['pupil_left_r'][:, :2]
-    r = XYs['pupil_right_r'][:, :2]
-
-    def distance(p1, p2):
-        return ((p1[:, 0] - p2[:, 0]) ** 2 + (p1[:, 1] - p2[:, 1]) ** 2) ** 0.5
-
-    # get diameter via top-bottom and left-right
-    ds = []
-    ds.append(distance(t, b))
-    ds.append(distance(l, r))
-
-    def dia_via_circle(p1, p2):
-        # only valid for non-crossing edges
-        u = distance(p1, p2)
-        return u * (2 ** 0.5)
-
-    # estimate diameter via circle assumption
-    for side in [[t, l], [t, r], [b, l], [b, r]]:
-        ds.append(dia_via_circle(side[0], side[1]))
-    diam = np.nanmedian(ds, axis=0)
-
-    return diam
-
-
-def get_raw_smooth_pupil_diameter(XYs):
-
-    # threshold (in standard deviations) beyond which a point is labeled as an outlier
-    std_thresh = 5
-
-    # threshold (in seconds) above which we will not interpolate nans, but keep them
-    # (for long stretches interpolation may not be appropriate)
-    nan_thresh = 1
-
-    # compute framerate of camera
-    fr = 60  # set by hardware
-    window = 61  # works well empirically
-
-    # compute diameter using raw values of 4 markers (will be noisy and have missing data)
-    diam0 = get_pupil_diameter(XYs)
-
-    # run savitzy-golay filter on non-nan timepoints to denoise
-    diam_sm0 = smooth_interpolate_signal_sg(
-        diam0, window=window, order=3, interp_kind='linear')
-
-    # find outliers, set to nan
-    errors = diam0 - diam_sm0
-    std = np.nanstd(errors)
-    diam1 = np.copy(diam0)
-    diam1[(errors < (-std_thresh * std)) | (errors > (std_thresh * std))] = np.nan
-    # run savitzy-golay filter again on (possibly reduced) non-nan timepoints to denoise
-    diam_sm1 = smooth_interpolate_signal_sg(
-        diam1, window=window, order=3, interp_kind='linear')
-
-    # don't interpolate long strings of nans
-    t = np.diff(1 * np.isnan(diam1))
-    begs = np.where(t == 1)[0]
-    ends = np.where(t == -1)[0]
-    if begs.shape[0] > ends.shape[0]:
-        begs = begs[:ends.shape[0]]
-    for b, e in zip(begs, ends):
-        if (e - b) > (fr * nan_thresh):
-            diam_sm1[(b + 1):(e + 1)] = np.nan  # offset by 1 due to earlier diff
-
-    # diam_sm1 is the final smoothed pupil diameter estimate
-    return diam0, diam_sm1
-
-
-def SNR(diam0, diam_sm1):
-
-    # compute signal to noise ratio between raw and smooth dia
-    good_idxs = np.where(~np.isnan(diam_sm1) & ~np.isnan(diam0))[0]
-    snr = (np.var(diam_sm1[good_idxs]) /
-           np.var(diam_sm1[good_idxs] - diam0[good_idxs]))
-
-    return snr
-
-
-def query_opto_sessions(subject, include_ephys=False, one=None):
-    one = one or ONE()
-    if include_ephys:
-        sessions = one.alyx.rest('sessions', 'list', subject=subject,
-                                 task_protocol='_iblrig_tasks_opto_')
-    else:
-        sessions = one.alyx.rest('sessions', 'list', subject=subject,
-                                 task_protocol='_iblrig_tasks_opto_biasedChoiceWorld')
-    return [sess['url'][-36:] for sess in sessions]
-
-
-def behavioral_criterion(eids, min_perf=0.7, min_trials=200, max_rt=0.7, return_excluded=False,
-                         verbose=True, one=None):
-    if one is None:
-        one = ONE()
-    use_eids, excl_eids = [], []
-    for j, eid in enumerate(eids):
-        try:
-            trials = load_trials(eid, one=one)
-            trials['rt'] = trials['feedback_times'] - trials['goCue_times']
-            perf = (np.sum(trials.loc[np.abs(trials['signed_contrast']) == 1, 'feedbackType'] == 1)
-                    / trials[np.abs(trials['signed_contrast']) == 1].shape[0])
-            details = one.get_details(eid)
-            if (perf > min_perf) & (trials.shape[0] > min_trials) & (trials['rt'].median() < max_rt):
-                use_eids.append(eid)
-            else:
-                if verbose:
-                    print('%s %s excluded (perf: %.2f, n_trials: %d, rt: %.2f)'
-                          % (details['subject'], details['start_time'][:10], perf, trials.shape[0],
-                             trials['rt'].median()))
-                excl_eids.append(eid)
-        except Exception:
-            if verbose:
-                print('Could not load session %s' % eid)
-    if return_excluded:
-        return use_eids, excl_eids
-    else:
-        return use_eids
-
-
-def fit_psychfunc(stim_levels, n_trials, proportion, transform_slope=False):
-    # Fit a psychometric function with two lapse rates
-    #
-    # Returns vector pars with [bias, threshold, lapselow, lapsehigh]
-    import psychofit as psy
-    assert (stim_levels.shape == n_trials.shape == proportion.shape)
-    if stim_levels.max() <= 1:
-        stim_levels = stim_levels * 100
-
-    # Fit psychometric function
-    pars, _ = psy.mle_fit_psycho(np.vstack((stim_levels, n_trials, proportion)),
-                                 P_model='erf_psycho_2gammas',
-                                 parstart=np.array([0, 20, 0.05, 0.05]),
-                                 parmin=np.array([-100, 5, 0, 0]),
-                                 parmax=np.array([100, 100, 1, 1]))
-
-    # Transform the slope paramter such that large values = steeper slope
-    if transform_slope:
-        pars[1] = (1/pars[1])*100
-
-    return pars
-
-
-def plot_psychometric(trials, ax, color='b', linestyle='solid', fraction=True):
-    import psychofit as psy
-    if trials['signed_contrast'].max() <= 1:
-        trials['signed_contrast'] = trials['signed_contrast'] * 100
-
-    stim_levels = np.sort(trials['signed_contrast'].unique())
-    pars = fit_psychfunc(stim_levels, trials.groupby('signed_contrast').size(),
-                         trials.groupby('signed_contrast').mean()['right_choice'])
-
-    # plot psychfunc
-    sns.lineplot(x=np.arange(-27, 27), y=psy.erf_psycho_2gammas(pars, np.arange(-27, 27)),
-                 ax=ax, color=color, linestyle=linestyle)
-
-    # plot psychfunc: -100, +100
-    sns.lineplot(x=np.arange(-36, -31), y=psy.erf_psycho_2gammas(pars, np.arange(-103, -98)),
-                 ax=ax, color=color, linestyle=linestyle)
-    sns.lineplot(x=np.arange(31, 36), y=psy.erf_psycho_2gammas(pars, np.arange(98, 103)),
-                 ax=ax, color=color, linestyle=linestyle)
-
-    # now break the x-axis
-    trials['signed_contrast'].replace(-100, -35)
-    trials['signed_contrast'].replace(100, 35)
-
-    # plot datapoints with errorbars on top
-    sns.lineplot(x=trials['signed_contrast'], y=trials['right_choice'], ax=ax,
-                 **{**{'err_style': "bars",
-                       'linewidth': 0, 'linestyle': 'None', 'mew': 0.5,
-                       'marker': 'o', 'errorbar': 'se'}}, color=color)
-
-    ax.set(xticks=[-35, -25, -12.5, 0, 12.5, 25, 35], xlim=[-40, 40], ylim=[0, 1.02],
-           xlabel='Contrast (%)')
-    ax.set_xticklabels(['100', '25', '12.5', '0', '12.5', '25', '100'])
-    if fraction:
-        ax.set(yticks=[0, 0.25, 0.5, 0.75, 1], yticklabels=['0', '.25', '.5', '.75', '1'])
-        ax.set_ylabel('Fraction of rightward choices', labelpad=1)
-    else:
-        ax.set(yticks=[0, 0.25, 0.5, 0.75, 1], yticklabels=['0', '25', '50', '75', '100'],
-               ylabel='Rightward choices (%)')
-    # break_xaxis()
-
-
-def break_xaxis(y=-0.004, **kwargs):
-
-    # axisgate: show axis discontinuities with a quick hack
-    # https://twitter.com/StevenDakin/status/1313744930246811653?s=19
-    # first, white square for discontinuous axis
-    plt.text(-30, y, '-', fontsize=14, fontweight='bold',
-             horizontalalignment='center', verticalalignment='center',
-             color='w')
-    plt.text(30, y, '-', fontsize=14, fontweight='bold',
-             horizontalalignment='center', verticalalignment='center',
-             color='w')
-
-    # put little dashes to cut axes
-    plt.text(-30, y, '/ /', horizontalalignment='center',
-             verticalalignment='center', fontsize=12, fontweight='bold')
-    plt.text(30, y, '/ /', horizontalalignment='center',
-             verticalalignment='center', fontsize=12, fontweight='bold')
-
-
-def get_bias(trials):
-    import psychofit as psy
-    """
-    Calculate bias by fitting psychometric curves to the 80/20 and 20/80 blocks, finding the
-    point on the y-axis when contrast = 0% and getting the difference.
-    """
-    if len(trials) == 0:
-        return np.nan
-
-    # 20/80 blocks
-    these_trials = trials[trials['probabilityLeft'] == 0.2]
-    stim_levels = np.sort(these_trials['signed_contrast'].unique())
-    pars_right = fit_psychfunc(stim_levels, these_trials.groupby('signed_contrast').size(),
-                               these_trials.groupby('signed_contrast').mean()['right_choice'])
-    bias_right = psy.erf_psycho_2gammas(pars_right, 0)
-
-    # 80/20 blocks
-    these_trials = trials[trials['probabilityLeft'] == 0.8]
-    stim_levels = np.sort(these_trials['signed_contrast'].unique())
-    pars_left = fit_psychfunc(stim_levels, these_trials.groupby('signed_contrast').size(),
-                              these_trials.groupby('signed_contrast').mean()['right_choice'])
-    bias_left = psy.erf_psycho_2gammas(pars_left, 0)
-
-    return bias_right - bias_left
-
-
-def fit_glm(behav, prior_blocks=True, opto_stim=False, folds=3):
-
-    # drop trials with contrast-level 50, only rarely present (should not be its own regressor)
-    behav = behav[np.abs(behav.signed_contrast) != 50]
-    
-    # create extra columns for 5-HT and no 5-HT trials
-    behav['previous_choice_0'] = behav['previous_choice'] * (1 - behav['laser_stimulation'])
-    behav['previous_choice_1'] = behav['previous_choice'] * behav['laser_stimulation']
-    behav['prior_0'] = behav['block_id'] * (1 - behav['laser_stimulation'])
-    behav['prior_1'] = behav['block_id'] * behav['laser_stimulation']
-    
-    # Loop through unique contrast values
-    for contrast in behav['contrast'].unique():
-        behav[f'{int(contrast)}_0'] = np.zeros(behav.shape[0])
-        behav.loc[behav['contrast'] == contrast, f'{int(contrast)}_0'] = (
-            behav.loc[behav['contrast'] == contrast, 'stim_side']
-            * (1 - behav['laser_stimulation']))
-        behav[f'{int(contrast)}_1'] = np.zeros(behav.shape[0])
-        behav.loc[behav['contrast'] == contrast, f'{int(contrast)}_1'] = (
-            behav.loc[behav['contrast'] == contrast, 'stim_side']
-            * behav['laser_stimulation'])
-    
-    # drop NaNs
-    behav = behav.dropna(subset=['trial_feedback_type', 'choice', 'previous_choice']).reset_index(drop=True)
-
-    # create input for GLM (0 = no 5HT, 1 = 5HT)
-    endog = pd.DataFrame(data={'choice': behav['choice']})
-    exog = behav[[
-        'previous_choice_0', 'previous_choice_1', 'prior_0', 'prior_1',
-        '6_0', '6_1', '12_0', '12_1', '25_0', '25_1', '100_0', '100_1']].copy()
-    exog['bias'] = 1
-    exog['opto'] = behav['laser_stimulation']
-
-    # recode choices for logistic regression
-    endog['choice'] = endog['choice'].map({-1:0, 1:1})
-
-    # NOW FIT THIS WITH STATSMODELS - ignore NaN choices
-    logit_model = sm.Logit(endog, exog)
-    res = logit_model.fit_regularized(disp=False) # run silently
-
-    # what do we want to keep?
-    params = pd.DataFrame(res.params).T
-    params['pseudo_rsq'] = res.prsquared # https://www.statsmodels.org/stable/generated/statsmodels.discrete.discrete_model.LogitResults.prsquared.html?highlight=pseudo
-    params['condition_number'] = np.linalg.cond(exog)
-
-    # ===================================== #
-    # ADD MODEL ACCURACY - cross-validate
-
-    kf = KFold(n_splits=folds, shuffle=True)
-    acc = np.array([])
-    for train, test in kf.split(endog):
-        X_train, X_test, y_train, y_test = exog.loc[train], exog.loc[test], \
-                                           endog.loc[train], endog.loc[test]
-        # fit again
-        logit_model = sm.Logit(y_train, X_train)
-        res = logit_model.fit_regularized(disp=False)  # run silently
-
-        # compute the accuracy on held-out data [from Luigi]:
-        # suppose you are predicting Pr(Left), let's call it p,
-        # the % match is p if the actual choice is left, or 1-p if the actual choice is right
-        # if you were to simulate it, in the end you would get these numbers
-        y_test['pred'] = res.predict(X_test)
-        y_test.loc[y_test['choice'] == 0, 'pred'] = 1 - y_test.loc[y_test['choice'] == 0, 'pred']
-        acc = np.append(acc, y_test['pred'].mean())
-
-    # average prediction accuracy over the K folds
-    params['accuracy'] = np.mean(acc)
-
-
-    return params  # wide df

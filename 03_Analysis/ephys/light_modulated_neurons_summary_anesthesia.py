@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 from os.path import join, realpath, dirname, split
 from scipy.stats import pearsonr
 from matplotlib.colors import ListedColormap
-from stim_functions import paths, figure_style, load_subjects
+from updown_functions import paths, figure_style, load_subjects
 
 # Settings
 N_BINS = 30

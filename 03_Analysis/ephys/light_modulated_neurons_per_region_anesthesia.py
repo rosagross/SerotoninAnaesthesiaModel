@@ -10,7 +10,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 from os.path import join, realpath, dirname, split
-from stim_functions import paths, figure_style, load_subjects, combine_regions
+from updown_functions import paths, figure_style, load_subjects, combine_regions
 
 # Settings
 MIN_NEURONS_POOLED = 2
@@ -19,11 +19,10 @@ MIN_MOD_NEURONS = 2
 MIN_REC = 2
 
 # Get paths
-f_path, save_path = paths()
-fig_path = join(f_path, split(dirname(realpath(__file__)))[-1])
+fig_path, save_path = paths()
 
 # Load in results
-light_neurons = pd.read_csv(join(save_path, 'light_modulated_neurons_anesthesia.csv'))
+light_neurons = pd.read_csv(join(save_path, 'light_modulated_neurons.csv'))
 
 # Add expression
 subjects = load_subjects()
