@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 from os.path import join, realpath, dirname, split
 import pandas as pd
 from matplotlib.patches import Rectangle
-from stim_functions import figure_style, paths, load_subjects
+from updown_functions import figure_style, paths, load_subjects
 
 # Settings
 REGION = 'Frontal cortex'
@@ -42,7 +42,7 @@ p_state_df['freq_str'] = [f'{i} Hz' for i in p_state_df['freq']]
 
 # %% Plot
 colors, dpi = figure_style()
-f, ax1 = plt.subplots(figsize=(1.75, 1.75), dpi=dpi, sharey=True)
+f, ax1 = plt.subplots(figsize=(1.5, 1.75), dpi=dpi, sharey=True)
 #axs = np.concatenate(axs)
 
 ax1.add_patch(Rectangle((0, -0.25), 1, 0.75, color='royalblue', alpha=0.25, lw=0))
@@ -59,7 +59,7 @@ ax1.text(1, -0.275, '2s', ha='center', va='top')
 ax1.legend(title='', prop={'size': 6})
 
 plt.tight_layout()
-plt.savefig(join(fig_path, 'p_down_state_anesthesia_freqs.pdf'))
+plt.savefig(join(fig_path, 'ephys_updown_states', 'p_down_state_anesthesia_freqs.pdf'))
 
 """
 # %%

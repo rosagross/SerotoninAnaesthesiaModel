@@ -1,3 +1,6 @@
 02_Data/firing_rates/
 02_Data/local_circuit_data/
 03_Analysis/paths.json
+03_Analysis/ephys/paths.json
+03_Analysis/ephys/__pycache__/
+03_Analysis/__pycache__/

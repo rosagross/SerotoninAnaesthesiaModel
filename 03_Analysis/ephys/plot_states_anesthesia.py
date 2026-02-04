@@ -16,7 +16,7 @@ from updown_functions import figure_style, paths, load_subjects
 
 # Paths
 f_path, save_path = paths()
-fig_path = join(f_path, split(dirname(realpath(__file__)))[-1])
+fig_path = join(f_path, 'ephys_updown_states')
 
 # Load in data
 p_state_df = pd.read_csv(join(save_path, 'updown_states_anesthesia.csv'))
@@ -24,6 +24,10 @@ p_state_df = pd.read_csv(join(save_path, 'updown_states_anesthesia.csv'))
 # Average over mice first
 p_state_df = p_state_df.groupby(['subject', 'time', 'region', 'expression']).mean(numeric_only=True).reset_index()
 
+# Only select sert-cre mice
+subjects = load_subjects()
+for i, nickname in enumerate(np.unique(subjects['subject'])):
+    p_state_df.loc[p_state_df['subject'] == nickname, 'expression'] = subjects.loc[subjects['subject'] == nickname, 'expression'].values[0]
 
 # %% Plot
 colors, dpi = figure_style()
