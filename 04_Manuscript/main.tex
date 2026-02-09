@@ -14,6 +14,8 @@
 \usepackage[affil-it]{authblk} 			% found in preprint bundle package, http://ctan.org/pkg/preprint
 \usepackage[margin=1.97cm]{geometry} % paper and margin formats as set by SPP
 \usepackage[english]{babel}
+\usepackage{booktabs}
+\usepackage{textcomp}
 
 \parindent 0.5cm    % paragraphs indent
 
@@ -108,7 +110,7 @@ To shed light on this issue, we stimulated serotonin by optogenetically activati
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.95\textwidth]{img/Results/ephys_updown_states.pdf}
+    \includegraphics[width=0.95\textwidth]{img/ephys_updown_states.pdf}
     \caption[Heterogeneous vs. homogeneous connectivity]{Heterogeneous vs. homogeneous connectivity. A) shows the trajectories of the DOWN state probability in homogeneous and heterogeneous connectivity compared to each of the baselines (coupling strength of $G=2$). B) demonstrates the difference between homogeneous and heterogeneous connectivity seen in A). Regions that did not show any UP and DOWN areas were excluded. The regions on the x-axis are sorted by incoming projection strength (from all other areas) from high density to low density. In C), the difference in $\Delta$ DOWN state probability between $G=0$ and $G=3$ in the homogeneous condition is plotted and correlated with the DRN projection strength of each area. B) and C) include data in a time window of 0.5-1 seconds post-stimulation.}
     \label{fig:heterogenconnect}
 \end{figure}
@@ -336,19 +338,38 @@ Furthermore, the distance between the nodes in the real brain has not been taken
 
 \section*{Material and methods}
 
-\subsection*{Experimental data aqcuisition}
-\indent Neural activity in several brain regions was measured using Neuro\-pixels (electrodes measuring electrophysiological activity), after transient stimula\-tion of the serotonergic neurons in the DRN. For precise and local stimula\-tion, optogenetics \cite{deisseroth2015optogenetics} was used. The experiment was conducted on anaesthetized mice.\\
-\indent The following areas were recorded and replicated in the model: superior colliculus (SC), midbrain reticular nucleus (MRN), secondary motor cortex (M2), medial prefrontal cortex (mPFC), 
-orbitofrontal cortex (OFC), piriform cortex (PIR), striatum (STR), Amygdala (Amyg), retrosplenial cortex (RSP),  visual cortex (VIS), hippocampus (Hipp), striatum (Str), olfactory cortex (OLF), and piriform cortex (Pir).
+\subsection*{Animals}
+Seven SERT-Cre C57Bl/6 mice (four males and three females) were used for the purpose of this study. All experimental procedures were approved by the Portuguese Veterinary General Board.
 
-\subsection*{Firing rate model}
+\subsection*{Surgical procedures}
+Mice underwent two surgeries: (1) injection of the channelrhodopsin viral vector in the dorsal raphe nucleus and implantation of the optical fiber \& headbar, and (2) the creation of three small craniotomies in the skull. Both these surgical procedures were performed as previously described in \cite{meijerSerotoninDrivesChoiceindependent2025}. A minimum of two weeks was allowed for the virus to express and the mouse to recover after the first surgery. The second surgery was performed \~12 hours preceding the first Neuropixel recording.
+
+\subsection*{Neuropixel recordings}\label{sec:expdata}
+Acute anesthetized Neurpixel recordings were performed on four consecutive days. Mice were anesthetized with an induction dose of 3\% isoflurane after which they were headfixed in the recording rig (hardware described in detail in \cite{meijerSerotoninDrivesChoiceindependent2025}). A maintenance level of isoflurane of 0.8-1.5\% was administered through a mask which was placed over the nose of the mouse. Isoflurane level was calibrated such that the mouse would not wake up but UP and DOWN states were visible in the electrophysiological recordings. One or two Neuropixel probes, depending on the recording day, were inserted in the following coordinates:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cccccc}
+\toprule
+\textbf{Session} & \textbf{ML ($\mu$m)} & \textbf{AP ($\mu$m)} & \textbf{Depth ($\mu$m)} & \textbf{Angle ($^\circ$)} & \textbf{Directionality} \\ \midrule
+1 & -1090 & 2000 & 3800 & 15 & medial \\
+1 & -2184 & -2000 & 6800 & 10 & lateral \\
+2 & -946 & -3300 & 3800 & 10 & medial \\
+2 & -1227 & 2000 & 4590 & 10 & lateral \\
+3 & -2240 & -2000 & 4000 & 15 & medial \\
+3 & -850 & -3460 & 5270 & 10 & lateral \\
+4 & -2250 & -1800 & 5500 & 17 & lateral \\ \bottomrule
+\end{tabular}
+\end{table}
 
 \noindent
-\indent We implemented a bistable firing rate model, consisting of multiple local circuits that all-to-all connected form a global network. The local circuits represent the relevant brain areas from the experimental recordings. Serotonin stimulation is modelled by inducing a current to all regions, originating from the DRN. Furthermore, it includes connectivity data from the Allen Brain Atlas that define the connectivity between the regions in the model as well as the projection density from the DRN to the different regions.  
+Pre-processing and spike sorting of raw electrophysiological data was performed with the fully automated pipeline developed by the International Brain Laboratory \cite{international_brain_laboratory_spike_2022}. 
 
-The local circuit model is based on the implementation by Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, including one excitatory population $E$ and one inhibitory population $I$. Furthermore, it includes an adaptation module $a$, simulating synaptic fatigue in pyramidal cells, as well as background noise which is introduced to the E and I population. There are projections implemented between both populations, as well as a self coupling mechanism. 
+\subsection*{Firing rate model}
+\noindent 
+We implemented a bistable firing rate model, consisting of multiple local circuits which were all-to-all connected to form a global network. The local circuits represented the relevant brain areas from the experimental recordings. Serotonin stimulation was modelled by inducing a current to all regions, originating from the DRN. The connectivity was realistically modelled by using connectivity data from the Allen Brain Atlas which defined the connectivity between the regions in the model as well as the projection density from the DRN to the different regions.  
 
-The following equations describe the change of the populations $E$ and $I$ firing rate $r$ (see Equation \ref{eq:1} and \ref{eq:2}), as well as the strength of adaptation $a$ (see Equation \ref{eq:3}) over time, where $\tau_E, \tau_I$ and $\tau_a$ are time constants:
+The local circuit model was based on the implementation by Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, including one excitatory population $E$ and one inhibitory population $I$. It included an adaptation module $a$, simulating synaptic fatigue in pyramidal cells, as well as background noise which was introduced to the E and I population. Both populations projected to each other, as well as to themselves through self-coupling. The following equations describe the change of the populations $E$ and $I$ firing rate $r$ (see Equation \ref{eq:1} and \ref{eq:2}), as well as the strength of adaptation $a$ (see Equation \ref{eq:3}) over time, where $\tau_E, \tau_I$ and $\tau_a$ are time constants:
 
 \begin{equation}\label{eq:1}
     \tau_E \frac{dr_E}{dt} = -r_E(t) + \varphi_E (J_{EE}r_E(t) - J_{EI}r_I(t)-a(t)+\sigma\xi_E(t))
@@ -362,69 +383,35 @@ The following equations describe the change of the populations $E$ and $I$ firin
     \tau_a \frac{da}{dt} = -a(t) + \beta r_E(t)
 \end{equation}
 
-The frequency of UP and DOWN state changes is defined by $\frac{1}{\tau_a}$, so the original value of ${\tau_a=500ms}$ generates states in the frequen\-cy of around 2Hz. Analyses of the experimental data in the mouse re\-vealed that the frequency of state change is 0.5-1Hz, therefore a value of $\tau_a=1500ms$ was chosen and the other time constants were scaled accordingly, so that for the final imple\-mentation it yields that $\tau_E=30ms$ and $\tau_I=6ms$. 
-\\
-The variable $J$ defines the local coupling strength for the E and I population, which is $J_EI = 5$, $J_EE = 1$, $J_EE = 10$, and $J_EE = 0.5$ (the first letter indicating the target population).  
-\\
-\\
-\indent To model the noise of the system, which is introduced as a background noise to both populations, two Ornstein-Uhlenbeck processes are implemented, with a mean of zero and a standard deviation of $\sigma=3.5$. 
-\\
-The functions $\varphi_E$ and $\varphi_I$ are called the transfer functions, which determine the reaction of the population to incoming currents, through self coupling, projections coming from other populations, or/and background noise. The equation is a threshold-linear function, with a threshold that defines the start of the linear part of the equation. If the input does not reach the threshold, the activation of the regarding population is set to zero. 
+\noindent
+The frequency of UP and DOWN state changes was defined by $\frac{1}{\tau_a}$, so the original value of ${\tau_a=500ms}$ generated states in the frequency of around 2Hz. Analyses of the experimental data in the mouse revealed that the frequency of state change is 0.5-1Hz, therefore a value of $\tau_a=1500ms$ was chosen and the other time constants were scaled accordingly, so that the final implementation yielded $\tau_E=30ms$ and $\tau_I=6ms$. The variable $J$ defined the local coupling strength for the E and I population, which was $J_EI = 5$, $J_EE = 1$, $J_EE = 10$, and $J_EE = 0.5$ (the first letter indicating the target population). To model the noise of the system, which was introduced as a background noise to both populations, two Ornstein-Uhlenbeck processes were implemented, with a mean of zero and a standard deviation of $\sigma=3.5$. The functions $\varphi_E$ and $\varphi_I$ were the transfer functions, which determined the reaction of the population to incoming currents, through self coupling, projections coming from other populations, or/and background noise. The equation is a threshold-linear function, with a threshold that defines the start of the linear part of the equation. If the input did not reach the threshold, the activation of the regarding population was set to zero. 
 
 \begin{equation}\label{eq:4}
     \varphi_X(x) = g_X[x-\theta_X]_+\qquad,X=\{E,I\}
 \end{equation}
 
-The threshold that has to be reached until the population reacts to incoming input is described by $\theta$. The value that I used for the implementation of brain regions that show UP and DOWN states is $\theta_E = 6$ and $\theta_I = 25$. The choice of those parameters is explained in the following section.
-\\
-In case the input reaches the threshold level, the slope $g$ determines the output. The $g$ controls how sensitive the population reacts to input. A higher $g$ will lead to a stronger output than a lower $g$. The original values are $g_E = 1Hz$ and $g_I = 4Hz$, which will be manipulated later on, in order to reach firing rates that are more similar to the experimentally measured firing rates. 
-\\
-By combining several local circuits, we implement a network of brain areas. The goal is to simulate the brain areas that were measured experimentally.
-\\
-\\
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{img/Methods/methodsFigureSerotonin.pdf}
-    \caption[Structure and dynamics of the firing rate model]{Structure and dynamics of the firing rate model. A) The effect of the populations rates (rE and rI) nullclines’ slope on the firing rate. The purple square indicates the default parameter setting.  B) Phase diagram showing the frequency of UP-DOWN states depending on the
-excitatory threshold and adaptation strength (using original time constant scaled by 3). Empty fields indicate
-absence of UP-DOWN states. The purple square indicates the setting for regions that show UP and DOWN
-states.}
-    \label{fig:methods}
-\end{figure}
-
-
-\subsubsection*{Heterogeneity}
 \noindent
-\indent The brain regions that are modelled in this project are heterogeneous in terms of firing rate, and characteristics of UP and DOWN states. The electrophysiological measurements show that some regions only show UP states, whereas others show a clear UP-DOWN dynamic. The goal is to incorporate this behaviour in the network model. As we know from the local circuit model, the frequency of the UP and DOWN states can be modified by changing the adaptation strength $\beta$ and the threshold of the E population $\theta_E$. Areas that show UP-DOWN dynamics in the electrophysiological recordings in anaesthetised mice are cortical areas as well as the striatum. A value of $\beta = 6$ and $\theta_E = 4$ is set for those regions, since a strong adaptation value leads to reliable generation of UP and DOWN states. Areas that do not show DOWN states, are midbrain areas as well as the hippocampus. This behaviour is achieved by using a low adaptation value $\beta = 1$ and a slightly higher threshold for E $\theta_E = 5$. Regions that show more unclear UP-DOWN states in the electrophysiological data receive a parameter setting of a medium adaptation value $\beta = 3$ and $\theta_E = 5$.
-\\
-\indent Besides the state frequency, the average firing rate of the E and I populations in each area can be adapted to match the experimental data. The adjustment is realised by cautiously modifying the slope of each populations transfer function (the $g$ in Equation \ref{eq:4}). This modification of the firing rates in each of the local circuit models (brain areas) so that the average firing rate of the E and I population is slightly below the value measured in the mouse brain, since this value will increase later on due to the communication between the areas. The average firing rate values in the model therefore approximate the measured rates (+-5 spikes per seconds).  
-\subsection*{Connectivity\label{sec:abc}}
-\noindent
-\indent The Allen Brain Institute provides an atlas of the mouse brain, including the connectivity between brain regions. This allows for more realistic modelling of the global circuit, and the investigation of the question of how relevant (heterogeneous) projections are.
-The Allen Brain Atlas can be accessed by using the API that is provided. The package \verb|allensdk| \cite{fulcherBenfulcherAllenSDKInitial2020} was used for this purpose. The Mouse Connectivity Atlas contains experiments about the projections between brain areas in Cre-modified and normal mice. In each experiment, the researchers injected a retrograde viral tracer into a brain structure. The brain areas that were downloaded from the Mouse Connectivity Atlas were chosen based on the areas identified in the recordings of the experimental study (Meijer et al., in preparation). The areas in the experimental study were defined in terms of the Beryl atlas, which is an atlas that is mapping brain structures with acronyms and parcellations slightly different from the Allen Brain Atlas. The regions defined in Beryl annotations were translated to the appropriate brain regions in the Allen atlas and grouped together to higher level areas. For each area, we obtained the projection density values to all relevant areas. Results from all experiments per region were averaged. Since some experiments do not show any projection values, a threshold of a projection density of 0.005 was applied for the experiment to be included. As a next step, the obtained values of the fine grained areas were grouped together into higher level brain areas that each represent one component of the network (see Figure \ref{fig:connectivity}).
+The threshold that has to be reached until the population reacts to incoming input is described by $\theta$. For brain regions that showed UP and DOWN states $\theta_E = 6$ and $\theta_I = 25$ were used as thresholds. In case the input reached the threshold level, the slope $g$ determined the output. $g$ controlled how sensitive the population reacts to input; a higher $g$ will lead to a stronger output than a lower $g$. The slope $g$ was fine-tuned for each brain region so that the average firing rate of the E and I population is slightly below the value measured in the mouse brain, since inter-area connectivity further increases the baseline firing rate. UP and DOWN state characteristics were also matched to the experimental data on a region-by-region level; some brain regions, like the cortex, showed strong UP-DOWN dynamics \emph{in vivo} whereas other regions, like the midbrain, did not. To mimic this in the model, the adaptation strength $\beta$ and the threshold of the E population $\theta_E$ were fine-tuned per brain region. For regions which showed strong UP-DOWN dynamics $\beta = 6$ and $\theta_E = 4$ was used, regions without UP-DOWN dynamics were modelled at $\beta = 1$ and $\theta_E = 5$, and intermediate regions at $\beta = 3$ and $\theta_E = 5$.
 
-\indent Besides the connectivity values between the areas within the network, the serotonergic projections originating from the DRN are required to simulate the release of serotonin, since the DRN projects to some regions more than to others. For this, we used experiments in which selectively serotonergic projections are traced. Similar to the connectivity matrix, the results are grouped together into the areas that are relevant in the network model (see Figure \ref{fig:connectivity}). 
-\\
-\indent To introduce the connectivity data in the global network model, the projection density values $W^{xy}$ (projection to area $x$ from area $y$) are multiplied with the coupling strength $G$ between the inter-area projections. The input into population E of area $x$ can therefore be defined as $I^x_E$ from projections that originate from all other areas y (see Equation \ref{eq:8}). 
+\subsection*{Modelling inter-area connectivity\label{sec:abc}}
+\noindent
+Realistic connectivity was introduced to the model using data from the Mouse Connectivity Atlas (Allen Brain Institute). Brain regions which were targeted by the Neuropixel recordings were defined as regions as interest. For each region, we obtained the projection density values to all other regions. Results from all experiments per region were averaged. Since some experiments did not show any projection values, a threshold of a projection density of 0.005 was applied for the experiment to be included. As a next step, the obtained values of the fine grained areas were grouped together into higher level brain areas that each represent one component of the network (see Figure \ref{fig:connectivity}). Besides the connectivity values between the areas within the network, the anatomical projections originating from the DRN were set according to tracing data from the Allen Brain Institute (see Figure \ref{fig:connectivity}). The connectivity data was introduced to the global network model, by taking the projection density values $W^{xy}$ (projection to area $x$ from area $y$) and multiplying them with the coupling strength $G$ between the inter-area projections. The input into population E of area $x$ can therefore be defined as $I^x_E$ from projections that originate from all other areas y (see Equation \ref{eq:8}). 
 
 \begin{equation}\label{eq:8}
     I^x_E = G \sum_y W^{xy}
 \end{equation}
 
-
-
-\subsection*{Modelling Serotonin Stimulation\label{sec:mss}}
-
-\indent 
-
-To simulate the inhibitory effect that serotonin seems to have on most brain areas during anaesthesia, a current that represents the input from serotonergic neurons originating from the DRN projecting to the isolated local circuits is introduced. Similar to the connectivity matrix for the inter-area long-range projections, the projections of the DRN are weighted depending on the projection density. Considering that the DRN projection densities to all areas $x$ are stored in a vector $\vec{D}$ the input current $I_{DRN}$ is defined as the following:
-
+\subsection*{Modelling 5-HT stimulation\label{sec:mss}}
+\noindent 
+The modulatory effect of serotonin stimulation was modelled by a current from the DRN projecting to the local circuits in the model. Similar to the connectivity matrix for the inter-area long-range projections, the projections of the DRN are weighted depending on the projection density. Considering that the DRN projection densities to all areas $x$ are stored in a vector $\vec{D}$ the input current $I_{DRN}$ is defined as the following:
 
 \begin{equation}\label{eq:9}
     I^x_{DRN}(t) = S\vec{D}_x u(t)
 \end{equation}
 
-The recorded neurons in the mouse brain react to serotonin release in a trajectory in which there is a peak modulation observed after 0.5 seconds and a decay of this effect until it returns to the original state before optogenetic stimulation after 3 seconds. The time curve of this trajectory, here defined as $u(t)$ (see Figure \ref{fig:serotonin_release}) is multiplied with the parameter for serotonin stimulation strength $S$ and is therefore simulating the gradual serotonin release and delayed decay. The stimulation is applied for 1 second, in an inter-trial interval of 3-6 seconds, simulating transient optogenetic stimulation, mimicking the experimental procedure.
+The modelled release of serotonin matched the temporal dynamics of the modulatory effect of 5-HT on neural activity as closely as possible.
+
+ The recorded neurons in the mouse brain react to serotonin release in a trajectory in which there is a peak modulation observed after 0.5 seconds and a decay of this effect until it returns to the original state before optogenetic stimulation after 3 seconds. The time curve of this trajectory, here defined as $u(t)$ (see Figure \ref{fig:serotonin_release}) is multiplied with the parameter for serotonin stimulation strength $S$ and is therefore simulating the gradual serotonin release and delayed decay. The stimulation is applied for 1 second, in an inter-trial interval of 3-6 seconds, simulating transient optogenetic stimulation, mimicking the experimental procedure.
 Now, the target of the serotonin stimulation $I_{DRN}$ in the model is considered. The transition from an UP towards a DOWN state is influenced by the threshold $\theta_E$ and the E populations' capability of reaching this threshold. Lowering the input to the E population makes it more difficult for the E population to reach $\theta_E$. At the same time, as the adaptation towards E increases, it makes it even harder to reach the threshold and the system can eventually not stay in an UP state anymore, and therefore transitions into a DOWN state. By introducing an inhibitory current to the E population (subtracting  $I_{DRN}$ from $r_E$), it becomes harder to cross the threshold and it is more likely that the system eventually transitions into a DOWN state, which is exactly the effect that serotonin seems to have on the brain network. 
 \\
 

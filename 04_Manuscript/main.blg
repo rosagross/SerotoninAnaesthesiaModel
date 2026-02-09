@@ -7,50 +7,49 @@ Reallocating 'name_of_file' (item size: 1) to 14 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: serotonin_bib.bib
 Warning--entry type for "Linderman_SSM_Bayesian_Learning_2020" isn't style-file defined
---line 162 of file serotonin_bib.bib
+--line 347 of file serotonin_bib.bib
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
-Warning--empty year in wilsonExcitatoryInhibitoryInteractions1972; set to ????
 Warning--missing institution in brunelCommunicatedPaulTiesinga2006
-You've used 26 entries,
+You've used 24 entries,
             3447 wiz_defined-function locations,
-            889 strings with 12852 characters,
-and the built_in function-call counts, 20911 in all, are:
-= -- 1112
-> -- 796
-< -- 107
-+ -- 680
-- -- 194
-* -- 3103
-:= -- 2104
-add.period$ -- 26
-call.type$ -- 26
-change.case$ -- 131
-chr.to.int$ -- 26
-cite$ -- 28
-duplicate$ -- 1944
-empty$ -- 1724
-format.name$ -- 472
-if$ -- 3885
+            872 strings with 12607 characters,
+and the built_in function-call counts, 20326 in all, are:
+= -- 1049
+> -- 843
+< -- 110
++ -- 736
+- -- 206
+* -- 3034
+:= -- 2018
+add.period$ -- 24
+call.type$ -- 24
+change.case$ -- 121
+chr.to.int$ -- 24
+cite$ -- 25
+duplicate$ -- 1873
+empty$ -- 1636
+format.name$ -- 488
+if$ -- 3752
 int.to.chr$ -- 1
-int.to.str$ -- 27
-missing$ -- 280
-newline$ -- 93
-num.names$ -- 78
-pop$ -- 432
+int.to.str$ -- 25
+missing$ -- 267
+newline$ -- 87
+num.names$ -- 72
+pop$ -- 404
 preamble$ -- 1
-purify$ -- 104
+purify$ -- 96
 quote$ -- 0
-skip$ -- 720
+skip$ -- 722
 stack$ -- 0
-substring$ -- 521
-swap$ -- 1662
-text.length$ -- 98
+substring$ -- 472
+swap$ -- 1622
+text.length$ -- 104
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 156
-warning$ -- 2
-while$ -- 70
+type$ -- 144
+warning$ -- 1
+while$ -- 63
 width$ -- 0
-write$ -- 308
-(There were 3 warnings)
+write$ -- 282
+(There were 2 warnings)
