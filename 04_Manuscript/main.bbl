@@ -164,6 +164,23 @@
   }\href{http://dx.doi.org/10.7554/ELIFE.22425}{\textbf{\bibinfo{volume}{6}}}
   (\bibinfo{year}{2017}), ISSN \bibinfo{issn}{2050084X}.
 
+\bibitem[{\citenamefont{Montijn et~al.}(2021)\citenamefont{Montijn, Seignette,
+  Howlett, Cazemier, Kamermans, Levelt, and
+  Heimel}}]{montijn_parameter-free_2021}
+\bibinfo{author}{\bibfnamefont{J.~S.} \bibnamefont{Montijn}},
+  \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Seignette}},
+  \bibinfo{author}{\bibfnamefont{M.~H.} \bibnamefont{Howlett}},
+  \bibinfo{author}{\bibfnamefont{J.~L.} \bibnamefont{Cazemier}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Kamermans}},
+  \bibinfo{author}{\bibfnamefont{C.~N.} \bibnamefont{Levelt}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.~A.}
+  \bibnamefont{Heimel}}, \bibinfo{title}{A parameter-free statistical test for
+  neuronal responsiveness},
+  \href{http://dx.doi.org/10.7554/eLife.71969}{\emph{\bibinfo{journal}{eLife}}
+  }\href{http://dx.doi.org/10.7554/eLife.71969}{\textbf{\bibinfo{volume}{10}},
+  \bibinfo{pages}{e71969}} (\bibinfo{year}{2021}), ISSN
+  \bibinfo{issn}{2050-084X}.
+
 \bibitem[{\citenamefont{{Ruiz-Mejias} et~al.}(2011)\citenamefont{{Ruiz-Mejias},
   {Ciria-Suarez}, Mattia, and
   {Sanchez-Vives}}}]{ruiz-mejiasSlowFastRhythms2011}
@@ -184,18 +201,6 @@
   \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Hansel}},
   \bibinfo{type}{Tech. Rep.} (\bibinfo{year}{2006}).
 
-\bibitem[{\citenamefont{Puig and
-  Gener}(2015)}]{puigSerotoninModulationPrefrontoHippocampal2015}
-\bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{Puig}} \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Gener}},
-  \bibinfo{title}{Serotonin {{Modulation}} of {{Prefronto-Hippocampal Rhythms}}
-  in {{Health}} and {{Disease}}},
-  \href{http://dx.doi.org/10.1021/cn500350e}{\emph{\bibinfo{journal}{ACS
-  chemical neuroscience}}
-  }\href{http://dx.doi.org/10.1021/cn500350e}{\textbf{\bibinfo{volume}{6}},
-  \bibinfo{pages}{1017}} (\bibinfo{year}{2015}), ISSN
-  \bibinfo{issn}{1948-7193}.
-
 \bibitem[{\citenamefont{Varela et~al.}(2001)\citenamefont{Varela, Lachaux,
   Rodriguez, and Martinerie}}]{varelaBrainwebPhaseSynchronization2001}
 \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Varela}},
@@ -208,6 +213,29 @@
   \href{http://dx.doi.org/10.1038/35067550}{\textbf{\bibinfo{volume}{2}},
   \bibinfo{pages}{229}} (\bibinfo{year}{2001}), ISSN \bibinfo{issn}{1471-0048},
   \bibinfo{note}{number: 4 Publisher: Nature Publishing Group}.
+
+\bibitem[{\citenamefont{Holcman and
+  Tsodyks}(2006)}]{holcmanEmergenceStatesCortical2006}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Holcman}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Tsodyks}},
+  \bibinfo{title}{The {{Emergence}} of {{Up}} and {{Down States}} in {{Cortical
+  Networks}}},
+  \href{http://dx.doi.org/10.1371/JOURNAL.PCBI.0020023}{\emph{\bibinfo{journal}{PLOS
+  Computational Biology}}
+  }\href{http://dx.doi.org/10.1371/JOURNAL.PCBI.0020023}{\textbf{\bibinfo{volume}{2}},
+  \bibinfo{pages}{e23}} (\bibinfo{year}{2006}), ISSN \bibinfo{issn}{1553-7358}.
+
+\bibitem[{\citenamefont{Puig and
+  Gener}(2015)}]{puigSerotoninModulationPrefrontoHippocampal2015}
+\bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{Puig}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Gener}},
+  \bibinfo{title}{Serotonin {{Modulation}} of {{Prefronto-Hippocampal Rhythms}}
+  in {{Health}} and {{Disease}}},
+  \href{http://dx.doi.org/10.1021/cn500350e}{\emph{\bibinfo{journal}{ACS
+  chemical neuroscience}}
+  }\href{http://dx.doi.org/10.1021/cn500350e}{\textbf{\bibinfo{volume}{6}},
+  \bibinfo{pages}{1017}} (\bibinfo{year}{2015}), ISSN
+  \bibinfo{issn}{1948-7193}.
 
 \bibitem[{\citenamefont{Roelfsema et~al.}(1997)\citenamefont{Roelfsema, Engel,
   K{\"o}nig, and Singer}}]{roelfsema1997visuomotor}
@@ -286,11 +314,6 @@
   \bibnamefont{et~al.}, \bibinfo{title}{Spike sorting pipeline for the
   {International} {Brain} {Laboratory}} (\bibinfo{year}{2022}).
 
-\bibitem[{\citenamefont{Fulcher}(2020)}]{fulcherBenfulcherAllenSDKInitial2020}
-\bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Fulcher}},
-  \bibinfo{title}{Benfulcher/{{AllenSDK}}: {{Initial}} version},
-  \bibinfo{howpublished}{Zenodo} (\bibinfo{year}{2020}).
-
 \bibitem[{\citenamefont{Linderman et~al.}()\citenamefont{Linderman, Antin,
   Zoltowski, and Glaser}}]{Linderman_SSM_Bayesian_Learning_2020}
 \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Linderman}},
@@ -299,16 +322,5 @@
   \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Glaser}},
   \bibinfo{title}{{SSM}: Bayesian learning and inference for state space
   models}, \urlprefix\url{https://github.com/lindermanlab/ssm}.
-
-\bibitem[{\citenamefont{Holcman and
-  Tsodyks}(2006)}]{holcmanEmergenceStatesCortical2006}
-\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Holcman}} \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Tsodyks}},
-  \bibinfo{title}{The {{Emergence}} of {{Up}} and {{Down States}} in {{Cortical
-  Networks}}},
-  \href{http://dx.doi.org/10.1371/JOURNAL.PCBI.0020023}{\emph{\bibinfo{journal}{PLOS
-  Computational Biology}}
-  }\href{http://dx.doi.org/10.1371/JOURNAL.PCBI.0020023}{\textbf{\bibinfo{volume}{2}},
-  \bibinfo{pages}{e23}} (\bibinfo{year}{2006}), ISSN \bibinfo{issn}{1553-7358}.
 
 \end{thebibliography}

@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1770626186.56586 "main.aux" "main.bbl" "main" 1770626189.20208 0
+["bibtex main"] 1770732443.59926 "main.aux" "main.bbl" "main" 1770733326.74462 0
   "./pisikabst.bst" 1768462707 34645 aa74942a802431bd058560a63a31f7e2 ""
-  "./serotonin_bib.bib" 1770279638 1277766 5f394f9a6918d5b9a328ca02b8bf7cc1 ""
-  "main.aux" 1770626188 12525 afc98f09c7d276692f7c3c1a702c2826 "pdflatex"
+  "./serotonin_bib.bib" 1770731575 1279846 dfd5faf72b52d2f519a46c39a5f92ea6 ""
+  "main.aux" 1770733325 15282 80db20716f587340025aa159a2dc2c41 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1770626187.04537 "main.tex" "main.pdf" "main" 1770626189.20291 0
+["pdflatex"] 1770733323.80028 "main.tex" "main.pdf" "main" 1770733326.74576 0
   "C:/Users/guido/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1768464813 690488 62a5b5b8b7a6fb8df93bb398cf4abecb ""
   "C:/Users/guido/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1761723538 13321868 74406b6659bb71c6cc3f5e68c133401a ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1001775420 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -145,10 +145,11 @@
   "img/Results/heterogeneous_UP-DOWN_states_S0_G2.pdf" 1768462707 231310 a43c0cf69a7c3a4b2f0caa5a29e45cd9 ""
   "img/Results/network_synchrony_brunelX.pdf" 1768462707 542918 74e47dd099afe9c55bb7b3293b265258 ""
   "img/ephys_updown_states.pdf" 1770192262 2312652 d089c109305f251e333faee31f27d729 ""
-  "main.aux" 1770626188 12525 afc98f09c7d276692f7c3c1a702c2826 "pdflatex"
-  "main.bbl" 1770626186 18379 18aed5ff54c752b5e22b2892244500eb "bibtex main"
-  "main.out" 1770626188 3469 83e4d357b6455884163e5b1a6b71829f "pdflatex"
-  "main.tex" 1770626180 72976 8aaf969f9e0dce31290f7a24cfbe508c ""
+  "img/recordings_overview.pdf" 1770191331 1190442 978835af330e5684819a5637ea0d4f4a ""
+  "main.aux" 1770733325 15282 80db20716f587340025aa159a2dc2c41 "pdflatex"
+  "main.bbl" 1770732444 19083 056bdd3f326003f03eec1cad26dde230 "bibtex main"
+  "main.out" 1770733325 3469 83e4d357b6455884163e5b1a6b71829f "pdflatex"
+  "main.tex" 1770733322 71429 432352ff2ab0577c716950ae801c87b7 ""
   (generated)
   "main.aux"
   "main.log"
