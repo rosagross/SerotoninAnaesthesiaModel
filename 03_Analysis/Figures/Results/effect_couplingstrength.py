@@ -89,7 +89,7 @@ region_df = serotonin_df[serotonin_df['region_name'] == plot_area]
 region_window_df = region_df[region_df['time'].between(serotonin_window[0],serotonin_window[1])] 
 
 colors, dpi = figure_style()
-f, ax1 = plt.subplots(1, 1, figsize=(1.1, 1.75), dpi=dpi)
+f, ax1 = plt.subplots(1, 1, figsize=(1, 1.6), dpi=dpi)
 
 sns.despine(trim=False)
 sns.barplot(region_window_df, x='G', y='p_down_delta', color=colors['grey'], errorbar='se')
@@ -188,7 +188,7 @@ plt.show()
 # %% Plot traces
 
 colors, dpi = figure_style()
-f, axs = plt.subplots(1, 4, figsize=(6, 1.75), dpi=dpi, sharey=True)
+f, axs = plt.subplots(1, 4, figsize=(5, 2.0), dpi=dpi, sharey=True)
 
 regions_traces = ['Visual cortex', 'Medial prefrontal cortex', 'Thalamus', 'Amygdala']
 regions_abbrev = ['VIS', 'mPFC', 'Thal', 'Amyg']
