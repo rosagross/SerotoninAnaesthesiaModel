@@ -127,7 +127,7 @@ To directly investigate whether serotonin stimulation induced a DOWN state we qu
     \label{fig:ephys}
 \end{figure}
 
-To investigate the mechanism behind the effect of serotonin stimulation in mice during anaesthesia, a dynamic firing rate model was implemented, which simulates a simplified network of the mouse brain. Each brain area was modelled using a local excitatory-inhibitory (EI) circuit consisting of one E, one I population, and a mechanism controlling for adaptation (A) of the excitatory population. The implementation was guided by the EI network model proposed by Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, who showed that this model produces UP and DOWN states similar to the UP and DOWN states that were observed in recordings from mice during anaesthesia \cite{ruiz-mejiasSlowFastRhythms2011}.
+To investigate the mechanism behind the effect of serotonin stimulation in mice during anaesthesia, a dynamic firing rate model was implemented, which simulates a simplified network of the mouse brain, following biological realistic inter-area connectivity. Each brain area was modelled using a local excitatory-inhibitory (EI) circuit consisting of one E, one I population, and a mechanism controlling for adaptation (A) of the excitatory population. The implementation was guided by the EI network model proposed by Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, who showed that this model produces UP and DOWN states similar to the UP and DOWN states that were observed in recordings from mice during anaesthesia \cite{ruiz-mejiasSlowFastRhythms2011}.
 
 \section{Replication of mouse brain dynamics in an anaesthetic state\label{sec:prereq}}
 
@@ -135,25 +135,11 @@ To investigate the mechanism behind the effect of serotonin stimulation in mice 
 \noindent
 \indent The model was able to reproduce the slow-wave oscillations that were observed during anaesthesia in previous experiments. Figure \ref{fig:UPDOWNstates} shows the results of a simulated session using the connected network model. Certain areas showed periods of high (UP) and low (DOWN) activity in the firing rate of the E and I populations. The frequency of the UP and DOWN states cycle was around 0.5-1Hz, which simulates the frequency of the UP-DOWN dynamics observed in the experimental data (Meijer et al., in preparation). The connections between the 14 areas on the figure were formed with a coupling strength of $G=2$, to ensure that the UP-DOWN dynamics were synchronous across regions (more about synchrony in section \ref{sec:synchronyresults} and Figure \ref{fig:synchrony}). The slow-wave oscillations occurred without any serotonin interference, as this simulation did not include the stimulation by serotonin. 
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{img/Results/heterogeneous_UP-DOWN_states_S0_G2.pdf}
-    \caption[Replication of UP and DOWN state dynamics]{Replication of UP and DOWN state dynamics. The 14 areas are connected via excitatory long-range projections. Without any serotonin stimulation, the activity in the brain regions is alternating between states of low and high activity, also named UP and DOWN states. The network is a heterogeneous network, accommodating the fact that not all areas show UP and DOWN states during anaesthesia.}
-    \label{fig:UPDOWNstates}
-\end{figure}
-
 \subsubsection{Heterogeneity in the global circuit}\label{sec:heterogresults}
 
 \noindent
 \indent In the electrophysiological recordings it was observed that the UP-DOWN dynamics differed across brain regions. The hippocampus and midbrain areas clearly showed no state activity patterns, whereas cortical areas and the striatum clearly showed UP and DOWN states. The amygdala, thalamus and piriform showed less clear UP and DOWN states.
 Adjusting the theta and beta parameter allowed for modification of the frequency of the UP-DOWN dynamics. This enabled introducing heterogeneity in the global network model making the simulation as close as possible to the experimental data. For example, in Figure \ref{fig:UPDOWNstates} the hippocampus only showed an UP state for the entire duration of the model simulation. This replicates the findings from the electrophysiological data and could be reached by setting the adaptation value to $\beta = 0$ and $\theta_E = 5$.  
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.45\textwidth]{img/Results/network_synchrony_brunelX.pdf}
-    \caption{Synchrony in the global network model}
-    \label{fig:synchrony}
-\end{figure}
 
 \subsubsection{Synchrony in the connected global network}\label{sec:synchronyresults}
 \noindent
@@ -162,6 +148,17 @@ if the model follows this mechanism. Increasing the coupling strength increased 
 \\
 \indent In summary, the previous simulations using the global circuit model showed that the implemented model is capable of simulating brain activity during anaesthesia, which makes it a good tool to investigate serotonin's effects on UP-DOWN dynamics in a large-scale network.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.95\textwidth]{img/Figure2_summary_final.pdf}
+    \caption{Simulation of UP-DOWN states, effect of serotonin and coupling strength. (a) Replication of UP and DOWN state dynamics. Without any serotonin stimulation, the activity in the brain regions UP and DOWN states. (b) Serotonin stimulation induces a DOWN state in several regions. Probability values between 0.5-1 seconds after the serotonin stimulation onset are included.
+    (c) Direct comparison of the simulated and recorded DOWN state probability during serotonin stimulation. 
+    (d) In an unconnected network (G=0), the DRN projection density determines the strength of the effect of the modulation by serotonin.
+    (e) Effect of coupling strength, demonstrated in example regions. The differently coloured graphs display different coupling strengths $G$ from $0-3$.
+    (f) The serotonin effect was elevated in the visual cortex for increased coupling strength (p<0.05). (g) The difference between the $\Delta$ DOWN state probability for a coupling strength G=0 and G=3 is displayed for every region. The colour codes describe the average projection densities that each area receives from all other areas, indicating how strongly the areas are affected by the changes in coupling strength.
+    }
+    \label{fig:resultsummary1}
+\end{figure}
 
 \subsection{Replicating serotonin's effect on UP-DOWN dynamics\label{sec:sereffect}}
 \noindent
@@ -169,24 +166,11 @@ if the model follows this mechanism. Increasing the coupling strength increased 
 \\
 \indent In the proposed large-scale model, serotonin stimulation was modelled by targeting the E population with an inhibitory current. Here, a serotonin stimulation of strength $S=40$ was applied. In Figure \ref{fig:downstate_repl}, the effect of serotonin in the model and in the experimental data are compared (the top panel represents the model results, and the lower panel represents the results from electrophysiological recordings).
 \\
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.9\textwidth]{img/Results/Figure2.pdf}
-    \caption[Mouse vs. Model]{Mouse vs. Model. Serotonin stimulation induced a DOWN state in several regions. The top graph shows the model simulation, whereas the plot below demonstrates the findings from the recordings in mice. The y-axis shows the $\Delta$ DOWN state probability, which expresses the difference between the probability of a DOWN state occurring in stimulation sessions compared to sessions without stimulation (baseline).}
-    \label{fig:downstate_repl}
-\end{figure}
 \\
-\indent It was clearly visible that during optogenetic stimulation of the DRN in mice (area highlighted in light blue), the probability of a DOWN state increased between 25-50\% in the frontal cortex, amygdala and striatum, compared to the baseline activity, in which no stimulation was applied. The sensory cortex, hippocampus and thalamus showed an induced DOWN state too, though slightly less than the previously named areas (10-12\%). The midbrain seemed not to be affected by the serotonin modulation. With simulations using the proposed model very similar effects can be observed. In the frontal cortex, striatum, sensory cortex, and thalamus the probability increased by about 50\% in comparison with the baseline, and the amygdala showed an increase of even around 90\%. Note that the DOWN state probability in the striatum was not significantly different from zero (see \ref{fig:downstate_barplot}), whereas this was the case in the other named regions. The midbrain shows a slight increase (significantly different from the baseline mean) of the DOWN state probability, different to the recordings in mice, where the midbrain was not affected by the stimulation. What is interesting is that the hippocampus did not seem to be modulated by serotonin in the model, despite the observed 10\% increased probability of a DOWN state in the mouse brain. 
+\indent It was clearly visible that during optogenetic stimulation of the DRN in mice (area highlighted in light blue), the probability of a DOWN state increased between 25-50\% in the frontal cortex, amygdala and striatum, compared to the baseline activity, in which no stimulation was applied. The sensory cortex, hippocampus and thalamus showed an induced DOWN state too, though slightly less than the previously named areas (10-12\%). The midbrain seemed not to be affected by the serotonin modulation. With simulations using the proposed model very similar effects can be observed. In the frontal cortex, striatum, sensory cortex, and thalamus the probability increased by about 50\% in comparison with the baseline, and the amygdala showed an increase of even around 90\%. Note that the DOWN state probability in the striatum was not significantly different from zero (see \ref{fig:downstate_barplot}), whereas this was the case in the other named regions. The midbrain shows a slight increase (significantly different from the baseline mean) of the DOWN state probability, different to the recordings in mice, where the midbrain was not affected by the stimulation. We observed that in the model the hippocampus was not modulated by serotonin, despite the observed 10\% increased probability of a DOWN state in the mouse brain. 
 \\
 \indent Some regions indicated the return of an UP state after the induced DOWN state in the mouse data, which are the frontal cortex, sensory cortex (though very marginal), and thalamus. In the model it is striking that the rebound UP state were slightly stronger expressed than in the mouse data; for example, the frontal cortex, sensory cortex and thalamus – overlapping with the affected regions in the experimental data -, and additionally in the striatum showed a rebound UP state. In the model, the rebound UP state was induced much faster than in the experimental condition. 
 
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.45\textwidth]{img/Results/downstate_replicationS40_G[2].pdf}
-    \caption[Effect of serotonin on DOWN state probability]{Effect of serotonin on DOWN state probability. Serotonin stimulation induces a DOWN state in several regions. Probability values between 0.5-1 seconds after the serotonin stimulation onset are included.}
-    \label{fig:downstate_barplot}
-\end{figure}
 
 \indent What stands out is that the striatum showed strong fluctuations in the model simulations, in comparison to the other regions and in comparison to the measurements in mice.
 In all recorded areas displaying a modulatory effect, there was a delay of 0.5 seconds in inducing a DOWN state. This delay was simulated by implementing the time course of the serotonergic response. 
@@ -200,21 +184,9 @@ Overall, the main effect of serotonin that was observed in the electrophysiologi
 \indent In an unconnected network (G=0), the probability of a DOWN state (compared to baseline activity) is dependent on the strength of the DRN projections targeting each area (see Figure \ref{fig:couplingstrength} A). Regions to which the DRN strongly connects, showed a strong DOWN state probability during serotonin stimulation.  The amygdala for example receives very strong connections from the DRN and therefore showed the highest modulatory effect of all of the regions in an unconnected network. The visual cortex, on the other hand, receives fewer projections from the DRN and is therefore almost not affected by the simulated serotonin stimulation. 
 \\
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.9\textwidth]{img/Results/couplingstrength_trajectories_S40.pdf}
-    \caption[Effect of coupling strength - Example traces]{Effect of coupling strength, demonstrated in example regions. The blue window indicates serotonin stimulation. The differently coloured graphs display different coupling strengths $G$ from $0-3$. The demonstrated example regions are the visual cortex (VIS), medial prefrontal cortex (mPFC), thalamus (Thal), and amygdala (Amyg).}
-    \label{fig:couplingstrength_trajectories}
-\end{figure}
 \indent To investigate the effect of coupling strength, simulations with various coupling strengths were run ($G$ of $0-3$). Figure \ref{fig:couplingstrength_trajectories} demonstrates the resulting traces of DOWN state probability (each compared to the respective baseline) for the different coupling strength values in the visual cortex, medial prefrontal cortex, thalamus and amygdala. Modifying the coupling strength did not have the same effect in all areas. Whereas in the visual cortex, an increased coupling strength increased the DOWN state probability, the amygdala showed no big difference in DOWN state probability during serotonin stimulation for all G parameters. Additionally, it is noticeable that for $G=1$ in the visual cortex and the mPFC, the rebound UP state is distinctively pronounced.
 In an unconnected network, the visual cortex was only slightly affected by serotonin stimulation (see Figure \ref{fig:couplingstrength} B). It was observed that with an increased coupling strength, the probability of a DOWN state increased in the visual cortex; it was around 50\% higher in the case of strong inter-area connections compared to no coupling.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.9\textwidth]{img/Results/Figure3.pdf}
-    \caption[Effect of coupling strength]{Effect of coupling strength. In all plots, DOWN state probabilities in a time window of 0.5-1 seconds post-stimulation were taken into account. A) In an unconnected network (G=0), the DRN projection density determines the strength of the effect of the modulation by serotonin. B) shows that the serotonin effect was elevated in the visual cortex for increased coupling strength (p<0.05). In C), the difference between the $\Delta$ DOWN state probability for a coupling strength G=0 and G=3 is displayed for every region. The colour codes describe the average projection densities that each area receives from all other areas, indicating how strongly the areas are affected by the changes in coupling strength.}
-    \label{fig:couplingstrength}
-\end{figure}
-\\
+
 \indent To uncover if this effect was similar for all of the regions, the difference between $\Delta$ DOWN state probabilities in an unconnected network and a strongly connected network were investigated (see Figure \ref{fig:couplingstrength} C). It turns out that whereas some areas were strongly affected by the change in coupling strength, others were not. The difference (G=0 vs G=3) was high for the visual cortex (p<0.05), but close to zero for the amygdala. Areas that did not show any UP-DOWN states were not affected by the increase in coupling strength either.
 \\
 \indent This could not be explained by the strength of DRN connectivity, as the negative correlation was non-significant (r=-0.27, p=0.36). The projection densities (obtained from the Allan Brain Atlas) describing the connection strength between the areas co-existing in this network vary (see legend in Figure \ref{fig:couplingstrength} C) and might affect how each area reacts to the coupling strength. The visual cortex receives relatively rich projections from other areas in the network, compared to the midbrain, striatum, thalamus, hippocampus, secondary motor cortex, and the remaining sensory regions. The thalamus showed, despite strong incoming inter-area projections, no enhanced serotonin effect for an increased coupling strength.   
