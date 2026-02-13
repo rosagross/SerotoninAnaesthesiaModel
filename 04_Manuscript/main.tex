@@ -73,8 +73,8 @@
 %  fill in the paper's title, author(s), and corresponding institutions
 %--------------------------------------------------------------------------
 
-\title{Serotonin induces a down-state across the mouse brain under anesthesia}
-\author{Rosa Großmann\textsuperscript{1}, Jorge Mejias\textsuperscript{2}, Zachary Mainen\textsuperscript{3} \& Guido Meijer\textsuperscript{3,4}}
+\title{Serotonin induces a down-state across the anesthetized mouse brain}
+\author{Rosa Großmann\textsuperscript{1}, Jorge F. Mejias\textsuperscript{2}, Zachary F. Mainen\textsuperscript{3} \& Guido T. Meijer\textsuperscript{3,4}}
 \affil{\textsuperscript{1}Max Planck Institute for Human Cognitive and Brain Science, Leipzig, Germany\newline
 \textsuperscript{2} Cognitive and Systems Neuroscience Group, Swammerdam Institute for Life Sciences, University of Amsterdam, Amsterdam, The Netherlands\newline
 \textsuperscript{3}Champalimaud Foundation, Lisbon, Portugal\newline
@@ -87,7 +87,7 @@
 %---------------------------------------------------------------------------
 %               Include abstract and keywords here
 %---------------------------------------------------------------------------
-Abstract goes here
+Serotonin (5-HT) is a neuromodulator which is released from neurons in the raphe nucleus that project widely across the forebrain. Serotonin has been implicated in the regulation of slow oscillations which occur during sleep and light anesthesia. These so called UP and DOWN states are periods of high neural activity interspersed with complete silence, observed mostly in the cortex. fMRI studies have shown that optogenetic stimulation of serotonergic neurons in the dorsal raphe nucleus results in a brain-wide suppression of neural activity, suggesting that serotonin transitions the system into a DOWN state. These findings, however, are contradicted by electrophysiological recordings which show that electrical stimulation of the dorsal raphe nucleus induces an UP state. Here we optogenetically stimulated serotonin release while recording large parts of the forebrain with Neuropixel probes in lightly anesthetized mice. We found that 5-HT stimulation induced a DOWN state across the cortex, striatum, and amygdala, but not in the midbrain. Computational modelling revealed that serotonin likely initiated a DOWN state by inhibiting the excitatory population.
 
 \DOI{} % do not delete this line
 \end{abstract}
@@ -106,7 +106,7 @@ It was shown that inceasing tonic levels of serotonin by administering MDMA supr
 
 To shed light on this issue, we stimulated serotonin by optogenetically activating DRN neurons in the anesthetized mouse while recording single cell spiking activity across the brain with Neuropixel probes. We found that 5-HT stimulation rapidly induced a DOWN state in cortex, amygdala, striatum, hippocampus, thalamus, but not the midbrain. To investigate the underlaying mechanism of this effect we modelled UP-DOWN state dynamics with a firing rate model with realistic inter-area connectivity which replicates the experimental data \cite{mejiasIrregularDynamicsCortical2010,jercogUPDOWNCorticalDynamics2017}. 
 
-\begin{figure}[ht]
+\begin{figure}[b]
     \centering
     \includegraphics[width=0.95\textwidth]{img/recordings_overview.pdf}
     \caption{Acute Neuropixel recordings while optogenetically stimulating serotonin release. (a) Saggital cartoon drawing of serotonergic neurons in the DRN projecting throughout the brain (green). An optical fiber is positioned directly above the DRN through the cerebellum through which the 5-HT neurons can be activated with blue light. (b) A coronal histological section of the DRN showing expression of channelrhodopsin. (c) A coronal histological section showing the fluorescent tract of a Di-I coated Neuropixel insertion. (d) Neuropixel insertion trajectories, aligned to the Allen Brain reference atlas, across all seven mice. Typically seven insertions were made per mouse, color of each insertion indicates mouse identity.}
@@ -123,7 +123,7 @@ To directly investigate whether serotonin stimulation induced a DOWN state we qu
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.95\textwidth]{img/ephys_updown_states.pdf}
-    \caption{Acute Neuropixel recordings while optogenetically stimulating serotonin release. (a) Saggital cartoon drawing of serotonergic neurons in the DRN projecting throughout the brain (green). An optical fiber is positioned directly above the DRN through the cerebellum through which the 5-HT neurons can be activated with blue light. (b) A coronal histological section of the DRN showing expression of channelrhodopsin. (c) A coronal histological section showing the fluorescent tract of a Di-I coated Neuropixel insertion. (d) Neuropixel insertion trajectories, aligned to the Allen Brain reference atlas, across all seven mice. Typically seven insertions were made per mouse, color of each insertion indicates mouse identity.}
+    \caption{Serotonin induces a DOWN state under anesthesia. (a) An example spike raster plot of 10s of spiking activity recorded on two Neuropixel probes simultaneously. Recorded brain regions are indicated on the right of the raster at their approximate depths. The time of the optogenetic 5-HT stimulation is indicated by the blue bar (25 Hz, 10 ms pulses). (b) Peri-stimulus time histogram of an example neuron from the frontal cortex. The bottom shows the spike raster in which each row is a repetition of 1s 25 Hz stimulation. The top shows the mean spiking rate binned in 50 ms bins with a 25 ms Gaussian smoothing kernel. *** \emph{p} $<$ 0.001, ZETA-test. (c) Percentage of significantly modulated neurons (ZETA-test, \emph{p} $<$ 0.05) per brain region, calculated per recording session. Black dots are sessions, grey bars means over sessions. (d) Modulation index per neuron, negative values indicate the neuron is inhibited by 5-HT and positive values indicate excitation. Each grey dot is a single neuron, vertical red bars are the mean over neurons per brain region. (e)} 
     \label{fig:ephys}
 \end{figure}
 
