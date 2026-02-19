@@ -24,6 +24,8 @@ import json
 N_STATES = 6
 
 
+
+
 def load_subjects(anesthesia='all', behavior=None):
     assert anesthesia in ['no', 'yes', 'both', 'all', 'no&both', 'yes&both']
     subjects = pd.read_csv(join(pathlib.Path(__file__).parent.resolve(), 'subjects.csv'),
@@ -115,10 +117,12 @@ def figure_style():
               'main_states': sns.diverging_palette(20, 210, l=55, center='dark'),
               'OFC': sns.color_palette('Dark2')[0],
               'mPFC': sns.color_palette('Dark2')[1],
+              'Frontal': sns.color_palette('Dark2')[1],
               'M2': sns.color_palette('Dark2')[2],
               'Amyg': sns.color_palette('Dark2')[3],
               'Hipp': sns.color_palette('Dark2')[4],
               'VIS': sns.color_palette('Dark2')[5],
+              'Sens': sns.color_palette('Dark2')[5],
               'Pir': sns.color_palette('Dark2')[6],
               'SC': sns.color_palette('Dark2')[7],
               'Thal': sns.color_palette('tab10')[9],
@@ -126,6 +130,7 @@ def figure_style():
               'BC': sns.color_palette('Accent')[0],
               'Str': sns.color_palette('Accent')[1],
               'MRN': sns.color_palette('Accent')[2],
+              'Mid': sns.color_palette('Accent')[2],
               'OLF': sns.color_palette('tab10')[8],
               'RSP': 'r',
               'SNr': [0.75, 0.75, 0.75]}
@@ -181,3 +186,24 @@ def query_ephys_sessions(aligned=True, behavior_crit=False, n_trials=0, anesthes
     rec = rec.drop_duplicates('pid', ignore_index=True)
     return rec
 
+def group_regions(data_df):
+    # summarize regions according to higher level regions
+    frontal = ['Medial prefrontal cortex', 'Orbitofrontal cortex', 'Secondary motor cortex'] # = 'Frontal'
+    sensory = ['Piriform', 'Visual cortex'] # = 'Sensory'
+    midbrain = ['Periaqueductal gray', 'Midbrain reticular nucleus', 'Superior colliculus'] # = 'Midbrain'
+
+    data_df['combined_region'] = data_df['region_name']
+    data_df['combined_region'].iloc[np.where(data_df['region_name'].isin(frontal))] = 'Frontal cortex' 
+    data_df['combined_region'].iloc[np.where(data_df['region_name'].isin(sensory))] = 'Sensory cortex' 
+    data_df['combined_region'].iloc[np.where(data_df['region_name'].isin(midbrain))] = 'Midbrain' 
+    
+    # add abbreviations for plotting
+    data_df['abr_region_combined'] = None
+    data_df.loc[data_df['combined_region'] == 'Amygdala', 'abr_region_combined'] = 'Amyg'
+    data_df.loc[data_df['combined_region'] == 'Hippocampus', 'abr_region_combined'] = 'Hipp'
+    data_df.loc[data_df['combined_region'] == 'Frontal cortex', 'abr_region_combined'] = 'Frontal'
+    data_df.loc[data_df['combined_region'] == 'Sensory cortex', 'abr_region_combined'] = 'Sens'
+    data_df.loc[data_df['combined_region'] == 'Thalamus', 'abr_region_combined'] = 'Thal'
+    data_df.loc[data_df['combined_region'] == 'Midbrain', 'abr_region_combined'] = 'Mid'
+
+    return data_df 

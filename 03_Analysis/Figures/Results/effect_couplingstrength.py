@@ -4,7 +4,7 @@ import numpy as np
 import os 
 import matplotlib.pyplot as plt
 import seaborn as sns
-from stim_functions import figure_style
+from stim_functions import figure_style, group_regions
 import seaborn.objects as so
 from scipy.stats import pearsonr, f_oneway
 from matplotlib.colors import rgb2hex
@@ -39,7 +39,51 @@ serotonin_df['p_down_delta'] = (serotonin_df['p_down'].values - baseline_df['p_d
 # define window of serotonin effect 
 serotonin_window = [0.5,1]
 
-# %% Plot direct effect
+# summarize regions according to higher level regions
+serotonon_df = group_regions(serotonin_df)
+baseline_df = group_regions(baseline_df)
+
+
+# %% Plot direct effect - grouped regions
+
+colors, dpi = figure_style()
+
+# average delta p_down 
+window_df = serotonin_df[serotonin_df['time'].between(serotonin_window[0],serotonin_window[1])] 
+uncoupled_stimulation_df = window_df[(window_df['G']==0) & (window_df['S']==40)]
+average_prob_df = uncoupled_stimulation_df.groupby(['combined_region', 'abr_region_combined'], as_index=False).mean()
+average_prob_df['color'] = [colors[i] for i in average_prob_df['abr_region_combined']]
+
+f, ax = plt.subplots(1, 1,figsize=(2.5, 1.75), dpi=dpi)
+(
+     so.Plot(average_prob_df, x='drn_connect', y='p_down_delta')
+     .add(so.Dot(pointsize=0))
+     .add(so.Line(color='grey', linewidth=1), so.PolyFit(order=1))
+     .on(ax)
+     .plot()
+)
+
+
+for i in average_prob_df.index:
+    ax.text(average_prob_df.loc[i, 'drn_connect'], average_prob_df.loc[i, 'p_down_delta'], average_prob_df.loc[i, 'abr_region_combined'],
+             color=average_prob_df.loc[i, 'color'], fontsize=8.5, fontweight='bold')
+    #ax.set(yticks=[0.25, 0.5, 0.75, 1], xticks=[-0.0, 0.1, 0.2])
+    r, p = pearsonr(average_prob_df['drn_connect'], average_prob_df['p_down_delta'])
+    ax.text(0.09, 0.36, f'r = {r:.2f}', fontsize=6)
+    ax.text(0.1, 0.41, f'***', fontsize=6)
+    
+
+plt.yticks([0, 0.2, 0.4, 0.6, 0.8])
+ax.set_yticklabels([0, 20, 40, 60, 80])
+plt.xticks([0, 0.05, 0.1, 0.15, 0.2])
+plt.xlabel('Projection density (from DRN)')
+plt.ylabel(u'Δ down state probability (%)')
+sns.despine(offset=2, trim=True)
+plt.savefig(os.path.join(figure_dir, 'combined_regions_drnConnect_vs_pDown_G0_S40.pdf'), bbox_inches="tight")
+
+
+
+# %% Plot direct effect - specific regions
 
 colors, dpi = figure_style()
 
@@ -76,7 +120,7 @@ plt.xticks([0, 0.05, 0.1, 0.15, 0.2])
 plt.xlabel('Projection density (from DRN)')
 plt.ylabel(u'Δ down state probability (%)')
 sns.despine(offset=2, trim=True)
-plt.savefig(os.path.join(figure_dir, 'drnConnect_vs_pDown_G0_S40.pdf'), bbox_inches="tight")
+#plt.savefig(os.path.join(figure_dir, 'drnConnect_vs_pDown_G0_S40.pdf'), bbox_inches="tight")
 
 
 # %% Plot indirect effect
@@ -112,7 +156,8 @@ f_statistic, p_value = f_oneway(values[values['G']==0]['p_down_delta'], values[v
 print("F statistic:", f_statistic)
 print("p-value:", p_value)
 
-# %% Plot 
+# %%
+# Compute received projection density
 
 window_df['drn_connect'] = np.round(window_df['drn_connect'], 4)
 all_regions = np.unique(window_df['region_name'])
@@ -132,9 +177,71 @@ for i, region in enumerate(all_regions):
     # collect the r and p values
     drn_value = np.unique(region_window_df['drn_connect'])
     corr_df = pd.concat((corr_df, pd.DataFrame(data={'region':region, 'r':r, 'p':p, 'drn_connect':drn_value[0], 'abr_region':acronyms[i],
+                                                     'combined_region':region_window_df['combined_region'].values[0], 'abr_region_combined':region_window_df['abr_region_combined'].values[0],
                                                      'g_diff' : g_diff, 'targeted':incoming_projections[i]}, index=[i])))
 
 drn_order = corr_df.sort_values(by='drn_connect', ascending=False).abr_region.values
+
+
+# %%
+# combined regions
+# Plot region coloured by received projection density
+corr_df_grouped = corr_df.groupby(['combined_region', 'abr_region_combined'], as_index=False).mean()
+corr_df_grouped['color'] = [colors[i] for i in corr_df_grouped['abr_region_combined']]
+# integrate info about coupling (projections targeting the area)
+corr_df_grouped.loc[corr_df_grouped['targeted']<0.05, 'target_grouped'] = '0.0-0.05'
+corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.05, 0.1), 'target_grouped'] = '0.05-0.1'
+corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.1, 0.15), 'target_grouped'] = '0.1-0.15'
+corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.15, 0.2), 'target_grouped'] = '0.15-0.2'
+
+colors_connect = sns.color_palette('Dark2')[0:4]
+corr_df_grouped.loc[corr_df_grouped['targeted']<0.05, 'target_color'] = rgb2hex(colors_connect[0])
+corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.05, 0.1), 'target_color'] = rgb2hex(colors_connect[1])
+corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.1, 0.15), 'target_color'] = rgb2hex(colors_connect[2])
+corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.15, 0.2), 'target_color'] = rgb2hex(colors_connect[3])
+
+
+
+colors, dpi = figure_style()
+f, ax1 = plt.subplots(1, 1, figsize=(2.5, 1.75), dpi=dpi)
+(
+     so.Plot(corr_df_grouped, x='drn_connect', y='g_diff')
+     .add(so.Dot(pointsize=0))
+     .add(so.Line(color='grey', linewidth=1), so.PolyFit(order=1))
+     .on(ax1)
+     .plot()
+)
+
+for i in corr_df_grouped.index:
+    so.Dot(pointsize=0)
+    txt = ax1.text(corr_df_grouped.loc[i, 'drn_connect'], corr_df_grouped.loc[i, 'g_diff'], corr_df_grouped.loc[i, 'abr_region_combined'],
+             color=corr_df_grouped.loc[i, 'target_color'], fontsize=8.5, fontweight='bold')
+    txt.set_path_effects([PathEffects.withStroke(linewidth=1, foreground='w')])
+    r, p = pearsonr(corr_df_grouped['drn_connect'], corr_df_grouped['g_diff'])
+    ax1.text(0.09, 0.3, f'r = {r:.2f}', fontsize=6)
+    ax1.text(0.09, 0.24, f'p = {p:.2f}', fontsize=6)
+    
+labels = ['0.0-0.05', '0.05-0.1', '0.1-0.15', '0.15-0.2']
+handles = []
+for color in colors_connect:
+    dot = Line2D([0], [0], marker='o', color='w', markerfacecolor=color, markersize=6)
+    handles.append(dot)
+
+patches = [mpatches.Patch(color=rgb2hex(color), label=label) for color, label in zip(colors_connect, labels)]
+ax1.set_yticks([0, 0.2, 0.4, 0.6])
+ax1.set_yticklabels([0, 20, 40, 60])
+ax1.set_xticks([0, 0.05, 0.1, 0.15, 0.2])
+ax1.set_xlabel('Projection density (from DRN)')
+ax1.set_ylabel(u' G0v3 Δ down state prob. (%)')
+sns.despine(trim=True)
+lgd = ax1.legend(title='Received projection density', handles=handles, labels=labels,
+                bbox_to_anchor=(0.3, 1, 1., .102),labelspacing=0.2)
+plt.savefig(os.path.join(figure_dir, f'combined_regions_coupling_effect_S40.pdf'), bbox_inches="tight")
+plt.show()
+
+# %% 
+# Specific regions
+# Plot region coloured by received projection density
 
 # integrate info about coupling (projections targeting the area)
 corr_df.loc[corr_df['targeted']<0.05, 'target_grouped'] = '0.0-0.05'
@@ -147,6 +254,7 @@ corr_df.loc[corr_df['targeted']<0.05, 'target_color'] = rgb2hex(colors_connect[0
 corr_df.loc[corr_df['targeted'].between(0.05, 0.1), 'target_color'] = rgb2hex(colors_connect[1])
 corr_df.loc[corr_df['targeted'].between(0.1, 0.15), 'target_color'] = rgb2hex(colors_connect[2])
 corr_df.loc[corr_df['targeted'].between(0.15, 0.2), 'target_color'] = rgb2hex(colors_connect[3])
+
 
 colors, dpi = figure_style()
 f, ax1 = plt.subplots(1, 1, figsize=(2.5, 1.75), dpi=dpi)

@@ -81,7 +81,7 @@ for i, region in enumerate(regions):
 
 plt.subplots_adjust(left=0.08, bottom=0.15, right=1, top=0.85, wspace=0, hspace=0.4)
 plt.tight_layout(h_pad=-10, w_pad=1.08)
-plt.savefig(os.path.join(figure_dir, f'p_delta_downstate_S{S}_G{G}.pdf'), dpi=600)
+#plt.savefig(os.path.join(figure_dir, f'p_delta_downstate_S{S}_G{G}.pdf'), dpi=600)
 
 
 # %% bar plot & t-test
@@ -111,7 +111,7 @@ axs.text(5.75, 0.2, f'***', fontsize=6)
 sns.despine(trim=True, ax=axs)
 plt.subplots_adjust(left=0.08, bottom=0.15, right=1, top=0.85, wspace=0, hspace=0.4)
 plt.tight_layout(h_pad=-10, w_pad=0)
-plt.savefig(os.path.join(figure_dir, f'downstate_replicationS{S}_G{G}.pdf'), dpi=600)
+#plt.savefig(os.path.join(figure_dir, f'downstate_replicationS{S}_G{G}.pdf'), dpi=600)
 
 # %% t test
 

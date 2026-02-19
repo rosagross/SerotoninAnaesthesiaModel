@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import seaborn.objects as so
 from scipy.stats import pearsonr
-from stim_functions import figure_style
+from stim_functions import figure_style, group_regions
 
 '''
 1) all 14 areas, homogeneous connectivity, stimulation vs no stimulation
@@ -50,6 +50,14 @@ atlas.drop(['Unnamed: 0'], inplace=True, axis=1)
 atlas = np.array(atlas)
 all_acronyms = ['Amyg', 'Hipp', 'mPFC', 'MRN', 'OLF', 'OFC', 'PAG', 'Pir', 'RSP', 'M2', 'SC', 'Str', 'Thal', 'VIS']
 
+print(homogen_C_df.shape)
+# group in higher level regions for plotting
+homogen_C_df = group_regions(homogen_C_df)
+homogen_C_baseline_df = group_regions(homogen_C_baseline_df)
+heterogen_C_df = group_regions(heterogen_C_df)
+heterogen_C_baseline_df = group_regions(heterogen_C_baseline_df)
+heterogen_C_allG_df = group_regions(heterogen_C_allG_df)
+homogen_C_allG_df = group_regions(homogen_C_allG_df)
 
 # %% Plot 14 areas - with BASELINE
 
@@ -87,7 +95,7 @@ axs[1][0].plot([0, 2], [-0.26, -0.26], color='k', lw=0.8, clip_on=False)
 axs[1][0].text(1, -0.28, '2s', ha='center', va='top')
 fig.text(0.08, 0.5, u'Δ down state probability (%)', va='center', rotation='vertical')
 plt.subplots_adjust(hspace=0.4, wspace=0.)
-plt.savefig(os.path.join(figure_dir, f'downstate_probability_byRegion.pdf'), dpi=600, bbox_inches="tight")
+#plt.savefig(os.path.join(figure_dir, f'downstate_probability_byRegion.pdf'), dpi=600, bbox_inches="tight")
 
 # %% Plot 14 areas - Heterogeneous vs Homogeneous connectivity
 
@@ -133,13 +141,14 @@ connect_matrix = pd.read_csv(os.path.join(connectivity_dir, 'MODEL_Cmatrix_group
 connect_matrix.drop('Unnamed: 0', inplace=True, axis=1)
 connect_matrix = np.array(connect_matrix)
 incoming_projections = np.mean(connect_matrix, axis=0)
+
 all_regions = np.unique(homogen_C_df['region_name'])
 serotonin_window = [0.5,1]
 
 heterogen_window = heterogen_C_df[heterogen_C_df['time'].between(serotonin_window[0], serotonin_window[1])]
-heterogen_grouped = heterogen_window.groupby(['region_name','session'], as_index=False).mean()
+heterogen_grouped = heterogen_window.groupby(['region_name','session','combined_region', 'abr_region_combined'], as_index=False).mean()
 homogen_window = homogen_C_df[homogen_C_df['time'].between(serotonin_window[0], serotonin_window[1])]
-homogen_grouped = homogen_window.groupby(['region_name','session'], as_index=False).mean()
+homogen_grouped = homogen_window.groupby(['region_name','session','combined_region'], as_index=False).mean()
 
 diff_df = heterogen_grouped.copy()
 cols = ['p_down', 'p_down_delta']
@@ -151,8 +160,36 @@ for i, region in enumerate(all_regions):
     diff_df.loc[diff_df['region_name'] == region, 'incoming_projections'] = incoming_projections[i]
     diff_df.loc[diff_df['region_name'] == region, 'abr_region'] = all_acronyms[i]
 
+# groupy by higher level regions for plotting
+diff_df_grouped = diff_df.groupby(['combined_region', 'session', 'abr_region_combined'], as_index=False).mean()
 
-# %% Plot barplot sorted by incoming projections
+
+#%%
+##### by grouped regions
+# Plot barplot sorted by incoming projections
+
+colors, dpi = figure_style()
+f, ax1 = plt.subplots(1, 1, figsize=(3, 1.75), dpi=dpi)
+
+# exclude regions that do not show UP and DOWN states at all 
+regions_UP = ['Hipp', 'Mid']
+regions_plot_df = diff_df_grouped[~diff_df_grouped['abr_region_combined'].isin(regions_UP)]
+plot_order = regions_plot_df.groupby(['abr_region_combined'], as_index=False).mean().sort_values(by='incoming_projections', ascending=True).abr_region_combined.values
+
+sns.barplot(regions_plot_df, x='abr_region_combined', y='p_down_delta', color=colors['grey'], errorbar='se', order=plot_order)
+ax1.tick_params(axis='y', which='major', pad=0)
+ax1.tick_params(axis='x', which='major', pad=0)
+ax1.set_xlabel('')
+ax1.set_xticklabels(ax1.get_xticklabels(), rotation=-45)
+sns.despine(trim=True, ax=ax1)
+ax1.set_ylabel(u'heterogen. - homogen. \nΔ down state prob. (%)')
+#plt.savefig(os.path.join(figure_dir, f'heterogen_vs_homogen_barplot.pdf'), bbox_inches="tight")
+
+
+
+# %% 
+# by specific regions
+# Plot barplot sorted by incoming projections
 
 colors, dpi = figure_style()
 f, ax1 = plt.subplots(1, 1, figsize=(3, 1.75), dpi=dpi)
@@ -169,9 +206,67 @@ ax1.set_xlabel('')
 ax1.set_xticklabels(ax1.get_xticklabels(), rotation=-45)
 sns.despine(trim=True, ax=ax1)
 ax1.set_ylabel(u'heterogen. - homogen. \nΔ down state prob. (%)')
-plt.savefig(os.path.join(figure_dir, f'heterogen_vs_homogen_barplot.pdf'), bbox_inches="tight")
+#plt.savefig(os.path.join(figure_dir, f'heterogen_vs_homogen_barplot.pdf'), bbox_inches="tight")
+# %% 
+# grouped by higher level regions 
+# Plot uncoupled vs homogeneous coupling G=3
 
-# %% Plot uncoupled vs homogeneous coupling G=3
+uncoupled_df = heterogen_C_allG_df[heterogen_C_allG_df['G']==0]
+homogen_coupled_df = homogen_C_allG_df[homogen_C_allG_df['G']==3]
+
+# add regions abbreviation and group in window
+all_regions = np.unique(homogen_coupled_df['combined_region'])
+serotonin_window = [0.5,1]
+
+uncoupled_window = uncoupled_df[uncoupled_df['time'].between(serotonin_window[0], serotonin_window[1])]
+uncoupled_grouped = uncoupled_window.groupby(['combined_region', 'abr_region_combined'], as_index=False).mean()
+homogen_window = homogen_coupled_df[homogen_coupled_df['time'].between(serotonin_window[0], serotonin_window[1])]
+homogen_grouped = homogen_window.groupby(['combined_region', 'abr_region_combined'], as_index=False).mean()
+
+uncoupled_coupled_diff_df = uncoupled_grouped.copy()
+cols = ['p_down', 'p_down_delta']
+uncoupled_coupled_diff_df[cols] = homogen_grouped[cols] - uncoupled_grouped[cols]
+
+for i, region in enumerate(all_regions):
+
+    # get the projection density
+    uncoupled_coupled_diff_df.loc[uncoupled_coupled_diff_df['combined_region'] == region, 'abr_region'] = all_acronyms[i]
+
+colors, dpi = figure_style()
+f, ax1 = plt.subplots(1, 1, figsize=(2.5, 1.75), dpi=dpi)
+(
+     so.Plot(uncoupled_coupled_diff_df, x='drn_connect', y='p_down_delta')
+     .add(so.Dot(pointsize=0))
+     .add(so.Line(color='grey', linewidth=1), so.PolyFit(order=1))
+     .on(ax1)
+     .plot()
+)
+
+uncoupled_coupled_diff_df['color'] = [colors[i] for i in uncoupled_coupled_diff_df['abr_region']]
+
+for i in uncoupled_coupled_diff_df.index:
+    so.Dot(pointsize=0)
+    txt = ax1.text(uncoupled_coupled_diff_df.loc[i, 'drn_connect'], uncoupled_coupled_diff_df.loc[i, 'p_down_delta'], uncoupled_coupled_diff_df.loc[i, 'abr_region_combined'],
+             color=uncoupled_coupled_diff_df.loc[i, 'color'], fontsize=8.5, fontweight='bold')
+    r, p = pearsonr(uncoupled_coupled_diff_df['drn_connect'], uncoupled_coupled_diff_df['p_down_delta'])
+
+    ax1.text(0.09, 0.24, f'r = {r:.2f}', fontsize=6)
+    ax1.text(0.1, 0.3, f'**', fontsize=6)
+print('p-val.', p)
+
+ax1.set_yticks([-0.2, 0, 0.2, 0.4])
+ax1.set_yticklabels([-20, 0, 20, 40])
+ax1.set_xticks([0, 0.05, 0.1, 0.15, 0.2])
+ax1.set_xlabel('Projection density (from DRN)')
+ax1.set_ylabel(u' G0v3 Δ down state prob. (%)')
+sns.despine(trim=True)
+plt.savefig(os.path.join(figure_dir, f'combined_regions_homogenG3_vs_uncoupled.pdf'), bbox_inches="tight")
+plt.show()
+
+
+# %% 
+# Specific regions
+# Plot uncoupled vs homogeneous coupling G=3
 
 uncoupled_df = heterogen_C_allG_df[heterogen_C_allG_df['G']==0]
 homogen_coupled_df = homogen_C_allG_df[homogen_C_allG_df['G']==3]
@@ -222,5 +317,7 @@ ax1.set_xticks([0, 0.05, 0.1, 0.15, 0.2])
 ax1.set_xlabel('Projection density (from DRN)')
 ax1.set_ylabel(u' G0v3 Δ down state prob. (%)')
 sns.despine(trim=True)
-plt.savefig(os.path.join(figure_dir, f'homogenG3_vs_uncoupled.pdf'), bbox_inches="tight")
+#plt.savefig(os.path.join(figure_dir, f'homogenG3_vs_uncoupled.pdf'), bbox_inches="tight")
 plt.show()
+
+# %%
