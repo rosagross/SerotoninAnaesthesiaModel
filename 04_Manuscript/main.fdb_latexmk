@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1770991642.36516 "main.aux" "main.bbl" "main" 1770991644.84719 0
+["bibtex main"] 1771489715.01591 "main.aux" "main.bbl" "main" 1771489717.45724 0
   "./pisikabst.bst" 1768462707 34645 aa74942a802431bd058560a63a31f7e2 ""
   "./serotonin_bib.bib" 1770991205 1282464 8fb631283b02028c5f100e58f1099aef ""
-  "main.aux" 1770991643 16681 0ed0ce37acc150696c5f81c9ff5ddc77 "pdflatex"
+  "main.aux" 1771489716 18546 fa736de2ee2f942b796e707fb58ec829 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1770991642.76281 "main.tex" "main.pdf" "main" 1770991644.84811 0
+["pdflatex"] 1771489715.43862 "main.tex" "main.pdf" "main" 1771489717.45803 0
   "C:/Users/guido/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1768464813 690488 62a5b5b8b7a6fb8df93bb398cf4abecb ""
   "C:/Users/guido/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1761723538 13321868 74406b6659bb71c6cc3f5e68c133401a ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1001775420 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -140,10 +140,10 @@
   "img/Results/Figure5.pdf" 1768462707 106906 2ce2144c49ba54c1fa0c5325fef459f4 ""
   "img/ephys_updown_states.pdf" 1770991367 2345131 955475238e8bdb7616c5bc859fe18278 ""
   "img/recordings_overview.pdf" 1770191331 1190442 978835af330e5684819a5637ea0d4f4a ""
-  "main.aux" 1770991643 16681 0ed0ce37acc150696c5f81c9ff5ddc77 "pdflatex"
-  "main.bbl" 1770991642 19083 056bdd3f326003f03eec1cad26dde230 "bibtex main"
-  "main.out" 1770991643 3469 83e4d357b6455884163e5b1a6b71829f "pdflatex"
-  "main.tex" 1770991475 70885 7e5c1e843ed74b156d32c95751d2d8cf ""
+  "main.aux" 1771489716 18546 fa736de2ee2f942b796e707fb58ec829 "pdflatex"
+  "main.bbl" 1771489715 19083 056bdd3f326003f03eec1cad26dde230 "bibtex main"
+  "main.out" 1771489716 3469 83e4d357b6455884163e5b1a6b71829f "pdflatex"
+  "main.tex" 1771489712 72330 b9737848cb067e5832572f39a416b2d5 ""
   (generated)
   "main.aux"
   "main.log"

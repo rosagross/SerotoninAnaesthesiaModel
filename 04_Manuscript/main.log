@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.29)  13 FEB 2026 15:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.29)  19 FEB 2026 09:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -548,7 +548,7 @@ File: img/recordings_overview.pdf Graphic file (type pdf)
 <use img/recordings_overview.pdf>
 Package pdftex.def Info: img/recordings_overview.pdf  used on input line 111.
 (pdftex.def)             Requested size: 461.13228pt x 105.47021pt.
-<img/ephys_updown_states.pdf, id=101, 512.14938pt x 390.47783pt>
+<img/ephys_updown_states.pdf, id=104, 512.14938pt x 390.47783pt>
 File: img/ephys_updown_states.pdf Graphic file (type pdf)
 <use img/ephys_updown_states.pdf>
 Package pdftex.def Info: img/ephys_updown_states.pdf  used on input line 125.
@@ -558,31 +558,31 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 126.
 
+
+[2 <./img/recordings_overview.pdf>]
+
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 134.
 
 
-LaTeX Warning: Reference `fig:UPDOWNstates' on page 2 undefined on input line 1
+LaTeX Warning: Reference `fig:UPDOWNstates' on page 3 undefined on input line 1
 36.
 
 
-LaTeX Warning: Reference `fig:synchrony' on page 2 undefined on input line 136.
+LaTeX Warning: Reference `fig:synchrony' on page 3 undefined on input line 136.
 
-
-
-
-[2 <./img/recordings_overview.pdf>]
-
-LaTeX Warning: Reference `fig:UPDOWNstates' on page 3 undefined on input line 1
-42.
 
 
 
 [3 <./img/ephys_updown_states.pdf>]
 
+LaTeX Warning: Reference `fig:UPDOWNstates' on page 4 undefined on input line 1
+42.
+
+
 LaTeX Warning: Reference `cha:brunel' on page 4 undefined on input line 146.
 
-<img/Figure2_summary_final.pdf, id=312, 572.40553pt x 437.73238pt>
+<img/Figure2_summary_final.pdf, id=316, 572.40553pt x 437.73238pt>
 File: img/Figure2_summary_final.pdf Graphic file (type pdf)
 <use img/Figure2_summary_final.pdf>
 Package pdftex.def Info: img/Figure2_summary_final.pdf  used on input line 153.
@@ -605,7 +605,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 164--173
 
 [4]
 
-LaTeX Warning: Reference `fig:couplingstrength' on page 5 undefined on input li
+[5 <./img/Figure2_summary_final.pdf>]
+
+LaTeX Warning: Reference `fig:couplingstrength' on page 6 undefined on input li
 ne 184.
 
 
@@ -619,9 +621,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 181--186
 
  []
 
-
-
-[5 <./img/Figure2_summary_final.pdf>]
 
 LaTeX Warning: Reference `fig:couplingstrength_trajectories' on page 6 undefine
 d on input line 187.
@@ -638,23 +637,20 @@ ne 190.
 LaTeX Warning: Reference `fig:couplingstrength' on page 6 undefined on input li
 ne 192.
 
-<img/Results/Figure5.pdf, id=914, 433.61996pt x 274.62598pt>
+
+
+[6]
+<img/Results/Figure5.pdf, id=921, 433.61996pt x 274.62598pt>
 File: img/Results/Figure5.pdf Graphic file (type pdf)
 <use img/Results/Figure5.pdf>
 Package pdftex.def Info: img/Results/Figure5.pdf  used on input line 202.
 (pdftex.def)             Requested size: 461.13228pt x 292.06593pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[6]
-
-LaTeX Warning: Reference `fig:targetI' on page 7 undefined on input line 217.
-
-
 
 [7 <./img/Results/Figure5.pdf>]
+
+LaTeX Warning: Reference `fig:targetI' on page 8 undefined on input line 217.
+
 
 LaTeX Warning: Reference `fig:downstate_repl' on page 8 undefined on input line
  219.
@@ -662,11 +658,14 @@ LaTeX Warning: Reference `fig:downstate_repl' on page 8 undefined on input line
 
 LaTeX Warning: Reference `fig:targetI' on page 8 undefined on input line 221.
 
-<img/Figure4_summary.pdf, id=1271, 583.67921pt x 244.10815pt>
+<img/Figure4_summary.pdf, id=1274, 583.67921pt x 244.10815pt>
 File: img/Figure4_summary.pdf Graphic file (type pdf)
 <use img/Figure4_summary.pdf>
 Package pdftex.def Info: img/Figure4_summary.pdf  used on input line 226.
 (pdftex.def)             Requested size: 480.55258pt x 200.98196pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Overfull \hbox (3.5043pt too wide) in paragraph at lines 230--233
 []\OT1/cmr/m/n/10.95 To uncover the effects of other options for modelling sero
@@ -675,22 +674,21 @@ tonin stimulation, targeting the E population
 
 
 
-[8 <./img/Figure4_summary.pdf>]
+[8]
 Overfull \hbox (20.05962pt too wide) in paragraph at lines 252--253
 []\OT1/cmr/m/n/10.95 During quite wakefulness, stimulation of serotonergic neur
 ons in the DRN supresses hippocampal
  []
 
 
+
+[9{C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-sup
+er-ts1.enc} <./img/Figure4_summary.pdf>]
 Overfull \hbox (4.87276pt too wide) in paragraph at lines 253--254
 []\OT1/cmr/m/n/10.95 Previously it was found that serotonin suppresses hippocam
 pal sharp wave ripples. Therefore,
  []
 
-
-
-[9{C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-sup
-er-ts1.enc}]
 
 LaTeX Warning: Reference `fig:couplingstrength' on page 10 undefined on input l
 ine 268.
@@ -727,6 +725,8 @@ ur consecutive days. Mice were anesthetized
  []
 
 
+
+[13]
 Overfull \hbox (5.03497pt too wide) in paragraph at lines 346--347
 \OT1/cmr/m/n/10.95 Pre-processing and spike sorting of raw electrophysiological
  data was performed with the fully automated
@@ -734,18 +734,16 @@ Overfull \hbox (5.03497pt too wide) in paragraph at lines 346--347
 
 
 
-[13]
-
-LaTeX Warning: Reference `fig:connectivity' on page 14 undefined on input line 
-383.
-
-
-LaTeX Warning: Reference `fig:connectivity' on page 14 undefined on input line 
-383.
-
-
-
 [14]
+
+LaTeX Warning: Reference `fig:connectivity' on page 15 undefined on input line 
+383.
+
+
+LaTeX Warning: Reference `fig:connectivity' on page 15 undefined on input line 
+383.
+
+
 
 [15]
 Overfull \hbox (3.2204pt too wide) in paragraph at lines 425--428
@@ -753,30 +751,28 @@ Overfull \hbox (3.2204pt too wide) in paragraph at lines 425--428
 e UP-DOWN dynamics. Most importantly,
  []
 
-<img/Methods/Figure2_1.pdf, id=1857, 426.39299pt x 144.54pt>
+
+
+[16]
+<img/Methods/Figure2_1.pdf, id=1868, 426.39299pt x 144.54pt>
 File: img/Methods/Figure2_1.pdf Graphic file (type pdf)
 <use img/Methods/Figure2_1.pdf>
 Package pdftex.def Info: img/Methods/Figure2_1.pdf  used on input line 443.
 (pdftex.def)             Requested size: 426.39194pt x 144.53963pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<img/Methods/Figure2_2.pdf, id=1862, 484.209pt x 144.54pt>
+<img/Methods/Figure2_2.pdf, id=1873, 484.209pt x 144.54pt>
 File: img/Methods/Figure2_2.pdf Graphic file (type pdf)
 <use img/Methods/Figure2_2.pdf>
 Package pdftex.def Info: img/Methods/Figure2_2.pdf  used on input line 455.
 (pdftex.def)             Requested size: 485.40396pt x 144.90132pt.
 
 
-[16] (main.bbl
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[17 <./img/Methods/Figure2_1.pdf> <./img/Methods/Figure2_2.pdf
+(main.bbl
 
-pdfTeX warning: pdflatex (file ./img/Methods/Figure2_2.pdf): PDF inclusion: mul
-tiple pdfs with page group included in a single page
->]
+[17 <./img/Methods/Figure2_1.pdf>]
 
-[18])
+[18 <./img/Methods/Figure2_2.pdf>])
 
 [19] (main.aux)
  ***********
@@ -791,13 +787,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 83E4D357B6455884163E5B1A6B71829F;3469.
  ) 
 Here is how much of TeX's memory you used:
- 13201 strings out of 468080
- 216007 string characters out of 5425771
- 646945 words of memory out of 5000000
- 41594 multiletter control sequences out of 15000+600000
+ 13202 strings out of 468080
+ 216017 string characters out of 5425771
+ 655733 words of memory out of 5000000
+ 41595 multiletter control sequences out of 15000+600000
  642689 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,9n,79p,1776b,632s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,79p,2162b,612s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmbx10.pfb><C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx12.pfb><C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/type1/p
@@ -816,9 +812,9 @@ C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
 onts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/guido/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/guido/AppData/Local/
 Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on main.pdf (19 pages, 4307921 bytes).
+Output written on main.pdf (19 pages, 4310260 bytes).
 PDF statistics:
- 2527 PDF objects out of 2984 (max. 8388607)
+ 2531 PDF objects out of 2984 (max. 8388607)
  96 named destinations out of 1000 (max. 500000)
  148 words of extra memory for PDF output out of 10000 (max. 10000000)
 
