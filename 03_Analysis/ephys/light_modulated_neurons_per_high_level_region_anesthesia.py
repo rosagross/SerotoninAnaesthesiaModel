@@ -17,6 +17,7 @@ colors, dpi = figure_style()
 MIN_NEURONS_POOLED = 2
 MIN_NEURONS_PER_MOUSE = 2
 MIN_MOD_NEURONS = 2
+MIN_NEURONS_PER_SES = 5
 MIN_REC = 2
 
 # Get paths
@@ -42,6 +43,17 @@ light_neurons = light_neurons.drop(index=[i for i, j in enumerate(light_neurons[
 mod_neurons = light_neurons[(light_neurons['sert-cre'] == 1) & (light_neurons['modulated'] == 1)]
 mod_neurons = mod_neurons.groupby('high_level_region').filter(lambda x: len(x) >= MIN_MOD_NEURONS)
 
+# Summary statistics per session
+per_ses_df = light_neurons[light_neurons['sert-cre'] == 1].groupby(
+    ['high_level_region', 'pid']).sum(numeric_only=True)
+per_ses_df['n_neurons'] = light_neurons[light_neurons['sert-cre'] == 1].groupby(['high_level_region', 'pid']).size()
+per_ses_df['perc_mod'] = (per_ses_df['modulated'] / per_ses_df['n_neurons']) * 100
+per_ses_df = per_ses_df[per_ses_df['n_neurons'] >= MIN_NEURONS_PER_SES]
+per_ses_df = per_ses_df.reset_index()
+
+# Get ordered regions per session
+ordered_regions_ps = per_ses_df.groupby('high_level_region').mean(numeric_only=True).sort_values('perc_mod', ascending=False).reset_index()
+
 # Summary statistics per mouse
 per_mouse_df = light_neurons[light_neurons['sert-cre'] == 1].groupby(
     ['high_level_region', 'subject']).sum(numeric_only=True)
@@ -63,12 +75,12 @@ ordered_regions_pm = per_mouse_df.groupby('high_level_region').mean(numeric_only
 
 # %%
 f, ax1 = plt.subplots(1, 1, figsize=(1.9, 1.75), dpi=dpi)
-sns.barplot(x='perc_mod', y='high_level_region', data=per_mouse_df,
-            order=ordered_regions_pm['high_level_region'],
+sns.barplot(x='perc_mod', y='high_level_region', data=per_ses_df,
+            order=ordered_regions_ps['high_level_region'],
             color=[0.6, 0.6, 0.6], ax=ax1, errorbar=None,
             width=0.6)
-sns.swarmplot(x='perc_mod', y='high_level_region', data=per_mouse_df,
-              order=ordered_regions_pm['high_level_region'],
+sns.swarmplot(x='perc_mod', y='high_level_region', data=per_ses_df,
+              order=ordered_regions_ps['high_level_region'],
               color='k', ax=ax1, size=2, legend=None)
 ax1.set(xlabel='Modulated neurons (%)', ylabel='', xlim=[0, 102], xticks=np.arange(0, 101, 25))
 #ax1.legend(frameon=False, bbox_to_anchor=(0.8, 1.1), prop={'size': 5}, title='Mouse',
