@@ -31,9 +31,6 @@
   {\global\setbox\abstract@box=\vbox\bgroup
      \hsize=\textwidth\linewidth=\textwidth
     \small
-    \begin{center}%
-    {\bfseries \abstractname\vspace{-.5em}\vspace{\z@}}%
-    \end{center}%
     \quotation}
   {\endquotation\egroup}
 \expandafter\def\expandafter\@maketitle\expandafter{\@maketitle
@@ -49,8 +46,8 @@
 \newcolumntype{d}[1]{D{.}{.}{#1}}
 
 \usepackage{caption}
-\captionsetup[table]{position=above,font={rm,small}}
-\captionsetup[figure]{font={rm,small}}
+\captionsetup[table]{position=above, font={rm,small}, labelfont=bf, labelsep=period}
+\captionsetup[figure]{font={rm,small}, labelfont=bf, labelsep=period}
 
 % for citations formatting style
 \usepackage[numbers,square,sort&compress]{natbib}
@@ -67,13 +64,16 @@
 % page numbering
 \pagenumbering{arabic}
 
+% Font
+\usepackage{mathpazo}
+
 \begin{document}
 
 %--------------------------------------------------------------------------
 %  fill in the paper's title, author(s), and corresponding institutions
 %--------------------------------------------------------------------------
 
-\title{Serotonin induces a down-state across the anesthetized mouse brain}
+\title{\textbf{Serotonin induces a down-state across the anesthetized mouse brain}}
 \author{Rosa Großmann\textsuperscript{1}, Jorge F. Mejias\textsuperscript{2}, Zachary F. Mainen\textsuperscript{3} \& Guido T. Meijer\textsuperscript{3,4}}
 \affil{\textsuperscript{1}Max Planck Institute for Human Cognitive and Brain Science, Leipzig, Germany\newline
 \textsuperscript{2} Cognitive and Systems Neuroscience Group, Swammerdam Institute for Life Sciences, University of Amsterdam, Amsterdam, The Netherlands\newline
@@ -87,7 +87,7 @@
 %---------------------------------------------------------------------------
 %               Include abstract and keywords here
 %---------------------------------------------------------------------------
-Serotonin (5-HT) is a neuromodulator which is released from neurons in the raphe nucleus that project widely across the forebrain. Serotonin has been implicated in the regulation of slow oscillations which occur during sleep and light anesthesia. These so called UP and DOWN states are periods of high neural activity interspersed with complete silence, observed mostly in the cortex. fMRI studies have shown that optogenetic stimulation of serotonergic neurons in the dorsal raphe nucleus results in a brain-wide suppression of neural activity, suggesting that serotonin transitions the system into a DOWN state. These findings, however, are contradicted by electrophysiological recordings which show that electrical stimulation of the dorsal raphe nucleus induces an UP state. Here we optogenetically stimulated serotonin release while recording large parts of the forebrain with Neuropixel probes in lightly anesthetized mice. We found that 5-HT stimulation induced a DOWN state across the cortex, striatum, and amygdala, but not in the midbrain. Computational modelling revealed that serotonin likely initiated a DOWN state by inhibiting the excitatory population.
+Serotonin (5-HT) is a neuromodulator which is released from neurons in the dorsal raphe nucleus (DRN) that project widely across the forebrain. Serotonin has been implicated in the regulation of slow oscillations which occur during sleep and light anesthesia. These so called UP and DOWN states are periods of high neural activity interspersed with complete silence, observed mostly in the cortex. fMRI studies have shown that optogenetic stimulation of serotonergic neurons in the dorsal raphe nucleus results in a brain-wide suppression of neural activity, suggesting that serotonin transitions the system into a DOWN state. These findings, however, are contradicted by electrophysiological recordings which show that electrical stimulation of the dorsal raphe nucleus induces an UP state. Here we optogenetically stimulated serotonin release while recording large parts of the forebrain with Neuropixel probes in lightly anesthetized mice. We found that 5-HT stimulation induced a DOWN state across the cortex, striatum, and amygdala, but not in the midbrain. A multi-area computational model could recapitulate the effect of serotonin stimulation on UP-DOWN state dynamics. By including biologically plausible inter-area connectivity in the model we show that cortical regions which do not receive direct input from the DRN are still transitioned into a DOWN state through the influence of the rest of the brain.
 
 \DOI{} % do not delete this line
 \end{abstract}
@@ -104,7 +104,7 @@ Serotonin (5-HT) is a neuromodulator which plays a crucial role in many brain fu
 
 It was shown that inceasing tonic levels of serotonin by administering MDMA supresses slow oscillations in anaesthetised mice. Furthermore, bath application of 5-HT to acute brain slices completely abolishes slow oscillations \cite{defilippoSomatostatinInterneuronsActivated2021}. Besides these slow tonic increases in serotonin, also transient pulses of 5-HT suppress neural activity across the brain, as measured with fMRI \cite{hamadaOptogeneticActivationDorsal2022,grandjeanBrainwideFunctionalMap2019}. Altough these studies suggest that serotonin induces a DOWN state, they lack the temporal precision to directly establish this. Another piece of evidence which supports the notion that serotonin should induce a DOWN state is that 5-HT stimulation suppresses hippocampal sharp wave ripples \cite{kandilakisOppositeSerotonergicModulation2025,meijerSerotoninDrivesChoiceindependent2025}. Since sharp wave ripples occur during UP states it is likely that serotonin transitions the neural network into a DOWN state. This is, however, only indirect evidence. In contrast to the previous findings, one study showed that electrical stimulation of the dorsal raphe nucleus (DRN) in rats induces an UP state in frontal cortex \cite{puigSerotoninModulatesFastSpiking2010}. To our knowledge, this is the only study which investigated the direct effect of a transient increase of serotonin on UP-DOWN dynamics with high temporal resolution. Their findings, however, are in direct conflict with a body of literature which indicates that serotonin suppresses neural activity and transitions the network into a DOWN state. Serotonin's effect on UP-DOWN state dynamics under anesthesia is therefore still a topic for debate.
 
-To shed light on this issue, we stimulated serotonin by optogenetically activating DRN neurons in the anesthetized mouse while recording single cell spiking activity across the brain with Neuropixel probes. We found that 5-HT stimulation rapidly induced a DOWN state in cortex, amygdala, striatum, hippocampus, thalamus, but not the midbrain. To investigate the underlaying mechanism of this effect we modelled UP-DOWN state dynamics with a firing rate model with realistic inter-area connectivity which replicates the experimental data \cite{mejiasIrregularDynamicsCortical2010,jercogUPDOWNCorticalDynamics2017}. 
+To shed light on this issue, we stimulated serotonin by optogenetically activating DRN neurons in the anesthetized mouse while recording single cell spiking activity across the brain with Neuropixel probes. We found that 5-HT stimulation rapidly induced a DOWN state in cortex, amygdala, striatum, hippocampus, thalamus, but not the midbrain. To investigate the underlying mechanism of this effect we modelled UP-DOWN state dynamics with a firing rate model with realistic inter-area connectivity which replicates the experimental data \cite{mejiasIrregularDynamicsCortical2010,jercogUPDOWNCorticalDynamics2017}. 
 
 \begin{figure}[t]
     \centering
@@ -127,7 +127,7 @@ To directly investigate whether serotonin stimulation induced a DOWN state we qu
     \label{fig:ephys}
 \end{figure}
 
-To investigate the mechanism behind the effect of serotonin stimulation in mice during anaesthesia, a dynamic firing rate model was implemented, which simulates a simplified network of the mouse brain, following biological realistic inter-area connectivity. Each brain area was modelled using a local excitatory-inhibitory (EI) circuit consisting of one E, one I population, and a mechanism controlling for adaptation (A) of the excitatory population. The implementation was guided by the EI network model proposed by Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, who showed that this model produces UP and DOWN states similar to the UP and DOWN states that were observed in recordings from mice during anaesthesia \cite{ruiz-mejiasSlowFastRhythms2011}.
+To investigate the mechanism behind the effect of serotonin stimulation in mice during anesthesia, a dynamic firing rate model was implemented, which simulates a simplified network of the mouse brain, following biological realistic inter-area connectivity. Each brain area was modelled using a local excitatory-inhibitory (EI) circuit consisting of one E, one I population, and a mechanism controlling for adaptation (A) of the excitatory population. The implementation was guided by the EI network model proposed by Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, who showed that this model produces UP and DOWN states similar to the UP and DOWN states that were observed in recordings from mice during anaesthesia \cite{ruiz-mejiasSlowFastRhythms2011}.
 
 \section{Replication of mouse brain dynamics in an anaesthetic state\label{sec:prereq}}
 
