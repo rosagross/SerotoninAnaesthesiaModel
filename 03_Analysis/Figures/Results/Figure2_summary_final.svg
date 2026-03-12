@@ -25,14 +25,21 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.557211"
-     inkscape:cx="296.04209"
-     inkscape:cy="404.56945"
-     inkscape:window-width="2880"
-     inkscape:window-height="1586"
-     inkscape:window-x="2869"
-     inkscape:window-y="-223"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:cx="398.78989"
+     inkscape:cy="333.93034"
+     inkscape:window-width="1744"
+     inkscape:window-height="1024"
+     inkscape:window-x="38"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     showguides="true">
+    <sodipodi:guide
+       position="229.71424,-2.3411208"
+       orientation="1,0"
+       id="guide2068"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
   <defs
      id="defs144870">
     <clipPath
@@ -4846,9 +4853,11 @@
          xml:space="preserve"
          transform="scale(1,-1)"
          style="font-variant:normal;font-weight:normal;font-size:7px;font-family:Arial;-inkscape-font-specification:ArialMT;writing-mode:lr-tb;fill:#262626;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text3948"><tspan
-           x="0 4.6690001 6.6149998"
-           y="0"
+         id="text3948"
+         x="-0.016235352"
+         y="-0.016235352"><tspan
+           x="-0.016235352 4.6527643 6.5987644"
+           y="-0.016235352"
            sodipodi:role="line"
            id="tspan3946">Str</tspan></text>
     </g>
@@ -4863,9 +4872,11 @@
          xml:space="preserve"
          transform="scale(1,-1)"
          style="font-variant:normal;font-weight:normal;font-size:7px;font-family:Arial;-inkscape-font-specification:ArialMT;writing-mode:lr-tb;fill:#262626;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text3956"><tspan
-           x="0 4.6690001 8.5609999 12.453"
-           y="0"
+         id="text3956"
+         x="-2.0832524"
+         y="2.0507817"><tspan
+           x="-2.0832524 2.5857477 6.4777474 10.369747"
+           y="2.0507817"
            sodipodi:role="line"
            id="tspan3954">Sens</tspan></text>
     </g>
@@ -4880,9 +4891,11 @@
          xml:space="preserve"
          transform="scale(1,-1)"
          style="font-variant:normal;font-weight:normal;font-size:7px;font-family:Arial;-inkscape-font-specification:ArialMT;writing-mode:lr-tb;fill:#262626;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text3964"><tspan
-           x="0 5.0539999 6.6079998 10.5"
-           y="0"
+         id="text3964"
+         x="-1.7052951"
+         y="0.25311574"><tspan
+           x="-1.7052951 3.3487048 4.9027047 8.7947054"
+           y="0.25311574"
            sodipodi:role="line"
            id="tspan3962">Hipp</tspan></text>
     </g>
@@ -4897,9 +4910,11 @@
          xml:space="preserve"
          transform="scale(1,-1)"
          style="font-variant:normal;font-weight:normal;font-size:7px;font-family:Arial;-inkscape-font-specification:ArialMT;writing-mode:lr-tb;fill:#262626;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text3972"><tspan
-           x="0 4.277 8.1689997 12.061"
-           y="0"
+         id="text3972"
+         x="-0.85476798"
+         y="0.10169274"><tspan
+           x="-0.85476798 3.4222319 7.3142323 11.206233"
+           y="0.10169274"
            sodipodi:role="line"
            id="tspan3970">Thal</tspan></text>
     </g>
@@ -4914,9 +4929,11 @@
          xml:space="preserve"
          transform="scale(1,-1)"
          style="font-variant:normal;font-weight:normal;font-size:7px;font-family:Arial;-inkscape-font-specification:ArialMT;writing-mode:lr-tb;fill:#262626;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         id="text3980"><tspan
-           x="0 5.8309999 7.3850002"
-           y="0"
+         id="text3980"
+         x="-0.082069099"
+         y="-0.082069099"><tspan
+           x="-0.082069099 5.7489305 7.3029313"
+           y="-0.082069099"
            sodipodi:role="line"
            id="tspan3978">Mid</tspan></text>
     </g>
