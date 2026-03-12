@@ -15,10 +15,10 @@ Plot:
 '''
 
 # set directories
-analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, 'analysed_data'))
+analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, '03_Analysis', 'analysed_data'))
 figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, os.pardir, os.pardir, os.pardir, 'Writing', 'Figures', 'Results', 'Figure4'))
-frate_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, os.pardir, os.pardir, 'ModelData', 'data', 'firing_rates'))
-atlas_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, 'atlas_data'))
+frate_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, '02_Data', 'firing_rates'))
+atlas_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, '03_Analysis', 'atlas_data'))
 
 # load firing rate 
 file_dir = "14areas_G2.0_S40.0_thetaE-1_beta6RateAdj1_J_sessions"
@@ -31,7 +31,7 @@ frate_A_sync = pd.read_csv(os.path.join(frate_dir, file_dir, f'frateA_{file_name
 example_rates = np.array((frate_E_sync, frate_I_sync, frate_A_sync))
 example_rates = example_rates[:,start:stop,:]
 stim_times = pd.read_csv(os.path.join(frate_dir, file_dir, file_name + '_stimulation_times.csv')).to_numpy() - start
-
+# %%
 # load state analysis data 
 S = 40
 S_baseline = 0
@@ -91,7 +91,7 @@ axs[1][0].plot([0, 2], [-0.26, -0.26], color='k', lw=0.8, clip_on=False)
 axs[1][0].text(1, -0.28, '2s', ha='center', va='top')
 fig.text(0.08, 0.5, u'Δ down state probability (%)', va='center', rotation='vertical')
 plt.subplots_adjust(hspace=0.4, wspace=0.)
-plt.savefig(os.path.join(figure_dir, f'I+_trajectories_G{G}_S{S}.pdf'), bbox_inches="tight")
+#plt.savefig(os.path.join(figure_dir, f'I+_trajectories_G{G}_S{S}.pdf'), bbox_inches="tight")
 
 # %% group regions
 
@@ -143,7 +143,7 @@ for i, ax in enumerate(axs):
 axs[0].plot([0, 2], [-0.5, -0.5], color='k', lw=0.8, clip_on=False)
 axs[0].text(1, -0.55, '2s', ha='center', va='top')
 fig.text(0.075, 0.5, u'E- vs. I+ Δ down state prob. (%)', va='center', rotation='vertical')
-plt.savefig(os.path.join(figure_dir, f'difference_E-vsI+_G{G}_S{S}.pdf'), bbox_inches="tight")
+#plt.savefig(os.path.join(figure_dir, f'difference_E-vsI+_G{G}_S{S}.pdf'), bbox_inches="tight")
 plt.subplots_adjust(hspace=0.4)
 
 
@@ -151,6 +151,7 @@ plt.subplots_adjust(hspace=0.4)
 
 colors, dpi = figure_style()
 fig, ax = plt.subplots(1, 1, figsize=(1.7, 1.75), dpi=dpi)
+targets_df_amygdala = targets_df[targets_df['region_name']=='Amygdala']
 
 plt.axvspan(0, 1, alpha=0.25, ymin=-0.25, color='royalblue', lw=0)
 ax.plot([-1, 3], [0, 0], ls='--', color='grey')
@@ -166,7 +167,7 @@ ax.set_yticklabels([-25, 0, 25, 50])
 ax.set_ylabel(u'Δ down state probability (%)')
 ax.legend(title=None, loc='upper right', bbox_to_anchor=(0.95, 1.05))
 sns.despine(trim=True, bottom=True)
-plt.savefig(os.path.join(figure_dir, f'trajectory_serotonin_targets_G{G}_S{S}.pdf'), bbox_inches="tight")
+#plt.savefig(os.path.join(figure_dir, f'trajectory_serotonin_targets_G{G}_S{S}.pdf'), bbox_inches="tight")
 plt.show()
 
 # %% Plot 4)

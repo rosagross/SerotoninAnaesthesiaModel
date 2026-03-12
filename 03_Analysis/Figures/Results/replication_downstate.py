@@ -14,8 +14,11 @@ figure_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardi
 # load data
 S = 40 
 G = [2]
-data_df = pd.read_csv(os.path.join(analysed_data_dir, f'state_analysis_bins_S{S}_G[2]_RateAdj1_UPDATE.csv'))
+data_df = pd.read_csv(os.path.join(analysed_data_dir, f'state_analysis_bins_S{S}_G{G}_RateAdj1_UPDATE.csv'))
 baseline_df = pd.read_csv(os.path.join(analysed_data_dir, f'state_analysis_bins_S0_G{G}_RateAdj1_UPDATE.csv'))
+
+data_df = data_df[data_df['G'] == 2]
+baseline_df = baseline_df[baseline_df['G'] == 2]
 
 # summarize regions according to higher level regions
 frontal = ['Medial prefrontal cortex', 'Orbitofrontal cortex', 'Secondary motor cortex'] # = 'Frontal'
