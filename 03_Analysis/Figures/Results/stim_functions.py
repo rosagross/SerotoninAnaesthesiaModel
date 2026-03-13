@@ -190,12 +190,14 @@ def group_regions(data_df):
     # summarize regions according to higher level regions
     frontal = ['Medial prefrontal cortex', 'Orbitofrontal cortex', 'Secondary motor cortex'] # = 'Frontal'
     sensory = ['Piriform', 'Visual cortex'] # = 'Sensory'
+    striatum = ['Tail of the striatum'] # = 'Striatum'
     midbrain = ['Periaqueductal gray', 'Midbrain reticular nucleus', 'Superior colliculus'] # = 'Midbrain'
 
     data_df['combined_region'] = data_df['region_name']
     data_df['combined_region'].iloc[np.where(data_df['region_name'].isin(frontal))] = 'Frontal cortex' 
     data_df['combined_region'].iloc[np.where(data_df['region_name'].isin(sensory))] = 'Sensory cortex' 
     data_df['combined_region'].iloc[np.where(data_df['region_name'].isin(midbrain))] = 'Midbrain' 
+    data_df['combined_region'].iloc[np.where(data_df['region_name'].isin(striatum))] = 'Striatum' 
     
     # add abbreviations for plotting
     data_df['abr_region_combined'] = None
@@ -205,5 +207,6 @@ def group_regions(data_df):
     data_df.loc[data_df['combined_region'] == 'Sensory cortex', 'abr_region_combined'] = 'Sens'
     data_df.loc[data_df['combined_region'] == 'Thalamus', 'abr_region_combined'] = 'Thal'
     data_df.loc[data_df['combined_region'] == 'Midbrain', 'abr_region_combined'] = 'Mid'
+    data_df.loc[data_df['combined_region'] == 'Striatum', 'abr_region_combined'] = 'Str'
 
     return data_df 

@@ -169,7 +169,7 @@ diff_df_grouped = diff_df.groupby(['combined_region', 'session', 'abr_region_com
 # Plot barplot sorted by incoming projections
 
 colors, dpi = figure_style()
-f, ax1 = plt.subplots(1, 1, figsize=(3, 1.75), dpi=dpi)
+f, ax1 = plt.subplots(1, 1, figsize=(3, 5), dpi=dpi)
 
 # exclude regions that do not show UP and DOWN states at all 
 regions_UP = ['Hipp', 'Mid']
@@ -183,7 +183,7 @@ ax1.set_xlabel('')
 ax1.set_xticklabels(ax1.get_xticklabels(), rotation=-45)
 sns.despine(trim=True, ax=ax1)
 ax1.set_ylabel(u'heterogen. - homogen. \nΔ down state prob. (%)')
-#plt.savefig(os.path.join(figure_dir, f'heterogen_vs_homogen_barplot.pdf'), bbox_inches="tight")
+plt.savefig(os.path.join(figure_dir, f'combined_heterogen_vs_homogen_barplot.pdf'), bbox_inches="tight")
 
 
 
@@ -260,7 +260,7 @@ ax1.set_xticks([0, 0.05, 0.1, 0.15, 0.2])
 ax1.set_xlabel('Projection density (from DRN)')
 ax1.set_ylabel(u' G0v3 Δ down state prob. (%)')
 sns.despine(trim=True)
-plt.savefig(os.path.join(figure_dir, f'combined_regions_homogenG3_vs_uncoupled.pdf'), bbox_inches="tight")
+#plt.savefig(os.path.join(figure_dir, f'combined_regions_homogenG3_vs_uncoupled.pdf'), bbox_inches="tight")
 plt.show()
 
 

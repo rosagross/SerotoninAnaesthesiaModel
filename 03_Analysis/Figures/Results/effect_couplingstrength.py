@@ -39,7 +39,16 @@ serotonin_df['p_down_delta'] = (serotonin_df['p_down'].values - baseline_df['p_d
 # define window of serotonin effect 
 serotonin_window = [0.5,1]
 
+# %%
 # summarize regions according to higher level regions
+all_acronyms = ['Amyg', 'Hipp', 'mPFC', 'MRN', 'OLF', 'OFC', 'PAG', 'Pir', 'RSP', 'M2', 'SC', 'Str', 'Thal', 'VIS']
+all_regions = np.unique(baseline_df['region_name'])
+for i, region in enumerate(all_regions):
+
+    # get the projection density
+    baseline_df.loc[baseline_df['region_name'] == region, 'abr_region'] = all_acronyms[i]
+    serotonin_df.loc[serotonin_df['region_name'] == region, 'abr_region'] = all_acronyms[i]
+
 serotonon_df = group_regions(serotonin_df)
 baseline_df = group_regions(baseline_df)
 
@@ -120,13 +129,13 @@ plt.xticks([0, 0.05, 0.1, 0.15, 0.2])
 plt.xlabel('Projection density (from DRN)')
 plt.ylabel(u'Δ down state probability (%)')
 sns.despine(offset=2, trim=True)
-#plt.savefig(os.path.join(figure_dir, 'drnConnect_vs_pDown_G0_S40.pdf'), bbox_inches="tight")
+plt.savefig(os.path.join(figure_dir, 'drnConnect_vs_pDown_G0_S40.pdf'), bbox_inches="tight")
 
 
 # %% Plot indirect effect
 
 # choose which area to plot 
-plot_area = 'Visual cortex'
+plot_area = 'Amygdala'
 region_df = serotonin_df[serotonin_df['region_name'] == plot_area]
 
 # define window of serotonin effect 
@@ -232,7 +241,7 @@ ax1.set_yticks([0, 0.2, 0.4, 0.6])
 ax1.set_yticklabels([0, 20, 40, 60])
 ax1.set_xticks([0, 0.05, 0.1, 0.15, 0.2])
 ax1.set_xlabel('Projection density (from DRN)')
-ax1.set_ylabel(u' G0v3 Δ down state prob. (%)')
+ax1.set_ylabel(u'Coupling G 0 versus 3')
 sns.despine(trim=True)
 lgd = ax1.legend(title='Received projection density', handles=handles, labels=labels,
                 bbox_to_anchor=(0.3, 1, 1., .102),labelspacing=0.2)
@@ -286,7 +295,7 @@ ax1.set_yticks([0, 0.2, 0.4, 0.6])
 ax1.set_yticklabels([0, 20, 40, 60])
 ax1.set_xticks([0, 0.05, 0.1, 0.15, 0.2])
 ax1.set_xlabel('Projection density (from DRN)')
-ax1.set_ylabel(u' G0v3 Δ down state prob. (%)')
+ax1.set_ylabel(u'Coupling G 0 versus 3')
 sns.despine(trim=True)
 lgd = ax1.legend(title='Received projection density', handles=handles, labels=labels,
                 bbox_to_anchor=(0.3, 1, 1., .102),labelspacing=0.2)
