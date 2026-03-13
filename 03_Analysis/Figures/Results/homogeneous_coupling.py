@@ -148,7 +148,7 @@ serotonin_window = [0.5,1]
 heterogen_window = heterogen_C_df[heterogen_C_df['time'].between(serotonin_window[0], serotonin_window[1])]
 heterogen_grouped = heterogen_window.groupby(['region_name','session','combined_region', 'abr_region_combined'], as_index=False).mean()
 homogen_window = homogen_C_df[homogen_C_df['time'].between(serotonin_window[0], serotonin_window[1])]
-homogen_grouped = homogen_window.groupby(['region_name','session','combined_region'], as_index=False).mean()
+homogen_grouped = homogen_window.groupby(['region_name','session','combined_region', 'abr_region_combined'], as_index=False).mean()
 
 diff_df = heterogen_grouped.copy()
 cols = ['p_down', 'p_down_delta']
@@ -169,7 +169,7 @@ diff_df_grouped = diff_df.groupby(['combined_region', 'session', 'abr_region_com
 # Plot barplot sorted by incoming projections
 
 colors, dpi = figure_style()
-f, ax1 = plt.subplots(1, 1, figsize=(3, 5), dpi=dpi)
+f, ax1 = plt.subplots(1, 1, figsize=(1.5, 2), dpi=dpi)
 
 # exclude regions that do not show UP and DOWN states at all 
 regions_UP = ['Hipp', 'Mid']
