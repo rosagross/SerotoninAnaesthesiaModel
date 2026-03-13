@@ -135,7 +135,7 @@ plt.savefig(os.path.join(figure_dir, 'drnConnect_vs_pDown_G0_S40.pdf'), bbox_inc
 # %% Plot indirect effect
 
 # choose which area to plot 
-plot_area = 'Amygdala'
+plot_area = 'Visual cortex'
 region_df = serotonin_df[serotonin_df['region_name'] == plot_area]
 
 # define window of serotonin effect 
