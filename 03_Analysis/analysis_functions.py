@@ -11,8 +11,8 @@ from iblutil.numerical import ismember
 from iblatlas.regions import BrainRegions
 
 # set directories for the atlas and connectivity data 
-atlas_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), 'Analysis', 'atlas_data'))
-model_dir = os.path.abspath(os.path.dirname(os.getcwd()))
+atlas_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), '03_Analysis', 'atlas_data'))
+model_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), '02_Data', 'connectivity'))
 
 
 def load_firing_rates(output_dir, file_name):

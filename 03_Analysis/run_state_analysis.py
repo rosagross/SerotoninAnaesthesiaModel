@@ -15,11 +15,11 @@ Required: files that ran the HMM analysis for every session to analyse
 '''
 
 # directory where state- and firing data is stored
-output_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()),  os.pardir, 'ModelData', 'data', 'firing_rates'))
-output_dir_local = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()),  os.pardir, 'ModelData', 'data', 'local_circuit_data'))
+output_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()),  os.pardir, os.pardir, 'Code', 'ModelData', 'data', 'firing_rates'))
+output_dir_local = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()),  os.pardir, os.pardir, 'Code', 'ModelData', 'data', 'local_circuit_data'))
 
 # directory for saving analysed data
-analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, 'ModelData', 'analysed_data'))
+analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, 'Code', 'ModelData', 'analysed_data'))
 
 # %%
 
@@ -43,6 +43,7 @@ for G in G_params:
         data_df = compute_transitions(output_dir, [G], [S], extra=extra, window_length=window_duration, pre_stim=pre_stim)
         serotonin_analysis = pd.concat((serotonin_analysis, data_df))
 
+# %%
 serotonin_analysis.to_csv(os.path.join(analysed_data_dir, f'serotonin_analysis_all_regions_S{S}_G{G_params}_{extra}_UPDATE.csv'), index=False)
 
 # take the mean for the combined regions 
