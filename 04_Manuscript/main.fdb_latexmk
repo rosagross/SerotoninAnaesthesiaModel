@@ -1,18 +1,19 @@
 # Fdb version 4
-["bibtex main"] 1772006794.17952 "main.aux" "main.bbl" "main" 1772006922.77498 0
+["bibtex main"] 1773647814.52355 "main.aux" "main.bbl" "main" 1773647816.94095 0
   "./pisikabst.bst" 1768462707 34645 aa74942a802431bd058560a63a31f7e2 ""
   "./serotonin_bib.bib" 1770991205 1282464 8fb631283b02028c5f100e58f1099aef ""
-  "main.aux" 1772006921 18546 d090e06e97bb893b75242e75d0e48c7f "pdflatex"
+  "main.aux" 1773647816 18181 def14a712062b84e5e716c96461a05f8 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1772006918.95303 "main.tex" "main.pdf" "main" 1772006922.7764 0
+["pdflatex"] 1773647814.93394 "main.tex" "main.pdf" "main" 1773647816.94175 0
   "C:/Users/guido/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1772006757 865278 d8434c0345d5b097e011dc7c1e92936f ""
   "C:/Users/guido/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1761723538 13321868 74406b6659bb71c6cc3f5e68c133401a ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/palatino/pplb7t.tfm" 1136768654 1616 371d1ee60c04b008c8fd760060cd34f1 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/palatino/pplb8r.tfm" 1136768654 2532 9ad73cf4dd2173a847f2a5f5608e0b9a ""
+  "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/palatino/pplbc7t.tfm" 1136768654 1780 fd721e957be9736ee6ffbad7c9f33f40 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/palatino/pplr7t.tfm" 1136768654 1804 7b5f73028f6509167f47ace9d69509ed ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/palatino/pplr8c.tfm" 1136768654 1348 0e8eb69b4437626c0f6c9bed4a4e373c ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/palatino/pplr8r.tfm" 1136768654 2796 d37c29814a6717720ee1a7c9a0b2c3b8 ""
@@ -62,6 +63,7 @@
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb" 1136849748 52665 661b1e6b26edb5f50dd491f8a701cb57 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb" 1136849748 50022 90249cba7e3e4e9845f80328d6f9bd13 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/palatino/pplb7t.vf" 1136768654 1380 798ef26de8f0a21f37c9b1147f4fe5d8 ""
+  "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/palatino/pplbc7t.vf" 1136768654 1948 485dd8ec492de6ce540ae86439ac3dfc ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/palatino/pplr7t.vf" 1136768654 1380 037725697594405988999f61172f52de ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/palatino/pplr8c.vf" 1136768654 3504 f65f653e1ad318a9d01b4af15300683a ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/palatino/pplri7t.vf" 1136768654 1376 a5f9301e24d8e27c2286a3b415778d2d ""
@@ -141,17 +143,17 @@
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/tools/bm.sty" 1749468414 13236 71253d8fde2c80ecebae7e3f7da0c2b0 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/tools/dcolumn.sty" 1749468414 2758 67c3ad720591c53ba8fa03ee9fbf7375 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "img/Figure2_summary_final.pdf" 1770991205 280456 0f444b73f67b1b11d0377e0bfbee0da1 ""
   "img/Figure4_summary.pdf" 1770991205 124977 8db039bbcc52c30fcdf2a307982aa248 ""
   "img/Methods/Figure2_1.pdf" 1768462707 59758 7e847c5f024de614d50fb5820521b93a ""
   "img/Methods/Figure2_2.pdf" 1768462707 98789 8439be0ddd104fdabf31b01e7fdb0be4 ""
-  "img/Results/Figure5.pdf" 1768462707 106906 2ce2144c49ba54c1fa0c5325fef459f4 ""
+  "img/Results/Fig2_model_new.pdf" 1773646738 163535 67641583d0c96ab70beeeed932d4321f ""
+  "img/Results/Figure3_couplingHeterogen.pdf" 1773646738 86271 baa6684d11071dd700178f02948dfd33 ""
   "img/ephys_updown_states.pdf" 1770991367 2345131 955475238e8bdb7616c5bc859fe18278 ""
   "img/recordings_overview.pdf" 1770191331 1190442 978835af330e5684819a5637ea0d4f4a ""
-  "main.aux" 1772006921 18546 d090e06e97bb893b75242e75d0e48c7f "pdflatex"
-  "main.bbl" 1772006794 19083 056bdd3f326003f03eec1cad26dde230 "bibtex main"
-  "main.out" 1772006921 3469 83e4d357b6455884163e5b1a6b71829f "pdflatex"
-  "main.tex" 1772006917 72583 5120f4a901dffa7207ceed426bd5cd21 ""
+  "main.aux" 1773647816 18181 def14a712062b84e5e716c96461a05f8 "pdflatex"
+  "main.bbl" 1773647814 19083 056bdd3f326003f03eec1cad26dde230 "bibtex main"
+  "main.out" 1773647816 3469 83e4d357b6455884163e5b1a6b71829f "pdflatex"
+  "main.tex" 1773647810 73055 b0af56b94f179d3873e95c74b0f25352 ""
   (generated)
   "main.aux"
   "main.log"

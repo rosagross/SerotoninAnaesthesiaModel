@@ -73,7 +73,7 @@
 %  fill in the paper's title, author(s), and corresponding institutions
 %--------------------------------------------------------------------------
 
-\title{\textbf{Serotonin induces a down-state across the anesthetized mouse brain}}
+\title{\textbf{Serotonin induces a \textsc{down} state across the anesthetized mouse brain}}
 \author{Rosa Großmann\textsuperscript{1}, Jorge F. Mejias\textsuperscript{2}, Zachary F. Mainen\textsuperscript{3} \& Guido T. Meijer\textsuperscript{3,4}}
 \affil{\textsuperscript{1}Max Planck Institute for Human Cognitive and Brain Science, Leipzig, Germany\newline
 \textsuperscript{2} Cognitive and Systems Neuroscience Group, Swammerdam Institute for Life Sciences, University of Amsterdam, Amsterdam, The Netherlands\newline
@@ -151,8 +151,7 @@ if the model follows this mechanism. Increasing the coupling strength increased 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{img/Results/Fig2_model_new.pdf}
-    \caption{Simulation of UP-DOWN states, effect of serotonin and coupling strength. (a) Global circuit model illustration. (b) Connectivity matrix for the global circuit and DRN prejections. (c) Replication of UP and DOWN state dynamics. Without any serotonin stimulation, the activity in the brain regions UP and DOWN states. (d) Serotonin stimulation induces a DOWN state in several regions. Probability values between 0.5-1 seconds after the serotonin stimulation onset are included.
-    (e) Direct statistical test of the DOWN state probability during serotonin stimulation. f) All four options of modelling serotonin stimulation, averaged over all regions in the network. The first letter in the legend description is the population targeted by serotonin, the sign after it indicates the charge direction of the current to that population. (g) Difference between targeting E with an excitatory current and targeting I with an inhibitory current. (h) Down state probability by region in the 'I-' simulation.}
+    \caption{Simulation of UP-DOWN states, effect of serotonin and coupling strength. (a) Global circuit model illustration. (b) Connectivity matrix for the global circuit and DRN prejections. (c) Replication of UP and DOWN state dynamics. Without any serotonin stimulation, the activity in the brain regions UP and DOWN states. (d) Serotonin stimulation induces a DOWN state in several regions. Probability values between 0.5-1 seconds after the serotonin stimulation onset are included. (e) Direct statistical test of the DOWN state probability during serotonin stimulation. (f) All four options of modelling serotonin stimulation, averaged over all regions in the network. The first letter in the legend description is the population targeted by serotonin, the sign after it indicates the charge direction of the current to that population. (g) Difference between targeting E with an excitatory current and targeting I with an inhibitory current. (h) Down state probability by region in the 'I-' simulation.}
     \label{fig:resultsummary1}
 \end{figure}
 
@@ -201,6 +200,7 @@ In an unconnected network, the visual cortex was only slightly affected by serot
     \label{fig:heterogenconnect}
 \end{figure}
 
+
 Previous evidence showed that inter-area communication introduces synchrony within a network \cite{varelaBrainwebPhaseSynchronization2001, holcmanEmergenceStatesCortical2006}. This might also be the case of the UP-DOWN dynamics that occur in each area. For example, if an UP state is induced in one area, the elevated firing rate is propagated to the E population of the other areas, increasing the chance of a simultaneous transition into an UP state in the targeted areas. 
 
 In the homogeneous condition, a DOWN state was induced upon serotonin stimulation in all areas (Figure \ref{fig:heterogenconnect} A). In some regions, the heterogeneous coupling mechanism strengthened the effect of serotonin in comparison to the homogeneous coupling, whereas in other regions the effect was reduced (see Figure \ref{fig:heterogenconnect} B). The thalamus for example, which receives strong projections from the other areas in the heterogeneous condition, did not show a great difference between the homogeneous and heterogeneous condition. The piriform cortex, which is an area that does not receive many projections from other areas, showed an increased effect of serotonin is higher in the heterogeneous condition. Another example is the secondary motor cortex, whose response did not change a lot in the homogeneous coupling condition even though it also receives few projections in the heterogeneous condition. These different results in the homogeneous and heterogeneous conditions might be created due to the specific areas from which both regions receive input, as well as the strength of the DRN projections that both areas received. In the heterogeneous condition, the piriform cortex received projections mainly from the olfactory cortex, which was strongly targeted by the DRN. This connectivity profile was overwritten by the homogeneous connectivity value. 
@@ -225,7 +225,7 @@ The graph reveals that, in many regions such as the Amygdala, cortical areas (OL
     \label{fig:targetI2}
 \end{figure}
 \indent To uncover the effects of other options for modelling serotonin stimulation, targeting the E population with an excitatory current ('$E+$') and targeting the I population with an inhibitory current were investigated ('$I-$'). The results of all four mechanisms ('$I+$', '$E-$', '$I-$', and '$E+$') are presented in Figure \ref{fig:targetI2} A. It is evident that only the '$E-$' implementation successfully reproduced a stable induction of a DOWN state during serotonin stimulation, followed by a somewhat less probable rebound UP state. As demonstrated previously, modelling the stimulation using the '$I+$' mechanism failed to replicate the desired effect. Notably, the '$E+$' and the '$I-$' mechanism led to the induction of an UP state with a probability of approximately 10-20\% compared to the baseline (note that the inverse of the DOWN state probability equals the probability of an UP state). Figure \ref{fig:targetI2} B shows that for the '$I-$' mechanism an UP state in frontal areas, amygdala, sensory areas and the thalamus was induced. Interestingly, a subtle induction of a DOWN state was observed in the striatum. This phenomenon could be attributed to the comparatively higher frequency of oscillations in the striatum relative to other areas.
-\\
+
 \indent The clear distinctions in the outcomes achieved by each mechanism highlight the complexity of the network model.
 
 
