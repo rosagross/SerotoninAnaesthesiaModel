@@ -25,7 +25,7 @@ one = ONE()
 
 # Settings
 N_STATES = 2
-BIN_SIZE = 0.2
+BIN_SIZE = 0.3
 MIN_NEURONS = 2
 PRE_TIME = 1  # final time window to use
 POST_TIME = 4
@@ -41,7 +41,6 @@ rec = query_ephys_sessions(one=one)
 subjects = load_subjects()
 
 # Get artifact neurons
-artifact_neurons = get_artifact_neurons()
 if OVERWRITE:
     up_down_state_df = pd.DataFrame()
 else:
@@ -71,10 +70,6 @@ for i in rec.index.values:
     # Filter neurons that pass QC
     qc_metrics = get_neuron_qc(pid, one=one, ba=ba)
     clusters_pass = np.where(qc_metrics['label'] == 1)[0]
-
-    # Exclude artifact neurons
-    clusters_pass = np.array([i for i in clusters_pass if i not in artifact_neurons.loc[
-        artifact_neurons['pid'] == pid, 'neuron_id'].values])
     if clusters_pass.shape[0] == 0:
         continue
 

@@ -393,7 +393,7 @@ def combine_regions(acronyms, split_thalamus=False, abbreviate=True):
     return regions
 
 
-def high_level_regions(acronyms, merge_cortex=False, only_vis=False, input_atlas='Allen'):
+def high_level_regions(acronyms, merge_cortex=False, only_vis=True, input_atlas='Allen'):
     """
     Maps brain region acronyms to high-level brain regions based on the specified atlas and options.
     
