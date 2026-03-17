@@ -53,9 +53,9 @@ for i, region in enumerate(regions):
     axs[i].plot([-1, 4], [0, 0], lw=1, ls='--', color='grey')
     sns.lineplot(data=p_state_df[p_state_df['region'] == region], x='time', y='p_down_bl',
                  color='k', errorbar='se', err_kws={'lw': 0}, ax=axs[i])
-    add_significance(p_state_df['time'].unique(), p_values=p_values[region], ax=axs[i], y_pos=0.29)
+    add_significance(p_state_df['time'].unique(), p_values=p_values[region], ax=axs[i], y_pos=0.34)
     axs[i].set(xlabel='Time (s)', title=regions[i], ylim=[-0.1, 0.3],
-               yticks=[-0.1, 0, 0.3], yticklabels=[-10, 0, 30])
+               yticks=[-0.1, 0, 0.35], yticklabels=[-10, 0, 35])
     #n_sub = len(np.unique(p_state_df.loc[p_state_df['region'] == region, 'subject']))
     if i == 0:
         #axs[i].text(2, -0.22, f'n={n_sub} mice', ha='center', va='center')
