@@ -68,14 +68,14 @@ def paths(save_dir='repo'):
     save_path : str
         Path to where to save the output data
     """
-    if not isfile(join(dirname(realpath(__file__)), 'paths.json')):
+    if not isfile(join(dirname(realpath(__file__)), '../paths.json')):
         path_dict = dict()
         path_dict['fig_path'] = input('Path folder to save figures: ')
         path_dict['save_path'] = input('Path folder to data: ')
-        path_file = open(join(dirname(realpath(__file__)), 'paths.json'), 'w')
+        path_file = open(join(dirname(realpath(__file__)), '../paths.json'), 'w')
         json.dump(path_dict, path_file)
         path_file.close()
-    with open(join(dirname(realpath(__file__)), 'paths.json')) as json_file:
+    with open(join(dirname(realpath(__file__)), '../paths.json')) as json_file:
         path_dict = json.load(json_file)
     if save_dir == 'cache':
         one = ONE(mode='local')
@@ -199,23 +199,22 @@ def figure_style():
     return colors, dpi
 
 
-def add_significance(x, p_values, ax, alpha=0.05):
+def add_significance(x, p_values, ax, y_pos='auto', alpha=0.05):
     """
-    Adds significance markers to a plot based on p-values.
-    This function identifies regions of significance in the provided p-values
-    and adds horizontal lines above the plot to indicate these regions.
-    Parameters:
-        x (array-like): The x-coordinates corresponding to the p-values.
-        p_values (array-like): The p-values to evaluate for significance.
-        ax (matplotlib.axes.Axes): The matplotlib Axes object to which the significance
-            markers will be added.
-        alpha (float, optional): The significance threshold. Default is 0.05.
-    Notes:
-        - The function assumes that `p_values` is a 1D array-like object.
-        - Horizontal lines are drawn above the plot to indicate regions where
-          p-values are below the significance threshold (`alpha`).
-        - The y-coordinate for the lines is determined based on the current
-          y-axis limits of the provided Axes object.
+    Add significance bars to a plot based on p-values.
+
+    Parameters
+    ----------
+    x : array-like
+        The x-coordinates corresponding to the p-values.
+    p_values : array-like
+        The p-values to evaluate for significance.
+    ax : matplotlib.axes.Axes
+        The axes object to plot the significance bars on.
+    y_pos : float or 'auto', optional
+        The y-coordinate for the significance bars. If 'auto', uses the top of the plot.
+    alpha : float, optional
+        The significance threshold (default: 0.05).
     """
 
     p_sig = p_values < alpha
@@ -224,8 +223,11 @@ def add_significance(x, p_values, ax, alpha=0.05):
         start_end = np.concatenate(([0], start_end))
     if p_sig[-1] == True:
         start_end = np.concatenate((start_end, [p_sig.shape[0]-1]))
-    y = ax.get_ylim()[1]
-    for (i, ind) in zip(np.arange(0, (start_end.shape[0] // 2) + 1, 2), start_end[::2]):
+    if y_pos == 'auto':
+        y = ax.get_ylim()[1]
+    else:
+        y = y_pos
+    for (i, ind) in zip(np.arange(start_end.shape[0])[::2], start_end[::2]):
         ax.plot([x[ind], x[start_end[i+1]]], [y + (y*0.05), y + (y*0.05)], color='k', lw=1.5,
                 clip_on=False)
 
@@ -1120,4 +1122,4 @@ def peri_multiple_events_time_histogram(
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.set_xlabel('Time (s) after event')
-    return ax
+    return

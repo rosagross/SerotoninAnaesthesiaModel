@@ -11,45 +11,45 @@ Warning--entry type for "Linderman_SSM_Bayesian_Learning_2020" isn't style-file 
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Warning--missing institution in brunelCommunicatedPaulTiesinga2006
-You've used 24 entries,
+You've used 23 entries,
             3447 wiz_defined-function locations,
-            872 strings with 12810 characters,
-and the built_in function-call counts, 21088 in all, are:
-= -- 1076
-> -- 893
-< -- 115
-+ -- 786
-- -- 218
-* -- 3171
-:= -- 2069
-add.period$ -- 24
-call.type$ -- 24
-change.case$ -- 121
-chr.to.int$ -- 24
-cite$ -- 25
-duplicate$ -- 1935
-empty$ -- 1689
-format.name$ -- 514
-if$ -- 3892
+            861 strings with 12416 characters,
+and the built_in function-call counts, 20218 in all, are:
+= -- 1031
+> -- 860
+< -- 111
++ -- 758
+- -- 210
+* -- 3035
+:= -- 1983
+add.period$ -- 23
+call.type$ -- 23
+change.case$ -- 116
+chr.to.int$ -- 23
+cite$ -- 24
+duplicate$ -- 1855
+empty$ -- 1616
+format.name$ -- 495
+if$ -- 3730
 int.to.chr$ -- 1
-int.to.str$ -- 25
-missing$ -- 277
-newline$ -- 87
-num.names$ -- 72
-pop$ -- 417
+int.to.str$ -- 24
+missing$ -- 265
+newline$ -- 84
+num.names$ -- 69
+pop$ -- 401
 preamble$ -- 1
-purify$ -- 96
+purify$ -- 92
 quote$ -- 0
-skip$ -- 748
+skip$ -- 720
 stack$ -- 0
-substring$ -- 493
-swap$ -- 1692
-text.length$ -- 110
+substring$ -- 469
+swap$ -- 1621
+text.length$ -- 106
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 144
+type$ -- 138
 warning$ -- 1
-while$ -- 64
+while$ -- 61
 width$ -- 0
-write$ -- 284
+write$ -- 272
 (There were 2 warnings)

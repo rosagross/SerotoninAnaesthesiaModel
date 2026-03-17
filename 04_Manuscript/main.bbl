@@ -1,4 +1,4 @@
-\begin{thebibliography}{24}
+\begin{thebibliography}{23}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname bibnamefont\endcsname\relax
   \def\bibnamefont#1{#1}\fi
@@ -181,26 +181,6 @@
   \bibinfo{pages}{e71969}} (\bibinfo{year}{2021}), ISSN
   \bibinfo{issn}{2050-084X}.
 
-\bibitem[{\citenamefont{{Ruiz-Mejias} et~al.}(2011)\citenamefont{{Ruiz-Mejias},
-  {Ciria-Suarez}, Mattia, and
-  {Sanchez-Vives}}}]{ruiz-mejiasSlowFastRhythms2011}
-\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{{Ruiz-Mejias}}},
-  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{{Ciria-Suarez}}},
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Mattia}}, \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{{Sanchez-Vives}}},
-  \bibinfo{title}{Slow and fast rhythms generated in the cerebral cortex of the
-  anesthetized mouse},
-  \href{http://dx.doi.org/10.1152/JN.00440.2011/ASSET/IMAGES/LARGE/Z9K0121110550008.JPEG}{\emph{\bibinfo{journal}{Journal
-  of Neurophysiology}}
-  }\href{http://dx.doi.org/10.1152/JN.00440.2011/ASSET/IMAGES/LARGE/Z9K0121110550008.JPEG}{\textbf{\bibinfo{volume}{106}},
-  \bibinfo{pages}{2910}} (\bibinfo{year}{2011}), ISSN \bibinfo{issn}{00223077}.
-
-\bibitem[{\citenamefont{Brunel and
-  Hansel}(2006)}]{brunelCommunicatedPaulTiesinga2006}
-\bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Brunel}} \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Hansel}},
-  \bibinfo{type}{Tech. Rep.} (\bibinfo{year}{2006}).
-
 \bibitem[{\citenamefont{Varela et~al.}(2001)\citenamefont{Varela, Lachaux,
   Rodriguez, and Martinerie}}]{varelaBrainwebPhaseSynchronization2001}
 \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Varela}},
@@ -313,6 +293,12 @@
   \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Paninski}},
   \bibnamefont{et~al.}, \bibinfo{title}{Spike sorting pipeline for the
   {International} {Brain} {Laboratory}} (\bibinfo{year}{2022}).
+
+\bibitem[{\citenamefont{Brunel and
+  Hansel}(2006)}]{brunelCommunicatedPaulTiesinga2006}
+\bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Brunel}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Hansel}},
+  \bibinfo{type}{Tech. Rep.} (\bibinfo{year}{2006}).
 
 \bibitem[{\citenamefont{Linderman et~al.}()\citenamefont{Linderman, Antin,
   Zoltowski, and Glaser}}]{Linderman_SSM_Bayesian_Learning_2020}
