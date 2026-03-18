@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1773755472.2408 "main.aux" "main.bbl" "main" 1773755612.3678 0
+["bibtex main"] 1773850043.75117 "main.aux" "main.bbl" "main" 1773850047.36794 0
   "./pisikabst.bst" 1768462707 34645 aa74942a802431bd058560a63a31f7e2 ""
   "./serotonin_bib.bib" 1770991205 1282464 8fb631283b02028c5f100e58f1099aef ""
-  "main.aux" 1773755610 15825 3ec62450afbb6c83b6a42569d8fbbe3c "pdflatex"
+  "main.aux" 1773850045 15825 87f108099e46c2ba46a8faea1518c8fd "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1773755608.3511 "main.tex" "main.pdf" "main" 1773755612.36982 0
+["pdflatex"] 1773850044.23828 "main.tex" "main.pdf" "main" 1773850047.36871 0
   "C:/Users/guido/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1772006757 865278 d8434c0345d5b097e011dc7c1e92936f ""
   "C:/Users/guido/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1761723538 13321868 74406b6659bb71c6cc3f5e68c133401a ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -145,14 +145,14 @@
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "img/Methods/Figure2_1.pdf" 1768462707 59758 7e847c5f024de614d50fb5820521b93a ""
   "img/Methods/Figure2_2.pdf" 1768462707 98789 8439be0ddd104fdabf31b01e7fdb0be4 ""
-  "img/Results/Fig2_model_GM.pdf" 1773751101 322205 e5f3e8d4788a165cfae21131b47f04a8 ""
-  "img/Results/Figure3_couplingHeterogen.pdf" 1773646738 86271 baa6684d11071dd700178f02948dfd33 ""
-  "img/ephys_updown_states.pdf" 1773739219 2353843 524250d88b4c02b5acae7dd6e5dd9f8c ""
+  "img/Results/Fig3_model_GM.pdf" 1773751101 322205 e5f3e8d4788a165cfae21131b47f04a8 ""
+  "img/Results/Figure4_coupling_GM.pdf" 1773849831 249048 7f495d665cb63fa298da8213cee6e13b ""
+  "img/ephys_updown_states.pdf" 1773757806 2352783 fce671e13fb1a9a71db96ddc11249823 ""
   "img/recordings_overview.pdf" 1770191331 1190442 978835af330e5684819a5637ea0d4f4a ""
-  "main.aux" 1773755610 15825 3ec62450afbb6c83b6a42569d8fbbe3c "pdflatex"
-  "main.bbl" 1773755472 18171 4c18b77dc8ed4cb5e90fb7b57a190f52 "bibtex main"
-  "main.out" 1773755610 1672 c1445dd7910a98d84a8f09bdd7b710d8 "pdflatex"
-  "main.tex" 1773755607 57629 4dad5e98b4e3039bb1d8a2d6c2fa2c87 ""
+  "main.aux" 1773850045 15825 87f108099e46c2ba46a8faea1518c8fd "pdflatex"
+  "main.bbl" 1773850044 18171 4c18b77dc8ed4cb5e90fb7b57a190f52 "bibtex main"
+  "main.out" 1773850045 1672 c1445dd7910a98d84a8f09bdd7b710d8 "pdflatex"
+  "main.tex" 1773850041 57611 a96aac01f0de6a067e2db7137bb212b4 ""
   (generated)
   "main.aux"
   "main.log"

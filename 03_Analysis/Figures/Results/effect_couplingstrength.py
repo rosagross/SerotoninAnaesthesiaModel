@@ -88,7 +88,7 @@ for i in average_prob_df.index:
 r, p = pearsonr(average_prob_df['drn_connect'], average_prob_df['p_down_delta'])
 print(p)
 #ax.text(0.09, 0.36, f'r = {r:.2f}', fontsize=6)
-ax.text(0.1, 0.68, f'**', fontsize=12, ha='center')
+ax.text(0.1, 0.82, f'**', fontsize=12, ha='center')
 
 ax.set_title('Uncoupled network (G=0)')
 
@@ -129,7 +129,7 @@ for i in average_prob_df.index:
 r, p = pearsonr(average_prob_df['drn_connect'], average_prob_df['p_down_delta'])
 print(p)
 #ax.text(0.09, 0.36, f'r = {r:.2f}', fontsize=6)
-ax.text(0.1, 0.72, f'*', fontsize=12, ha='center')
+ax.text(0.1, 0.82, f'*', fontsize=12, ha='center')
 
 plt.yticks([0, 0.45, 0.9])
 ax.set_yticklabels([0, 45, 90])
@@ -147,7 +147,7 @@ plt.show()
 # %% Plot indirect effect
 
 # choose which area to plot 
-plot_area = 'Frontal cortex'
+plot_area = 'Visual cortex'
 region_df = serotonin_df[(serotonin_df['combined_region'] == plot_area) & (serotonin_df['S'] == 40)]
 
 # define window of serotonin effect 
@@ -189,10 +189,11 @@ plot_df = plot_df.sort_values(by='delta', ascending=False)
 
 f, ax1 = plt.subplots(figsize=(2, 1.75), dpi=dpi)
 sns.barplot(data=plot_df, x='delta', y='region_name')
-ax1.set(ylabel='', xlabel=u'Δ down state', xticks=[0, 0.2, 0.4], xticklabels=[0, 0.2, 0.4])
+ax1.set(ylabel='', xlabel=u'Δ down state (%)', xticks=[0, 0.2, 0.4], xticklabels=[0, 20, 40])
 
 sns.despine(trim=True)
 plt.tight_layout()
+plt.savefig(os.path.join(figure_dir, f'combined_regions_delta_S40.pdf'))
 plt.show()
 
 

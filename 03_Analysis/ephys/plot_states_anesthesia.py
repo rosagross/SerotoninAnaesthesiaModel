@@ -47,6 +47,8 @@ f, axs = plt.subplots(1, 8, figsize=(5.2, 1.75), dpi=dpi, sharey=True)
 #axs = np.concatenate(axs)
 regions = ['Frontal cortex', 'Striatum', 'Amygdala', 'Piriform cortex', 'Visual cortex', 'Hippocampus',
            'Thalamus', 'Midbrain']
+titles = ['Frontal\ncortex', 'Striatum', 'Amygdala', 'Piriform\ncortex', 'Visual\ncortex', 'Hippocampus',
+           'Thalamus', 'Midbrain']
 for i, region in enumerate(regions):
 
     axs[i].add_patch(Rectangle((0, -0.25), 1, 0.75, color='royalblue', alpha=0.25, lw=0))
@@ -54,7 +56,7 @@ for i, region in enumerate(regions):
     sns.lineplot(data=p_state_df[p_state_df['region'] == region], x='time', y='p_down_bl',
                  color='k', errorbar='se', err_kws={'lw': 0}, ax=axs[i])
     add_significance(p_state_df['time'].unique(), p_values=p_values[region], ax=axs[i], y_pos=0.34)
-    axs[i].set(xlabel='Time (s)', title=regions[i], ylim=[-0.1, 0.3],
+    axs[i].set(xlabel='Time (s)', title=titles[i], ylim=[-0.1, 0.3],
                yticks=[-0.1, 0, 0.35], yticklabels=[-10, 0, 35])
     #n_sub = len(np.unique(p_state_df.loc[p_state_df['region'] == region, 'subject']))
     if i == 0:
@@ -73,7 +75,7 @@ for i, region in enumerate(regions):
         axs[i].get_yaxis().set_visible(False)
         axs[i].axis('off')
     
-plt.subplots_adjust(left=0.08, bottom=0.15, right=1, top=0.85, wspace=0, hspace=0.4)
+plt.subplots_adjust(left=0.08, bottom=0.1, right=1, top=0.8, wspace=0, hspace=0.4)
 #plt.tight_layout(h_pad=-10, w_pad=1.08)
 plt.savefig(join(fig_path, 'p_down_state_anesthesia.pdf'))
 plt.show()
