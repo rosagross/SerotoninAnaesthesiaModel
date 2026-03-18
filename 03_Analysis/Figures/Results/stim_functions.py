@@ -117,7 +117,7 @@ def figure_style():
               'main_states': sns.diverging_palette(20, 210, l=55, center='dark'),
               'OFC': sns.color_palette('Dark2')[0],
               'mPFC': sns.color_palette('Dark2')[1],
-              'Frontal': sns.color_palette('Dark2')[1],
+              'Front': sns.color_palette('Dark2')[1],
               'M2': sns.color_palette('Dark2')[2],
               'Amyg': sns.color_palette('Dark2')[3],
               'Hipp': sns.color_palette('Dark2')[4],
@@ -188,25 +188,28 @@ def query_ephys_sessions(aligned=True, behavior_crit=False, n_trials=0, anesthes
 
 def group_regions(data_df):
     # summarize regions according to higher level regions
+    data_df = data_df.copy()
     frontal = ['Medial prefrontal cortex', 'Orbitofrontal cortex', 'Secondary motor cortex'] # = 'Frontal'
-    sensory = ['Piriform', 'Visual cortex'] # = 'Sensory'
+    sensory = ['Visual cortex'] # = 'Sensory'
     striatum = ['Tail of the striatum'] # = 'Striatum'
     midbrain = ['Periaqueductal gray', 'Midbrain reticular nucleus', 'Superior colliculus'] # = 'Midbrain'
 
     data_df['combined_region'] = data_df['region_name']
-    data_df['combined_region'].iloc[np.where(data_df['region_name'].isin(frontal))] = 'Frontal cortex' 
-    data_df['combined_region'].iloc[np.where(data_df['region_name'].isin(sensory))] = 'Sensory cortex' 
-    data_df['combined_region'].iloc[np.where(data_df['region_name'].isin(midbrain))] = 'Midbrain' 
-    data_df['combined_region'].iloc[np.where(data_df['region_name'].isin(striatum))] = 'Striatum' 
+    data_df.loc[data_df['region_name'].isin(frontal), 'combined_region'] = 'Frontal cortex'
+    data_df.loc[data_df['region_name'].isin(sensory), 'combined_region'] = 'Visual cortex'
+    data_df.loc[data_df['region_name'].isin(midbrain), 'combined_region'] = 'Midbrain'
+    data_df.loc[data_df['region_name'].isin(striatum), 'combined_region'] = 'Striatum'
+    data_df.loc[data_df['region_name'] == 'Piriform', 'combined_region'] = 'Piriform cortex'
     
     # add abbreviations for plotting
     data_df['abr_region_combined'] = None
     data_df.loc[data_df['combined_region'] == 'Amygdala', 'abr_region_combined'] = 'Amyg'
     data_df.loc[data_df['combined_region'] == 'Hippocampus', 'abr_region_combined'] = 'Hipp'
-    data_df.loc[data_df['combined_region'] == 'Frontal cortex', 'abr_region_combined'] = 'Frontal'
-    data_df.loc[data_df['combined_region'] == 'Sensory cortex', 'abr_region_combined'] = 'Sens'
+    data_df.loc[data_df['combined_region'] == 'Frontal cortex', 'abr_region_combined'] = 'Front'
+    data_df.loc[data_df['combined_region'] == 'Visual cortex', 'abr_region_combined'] = 'VIS'
     data_df.loc[data_df['combined_region'] == 'Thalamus', 'abr_region_combined'] = 'Thal'
     data_df.loc[data_df['combined_region'] == 'Midbrain', 'abr_region_combined'] = 'Mid'
     data_df.loc[data_df['combined_region'] == 'Striatum', 'abr_region_combined'] = 'Str'
+    data_df.loc[data_df['combined_region'] == 'Piriform cortex', 'abr_region_combined'] = 'Pir'
 
-    return data_df 
+    return data_df

@@ -4,6 +4,7 @@ import numpy as np
 import os 
 import matplotlib.pyplot as plt
 import seaborn as sns
+from scipy.optimize import curve_fit
 from stim_functions import figure_style, group_regions
 import seaborn.objects as so
 from scipy.stats import pearsonr, f_oneway
@@ -11,6 +12,7 @@ from matplotlib.colors import rgb2hex
 from matplotlib.lines import Line2D
 import matplotlib.patheffects as PathEffects
 import matplotlib.patches as mpatches
+colors, dpi = figure_style()
 
 '''
 1) direct effect
@@ -37,7 +39,11 @@ baseline_df['p_down_delta'] = baseline_df['p_down'] - baseline_df['p_down_mean']
 serotonin_df['p_down_delta'] = (serotonin_df['p_down'].values - baseline_df['p_down_mean'].values - baseline_df['p_down_delta'].values)
 
 # define window of serotonin effect 
-serotonin_window = [0.5,1]
+serotonin_window = [0, 1]
+
+# Define logistic function
+def logistic_func(x, L, k, x0):
+    return L / (1 + np.exp(-k * (x - x0)))
 
 # %%
 # summarize regions according to higher level regions
@@ -49,21 +55,22 @@ for i, region in enumerate(all_regions):
     baseline_df.loc[baseline_df['region_name'] == region, 'abr_region'] = all_acronyms[i]
     serotonin_df.loc[serotonin_df['region_name'] == region, 'abr_region'] = all_acronyms[i]
 
-serotonon_df = group_regions(serotonin_df)
+serotonin_df = group_regions(serotonin_df)
+serotonin_df = serotonin_df.dropna()
 baseline_df = group_regions(baseline_df)
+baseline_df = baseline_df.dropna()
 
 
 # %% Plot direct effect - grouped regions
 
-colors, dpi = figure_style()
-
 # average delta p_down 
 window_df = serotonin_df[serotonin_df['time'].between(serotonin_window[0],serotonin_window[1])] 
 uncoupled_stimulation_df = window_df[(window_df['G']==0) & (window_df['S']==40)]
-average_prob_df = uncoupled_stimulation_df.groupby(['combined_region', 'abr_region_combined'], as_index=False).mean()
+average_prob_df = uncoupled_stimulation_df.groupby(['combined_region', 'abr_region_combined', 'time'], as_index=False).mean(numeric_only=True)
+average_prob_df = average_prob_df.groupby(['combined_region', 'abr_region_combined'], as_index=False).max(numeric_only=True)
 average_prob_df['color'] = [colors[i] for i in average_prob_df['abr_region_combined']]
 
-f, ax = plt.subplots(1, 1,figsize=(2.5, 1.75), dpi=dpi)
+f, ax = plt.subplots(1, 1,figsize=(1.75, 1.75), dpi=dpi)
 (
      so.Plot(average_prob_df, x='drn_connect', y='p_down_delta')
      .add(so.Dot(pointsize=0))
@@ -77,93 +84,117 @@ for i in average_prob_df.index:
     ax.text(average_prob_df.loc[i, 'drn_connect'], average_prob_df.loc[i, 'p_down_delta'], average_prob_df.loc[i, 'abr_region_combined'],
              color=average_prob_df.loc[i, 'color'], fontsize=8.5, fontweight='bold')
     #ax.set(yticks=[0.25, 0.5, 0.75, 1], xticks=[-0.0, 0.1, 0.2])
-    r, p = pearsonr(average_prob_df['drn_connect'], average_prob_df['p_down_delta'])
-    ax.text(0.09, 0.36, f'r = {r:.2f}', fontsize=6)
-    ax.text(0.1, 0.41, f'***', fontsize=6)
-    
 
-plt.yticks([0, 0.2, 0.4, 0.6, 0.8])
-ax.set_yticklabels([0, 20, 40, 60, 80])
-plt.xticks([0, 0.05, 0.1, 0.15, 0.2])
+r, p = pearsonr(average_prob_df['drn_connect'], average_prob_df['p_down_delta'])
+print(p)
+#ax.text(0.09, 0.36, f'r = {r:.2f}', fontsize=6)
+ax.text(0.1, 0.68, f'**', fontsize=12, ha='center')
+
+ax.set_title('Uncoupled network (G=0)')
+
+plt.yticks([0, 0.45, 0.9])
+ax.set_yticklabels([0, 45, 90])
+plt.xticks([0, 0.1, 0.2])
+ax.set_xticklabels([0, 0.1, 0.2])
 plt.xlabel('Projection density (from DRN)')
-plt.ylabel(u'Δ down state probability (%)')
+plt.ylabel('Down state probability (%)')
 sns.despine(offset=2, trim=True)
+plt.tight_layout()
 plt.savefig(os.path.join(figure_dir, 'combined_regions_drnConnect_vs_pDown_G0_S40.pdf'), bbox_inches="tight")
+plt.show()
 
+# %% Plot indirect effect - grouped regions
 
+# average delta p_down
+window_df = serotonin_df[serotonin_df['time'].between(serotonin_window[0], serotonin_window[1])]
+uncoupled_stimulation_df = window_df[(window_df['G'] == 3) & (window_df['S'] == 40)]
+average_prob_df = uncoupled_stimulation_df.groupby(['combined_region', 'abr_region_combined', 'time'], as_index=False).mean(numeric_only=True)
+average_prob_df = average_prob_df.groupby(['combined_region', 'abr_region_combined'], as_index=False).max(numeric_only=True)
+average_prob_df['color'] = [colors[i] for i in average_prob_df['abr_region_combined']]
 
-# %% Plot direct effect - specific regions
-
-colors, dpi = figure_style()
-
-# average delta p_down 
-acronyms = ['Amyg', 'Hipp', 'mPFC', 'MRN', 'OLF', 'OFC', 'PAG', 'Pir', 'RSP', 'M2', 'SC', 'Str', 'Thal', 'VIS']
-window_df = serotonin_df[serotonin_df['time'].between(serotonin_window[0],serotonin_window[1])] 
-uncoupled_stimulation_df = window_df[(window_df['G']==0) & (window_df['S']==40)]
-average_prob_df = uncoupled_stimulation_df.groupby(['region_name'], as_index=False).mean()
-average_prob_df['abr_region'] = acronyms
-average_prob_df['color'] = [colors[i] for i in average_prob_df['abr_region']]
-
-f, ax = plt.subplots(1, 1,figsize=(2.5, 1.75), dpi=dpi)
+f, ax = plt.subplots(1, 1, figsize=(1.75, 1.75), dpi=dpi)
 (
-     so.Plot(average_prob_df, x='drn_connect', y='p_down_delta')
-     .add(so.Dot(pointsize=0))
-     .add(so.Line(color='grey', linewidth=1), so.PolyFit(order=1))
-     .on(ax)
-     .plot()
+    so.Plot(average_prob_df, x='drn_connect', y='p_down_delta')
+    .add(so.Dot(pointsize=0))
+    .add(so.Line(color='grey', linewidth=1), so.PolyFit(order=1))
+    .on(ax)
+    .plot()
 )
 
-
 for i in average_prob_df.index:
-    ax.text(average_prob_df.loc[i, 'drn_connect'], average_prob_df.loc[i, 'p_down_delta'], average_prob_df.loc[i, 'abr_region'],
-             color=average_prob_df.loc[i, 'color'], fontsize=8.5, fontweight='bold')
-    #ax.set(yticks=[0.25, 0.5, 0.75, 1], xticks=[-0.0, 0.1, 0.2])
-    r, p = pearsonr(average_prob_df['drn_connect'], average_prob_df['p_down_delta'])
-    ax.text(0.09, 0.36, f'r = {r:.2f}', fontsize=6)
-    ax.text(0.1, 0.41, f'***', fontsize=6)
-    
+    ax.text(average_prob_df.loc[i, 'drn_connect'], average_prob_df.loc[i, 'p_down_delta'],
+            average_prob_df.loc[i, 'abr_region_combined'],
+            color=average_prob_df.loc[i, 'color'], fontsize=8.5, fontweight='bold')
+# ax.set(yticks=[0.25, 0.5, 0.75, 1], xticks=[-0.0, 0.1, 0.2])
+r, p = pearsonr(average_prob_df['drn_connect'], average_prob_df['p_down_delta'])
+print(p)
+#ax.text(0.09, 0.36, f'r = {r:.2f}', fontsize=6)
+ax.text(0.1, 0.72, f'*', fontsize=12, ha='center')
 
-plt.yticks([0, 0.2, 0.4, 0.6, 0.8])
-ax.set_yticklabels([0, 20, 40, 60, 80])
-plt.xticks([0, 0.05, 0.1, 0.15, 0.2])
+plt.yticks([0, 0.45, 0.9])
+ax.set_yticklabels([0, 45, 90])
+plt.xticks([0, 0.1, 0.2])
+ax.set_xticklabels([0, 0.1, 0.2])
+ax.set_title('Connected network (G=3)')
 plt.xlabel('Projection density (from DRN)')
-plt.ylabel(u'Δ down state probability (%)')
+plt.ylabel('Down state probability (%)')
 sns.despine(offset=2, trim=True)
-plt.savefig(os.path.join(figure_dir, 'drnConnect_vs_pDown_G0_S40.pdf'), bbox_inches="tight")
+plt.tight_layout()
+plt.savefig(os.path.join(figure_dir, 'combined_regions_drnConnect_vs_pDown_G3_S40.pdf'), bbox_inches="tight")
+plt.show()
 
 
 # %% Plot indirect effect
 
 # choose which area to plot 
-plot_area = 'Visual cortex'
-region_df = serotonin_df[serotonin_df['region_name'] == plot_area]
+plot_area = 'Frontal cortex'
+region_df = serotonin_df[(serotonin_df['combined_region'] == plot_area) & (serotonin_df['S'] == 40)]
 
 # define window of serotonin effect 
-region_window_df = region_df[region_df['time'].between(serotonin_window[0],serotonin_window[1])] 
+region_window_df = region_df[region_df['time'].between(serotonin_window[0], serotonin_window[1])]
+mean_time_df = region_window_df.groupby(['G', 'time'], as_index=False).mean(numeric_only=True)
+plot_df = mean_time_df.groupby(['G'], as_index=False).max(numeric_only=True)
 
 colors, dpi = figure_style()
-f, ax1 = plt.subplots(1, 1, figsize=(1, 1.6), dpi=dpi)
-
-sns.despine(trim=False)
-sns.barplot(region_window_df, x='G', y='p_down_delta', color=colors['grey'], errorbar='se')
-ax1.tick_params(axis='x', which='major', pad=0)
+f, ax1 = plt.subplots(1, 1, figsize=(1.5, 1.75), dpi=dpi)
+ax1.plot(plot_df['G'], plot_df['p_down_delta'], marker='o', zorder=1, color='k', markersize=4)
 ax1.set_xlabel('Coupling strength (G)')
-ax1.set_ylabel(u'Δ down state probability (%)')
+ax1.set_ylabel('Down state probability (%)')
 ax1.set_title(plot_area)
 ax1.set_yticks([0, 0.2, 0.4, 0.6])
 ax1.set_yticklabels([0, 20, 40, 60])
-ax1.set_xticklabels(ax1.get_xticklabels())
-ax1.tick_params(axis='x', which='major', pad=1.75)
+ax1.set_xticks([0, 1, 2, 3])
+ax1.set_xticklabels([0, 1, 2, 3])
+
+sns.despine(trim=True)
+plt.tight_layout()
+
 plt.savefig(os.path.join(figure_dir, f'indirect_effect_{plot_area.replace(" ", "_")}_S40.pdf'), bbox_inches="tight")
 plt.show()
 
-values = region_window_df.groupby(['G','session'],as_index=False).mean()
-f_statistic, p_value = f_oneway(values[values['G']==0]['p_down_delta'], values[values['G']==1]['p_down_delta'], 
-                                values[values['G']==2]['p_down_delta'], values[values['G']==3]['p_down_delta'])
 
-# Print the results
-print("F statistic:", f_statistic)
-print("p-value:", p_value)
+# %% Plot delta
+
+plot_df = pd.DataFrame()
+for region in serotonin_df['combined_region'].unique():
+    region_df = serotonin_df[(serotonin_df['combined_region'] == region) & (serotonin_df['S'] == 40)]
+    region_window_df = region_df[region_df['time'].between(serotonin_window[0], serotonin_window[1])]
+    mean_time_df = region_window_df.groupby(['G', 'time'], as_index=False).mean(numeric_only=True)
+    max_time_df = mean_time_df.groupby(['G'], as_index=False).max(numeric_only=True)
+    delta = np.abs(max_time_df.loc[max_time_df['G'] == 3, 'p_down_delta'].values
+                   - max_time_df.loc[max_time_df['G'] == 0, 'p_down_delta'].values)
+    plot_df = pd.concat((plot_df, pd.DataFrame(index=[plot_df.shape[0]], data={
+        'region_name':region, 'delta': delta})))
+plot_df = plot_df.sort_values(by='delta', ascending=False)
+
+f, ax1 = plt.subplots(figsize=(2, 1.75), dpi=dpi)
+sns.barplot(data=plot_df, x='delta', y='region_name')
+ax1.set(ylabel='', xlabel=u'Δ down state', xticks=[0, 0.2, 0.4], xticklabels=[0, 0.2, 0.4])
+
+sns.despine(trim=True)
+plt.tight_layout()
+plt.show()
+
 
 # %%
 # Compute received projection density
@@ -195,7 +226,7 @@ drn_order = corr_df.sort_values(by='drn_connect', ascending=False).abr_region.va
 # %%
 # combined regions
 # Plot region coloured by received projection density
-corr_df_grouped = corr_df.groupby(['combined_region', 'abr_region_combined'], as_index=False).mean()
+corr_df_grouped = corr_df.groupby(['combined_region', 'abr_region_combined'], as_index=False).mean(numeric_only=True)
 corr_df_grouped['color'] = [colors[i] for i in corr_df_grouped['abr_region_combined']]
 # integrate info about coupling (projections targeting the area)
 corr_df_grouped.loc[corr_df_grouped['targeted']<0.05, 'target_grouped'] = '0.0-0.05'
@@ -339,4 +370,4 @@ for i, region in enumerate(regions_traces):
     plt.tight_layout(w_pad=0)
         
 plt.savefig(os.path.join(figure_dir, f'couplingstrength_trajectories_S40.pdf'), bbox_inches="tight")
-
+plt.show()

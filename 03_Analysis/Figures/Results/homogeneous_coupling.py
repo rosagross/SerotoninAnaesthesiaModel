@@ -174,7 +174,7 @@ f, ax1 = plt.subplots(1, 1, figsize=(1.5, 2), dpi=dpi)
 # exclude regions that do not show UP and DOWN states at all 
 regions_UP = ['Hipp', 'Mid']
 regions_plot_df = diff_df_grouped[~diff_df_grouped['abr_region_combined'].isin(regions_UP)]
-plot_order = regions_plot_df.groupby(['abr_region_combined'], as_index=False).mean().sort_values(by='incoming_projections', ascending=True).abr_region_combined.values
+plot_order = regions_plot_df.groupby(['abr_region_combined'], as_index=False).mean(numeric_only=True).sort_values(by='incoming_projections', ascending=True).abr_region_combined.values
 
 sns.barplot(regions_plot_df, x='abr_region_combined', y='p_down_delta', color=colors['grey'], errorbar='se', order=plot_order)
 ax1.tick_params(axis='y', which='major', pad=0)
@@ -197,7 +197,7 @@ f, ax1 = plt.subplots(1, 1, figsize=(3, 1.75), dpi=dpi)
 # exclude regions that do not show UP and DOWN states at all 
 regions_UP = ['Hipp', 'MRN', 'PAG', 'SC']
 regions_plot_df = diff_df[~diff_df['abr_region'].isin(regions_UP)]
-plot_order = regions_plot_df.groupby(['abr_region'], as_index=False).mean().sort_values(by='incoming_projections', ascending=True).abr_region.values
+plot_order = regions_plot_df.groupby(['abr_region'], as_index=False).mean(numeric_only=True).sort_values(by='incoming_projections', ascending=True).abr_region.values
 
 sns.barplot(regions_plot_df, x='abr_region', y='p_down_delta', color=colors['grey'], errorbar='se', order=plot_order)
 ax1.tick_params(axis='y', which='major', pad=0)
@@ -219,9 +219,9 @@ all_regions = np.unique(homogen_coupled_df['combined_region'])
 serotonin_window = [0.5,1]
 
 uncoupled_window = uncoupled_df[uncoupled_df['time'].between(serotonin_window[0], serotonin_window[1])]
-uncoupled_grouped = uncoupled_window.groupby(['combined_region', 'abr_region_combined'], as_index=False).mean()
+uncoupled_grouped = uncoupled_window.groupby(['combined_region', 'abr_region_combined'], as_index=False).mean(numeric_only=True)
 homogen_window = homogen_coupled_df[homogen_coupled_df['time'].between(serotonin_window[0], serotonin_window[1])]
-homogen_grouped = homogen_window.groupby(['combined_region', 'abr_region_combined'], as_index=False).mean()
+homogen_grouped = homogen_window.groupby(['combined_region', 'abr_region_combined'], as_index=False).mean(numeric_only=True)
 
 uncoupled_coupled_diff_df = uncoupled_grouped.copy()
 cols = ['p_down', 'p_down_delta']
