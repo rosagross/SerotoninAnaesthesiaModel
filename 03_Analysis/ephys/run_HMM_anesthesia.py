@@ -25,7 +25,7 @@ one = ONE()
 
 # Settings
 N_STATES = 2
-BIN_SIZE = 0.3
+BIN_SIZE = 0.2
 MIN_NEURONS = 2
 PRE_TIME = 1  # final time window to use
 POST_TIME = 4

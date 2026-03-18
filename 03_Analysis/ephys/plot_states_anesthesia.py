@@ -43,9 +43,9 @@ for region in p_state_df['region'].unique():
 
 # %% Plot
 colors, dpi = figure_style()
-f, axs = plt.subplots(1, 7, figsize=(5.2, 1.75), dpi=dpi, sharey=True)
+f, axs = plt.subplots(1, 8, figsize=(5.2, 1.75), dpi=dpi, sharey=True)
 #axs = np.concatenate(axs)
-regions = ['Frontal cortex', 'Striatum', 'Amygdala', 'Visual cortex', 'Hippocampus',
+regions = ['Frontal cortex', 'Striatum', 'Amygdala', 'Piriform cortex', 'Visual cortex', 'Hippocampus',
            'Thalamus', 'Midbrain']
 for i, region in enumerate(regions):
 
@@ -69,7 +69,7 @@ for i, region in enumerate(regions):
         axs[i].get_yaxis().set_visible(False)
         axs[i].axis('off')
     else:
-        axs[i].text(3, -0.22, f'n={n_sub}', ha='center', va='center')
+        #axs[i].text(3, -0.22, f'n={n_sub}', ha='center', va='center')
         axs[i].get_yaxis().set_visible(False)
         axs[i].axis('off')
     

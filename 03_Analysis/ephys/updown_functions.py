@@ -436,10 +436,11 @@ def high_level_regions(acronyms, merge_cortex=False, only_vis=True, input_atlas=
         regions[np.in1d(first_level_regions, ['mPFC', 'OFC', 'M2', 'Pir', 'BC', 'VIS'])] = 'Cortex'
     else:
         regions[np.in1d(first_level_regions, ['mPFC', 'OFC', 'M2'])] = 'Frontal cortex'
+        regions[np.in1d(first_level_regions, ['Pir.'])] = 'Piriform cortex'
         if only_vis:
             regions[np.in1d(first_level_regions, ['VIS'])] = 'Visual cortex'
         else:
-            regions[np.in1d(first_level_regions, ['Pir', 'BC', 'VIS'])] = 'Sensory cortex'
+            regions[np.in1d(first_level_regions, ['Pir.', 'BC', 'VIS'])] = 'Sensory cortex'
     regions[cosmos_regions == 'MB'] = 'Midbrain'
     regions[cosmos_regions == 'HPF'] = 'Hippocampus'
     regions[cosmos_regions == 'TH'] = 'Thalamus'

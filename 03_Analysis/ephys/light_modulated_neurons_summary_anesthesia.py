@@ -26,7 +26,7 @@ f_path, save_path = paths()
 fig_path = join(f_path, split(dirname(realpath(__file__)))[-1])
 
 # Load in results
-all_neurons = pd.read_csv(join(save_path, 'light_modulated_neurons_anesthesia.csv'))
+all_neurons = pd.read_csv(join(save_path, 'light_modulated_neurons.csv'))
 expression_df = pd.read_csv(join(save_path, 'expression_levels.csv'))
 
 # Add genotype and subject number
