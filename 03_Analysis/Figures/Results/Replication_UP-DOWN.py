@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import ssm 
 from ssm.plots import gradient_cmap
-from stim_functions import figure_style
+from stim_functions import figure_style, group_regions
 
 """
 Replication of UP and DOWN state dynamic 

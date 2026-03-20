@@ -7,7 +7,7 @@ import seaborn as sns
 from scipy.optimize import curve_fit
 from stim_functions import figure_style, group_regions
 import seaborn.objects as so
-from scipy.stats import pearsonr, f_oneway
+from scipy.stats import pearsonr, spearmanr
 from matplotlib.colors import rgb2hex
 from matplotlib.lines import Line2D
 import matplotlib.patheffects as PathEffects
@@ -82,12 +82,12 @@ f, ax = plt.subplots(1, 1,figsize=(1.75, 1.75), dpi=dpi)
 
 for i in average_prob_df.index:
     ax.text(average_prob_df.loc[i, 'drn_connect'], average_prob_df.loc[i, 'p_down_delta'], average_prob_df.loc[i, 'abr_region_combined'],
-             color=average_prob_df.loc[i, 'color'], fontsize=8.5, fontweight='bold')
+             color=average_prob_df.loc[i, 'color'], fontsize=8.5, fontweight='bold', ha='center', va='center')
     #ax.set(yticks=[0.25, 0.5, 0.75, 1], xticks=[-0.0, 0.1, 0.2])
 
 r, p = pearsonr(average_prob_df['drn_connect'], average_prob_df['p_down_delta'])
-print(p)
-#ax.text(0.09, 0.36, f'r = {r:.2f}', fontsize=6)
+print(f'p={p:.2f}, r={r:.2f}')
+ax.text(0.12, 0.3, f'r = {r:.2f}')
 ax.text(0.1, 0.82, f'**', fontsize=12, ha='center')
 
 ax.set_title('Uncoupled network (G=0)')
@@ -98,7 +98,7 @@ plt.xticks([0, 0.1, 0.2])
 ax.set_xticklabels([0, 0.1, 0.2])
 plt.xlabel('Projection density (from DRN)')
 plt.ylabel('Down state probability (%)')
-sns.despine(offset=2, trim=True)
+sns.despine(offset={'left': 8}, trim=True)
 plt.tight_layout()
 plt.savefig(os.path.join(figure_dir, 'combined_regions_drnConnect_vs_pDown_G0_S40.pdf'), bbox_inches="tight")
 plt.show()
@@ -124,11 +124,12 @@ f, ax = plt.subplots(1, 1, figsize=(1.75, 1.75), dpi=dpi)
 for i in average_prob_df.index:
     ax.text(average_prob_df.loc[i, 'drn_connect'], average_prob_df.loc[i, 'p_down_delta'],
             average_prob_df.loc[i, 'abr_region_combined'],
-            color=average_prob_df.loc[i, 'color'], fontsize=8.5, fontweight='bold')
+            color=average_prob_df.loc[i, 'color'], fontsize=8.5, fontweight='bold',
+            ha='center', va='center')
 # ax.set(yticks=[0.25, 0.5, 0.75, 1], xticks=[-0.0, 0.1, 0.2])
 r, p = pearsonr(average_prob_df['drn_connect'], average_prob_df['p_down_delta'])
-print(p)
-#ax.text(0.09, 0.36, f'r = {r:.2f}', fontsize=6)
+print(f'p={p:.2f}, r={r:.2f}')
+ax.text(0.12, 0.3, f'r = {r:.2f}')
 ax.text(0.1, 0.82, f'*', fontsize=12, ha='center')
 
 plt.yticks([0, 0.45, 0.9])
@@ -138,7 +139,7 @@ ax.set_xticklabels([0, 0.1, 0.2])
 ax.set_title('Connected network (G=3)')
 plt.xlabel('Projection density (from DRN)')
 plt.ylabel('Down state probability (%)')
-sns.despine(offset=2, trim=True)
+sns.despine(offset={'left': 8}, trim=True)
 plt.tight_layout()
 plt.savefig(os.path.join(figure_dir, 'combined_regions_drnConnect_vs_pDown_G3_S40.pdf'), bbox_inches="tight")
 plt.show()
