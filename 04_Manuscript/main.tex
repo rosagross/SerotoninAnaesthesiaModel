@@ -67,6 +67,10 @@
 % Font
 \usepackage{mathpazo}
 
+% Remove vspace after subsection
+\usepackage{titlesec}
+\titlespacing*{\subsection}{0pt}{2ex plus 0.5ex minus 0.2ex}{0.5ex}
+
 \begin{document}
 
 %--------------------------------------------------------------------------
@@ -136,24 +140,17 @@ We implemented a dynamic bistable firing rate model to investigate the mechanism
     \label{fig:model_updown}
 \end{figure}
 
-Serotonin stimulation was modelled by targeting the E population of each brain region with an inhibitory current which was proportional to the projection strength from the DRN to that region. To investigate the effect of the modelled serotonin stimulation on UP-DOWN state dynamics a two-state HMM was fitted to the model output. We found that, in the model, serotonin stimulation induced a DOWN state across brain regions in a qualitatively similar matter compared to the actual neural data (Fig. \ref{fig:model_updown}d,e). One notable exception was the hippocampus which showed a weak DOWN state induction in the neural data but none at all in the model. 
+Serotonin stimulation was modelled by targeting the E population of each brain region with an inhibitory current which was proportional to the projection strength from the DRN to that region. To investigate the effect of the modelled serotonin stimulation on UP-DOWN state dynamics a two-state HMM was fitted to the model output. We found that, in the model, serotonin stimulation induced a DOWN state across brain regions in a qualitatively similar matter compared to the actual neural data (Fig. \ref{fig:model_updown}d). One notable exception was the hippocampus which showed a weak DOWN state induction in the neural data but none at all in the model. 
 
-It was chosen to model serotonin stimulation as an inhibitory current targeting the E population ($E-$), as this increases the threshold for the E population to fire, making it likely to induce a transition from the UP to the DOWN state. Intuitively, targeting the I population with an excitatory current ($I+$) should result in a similar outcome. The two other possibilities are: targeting the E population with an excitatory current ($E+$), and the I population with an inhibitory current ($I-$). Running the model with all four scenarios revealed that only the $E-$ scenario resulted in a transition to a DOWN state (Fig. \ref{fig:model_updown}f). Contrary to our expectation, the $I+$ scenario did not in the induction of a DOWN state, nor the $E+$ or $I-$ scenarios.
+It was chosen to model serotonin stimulation as an inhibitory current targeting the E population ($E-$), as this increases the threshold for the E population to fire, making it likely to induce a transition from the UP to the DOWN state. Intuitively, targeting the I population with an excitatory current ($I+$) should result in a similar outcome. The two other possibilities are: targeting the E population with an excitatory current ($E+$), and the I population with an inhibitory current ($I-$). Running the model with all four scenarios revealed that only the $E-$ scenario resulted in a transition to a DOWN state (Fig. \ref{fig:model_updown}e). Contrary to our expectation, the $I+$ scenario did not in the induction of a DOWN state.
 
+We next investigated the importance of biologically realistic connectivity in the model by systematically varying the coupling strength $G$. In an completely uncoupled network ($G=0$), the probability of a DOWN state in each region during simulated 5-HT stimulation was strongly correlated with the projection from the DRN (Pearson correlation, \emph{r}=0.83, \emph{p}=0.01; Fig. \ref{fig:model_updown}f, left). At a high level of global coupling ($G=3$) there was still a significant correlation, albeit a bit weaker (\emph{r}=0.73, \emph{p}=0.04; Fig. \ref{fig_model_updown}f, right). 
 
-Previous evidence showed that inter-area communication introduces synchrony within a network \cite{varelaBrainwebPhaseSynchronization2001, holcmanEmergenceStatesCortical2006}. This might also be the case of the UP-DOWN dynamics that occur in each area. For example, if an UP state is induced in one area, the elevated firing rate is propagated to the E population of the other areas, increasing the chance of a simultaneous transition into an UP state in the targeted areas. 
-
-In the homogeneous condition, a DOWN state was induced upon serotonin stimulation in all areas (Figure \ref{fig:heterogenconnect} A). In some regions, the heterogeneous coupling mechanism strengthened the effect of serotonin in comparison to the homogeneous coupling, whereas in other regions the effect was reduced (see Figure \ref{fig:heterogenconnect} B). The thalamus for example, which receives strong projections from the other areas in the heterogeneous condition, did not show a great difference between the homogeneous and heterogeneous condition. The piriform cortex, which is an area that does not receive many projections from other areas, showed an increased effect of serotonin is higher in the heterogeneous condition. Another example is the secondary motor cortex, whose response did not change a lot in the homogeneous coupling condition even though it also receives few projections in the heterogeneous condition. These different results in the homogeneous and heterogeneous conditions might be created due to the specific areas from which both regions receive input, as well as the strength of the DRN projections that both areas received. In the heterogeneous condition, the piriform cortex received projections mainly from the olfactory cortex, which was strongly targeted by the DRN. This connectivity profile was overwritten by the homogeneous connectivity value. 
-\\
-\indent In the homogeneous condition, there was a significant negative correlation (p<0.01) found between the projection density originating from the DRN and the difference in serotonin-induced DOWN state of a coupling strength of $G=0$ versus $G=3$ (see Figure \ref{fig:heterogenconnect} C). The increased coupling strength ($G=3$) had a higher influence on regions with low DRN projection densities. In some regions with a higher DRN connectivity, strong homogeneous coupling even reduced the DOWN state probability (e.g., in the amygdala).
-\\
-\indent In summary, heterogeneous inter-area coupling increased the efficacy by which of serotonin-induced DOWN states, compared to homogeneous coupling. Homogeneous coupling led to an evenly distributed effect across the regions.
-
-\section{The mechanism of serotonin stimulation}
-\noindent
-
+We observed in Fig. \ref{fig:model_updown}f that some regions showed a large change in the probability of a DOWN state between the uncoupled and connected model whereas other regions did not show any difference. This was quantified by taking the $\Delta$ down state between the $G=0$ and $G=3$ models for each brain region (Fig. \ref{fig:model_updown}g). This revealed that the visual cortex showed the largest change in down state probability compared to the other brain regions by far (Fig. \ref{fig:model_updown}h). Notably, it was not the case that any region receiving weak DRN input showed a large change in down state probability since the $\Delta$ down state was not correlated with DRN input strength (data not shown). This means that the 5-HT induced DOWN state in visual cortex is not due to a direct projection from the DRN but instead because the visual cortex starts following the UP-DOWN state dynamics of the rest of the cortex through inter-area communication. 
 
 \section*{Discussion}
+
+
 
 Additional ideas for the discussion:
 \begin{itemize}
@@ -175,64 +172,16 @@ Additional ideas for the discussion:
 \end{itemize}
 \end{itemize}
 
-\noindent
-\indent Insights from electrophysiological recordings from anaesthetized mice during optogenetic stimulation of the DRN showed that serotonin stimulation induces a DOWN state, mainly in frontal and sensory cortices as well as in the amygdala and striatum. These findings were the basis for the implementation of a firing rate model that simulates the brain activity of the measured regions and aims to uncover the mechanisms of serotonin modulation on oscillatory neural activity during anaesthesia. 
-\\
-\indent The model used in this project is based on a previously proposed model \cite{jercogUPDOWNCorticalDynamics2017} and extends it by connecting multiple neural curcuits to one comprehensive brain network to investigate the mechanisms of serotonin on UP and DOWN states in anesthesia, which has not been done before. Most studies investigating the serotonin's modulation of oscillations focus on a specific brain region (see \cite{puigSerotoninModulatesFastSpiking2010, puigSerotoninModulationPrefrontoHippocampal2015}). This project implements an approach that investigates serotonin's effect on a large scale and therefore provides exciting insights into its mechanism in the entire brain. 
+\section*{Data and code availability}
+Details here
 
-\section{Replication of serotonin's effect}
-\noindent
-\indent The simulations performed by the proposed model demonstrate that a DOWN state was induced in the frontal cortex, amygdala, sensory cortex, thalamus, and midbrain, mostly overlapping with the effect observed in the electrophysiological recordings. Notably, no DOWN state could be induced in the hippocampus. This might be due to the fact that the hippocampus is targeted by very few serotonergic projections according to the Allen Brain Atlas. Additionally, it does not receive strong connections from any of the other areas, which could spread the effect of serotonin. In the real brain, there are many more regions that might act as a relay station for information reaching the hippocampus, but since the model only comprises selected areas, this information transfer cannot be taken into account. Another reason might be the parameter setting of the model, determining the emergence UP and DOWN states in each area. It is difficult to determine these dynamics from the electrophysiological data, which is why the parameters are an estimation that might introduce differences between the model simulations and the recorded data. 
+\section*{Acknowledgments}
+Some acknoledgments
 
-\section{Direct and indirect effects of serotonin\label{sec:indirecteffects}}
-\noindent
-\indent Without coupling between the areas, the effect of serotonin depends on the DRN projections targeting each area (see Figure \ref{fig:couplingstrength} A), which is a direct effect induced by serotonergic neurons targeting each area. Introducing connections between areas and increasing this coupling strength results in an increase in the effect of serotonin in certain brain areas, for example in the visual cortex (see Figure \ref{fig:couplingstrength} B). 
-This indirect effect could not be observed in all areas, but which areas do show it does not depend on their initial serotonin effect, and also the density of incoming projections is not decisive (see Figure \ref{fig:couplingstrength} C). The indirect effect of serotonin rather depends on the area specific connectivity pattern. The visual cortex, for example, does not receive strong projections from the DRN but receives many projections from other areas (such as the thalamus and the mPFC) that are strongly targeted by the DRN. For a high coupling strength (e.g., $G=2$), the effect of serotonin can be communicated via the long-range projections, inducing a stronger DOWN state probability in the visual cortex upon serotonin stimulation compared to the effect observed when no coupling between areas exists.
-\\
-\indent The amygdala receives around the same density of projections from other areas (non-serotonergic) compared to the visual cortex, and still does not show an indirect effect with higher coupling values. The absence of this increased effect in the amygdala may be attributed to its connectivity profile. The amygdala receives robust projections from the DRN, rendering it significantly affected by serotonin stimulation even in the absence of long-range projections between areas. Areas showing a moderate DOWN state during serotonin stimulation provide relatively weak input to the amygdala, and therefore their effect does not substantially influence serotonin's modulation in this region. The thalamus serves as another example; it receives strong incoming projections from other areas, which would suggest the possibility of an indirect serotonin effect. However, no increased DOWN state probability is observed with increased coupling strength. Looking at the connectivity matrix, the visual cortex, which is minimally affected by serotonin release, is the area that targets the thalamus the strongest in this model. The visual cortex and other weak serotonergic target regions are seemingly not able to amplify serotonin’s effect in the thalamus.
-\\
-\indent It is an important observation that increased coupling strength increases the synchrony in the system. As the weight between the areas strengthens, areas with a strong influence on others communicate their UP and DOWN state transitions to other regions, leading to simultaneous alternation between UP and DOWN states. Additionally, due to the increase in synchrony, the areas communicate induced DOWN states to other areas, amplifying serotonin's effect in certain brain regions. This is in line with previous findings from experiments as well as computational simulations, showing that inter-area communication gives rise to synchrony in the network and communicates incoming currents \cite{varelaBrainwebPhaseSynchronization2001, roelfsema1997visuomotor}. Synchrony is the basis for many cognitive functions like memory consolidation, learning, and perception. Evidence suggests that serotonin influences synchrony in a network \cite{puigSerotoninModulationPrefrontoHippocampal2015}. Though, in this project, serotonin did not lead to desynchronisation of the network but communicated the effect of serotonin to other areas. 
-\\
-\indent In conclusion, these findings suggest that the "indirect effect" of serotonin is facilitated by the global synchrony in the network and depends on the specific connectivity profile of each region.
+\section*{Conflict of interest disclosure}
+The author of this preprint declares to have no financial conflict of interest with the content of this article.
 
-\subsection{Realistic connectivity}
-\noindent
-\indent Evaluating the influence of heterogeneous inter-area coupling on the effect of serotonin on UP and DOWN states, the connectivity values in the connectivity matrix were replaced with the mean value of the projection densities stored in the matrix. 
-\\
-\indent Under homogeneous coupling, the impact of serotonin is diminished in multiple regions compared to when the connectivity matrix from the Allen Brain atlas is used. In some regions to be closer to the experimental data, for example in the amygdala, the effect is not as strongly pronounced as compared to in the model simulations. However, it is important to note that direct comparisons are complicated since the model does not include all the regions and connections present in the brain. Nevertheless, these findings provide insights into how heterogeneous coupling affects the distribution of serotonin’s effect. Notably, regions with fewer projections do not display an enhanced serotonin effect in the heterogeneous condition compared to the homogeneous condition. On the other hand, stronger connected regions show an increased serotonin effect in the heterogeneous condition (e.g., the piriform cortex). However, this does not hold for all regions; for example, the secondary motor cortex, which despite being strongly targeted by other regions is not strongly influenced by the coupling method. These observations indicate that the individual projection profile of a region plays a role in determining the effect, similar to the finding in the investigations regarding the coupling strength. 
-%In some regions, the stronger homogeneous coupling even reduces the effect (e.g., in the amygdala), which are those regions that receive stronger projections from the DRN. In the homogeneous coupling condition, areas are influenced by all other areas equally strongly. Since there are many areas that are weakly connected to the DRN, the few areas on which serotonergic neurons have more influence, are overshadowed by them.
-\\
-\indent In summary, heterogeneous coupling enhances the serotonin effect, while homogeneous coupling leads to more uniform DOWN state probability trajectories with reduced region-specific characteristics.
-
-
-\subsection{Only inhibiting excitatory populations induces DOWN states\label{sec:sertargets}}
-\noindent 
-\indent The way how serotonin is simulated in the model is a crucial step in reproducing the effects that were found in the experimental data. It is known from Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, that increasing the threshold of the E population induces the transition to a DOWN state. Adding an inhibitory current to the E population has the same effect since the E population will require more positive input to counteract the inhibitory input to reach the threshold $\theta_E$. Therefore it was expected that when simulating the serotonin stimulation by an inhibitory current, targeting the E population would induce a DOWN state in the system. Intuitively, the symmetric way of doing so - stimulating the I population with an excitatory current - should lead to a similar effect. Instead of the expected effect, exciting I lead to an UP state in all areas of the network. This phenomenon could potentially be attributed to the localised nature of inhibitory connectivity. Inhibitory neurons are only communicating with neurons in their local circuit, in contrast to excitatory neurons (e.g., pyramidal cells), which form excitatory connections beyond the immediate vicinity of their local area and thereby establish long-range projections with other regions in the network. Consequently, within a coupled network, the E population experiences a substantially greater influence compared to the I population, even when subjected to identical serotonin stimulation. To test if the long-range connections really are the determining factor in the failure of the '$I+$' mechanism, simulations without coupling should be analysed in future research.
-\\
-\\
-\indent In light of this counter-intuitive discovery, it is relevant to explore alternative approaches to modelling serotonin stimulation, to investigate if those might unexpectedly lead to similar effects. All possible implementation options are either targeting the E population with an inhibitory, or excitatory current or targeting the I population with an excitatory current. 
-
-\indent The results show that only the '$E-$' mechanism can replicate the effect of inducing a DOWN state (see Figure \ref{fig:targetI2} A). All three other implementations reveal a more or less strongly induced UP state upon stimulation. 
-
-\subsubsection{Paradoxical effect}
-
-\noindent 
-\indent Inhibiting the inhibitory population unexpectedly induces a decrease in DOWN state probability in the I population as well as in the E population. The inhibition of the I population might not be sufficient to silence the area. On the contrary, it increases the chance that the population keeps firing and staying or transitioning into an UP state. This might be because of the interconnectivity in the local circuit since the interneuron inhibition decreases the inhibition of the excitatory population. This paradoxical effect has been observed in computational neural circuits and tested in vivo \cite{tsodyksParadoxicalEffectsExternal1997a}. In a biologically inspired circuit model, implemented by Garcia Del Molino et al. \cite{garciadelmolinoParadoxicalResponseReversal2017}, a similar response has been found. The model consists of one pyramidal cell and three interneuron types. Externally inhibiting one of the interneuron populations paradoxically induced an excitatory effect in the same population. For the paradoxical response to emerge, a prerequisite is that the excitatory population possesses sufficient recurrent connections\cite{garciadelmolinoParadoxicalResponseReversal2017, tsodyksParadoxicalEffectsExternal1997a}. Whether that is also the case in this finding, in future research the connectivity in the local circuit should be manipulated systematically. Furthermore, it should be noted that the local circuits within the network implemented in this project all possess identical levels of local connectivity strength, whereas, in reality, this connectivity is likely to vary.
-\\
-\indent Relating this finding to serotonin's mechanisms, this counter-intuitive response might potentially be realised by the inhibitory effect of the 5HT\textsubscript{1A} receptors. These receptors have an inhibitory effect and are situated on interneurons, thereby leading to their inhibition.
-\\
-\indent This finding highlights the complexity that can be observed even in simplistic neural circuits, which may be used by serotonin. Serotonin is able to switch its effect in different brain states, such as distinct behavioural states \cite{clarkeCognitiveInflexibilityPrefrontal}. This richness in modulating neural activity underlines the neurotransmitter's powerful role in regulating brain functions.
-
-
-\section{Methodological Limitations and Advantages}
-\noindent
-\indent 
-Since the model is built only in a limited biologically plausible way, it is not possible to draw conclusions about the role of different receptor types in the modulation of UP and DOWN states during anaesthesia. The fact that only inhibiting the E population could induce the observed DOWN state, might involve both, the inhibitory receptor 5-HT\textsubscript{1A} and the excitatory receptor 5-HT\textsubscript{2A}, as both receptors are located on both inhibitory interneurons as well as excitatory pyramidal neurons pre- and postsynaptically\cite{celadaSerotoninModulationCortical2013}. To uncover the interactive mechanism of the two receptor types, a more fine grained model including different receptor types must be built. For example, it is very likely that the mechanism differs across the regions. For example, because 5-HT\textsubscript{1A} are rich in pyramidal cells axon hillock and soma in the prefrontal cortex, the dominantly inhibitory effect of serotonin in this region may be mostly mediated by 5-HT\textsubscript{1A} \cite{puigSerotoninModulationPrefrontoHippocampal2015}, which might differ from how serotonin affects other regions. Implementing a network with single neurons and even different receptors would provide more insight into how exactly serotonin modulation works.
-Additionally, one possible optimisation in terms of biological plausibility would be to implement projections back to the DRN. Evidence shows that there are projections from many brain regions (e.g., from the prefrontal cortex) that regulate the release of serotonin \cite{celadaSerotoninModulationCortical2013}. 
-Furthermore, the distance between the nodes in the real brain has not been taken into account in our model. Though, it has been shown that despite the distance, a phase lock of zero time lag between far away regions is possible \cite{vicenteDynamicalRelayingCan2008}. 
-\\
-\indent Although there are many possibilities to extend the model implemented for this project, the model presented here is still well suited to address questions regarding the relevance of connectivity between network components and the functioning of serotonin on a larger scale. By avoiding an excessively specific implementation and keeping the number of variables low, the model offers greater interpretability. Additionally, the availability of state-of-the-art atlas data does not yet provide the necessary level of detail regarding the distribution of 5-HT receptor types among specific cell types. Moreover, developing more detailed models would significantly increase the computational complexity of simulations and analyses. Taking these factors into account, the proposed model strikes a balance that allows sufficient biological plausibility for the questions raised to allow meaningful investigation.
-
+\newpage
 
 \section*{Material and methods}
 
@@ -307,18 +256,6 @@ Realistic connectivity was introduced to the model using data from the Mouse Con
     I^x_E = G \sum_y W^{xy}
 \end{equation}
 
-\subsection*{Synchrony metric}
-To measure the synchrony between the brain regions in the model, we computed the parameter $\chi(N)$ proposed by Brunel \cite{brunelCommunicatedPaulTiesinga2006} (see Equation \ref{eq:brunel1} and \ref{eq:brunel2}). The idea behind the formula is to take the variance of each region and compare it to the variance of the entire network. $N$ denotes the number of local areas in the network, and r is the I population's firing rate.  
-
-\begin{equation}\label{eq:brunel1}
-    \sigma^2_r = \langle [r(t)]^2  \rangle_t - [
- \langle r(t) \rangle_t]^2 
-\end{equation}
-
-\begin{equation}\label{eq:brunel2}
-    \chi(N) = \sqrt{\frac{\sigma^2_x}{\frac{1}{N}\sum^N_(i=1)\sigma^2_{r_i}}}
-\end{equation}
-
 \subsection*{Modelling 5-HT stimulation}
 The modulatory effect of serotonin stimulation was modelled by a current from the DRN projecting to the local circuits in the model. Similar to the connectivity matrix for the inter-area long-range projections, the projections of the DRN are weighted depending on the projection density. Considering that the DRN projection densities to all areas $x$ are stored in a vector $\vec{D}$ the input current $I_{DRN}$ is defined as the following:
 
@@ -326,59 +263,14 @@ The modulatory effect of serotonin stimulation was modelled by a current from th
     I^x_{DRN}(t) = S\vec{D}_x u(t)
 \end{equation}
 
+\noindent
 The temporal dynamics of the release of serotonin in the model was matched to the temporal profile of the modulatory effect of 5-HT on neural activity (data not shown). The trajectory of 5-HT modulation peaked after 0.5 seconds and decayed it returns to the original state after 3 seconds. The time course of this trajectory, here defined as $u(t)$, was multiplied with the parameter for serotonin stimulation strength $S$. The stimulation was given for 1 second, with an inter-stimulus interval similar to the experimental protocol. The effect of serotonin stimulation on the system was initially modelled by introducing an inhibitory current to the E population (subtracting  $I_{DRN}$ from $r_E$), this was later extended to other mechanisms. 
 
 \subsection*{Hidden Markov Model (HMM)}
 In both the electrophysiological and simulated data, UP and DOWN states were quantified by fitting an HMM using the \verb|ssm| package \cite{Linderman_SSM_Bayesian_Learning_2020}. In the case of the electrophysiological data, spike times were binned in 200 ms bins in seven second windows (2s pre, 5s post) surrounding 5-HT stimulation onsets. An HMM with two states and Poisson observations was fit to the binned spike rates. In the case of the model, an HMM with two states and Gaussian observations was fit to the modelled firing rate time series of the I population. The state which showed the highest firing rate was determined to be the UP state. The output of the HMM was an inferred UP or DOWN state per time point and a corresponding posterior likelihood.
 
-\section*{Data and code availability}
-Details here
-
-\section*{Acknowledgments}
-Some acknoledgments
-
-\section*{Conflict of interest disclosure}
-The author of this preprint declares to have no financial conflict of interest with the content of this article.
-
 \section*{Appendix}
 
-
-\noindent\textbf{UP and DOWN state dynamics}
-\\
-\indent Several components of the model play a role to generate the UP-DOWN dynamics. Most importantly, the system requires bistability, meaning that the model has two stable states of activity, which are called stable attractor points. When one of those points is reached, the network stays at that rate of activity if there is no perturbing signal from the outside reaching the network. The first attractor point represents the DOWN state, in which no firing rate is observed. The second attractor point represents the UP state, with an average firing rate that depends on the setting of local connectivity parameters (self coupling and coupling between E and I). The bistability of the local circuit is reached by the coupling between E and I population and the way the transfer functions are implemented. To find the two attractor points of the system, refer to the nullclines of $r_E(t)$ and $r_I(t)$. Equation \ref{eq:4} and \ref{eq:5} describes $r_E(t)$ and $r_I(t)$, and when solving the equation with setting $r_E=0$ and $r_I=0$, it yields the nullcline of each population. Under specific conditions the nullclines intersect at two points, which are the two attractor points in which both firing rates stay the same.
-
-\begin{equation}\label{eq:5}
-    r_E = g_E[J_EEr_E-J_EIrI-a-\theta_E]_+
-\end{equation}
-
-\begin{equation} %\label{eq:5}
-    r_I = g_I[J_IEr_E-J_IIrI-\theta_I]_+
-\end{equation}
-
-Where the two nullclines intersect depends on the threshold $\theta$ of both populations, since it defines the start of the incline of the linear function. If $\theta_E < \theta_I$, the nullcline of $r_E$ has time to incline linearly, whereas the nullcline of $r_I$ starts rising from zero only later on (see Figure \ref{fig:phase_diagram1} A). The fact that $g_E < g_I$, allows the nullclines to intersect and therefore allowing the stable attractor point for the UP state arise (see Figure \ref{fig:phase_diagram2} A). 
-
-
-
-\begin{figure}[h]
-    \centering
-    \includegraphics{img/Methods/Figure2_1.pdf}
-    \caption[Nullclines of rE and rI and the effect of their slope on E and I firing rates]{A) Nullclines of rE and rI (taken from Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}). The effect of the nullclines' slope on the B) E and C) I populations' firing rate. The purple square indicates the default parameter setting.}
-    \label{fig:phase_diagram1}
-\end{figure}
-
-
-Adaptation and the fluctuating noise in both populations can initiate the change between the two attractor points of the system. The threshold of the excitatory population $\theta_E$ and the adaptation strength $\beta$ are two parameters that determine the transitions between one state to the other. Figure \ref{fig:phase_diagram2} C) visualises the change of UP and DOWN state frequencies in a phase diagram of the parameters $\beta$ and $\theta_E$.
-\\
-\indent The circuit dynamics can be described with a limit cycle regime with oscillatory pattern of $\frac{1}{tau_A} Hz$. The originally defined time constants produce UP and DOWN activity with the frequency of 2 Hz. Since the electrophysiological recordings from the mouse brain showed that the UP and DOWN states have a frequency of 0.5-1 Hz, all time constants in the model were multiplied by 3, which leads to lower frequencies (see Figure \ref{fig:phase_diagram2} C).
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1\textwidth]{img/Methods/Figure2_2.pdf}
-    \caption[The role of the excitatory firing threshold and the adaptation strength in the UP-DOWN dynamics]{The role of the excitatory firing threshold and the adaptation strength in the UP-DOWN dynamics. A) Adapted from Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, showing the two attractor points (U and D for UP and DOWN state) where the nullclines of rE and rI intersect. The current adaptation $\alpha$ value determines the position of the rE nullcline on the y-axis which can lead to the switch between the two attractor points. B) Taken from Jercog et al. \cite{jercogUPDOWNCorticalDynamics2017}, showing the phases in which the cuircuit switches between states with transitions induced by noise fluctuations or adaptation. C) Phase diagram showing the frequency of UP-DOWN states depending on the excitatory threshold and adaptation strength (using original time constant scaled by 3). Empty fields indicate absence of UP-DOWN states. The purple square indicates the setting for regions that show UP and DOWN states.}
-    \label{fig:phase_diagram2}
-\end{figure}
-
-\vfill\null
 
 % Please use pisikabst.bst. You may your own *.bib file.
 \bibliographystyle{pisikabst}

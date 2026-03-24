@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1774011540.16998 "main.aux" "main.bbl" "main" 1774011543.39839 0
-  "./pisikabst.bst" 1768462707 34645 aa74942a802431bd058560a63a31f7e2 ""
-  "./serotonin_bib.bib" 1770991205 1282464 8fb631283b02028c5f100e58f1099aef ""
-  "main.aux" 1774011542 18008 a739d7db5ca4a133a03437299e0701d4 "pdflatex"
+["bibtex main"] 1774340126.47046 "main.aux" "main.bbl" "main" 1774340127.0018 2
+  "./pisikabst.bst" 1774340123 34645 aa74942a802431bd058560a63a31f7e2 ""
+  "./serotonin_bib.bib" 1774339945 1279847 194c6f9aff3d0c66e13cac3cb7d1c302 ""
+  "main.aux" 1774340109 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1774011540.72837 "main.tex" "main.pdf" "main" 1774011543.39939 0
+["pdflatex"] 1774339955.27629 "main.tex" "main.pdf" "main" 1774340127.00251 0
   "C:/Users/guido/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1772006757 865278 d8434c0345d5b097e011dc7c1e92936f ""
   "C:/Users/guido/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1761723538 13321868 74406b6659bb71c6cc3f5e68c133401a ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -52,7 +52,6 @@
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/tfm/public/mathpazo/zplmr7t.tfm" 1136768654 1828 bb8add3bd19426549f9267c88b0cb8bd ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/tfm/public/mathpazo/zplmr7v.tfm" 1136768654 1012 955c4ca523d7827d33db91a33412b048 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/tfm/public/mathpazo/zplmr7y.tfm" 1136768654 1316 b4037e9c09961a72f8476628774e1ec1 ""
-  "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247596667 30251 6afa5cb1d0204815a708a080681d4674 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
@@ -139,19 +138,18 @@
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ts1ppl.fd" 1585253778 653 35f1cf70bf09b6e2d22ee0902cfb1a8b ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1751104012 9684 a33a14b82ce60d6e77cb9be689d79ee6 ""
+  "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/titlesec/titlesec.sty" 1736608268 48766 87a17a4ef312a39cd43896e34a679a56 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/tools/array.sty" 1749468414 15698 f5f20b24886bb50156054c53e19b13fd ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/tools/bm.sty" 1749468414 13236 71253d8fde2c80ecebae7e3f7da0c2b0 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/tools/dcolumn.sty" 1749468414 2758 67c3ad720591c53ba8fa03ee9fbf7375 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "img/Fig3_model.pdf" 1774011488 454152 1ecf6abd58f4c7895c0a5ea7b7b0780e ""
-  "img/Methods/Figure2_1.pdf" 1768462707 59758 7e847c5f024de614d50fb5820521b93a ""
-  "img/Methods/Figure2_2.pdf" 1768462707 98789 8439be0ddd104fdabf31b01e7fdb0be4 ""
   "img/ephys_updown_states.pdf" 1774000093 2366102 3d0fa15e351d735f3ee76f640dca9864 ""
   "img/recordings_overview.pdf" 1770191331 1190442 978835af330e5684819a5637ea0d4f4a ""
-  "main.aux" 1774011542 18008 a739d7db5ca4a133a03437299e0701d4 "pdflatex"
-  "main.bbl" 1774011540 18171 4c18b77dc8ed4cb5e90fb7b57a190f52 "bibtex main"
-  "main.out" 1774011542 1672 c1445dd7910a98d84a8f09bdd7b710d8 "pdflatex"
-  "main.tex" 1774011536 57151 ccff336f7fa016aa2292997988fee11f ""
+  "main.aux" 1774340109 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "main.bbl" 1774340126 0 d41d8cd98f00b204e9800998ecf8427e "bibtex main"
+  "main.out" 0 -1 0 "pdflatex"
+  "main.tex" 1774339321 34456 14408a4be317a5b17fd37037c0f4506a ""
   (generated)
   "main.aux"
   "main.log"
