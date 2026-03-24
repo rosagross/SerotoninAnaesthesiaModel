@@ -19,6 +19,7 @@ MIN_NEURONS_PER_MOUSE = 2
 MIN_MOD_NEURONS = 2
 MIN_NEURONS_PER_SES = 5
 MIN_REC = 2
+EXPRESSION = False
 
 # Get paths
 fig_path, save_path = paths()
@@ -26,11 +27,15 @@ fig_path, save_path = paths()
 # Load in results
 light_neurons = pd.read_csv(join(save_path, 'light_modulated_neurons.csv'))
 
-# Add expression
-subjects = load_subjects()
+# Select expression
+subjects = load_subjects(only_expression=False)
 for i, nickname in enumerate(np.unique(subjects['subject'])):
-    light_neurons.loc[light_neurons['subject'] == nickname, 'sert-cre'] = subjects.loc[subjects['subject'] == nickname, 'sert-cre'].values[0]
-
+    light_neurons.loc[light_neurons['subject'] == nickname, 'expression'] = subjects.loc[subjects['subject'] == nickname, 'expression'].values[0]
+if EXPRESSION:
+    light_neurons = light_neurons[light_neurons['expression'] == 1]
+else:
+    light_neurons = light_neurons[light_neurons['expression'] == 0]
+    
 # Merge regions
 light_neurons['high_level_region'] = high_level_regions(light_neurons['region'], input_atlas='Beryl',
                                                         only_vis=True)
@@ -40,13 +45,13 @@ light_neurons = light_neurons.reset_index(drop=True)
 light_neurons = light_neurons.drop(index=[i for i, j in enumerate(light_neurons['high_level_region']) if 'root' in j])
 
 # Get modulated neurons
-mod_neurons = light_neurons[(light_neurons['sert-cre'] == 1) & (light_neurons['modulated'] == 1)]
+mod_neurons = light_neurons[light_neurons['modulated'] == 1]
 mod_neurons = mod_neurons.groupby('high_level_region').filter(lambda x: len(x) >= MIN_MOD_NEURONS)
 
 # Summary statistics per session
-per_ses_df = light_neurons[light_neurons['sert-cre'] == 1].groupby(
+per_ses_df = light_neurons.groupby(
     ['high_level_region', 'pid']).sum(numeric_only=True)
-per_ses_df['n_neurons'] = light_neurons[light_neurons['sert-cre'] == 1].groupby(['high_level_region', 'pid']).size()
+per_ses_df['n_neurons'] = light_neurons.groupby(['high_level_region', 'pid']).size()
 per_ses_df['perc_mod'] = (per_ses_df['modulated'] / per_ses_df['n_neurons']) * 100
 per_ses_df = per_ses_df[per_ses_df['n_neurons'] >= MIN_NEURONS_PER_SES]
 per_ses_df = per_ses_df.reset_index()
@@ -55,11 +60,11 @@ per_ses_df = per_ses_df.reset_index()
 ordered_regions_ps = per_ses_df.groupby('high_level_region').mean(numeric_only=True).sort_values('perc_mod', ascending=False).reset_index()
 
 # Summary statistics per mouse
-per_mouse_df = light_neurons[light_neurons['sert-cre'] == 1].groupby(
+per_mouse_df = light_neurons.groupby(
     ['high_level_region', 'subject']).sum(numeric_only=True)
-per_mouse_df['mod_index_late'] = light_neurons[light_neurons['sert-cre'] == 1].groupby(
+per_mouse_df['mod_index_late'] = light_neurons.groupby(
     ['high_level_region', 'subject']).median(numeric_only=True)['mod_index']
-per_mouse_df['n_neurons'] = light_neurons[light_neurons['sert-cre'] == 1].groupby(['high_level_region', 'subject']).size()
+per_mouse_df['n_neurons'] = light_neurons.groupby(['high_level_region', 'subject']).size()
 per_mouse_df['perc_mod'] = (per_mouse_df['modulated'] / per_mouse_df['n_neurons']) * 100
 per_mouse_df = per_mouse_df[per_mouse_df['n_neurons'] >= MIN_NEURONS_PER_MOUSE]
 per_mouse_df = per_mouse_df.groupby('high_level_region').filter(lambda x: len(x) >= MIN_REC)
@@ -89,7 +94,10 @@ ax1.set(xlabel='Modulated neurons (%)', ylabel='', xlim=[0, 102], xticks=np.aran
 plt.tight_layout()
 #plt.subplots_adjust(left=0.35, bottom=0.2, right=0.95)
 sns.despine(trim=True)
-plt.savefig(join(fig_path, 'ephys_updown_states', 'perc_light_modulated_neurons_per_region_no-color.pdf'))
+if EXPRESSION:
+    plt.savefig(join(fig_path, 'ephys_updown_states', 'perc_light_modulated_neurons_per_region.pdf'))
+else:
+    plt.savefig(join(fig_path, 'ephys_updown_states', 'perc_light_modulated_neurons_per_region_no_expression.pdf'))
 
 # %%
 
@@ -109,5 +117,8 @@ ax1.set(ylabel='', xlabel='Modulation index', xlim=[-1.05, 1.05], xticks=[-1, 0,
 #ax1.spines['bottom'].set_position(('data', np.floor(ax1.get_ylim()[0]) - 0.4))
 plt.tight_layout()
 sns.despine(trim=True)
-plt.savefig(join(fig_path, 'light_modulation_per_neuron_per_region.pdf'))
+if EXPRESSION:
+    plt.savefig(join(fig_path, 'light_modulation_per_neuron_per_region.pdf'))
+else:
+    plt.savefig(join(fig_path, 'light_modulation_per_neuron_per_region_no_expression.pdf'))
 plt.show()

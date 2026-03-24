@@ -18,7 +18,7 @@ ba = AllenAtlas()
 one = init_one()
 
 # Settings
-OVERWRITE = True
+OVERWRITE = False
 NEURON_QC = True
 PRE_TIME = [0.5, 0]  # for modulation index
 POST_TIME = [0.3, 0.8]
@@ -27,7 +27,7 @@ MIN_FR = 0.1
 _, save_path = paths()
 
 # Query sessions
-rec = query_ephys_sessions(one=one)
+rec = query_ephys_sessions(only_expression=False, one=one)
 
 if OVERWRITE:
     light_neurons = pd.DataFrame()

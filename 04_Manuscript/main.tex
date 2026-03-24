@@ -269,8 +269,24 @@ The temporal dynamics of the release of serotonin in the model was matched to th
 \subsection*{Hidden Markov Model (HMM)}
 In both the electrophysiological and simulated data, UP and DOWN states were quantified by fitting an HMM using the \verb|ssm| package \cite{Linderman_SSM_Bayesian_Learning_2020}. In the case of the electrophysiological data, spike times were binned in 200 ms bins in seven second windows (2s pre, 5s post) surrounding 5-HT stimulation onsets. An HMM with two states and Poisson observations was fit to the binned spike rates. In the case of the model, an HMM with two states and Gaussian observations was fit to the modelled firing rate time series of the I population. The state which showed the highest firing rate was determined to be the UP state. The output of the HMM was an inferred UP or DOWN state per time point and a corresponding posterior likelihood.
 
-\section*{Appendix}
+\newpage
 
+\section*{Supplementary figures}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{img/histology.pdf}
+    \caption{Histology}
+    \label{suppfig:histology}
+\end{figure}
+
+\newpage
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{img/ephys_no_expression.pdf}
+    \caption{Histology}
+    \label{suppfig:histology}
+\end{figure}
 
 % Please use pisikabst.bst. You may your own *.bib file.
 \bibliographystyle{pisikabst}

@@ -24,8 +24,8 @@ RENDER_VIDEO = False
 fig_path, save_path = paths()
 
 # Load in recordings and subjects
-rec = query_ephys_sessions()
-subjects = load_subjects()
+rec = query_ephys_sessions(only_expression=False)
+subjects = load_subjects(only_expression=False)
 
 plot_colors, dpi = figure_style()
 fig = rendering.figure(grid=False, size=(1024, 768))

@@ -15,9 +15,10 @@ import pandas as pd
 from matplotlib.patches import Rectangle
 from updown_functions import figure_style, paths, load_subjects, add_significance
 
+EXPRESSION = False
+
 # Paths
-f_path, save_path = paths()
-fig_path = join(f_path, 'ephys_updown_states')
+fig_path, save_path = paths()
 
 # Load in data
 p_state_df = pd.read_csv(join(save_path, 'updown_states_anesthesia.csv'))
@@ -26,7 +27,7 @@ p_state_df = pd.read_csv(join(save_path, 'updown_states_anesthesia.csv'))
 subjects = load_subjects()
 for i, nickname in enumerate(np.unique(subjects['subject'])):
     p_state_df.loc[p_state_df['subject'] == nickname, 'expression'] = subjects.loc[subjects['subject'] == nickname, 'expression'].values[0]
-p_state_df = p_state_df[p_state_df['expression'] == 1]
+p_state_df = p_state_df[p_state_df['expression'] == int(EXPRESSION)]
 
 # Average over mice first
 p_state_df = p_state_df.groupby(['pid', 'time', 'region']).mean(numeric_only=True).reset_index()
@@ -61,7 +62,7 @@ for i, region in enumerate(regions):
     #n_sub = len(np.unique(p_state_df.loc[p_state_df['region'] == region, 'subject']))
     if i == 0:
         #axs[i].text(2, -0.22, f'n={n_sub} mice', ha='center', va='center')
-        axs[i].set_ylabel(u'Δ down state probability (%)', labelpad=0)
+        axs[i].set_ylabel('Down state probability (%)', labelpad=0)
         axs[i].get_xaxis().set_visible(False)
         sns.despine(trim=True, bottom=True, ax=axs[i])
         axs[i].plot([0, 2], [-0.26, -0.26], color='k', lw=0.5)
@@ -77,5 +78,40 @@ for i, region in enumerate(regions):
     
 plt.subplots_adjust(left=0.08, bottom=0.1, right=1, top=0.8, wspace=0, hspace=0.4)
 #plt.tight_layout(h_pad=-10, w_pad=1.08)
-plt.savefig(join(fig_path, 'p_down_state_anesthesia.pdf'))
+if EXPRESSION:
+    plt.savefig(join(fig_path, 'ephys_updown_states', 'p_down_state_anesthesia.pdf'))
+else:
+    plt.savefig(join(fig_path, 'no_expression', 'p_down_state_anesthesia_no_expression.pdf'))
+plt.show()
+
+
+# %% All regions together
+
+
+p_values = []
+for time in p_state_df['time'].unique():
+    _, p = ttest_1samp(p_state_df.loc[p_state_df['time'] == time, 'p_down_bl'], 0)
+    p_values.append(p)
+p_values = np.array(p_values)
+
+f, ax = plt.subplots(figsize=(1.75, 1.75), dpi=dpi)
+
+ax.add_patch(Rectangle((0, -0.1), 1, 0.45, color='royalblue', alpha=0.25, lw=0))
+ax.plot([-1, 4], [0, 0], lw=1, ls='--', color='grey')
+sns.lineplot(data=p_state_df, x='time', y='p_down_bl',
+             color='k', errorbar='se', err_kws={'lw': 0}, ax=ax)
+add_significance(p_state_df['time'].unique(), p_values=p_values, ax=ax, y_pos=0.34)
+ax.set(xlabel='Time (s)', yticks=[-0.1, 0, 0.35], yticklabels=[-10, 0, 35])
+ax.set_ylabel('Down state probability (%)', labelpad=0)
+ax.plot([0, 2], [-0.1, -0.1], color='k', lw=0.5)
+ax.text(1, -0.11, '2s', ha='center', va='top')
+ax.get_xaxis().set_visible(False)
+sns.despine(trim=True, bottom=True)
+#ax.get_yaxis().set_visible(False)
+#ax.axis('off')
+plt.tight_layout()
+if EXPRESSION:
+    plt.savefig(join(fig_path, 'ephys_updown_states', 'p_down_state_anesthesia_together.pdf'))
+else:
+    plt.savefig(join(fig_path, 'no_expression', 'p_down_state_anesthesia_together_no_expression.pdf'))
 plt.show()

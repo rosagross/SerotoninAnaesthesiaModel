@@ -31,20 +31,20 @@ PRE_TIME = 1  # final time window to use
 POST_TIME = 4
 HMM_PRE_TIME = 2  # time window to run HMM on
 HMM_POST_TIME = 5
-OVERWRITE = True
+OVERWRITE = False
 
 # Get path
 fig_path, save_path = paths()
 
 # Query sessions
-rec = query_ephys_sessions(one=one)
-subjects = load_subjects()
+rec = query_ephys_sessions(only_expression=False, one=one)
+subjects = load_subjects(only_expression=False)
 
 # Get artifact neurons
 if OVERWRITE:
     up_down_state_df = pd.DataFrame()
 else:
-    up_down_state_df = pd.read_csv(join(save_path, 'updown_state_anesthesia.csv'))
+    up_down_state_df = pd.read_csv(join(save_path, 'updown_states_anesthesia.csv'))
     rec = rec[~rec['pid'].isin(up_down_state_df['pid'])]
 
 for i in rec.index.values:
