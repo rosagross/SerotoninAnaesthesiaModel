@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1774340126.47046 "main.aux" "main.bbl" "main" 1774340127.0018 2
+["bibtex main"] 1774372388.6955 "main.aux" "main.bbl" "main" 1774372393.03003 0
   "./pisikabst.bst" 1774340123 34645 aa74942a802431bd058560a63a31f7e2 ""
   "./serotonin_bib.bib" 1774339945 1279847 194c6f9aff3d0c66e13cac3cb7d1c302 ""
-  "main.aux" 1774340109 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "main.aux" 1774372391 17009 68df31134038542461cf380c93365557 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1774339955.27629 "main.tex" "main.pdf" "main" 1774340127.00251 0
+["pdflatex"] 1774372389.40203 "main.tex" "main.pdf" "main" 1774372393.03135 0
   "C:/Users/guido/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1772006757 865278 d8434c0345d5b097e011dc7c1e92936f ""
   "C:/Users/guido/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1761723538 13321868 74406b6659bb71c6cc3f5e68c133401a ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -144,12 +144,14 @@
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/tools/dcolumn.sty" 1749468414 2758 67c3ad720591c53ba8fa03ee9fbf7375 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "img/Fig3_model.pdf" 1774011488 454152 1ecf6abd58f4c7895c0a5ea7b7b0780e ""
+  "img/ephys_no_expression.pdf" 1774370764 436267 40411f9a7d05039dee2925ffd48098b2 ""
   "img/ephys_updown_states.pdf" 1774000093 2366102 3d0fa15e351d735f3ee76f640dca9864 ""
-  "img/recordings_overview.pdf" 1770191331 1190442 978835af330e5684819a5637ea0d4f4a ""
-  "main.aux" 1774340109 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "main.bbl" 1774340126 0 d41d8cd98f00b204e9800998ecf8427e "bibtex main"
-  "main.out" 0 -1 0 "pdflatex"
-  "main.tex" 1774339321 34456 14408a4be317a5b17fd37037c0f4506a ""
+  "img/histology.pdf" 1774370764 2272746 325d2524f9b45a1c2ebe073ed291b557 ""
+  "img/recordings_overview.pdf" 1774370764 1269938 426f53a934c2ac1ea0649f27487ad2f1 ""
+  "main.aux" 1774372391 17009 68df31134038542461cf380c93365557 "pdflatex"
+  "main.bbl" 1774372389 12426 9866f928243d3189d5df8d1dd60b4ff6 "bibtex main"
+  "main.out" 1774372390 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1774372383 36371 759b2a0c9a0a98c8a4d34a1278255c17 ""
   (generated)
   "main.aux"
   "main.log"
