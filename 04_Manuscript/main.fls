@@ -268,6 +268,11 @@ INPUT .\img\recordings_overview.pdf
 INPUT .\img\recordings_overview.pdf
 INPUT .\img\recordings_overview.pdf
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplb7t.tfm
+INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\palatino\pplb7t.vf
+INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplb8r.tfm
+INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\public\mathpazo\zplmr7m.vf
+INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\mathpazo\fplmri.tfm
+INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
 INPUT .\img\ephys_updown_states.pdf
 INPUT .\img\ephys_updown_states.pdf
 INPUT .\img\ephys_updown_states.pdf
@@ -289,11 +294,6 @@ INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbsy10.t
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\latex-fonts\lasyb10.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\mathpazo\zplmr7t.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\mathpazo\zplmr7t.tfm
-INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\palatino\pplb7t.vf
-INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplb8r.tfm
-INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\public\mathpazo\zplmr7m.vf
-INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\mathpazo\fplmri.tfm
-INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\palatino\pplri7t.vf
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplri8r.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\public\mathpazo\zplmr7m.vf
@@ -308,8 +308,6 @@ INPUT .\img\Fig3_model.pdf
 INPUT .\img\Fig3_model.pdf
 INPUT .\img\Fig3_model.pdf
 INPUT .\img\Fig3_model.pdf
-INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\public\mathpazo\zplmr7t.vf
-INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplb7t.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ppl.fd
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ppl.fd
@@ -323,6 +321,8 @@ INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\palatino\pplb7t.vf
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplb8r.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\palatino\pplr8c.vf
+INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\public\mathpazo\zplmr7t.vf
+INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplb7t.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\palatino\pplb7t.vf
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplb8r.tfm

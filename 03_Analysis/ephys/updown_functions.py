@@ -179,7 +179,7 @@ def figure_style():
               'Secondary motor cortex': sns.color_palette('Dark2')[2],
               'Amygdala': sns.color_palette('Dark2')[3],
               'Visual cortex': sns.color_palette('Dark2')[5],
-              'Piriform': sns.color_palette('Dark2')[6],
+              'Piriform cortex': sns.color_palette('Dark2')[6],
               'Superior colliculus': sns.color_palette('Dark2')[7],
               'Periaqueductal gray': sns.color_palette('Set1')[7],
               'Barrel cortex': sns.color_palette('Set2')[0],
