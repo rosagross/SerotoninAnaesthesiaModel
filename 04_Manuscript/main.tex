@@ -122,9 +122,7 @@ We performed acute Neuropixel recordings across the mouse brain while the animal
 
 Cortical UP-DOWN states were clearly visible under anesthesia as periods of 1-2s of neural activity interspersed with periods of silence (Fig. \ref{fig:ephys}a). Based on visual inspection of the spike raster plots, 5-HT stimulation appeared to coincide with a DOWN state. To investigate this, first we asked what the effect of serotonin stimulation was on the activity of single neurons. Peri-stimulus time histograms of single neurons, conditioned on the start of the 5-HT stimulation, consistently showed that single neuron spiking activity was decreased (example neuron in Fig. \ref{fig:recordings}b). In all recorded brain regions we found a large fraction of neurons that were significantly modulated by serotonin stimulation (30-60\%; ZETA-test \cite{montijn_parameter-free_2021}, \emph{p} $<$ 0.05; Fig. \ref{fig:ephys}c). A large majority of single neurons were suppressed by 5-HT stimulation as quantified by their modulation index, which was predominantly $<$ 0. The mean modulation index over neurons per brain region was negative indicating that all recorded regions were suppressed by serotonin stimulation (Fig. \ref{fig:ephys}d). 
 
-To directly investigate whether serotonin stimulation induced a DOWN state we quantified UP and DOWN states with a two-state Hidden Markov Model (HMM) which was fit to spike rates conditioned to the start of the 5-HT stimulation (Fig. \ref{fig:ephys}e,f). We found that serotonin stimulation strongly and rapidly induced a DOWN state in the frontal cortex, this effect scaled with the stimulation frequency of the optogenetic stimulation (Fig. \ref{fig:ephys}g). Performing the analysis across all recorded brain regions we found that serotonin strongly induced a DOWN state in the frontal cortex and striatum, to a lesser extend in the amygdala, visual cortex, hippocampus, and thalamus, and not at all in the midbrain (Fig. \ref{fig:ephys}h). Importantly, these results could not be explained by neural responses to the optogenetic light delivery alone {Fig. \ref{suppfig:no_expression}}.
-
-Previous studies showed that the effect of
+To directly investigate whether serotonin stimulation induced a DOWN state we quantified UP and DOWN states with a two-state Hidden Markov Model (HMM) which was fit to spike rates conditioned to the start of the 5-HT stimulation (Fig. \ref{fig:ephys}e,f). We found that serotonin stimulation strongly and rapidly induced a DOWN state in the frontal cortex, this effect scaled with the stimulation frequency of the optogenetic stimulation (Fig. \ref{fig:ephys}g). Performing the analysis across all recorded brain regions we found that serotonin strongly induced a DOWN state in the frontal cortex and striatum, to a lesser extend in the amygdala, visual cortex, hippocampus, and thalamus, and not at all in the midbrain (Fig. \ref{fig:ephys}h). Importantly, these results could not be explained by neural responses to the optogenetic light delivery alone (Fig. \ref{suppfig:no_expression}).
 
 \begin{figure}[!t]
     \centering
@@ -132,6 +130,8 @@ Previous studies showed that the effect of
     \caption{Serotonin induces a DOWN state under anesthesia. \textbf{(a)} An example spike raster plot of 10s of spiking activity recorded on two Neuropixel probes simultaneously. Recorded brain regions are indicated on the right of the raster at their approximate depths. The time of the optogenetic 5-HT stimulation is indicated by the blue bar (25 Hz, 10 ms pulses). \textbf{(b)} Peri-stimulus time histogram of an example neuron from the frontal cortex. The bottom shows the spike raster in which each row is a repetition of 1s 25 Hz stimulation. The top shows the mean spiking rate binned in 50 ms bins with a 25 ms Gaussian smoothing kernel. *** \emph{p} $<$ 0.001, ZETA-test. \textbf{(c)} Percentage of significantly modulated neurons (ZETA-test, \emph{p} $<$ 0.05) per brain region, calculated per recording session. Black dots are sessions, grey bars means over sessions. \textbf{(d)} Modulation index per neuron, negative values indicate the neuron is inhibited by 5-HT and positive values indicate excitation. Each grey dot is a single neuron, vertical red bars are the mean over neurons per brain region. \textbf{(e)} An example peri-stimulus raster plots of spike times (black ticks, each row is a neuron), aligned to the onset of 5-HT stimulation (blue vertical bar). The orange line indicates the posterior probability of a DOWN state as determined by a two-state HMM. On the left an example from the frontal cortex is shown and on the right an example from the amygdala. \textbf{(f)} A peri-stimulus heatmap over trials of when the HMM determined there most likely was a DOWN state (orange). The black line is the mean posterior probability of a DOWN state over trials per time bin. \textbf{(g)} A peri-stimulus plot of the change in DOWN state probability compared to baseline (-1 to 0s) averaged over mice (n = 5, mean $\pm$ sem). Plotted separately, indicated by color, are different stimulation frequencies. \textbf{(h)} Peri-stimulus plots for all recorded high-level brain regions of the change in DOWN state probability over baseline for 25 Hz serotonin stimulation. Black horizontal bars above the plot indicate periods of statistical significance (t-test versus 0, \emph{p} $<$ 0.05).}
     \label{fig:ephys}
 \end{figure}
+
+Previous studies showed that the effect of 5-HT on the suppression of neural activity during slow oscillations is mediated through the 5-HT2a receptor \cite{defilippoSomatostatinInterneuronsActivated2021,grandjeanBrainwideFunctionalMap2019}. We extracted 5-HT2a receptor expression levels from the Allen Brain Atlas and correlated these with the magnitude of the 5-HT induced suppression on a region-by-region basis. We found that there was a significant correlation such that higher levels of 5-HT2a receptor expression were associated with stronger suppression of neural activity in that region (Fig \ref{suppfig:receptor_expression}).
 
 We implemented a dynamic bistable firing rate model to investigate the mechanism by which serotonin stimulation results in the induction of DOWN states. The model simulates a simplified network of the mouse brain, following biological realistic inter-area connectivity. Each brain area was modelled using a local excitatory-inhibitory (EI) circuit consisting of one E, one I population, and a mechanism controlling for adaptation (A) of the excitatory population  \cite{jercogUPDOWNCorticalDynamics2017} (Fig. \ref{fig:model_updown}a). To introduce biologically plausible connectivity between the modelled brain regions, the projection strength between them was pulled from the Mouse Connectivity Atlas of the Allen Brain Atlas, together with the projection strength of the dorsal raphe nucleus to these regions (Fig \ref{fig:model_updown}b. The model was able to reproduce slow-wave oscillations which mimicked closely the UP and DOWN states observed in the neural data (Fig. \ref{fig:model_updown}c). The frequency of modelled UP and DOWN states was around 0.5-1 Hz which closely matched the frequency observed in the brain. 
 
@@ -154,39 +154,10 @@ We observed in Fig. \ref{fig:model_updown}f that some regions showed a large cha
 \noindent
 We showed that selective activation of serotonergic neurons in the DRN under light anesthesia resulted in an inhibition of neural activity across the mouse brain. This is in stark contrast with the effect of serotonin stimulation in the awake condition where, in a previous study, we found that serotonin had a bidirectional effect on spiking activity \cite{meijerSerotoninDrivesChoiceindependent2025}. Our aim here was to resolve a discrepancy in the literature; optogenetic fMRI showed a brain-wide decrease in neural activity when stimulating 5-HT under anesthesia \cite{hamadaOptogeneticActivationDorsal2022,grandjeanBrainwideFunctionalMap2019} while electrical stimulation of the DRN under anesthesia resulted in increased activity and the induction of a cortical UP state \cite{puigSerotoninModulatesFastSpiking2010}. Our results are in line with the fMRI studies, we show here conclusively that serotonin stimulation results in a brain wide reduction of single-neuron spiking activity accompanied by the induction of a DOWN state across the cortex and striatum. Computational modelling further revealed that cortical regions which lack direct DRN input, like the visual cortex, are still transitioned into a DOWN state due to network-level interactions.
 
-The most likely explanation for the contradictory results of \cite{puigSerotoninModulatesFastSpiking2010} is that electrical stimulation of the DRN is non-selective and activates glutamatergic as well as serotonergic neurons. The glutamatergic drive is apparently much stronger compared to the serotonergic one and dominates the down-stream effect resulting in the induction of an UP state instead of a DOWN state. Another possibility, albeit less likely, is that the study of \cite{puigSerotoninModulatesFastSpiking2010} was performed in rats whereas the other studies, including this one, were performed in mice. There is, however, no discernible reason that the effect of serotonin could be opposite in rats versus mice.
+The most likely explanation for the contradictory results of \cite{puigSerotoninModulatesFastSpiking2010} is that electrical stimulation of the DRN is non-selective and activates glutamatergic as well as serotonergic neurons. The glutamatergic drive is apparently much stronger compared to the serotonergic one and dominates the down-stream effect resulting in the induction of an UP state instead of a DOWN state. Another possibility, albeit less likely, is that the study of \cite{puigSerotoninModulatesFastSpiking2010} was performed in rats whereas the other studies, including this one, were performed in mice. There is, however, no clear reason for the effect of serotonin to be opposite in rats versus mice.
 
-
-
-
-Additional ideas for the discussion:
-\begin{itemize}
-\item De Filippo et al., (2021) find that targeting SST interneurons with 5HT2A receptor enables inducing the DOWN state. We find that targeting excitatory population is crucial for inducing a DOWN state. This might be because the model does not incorporate different receptor types. Also, they did record this with fMRI in combination with electrophysiological recordings - more long term effect?
- The different receptor type distribution of post-synaptic 5-HT receptors is more relevant for functional connectivity than the anatomical DRN projection density.
- Our model does not include different receptor types, therefore, there is a need for another modelling study investigating this
-\item In contrast to de Filippo (2021), Nekse (2016) describes that there is a "lack of an observed increase in inhibitory cell firing relative to Up state termination" and that "synaptic inhibition is not an important factor for Up state termination".
-\item Grandjean (2019):
-\begin{itemize}
-    \item Even though the areas have different receptor distributions, all showed a negative effect
-    \item More negative in: medial prefrontal cortex (mPFC), amygdala, striatum, hippocampal formation, cortical subplate, and isocortex  	
-    \item Downside of MRI: indirect measurement, and temporal resolution is limited
-\end{itemize}
-\item What could be the potential modulatory mechanism of serotonin be?
-\begin{itemize}
-\item UP states are sharp wave ripples
-\item During quite wakefulness, stimulation of serotonergic neurons in the DRN supresses hippocampal sharp wave ripples
-\item Previously it was found that serotonin suppresses hippocampal sharp wave ripples. Therefore, one possible mechanism might be that serotonin induces a DOWN state by supressing sharp wave ripples during the UP state 
-\end{itemize}
-\end{itemize}
-
-\section*{Data and code availability}
-Details here
-
-\section*{Acknowledgments}
-Some acknoledgments
-
-\section*{Conflict of interest disclosure}
-The author of this preprint declares to have no financial conflict of interest with the content of this article.
+\subsection*{Data and code availability}
+All these data are open-source available through the Open Neurophysiology Environment (ONE) protocol (https://int-brain-lab.github.io/ONE/). All the code used to generate the figures in this manuscript are on Github: https://github.com/rosagross/SerotoninAnaesthesiaModel/.
 
 \section*{Material and methods}
 
@@ -302,7 +273,7 @@ In both the electrophysiological and simulated data, UP and DOWN states were qua
 \newpage
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=1\textwidth]{img/5-HT2a_receptor.pdf}
+    \includegraphics[width=0.4\textwidth]{img/5-HT2a_receptor.pdf}
     \caption{The magnitude of 5-HT induced suppression of neural activity is significantly correlated with 5-HT2a receptor expression. For each brain region, at a more granular delineation compared to the main figures, the expression strength of 5-HT2a was obtained from the Allen Brain Atlas. The modulation index of all neurons in each brain region was averaged. Each dot is a brain region. * \emph{p} = 0.01, Pearson correlation.}
     \label{suppfig:receptor_expression}
 \end{figure}
