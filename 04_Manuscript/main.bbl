@@ -1,4 +1,4 @@
-\begin{thebibliography}{14}
+\begin{thebibliography}{20}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname bibnamefont\endcsname\relax
   \def\bibnamefont#1{#1}\fi
@@ -23,6 +23,30 @@
   }\href{http://dx.doi.org/10.3389/FNINT.2013.00025/BIBTEX}{\textbf{\bibinfo{volume}{7}},
   \bibinfo{pages}{25}} (\bibinfo{year}{2013}), ISSN \bibinfo{issn}{16625145}.
 
+\bibitem[{\citenamefont{Steriade et~al.}(1993)\citenamefont{Steriade,
+  McCormick, and Sejnowski}}]{steriade_thalamocortical_1993}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Steriade}},
+  \bibinfo{author}{\bibfnamefont{D.~A.} \bibnamefont{McCormick}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{T.~J.}
+  \bibnamefont{Sejnowski}}, \bibinfo{title}{Thalamocortical {Oscillations} in
+  the {Sleeping} and {Aroused} {Brain}},
+  \href{http://dx.doi.org/10.1126/science.8235588}{\emph{\bibinfo{journal}{Science}}
+  }\href{http://dx.doi.org/10.1126/science.8235588}{\textbf{\bibinfo{volume}{262}},
+  \bibinfo{pages}{679}} (\bibinfo{year}{1993}).
+
+\bibitem[{\citenamefont{Steriade et~al.}(2001)\citenamefont{Steriade, Timofeev,
+  and Grenier}}]{steriade_natural_2001}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Steriade}},
+  \bibinfo{author}{\bibfnamefont{I.}~\bibnamefont{Timofeev}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Grenier}},
+  \bibinfo{title}{Natural {Waking} and {Sleep} {States}: {A} {View} {From}
+  {Inside} {Neocortical} {Neurons}},
+  \href{http://dx.doi.org/10.1152/jn.2001.85.5.1969}{\emph{\bibinfo{journal}{Journal
+  of Neurophysiology}}
+  }\href{http://dx.doi.org/10.1152/jn.2001.85.5.1969}{\textbf{\bibinfo{volume}{85}},
+  \bibinfo{pages}{1969}} (\bibinfo{year}{2001}), ISSN \bibinfo{issn}{0022-3077,
+  1522-1598}.
+
 \bibitem[{\citenamefont{Neske}(2015)}]{neskeSlowOscillationCortical2015}
 \bibinfo{author}{\bibfnamefont{G.~T.} \bibnamefont{Neske}}, \bibinfo{title}{The
   {{Slow Oscillation}} in {{Cortical}} and {{Thalamic Networks}}:
@@ -31,6 +55,16 @@
   in Neural Circuits}}
   }\href{http://dx.doi.org/10.3389/fncir.2015.00088}{\textbf{\bibinfo{volume}{9}},
   \bibinfo{pages}{88}} (\bibinfo{year}{2015}), ISSN \bibinfo{issn}{1662-5110}.
+
+\bibitem[{\citenamefont{Wilson and Groves}(1981)}]{wilson_spontaneous_1981}
+\bibinfo{author}{\bibfnamefont{C.~J.} \bibnamefont{Wilson}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{P.~M.} \bibnamefont{Groves}},
+  \bibinfo{title}{Spontaneous firing patterns of identified spiny neurons in
+  the rat neostriatum},
+  \href{http://dx.doi.org/10.1016/0006-8993(81)90211-0}{\emph{\bibinfo{journal}{Brain
+  Research}}
+  }\href{http://dx.doi.org/10.1016/0006-8993(81)90211-0}{\textbf{\bibinfo{volume}{220}},
+  \bibinfo{pages}{67}} (\bibinfo{year}{1981}), ISSN \bibinfo{issn}{0006-8993}.
 
 \bibitem[{\citenamefont{{Sanchez-Vives}
   et~al.}(2017)\citenamefont{{Sanchez-Vives}, Massimini, and
@@ -184,6 +218,57 @@
   }\href{http://dx.doi.org/10.7554/eLife.71969}{\textbf{\bibinfo{volume}{10}},
   \bibinfo{pages}{e71969}} (\bibinfo{year}{2021}), ISSN
   \bibinfo{issn}{2050-084X}.
+
+\bibitem[{\citenamefont{Deng et~al.}(2024)\citenamefont{Deng, Wan, Li, Dong,
+  Xia, Wang, Li, Zhuang, Zheng, Liu et~al.}}]{deng_improved_2024}
+\bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Deng}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Wan}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Li}},
+  \bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Dong}},
+  \bibinfo{author}{\bibfnamefont{X.}~\bibnamefont{Xia}},
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Wang}},
+  \bibinfo{author}{\bibfnamefont{X.}~\bibnamefont{Li}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Zhuang}},
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Zheng}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Liu}}, \bibnamefont{et~al.},
+  \bibinfo{title}{Improved green and red {GRAB} sensors for monitoring
+  spatiotemporal serotonin release in vivo},
+  \href{http://dx.doi.org/10.1038/s41592-024-02188-8}{\emph{\bibinfo{journal}{Nature
+  Methods}}
+  }\href{http://dx.doi.org/10.1038/s41592-024-02188-8}{\textbf{\bibinfo{volume}{21}},
+  \bibinfo{pages}{692}} (\bibinfo{year}{2024}), ISSN \bibinfo{issn}{1548-7105}.
+
+\bibitem[{\citenamefont{Torao-Angosto et~al.}(2021)\citenamefont{Torao-Angosto,
+  Manasanch, Mattia, and Sanchez-Vives}}]{torao-angosto_up_2021}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Torao-Angosto}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Manasanch}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Mattia}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{Sanchez-Vives}},
+  \bibinfo{title}{Up and {Down} {States} {During} {Slow} {Oscillations} in
+  {Slow}-{Wave} {Sleep} and {Different} {Levels} of {Anesthesia}},
+  \href{http://dx.doi.org/10.3389/fnsys.2021.609645}{\emph{\bibinfo{journal}{Frontiers
+  in Systems Neuroscience}}
+  }\href{http://dx.doi.org/10.3389/fnsys.2021.609645}{\textbf{\bibinfo{volume}{15}}}
+  (\bibinfo{year}{2021}), ISSN \bibinfo{issn}{1662-5137}.
+
+\bibitem[{\citenamefont{Ren et~al.}(2018)\citenamefont{Ren, Friedmann, Xiong,
+  Liu, Ferguson, Weerakkody, DeLoach, Ran, Pun, Sun
+  et~al.}}]{ren_anatomically_2018}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Ren}},
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Friedmann}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Xiong}},
+  \bibinfo{author}{\bibfnamefont{C.~D.} \bibnamefont{Liu}},
+  \bibinfo{author}{\bibfnamefont{B.~R.} \bibnamefont{Ferguson}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Weerakkody}},
+  \bibinfo{author}{\bibfnamefont{K.~E.} \bibnamefont{DeLoach}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Ran}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Pun}},
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Sun}}, \bibnamefont{et~al.},
+  \bibinfo{title}{Anatomically {Defined} and {Functionally} {Distinct} {Dorsal}
+  {Raphe} {Serotonin} {Sub}-systems},
+  \href{http://dx.doi.org/10.1016/j.cell.2018.07.043}{\emph{\bibinfo{journal}{Cell}}
+  }\href{http://dx.doi.org/10.1016/j.cell.2018.07.043}{\textbf{\bibinfo{volume}{175}},
+  \bibinfo{pages}{472}} (\bibinfo{year}{2018}), ISSN \bibinfo{issn}{0092-8674}.
 
 \bibitem[{\citenamefont{Laboratory et~al.}(2022)\citenamefont{Laboratory,
   Banga, Boussard, Chapius, Faulkner, Harris, Huntenburg, Hurwitz, Dong~Lee,

@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99e
+This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 Reallocating 'name_of_file' (item size: 1) to 10 items.
@@ -7,48 +7,48 @@ Reallocating 'name_of_file' (item size: 1) to 14 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: serotonin_bib.bib
 Warning--entry type for "Linderman_SSM_Bayesian_Learning_2020" isn't style-file defined
---line 387 of file serotonin_bib.bib
+--line 611 of file serotonin_bib.bib
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
-You've used 14 entries,
+You've used 20 entries,
             3447 wiz_defined-function locations,
-            791 strings with 9733 characters,
-and the built_in function-call counts, 13878 in all, are:
-= -- 722
-> -- 611
-< -- 79
-+ -- 550
-- -- 150
-* -- 2044
-:= -- 1315
-add.period$ -- 14
-call.type$ -- 14
-change.case$ -- 70
-chr.to.int$ -- 14
-cite$ -- 14
-duplicate$ -- 1273
-empty$ -- 1081
-format.name$ -- 342
-if$ -- 2601
+            850 strings with 11993 characters,
+and the built_in function-call counts, 19831 in all, are:
+= -- 1002
+> -- 887
+< -- 114
++ -- 798
+- -- 218
+* -- 2978
+:= -- 1887
+add.period$ -- 20
+call.type$ -- 20
+change.case$ -- 100
+chr.to.int$ -- 20
+cite$ -- 20
+duplicate$ -- 1819
+empty$ -- 1556
+format.name$ -- 498
+if$ -- 3688
 int.to.chr$ -- 1
-int.to.str$ -- 15
-missing$ -- 174
-newline$ -- 57
-num.names$ -- 42
-pop$ -- 253
+int.to.str$ -- 21
+missing$ -- 255
+newline$ -- 75
+num.names$ -- 60
+pop$ -- 332
 preamble$ -- 1
-purify$ -- 56
+purify$ -- 80
 quote$ -- 0
-skip$ -- 548
+skip$ -- 777
 stack$ -- 0
-substring$ -- 326
-swap$ -- 1137
-text.length$ -- 77
+substring$ -- 442
+swap$ -- 1630
+text.length$ -- 111
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 84
+type$ -- 120
 warning$ -- 0
-while$ -- 38
+while$ -- 55
 width$ -- 0
-write$ -- 175
+write$ -- 246
 (There was 1 warning)

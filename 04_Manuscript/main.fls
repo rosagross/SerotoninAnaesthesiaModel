@@ -339,14 +339,14 @@ INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplb7t.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplb7t.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
+INPUT .\main.bbl
+INPUT .\main.bbl
+INPUT main.bbl
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\public\mathpazo\zplmr7v.vf
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\mathpazo\fplmr.tfm
-INPUT .\main.bbl
-INPUT .\main.bbl
-INPUT main.bbl
 INPUT .\img\histology.pdf
 INPUT .\img\histology.pdf
 INPUT .\img\histology.pdf

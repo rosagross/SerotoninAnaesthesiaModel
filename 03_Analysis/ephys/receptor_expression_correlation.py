@@ -49,7 +49,7 @@ ephys_summary = ephys_summary[ephys_summary['n_neurons'] >= MIN_NEURONS]
 
 # %% receptors
 
-receptor = '5-HT2a'
+receptor = '5-HT1f'
 plot_data = pd.merge(ephys_summary,
                      expression_mean[expression_mean['receptor'] == receptor],
                      on=['region'])
