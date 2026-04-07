@@ -49,7 +49,7 @@ ephys_summary = ephys_summary[ephys_summary['n_neurons'] >= MIN_NEURONS]
 
 # %% receptors
 
-receptor = '5-HT1f'
+receptor = '5-HT2c'
 plot_data = pd.merge(ephys_summary,
                      expression_mean[expression_mean['receptor'] == receptor],
                      on=['region'])
@@ -63,16 +63,10 @@ if p < 0.05:
     slope, intercept = np.polyfit(plot_data['mod_index'], plot_data['expression_energy'], 1)
     x_fit = np.linspace(plot_data['mod_index'].min(), plot_data['mod_index'].max(), 100)
     y_fit = slope * x_fit + intercept
-    ax.plot(x_fit, y_fit, color='k', label='_nolegend_', zorder=0)
-    if p < 0.001:
-        ax.text(-0.25, 9.5, '***', fontsize=12, ha='center', va='center')
-    elif p < 0.01:
-        ax.text(-0.25, 9.5, '**', fontsize=12, ha='center', va='center')
-    else:
-        ax.text(-0.25, 9.5, '*', fontsize=12, ha='center', va='center')
+    ax.plot(x_fit, y_fit, color='tab:red', label='_nolegend_', zorder=0)
 ax.set(xlabel='Modulation index', ylabel=f'{receptor} expression',
        xlim=[-0.5, 0], xticks=[-0.5, -0.4, -0.3, -0.2, -0.1, 0], xticklabels=[-0.5, -0.4, -0.3, -0.2, -0.1, 0],
-       yticks=[0, 2, 4, 6, 8, 10])
+       yticks=[0, 2, 4, 6, 8, 10], title=f'r = {r:.2f}, p = {p:.2f}')
 
 sns.despine(trim=True)
 plt.tight_layout()
