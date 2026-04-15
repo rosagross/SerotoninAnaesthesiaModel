@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.29)  7 APR 2026 17:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.29)  15 APR 2026 08:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -606,14 +606,11 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7.6> not available
 
 
 [3 <./img/ephys_updown_states.pdf>]
-
-pdfTeX warning: pdflatex (file ./img/Fig3_model.pdf): PDF inclusion: found PDF 
-version <1.6>, but at most version <1.5> allowed
-<img/Fig3_model.pdf, id=268, 512.14938pt x 392.30766pt>
+<img/Fig3_model.pdf, id=268, 379.4175pt x 289.91426pt>
 File: img/Fig3_model.pdf Graphic file (type pdf)
 <use img/Fig3_model.pdf>
 Package pdftex.def Info: img/Fig3_model.pdf  used on input line 143.
-(pdftex.def)             Requested size: 485.40396pt x 371.83415pt.
+(pdftex.def)             Requested size: 485.40396pt x 370.90761pt.
 
 
 [4]
@@ -641,7 +638,7 @@ LaTeX Warning: Reference `fig:connectivity' on page 9 undefined on input line 2
 
 pdfTeX warning: pdflatex (file ./img/histology.pdf): PDF inclusion: found PDF v
 ersion <1.6>, but at most version <1.5> allowed
-<img/histology.pdf, id=504, 410.03188pt x 229.02464pt>
+<img/histology.pdf, id=963, 410.03188pt x 229.02464pt>
 File: img/histology.pdf Graphic file (type pdf)
 <use img/histology.pdf>
 Package pdftex.def Info: img/histology.pdf  used on input line 273.
@@ -652,7 +649,7 @@ Package pdftex.def Info: img/histology.pdf  used on input line 273.
 
 pdfTeX warning: pdflatex (file ./img/ephys_no_expression.pdf): PDF inclusion: f
 ound PDF version <1.6>, but at most version <1.5> allowed
-<img/ephys_no_expression.pdf, id=553, 393.32646pt x 130.11008pt>
+<img/ephys_no_expression.pdf, id=1012, 393.32646pt x 130.11008pt>
 File: img/ephys_no_expression.pdf Graphic file (type pdf)
 <use img/ephys_no_expression.pdf>
 Package pdftex.def Info: img/ephys_no_expression.pdf  used on input line 281.
@@ -663,7 +660,7 @@ Package pdftex.def Info: img/ephys_no_expression.pdf  used on input line 281.
 
 pdfTeX warning: pdflatex (file ./img/supp_fig_correlations.pdf): PDF inclusion:
  found PDF version <1.6>, but at most version <1.5> allowed
-<img/supp_fig_correlations.pdf, id=600, 512.14938pt x 128.03734pt>
+<img/supp_fig_correlations.pdf, id=1059, 512.14938pt x 128.03734pt>
 File: img/supp_fig_correlations.pdf Graphic file (type pdf)
 <use img/supp_fig_correlations.pdf>
 Package pdftex.def Info: img/supp_fig_correlations.pdf  used on input line 289.
@@ -701,9 +698,9 @@ s/MiKTeX/fonts/type1/public/mathpazo/fplmri.pfb><C:/Users/guido/AppData/Local/P
 rograms/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/guido/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/guido/AppData/L
 ocal/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (13 pages, 6984203 bytes).
+Output written on main.pdf (13 pages, 6741113 bytes).
 PDF statistics:
- 706 PDF objects out of 1000 (max. 8388607)
+ 1165 PDF objects out of 1200 (max. 8388607)
  48 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
