@@ -6,16 +6,18 @@ import os
 from simulation_functions import SimulationSession
 
 # %%
+REPOPATH = "C:\\Users\\gross\\OneDrive - UvA\\Documents\\MBCS Amsterdam\\Research_Project_2_Champalimaud\\Paper\\SerotoninAnaesthesiaModel"
+# move to that directory to avoid too long paths
+os.chdir(REPOPATH)
 
 def main():
-
-    # TODO: set directories individually and not relative paths
-    output_dir = os.path.join(os.path.dirname(os.getcwd()), '02_Data', 'firing_rates')
-    settings_file = 'parameter.yml'
+   
+    output_dir = os.path.join('02_Data', 'extended_publication', 'firing_rates')
+    settings_file = os.path.join('01_Simulation', 'parameter.yml')
     filename_connectivity = 'MODEL_Cmatrix_grouped_cre-False_hemi-3_grouping-median_thresh-0.005.csv'
-    filepath_connectivity = os.path.join('..', '02_Data', 'connectivity', filename_connectivity)
+    filepath_connectivity = os.path.join('02_Data', 'connectivity', filename_connectivity)
     drn_connect_filename = 'drn_connectivity_cre-True_hemi-3_grouping-median_thresh-0.005.csv'
-    drn_connect_file = os.path.join('..', '02_Data', 'connectivity', drn_connect_filename)
+    drn_connect_file = os.path.join('02_Data', 'connectivity', drn_connect_filename)
     nrAreas = 14
     nr_sessions = 10 # to get some error bars we run several sessions
 

@@ -5,6 +5,10 @@ import numpy as np
 from datetime import datetime
 import pandas as pd
 import yaml
+#import ctypes
+
+# Enable long paths (optional, but recommended)
+#ctypes.windll.kernel32.SetConsoleTitleW(" ", 0)
 
 class SimulationSession():
 
@@ -15,6 +19,8 @@ class SimulationSession():
         self.initial_cond = np.zeros((self.nrVars, self.nrAreas))
         self.noise_init = np.zeros((2, self.nrAreas))
         self.output_dir = output_dir
+        self.output_dir = os.path.abspath(self.output_dir)
+        self.output_dir = f"\\\\?\\{self.output_dir}"
         self.filepath_connectivity = filepath_connectivity
         self.settings_file = settings_file
         self.drn_connect_file = drn_connect_file
@@ -43,7 +49,7 @@ class SimulationSession():
     def save_settings(self):
 
         # make a folder where I can save the firing rate together with the setting file and the stimulation times
-        extra = f"RateAdj1_sessions"
+        extra = f"_sessions"
         self.file_addon = f'{self.nrAreas}areas_G{self.G}_S{self.S}_thetaE{self.thetaE}_beta{self.betaE}{extra}'
         self.output_dir = op.join(self.output_dir, self.file_addon)
 
@@ -62,7 +68,9 @@ class SimulationSession():
                 print('Folder created')
                 os.makedirs(self.output_dir)
         
+
         settings_out = op.join(self.output_dir, self.file_addon + self.session + '_expsettings.yml')
+        
         with open(settings_out, 'w') as f_out:  # write settings to disk
             yaml.dump(self.settings, f_out, indent=4, default_flow_style=False)
 
@@ -70,9 +78,11 @@ class SimulationSession():
         outdir = self.output_dir
         if not os.path.exists(outdir):
             os.mkdir(outdir)
+
         outname = self.file_addon + self.session + '_stimtimes.csv'
+        outpath_full = os.path.join(outdir, outname)
         stim_times = pd.DataFrame(self.stimulation_times)
-        stim_times.to_csv(os.path.join(outdir, outname), index=False)
+        stim_times.to_csv(outpath_full, index=False)
 
     
     def init_parameters(self, config, G, S):
