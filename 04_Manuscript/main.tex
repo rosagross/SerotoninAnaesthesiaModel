@@ -176,7 +176,6 @@ Besides serotonin, some serotonergic neurons in the DRN co-release glutamate. Al
 A surprising finding was that in the electrophysiological data there was no correlation between the strength of the 5-HT induced suppression and the projection strength of the DRN to that region (Fig. \ref{suppfig:receptor_expression}a). In the awake condition we found the same result \cite{meijerSerotoninDrivesChoiceindependent2025}. Our computational model provided a possible explanation; when increasing the inter-area connectivity in the model the correlation with DRN projection strength went down (Fig. \ref{fig:model_updown}f). In the computational model, however, the correlation with DRN input never completely disappeared. This was likely due to the fact that the model was a simplified version of reality which lacked physiological detail, such as serotonergic receptor expression patterns and volume transmission of serotonin across region boundaries. Regardless, the model showed that a subset of brain regions, lacking direct DRN input, are still transitioned into a DOWN state through network-level synchronization of neural activity.
 
 
-
 \subsection*{Data and code availability}
 All these data are open-source available through the Open Neurophysiology Environment (ONE) protocol (https://int-brain-lab.github.io/ONE/). All the code used to generate the figures in this manuscript are on Github: https://github.com/rosagross/SerotoninAnaesthesiaModel/.
 
@@ -298,5 +297,13 @@ In both the electrophysiological and simulated data, UP and DOWN states were qua
     \caption{\textbf{(a)} No significant correlation between the projection strength from the dorsal raphe nucleus (DRN) with the magnitude of 5-HT induced suppression of neural activity. For each brain region, at a more granular delineation compared to the main figures, the projection density from the DRN was obtained from the Allen Brain Atlas. The modulation index of all neurons in each brain region was averaged. Each dot is a brain region. \textbf{(b)} There was a significant correlation for the expression strength of 5-HT1f receptors with 5-HT induced functional modulation at a region-by-region level. \textbf{(c)} Same as (b) for 5-HT2a receptor expression. \textbf{(d)} Same as (b) for 5-HT2c receptor expression. All stats done with a Pearson correlation.}
     \label{suppfig:receptor_expression}
 \end{figure}
+
+\newpage
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{img/Fig_Supplementary_Model.pdf.pdf}
+    \caption{\textbf{(a)} Nullclines of one isolated area entailing one excitatory and one inihibitory population. Excitatory external input (I+) to the inhibitory population with equal strength did not lead to the same Down-state transition like inhibitory external input (I-) to the excitatory population. a) phase planes for I+ (left) and I- stimulation. b) change of nullcline due to adaptation (A). c) change of E nullcline due to different coupling (G).}
+\end{figure}
+
 
 \end{document}
