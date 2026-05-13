@@ -14,20 +14,24 @@ Analyse states: downstate probability, probability of state change
 Required: files that ran the HMM analysis for every session to analyse
 '''
 
+REPOPATH = "C:\\Users\\gross\\OneDrive - UvA\\Documents\\MBCS Amsterdam\\Research_Project_2_Champalimaud\\Paper\\SerotoninAnaesthesiaModel"
+# move to that directory to avoid too long paths
+os.chdir(REPOPATH)
 # directory where state- and firing data is stored
-output_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()),  os.pardir, os.pardir, 'Code', 'ModelData', 'data', 'firing_rates'))
+output_dir = os.path.join('02_Data', 'extended_publication', 'firing_rates')
+output_dir = f"\\\\?\\{os.path.abspath(output_dir)}"
 output_dir_local = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()),  os.pardir, os.pardir, 'Code', 'ModelData', 'data', 'local_circuit_data'))
 
 # directory for saving analysed data
-analysed_data_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()), os.pardir, os.pardir, 'Code', 'ModelData', 'analysed_data'))
-
+analysed_data_dir = os.path.join('03_Analysis', 'extended_publication', 'analysed_data')
+analysed_data_dir = f"\\\\?\\{os.path.abspath(analysed_data_dir)}"
 # %%
 
-G_params = [2]
+G_params = [0]
 S = 40
 beta = 6
 thetaE = -1
-extra = 'RateAdj1_I'
+extra = ''
 all_sessions = np.arange(0,10,1)
 window_duration = 4000
 pre_stim = 1000
@@ -44,7 +48,7 @@ for G in G_params:
         serotonin_analysis = pd.concat((serotonin_analysis, data_df))
 
 # %%
-serotonin_analysis.to_csv(os.path.join(analysed_data_dir, f'serotonin_analysis_all_regions_S{S}_G{G_params}_{extra}_UPDATE.csv'), index=False)
+serotonin_analysis.to_csv(os.path.join(analysed_data_dir, f'serotonin_analysis_all_regions_S{S}_G{G_params}_{extra}_EXTENDED.csv'), index=False)
 
 # take the mean for the combined regions 
 regions = np.unique(serotonin_analysis['region_name'])
@@ -67,7 +71,7 @@ data_grouped_bins = state_transitions.groupby(['region_name', 'session', 'bin', 
 data_grouped_bins['time'] = np.tile(bins, nr_sessions*len(regions)*len([S])*len(G_params))/1000
 
 # save averaged time bin data 
-data_grouped_bins.to_csv(os.path.join(analysed_data_dir, f'state_analysis_bins_S{S}_G{G_params}_{extra}_UPDATE.csv'), index=False)
+data_grouped_bins.to_csv(os.path.join(analysed_data_dir, f'state_analysis_bins_S{S}_G{G_params}_{extra}_EXTENDED.csv'), index=False)
 # %%
 
 # run state analysis for all different option of serotonin targets (targeting either E or I population 
@@ -112,7 +116,7 @@ for target_name, target_df in targets.items():
     all_targets_df = pd.concat((all_targets_df, data_grouped_bins))
 
 # save data
-all_targets_df.to_csv(os.path.join(analysed_data_dir, f'serotonin_targets_state_analysis_S{S}_G{G}_UPDATE.csv'))
+all_targets_df.to_csv(os.path.join(analysed_data_dir, f'serotonin_targets_state_analysis_S{S}_G{G}_EXTENDED.csv'))
 
 # %% Run synchrony analysis     
 

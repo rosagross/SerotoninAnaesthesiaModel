@@ -7,17 +7,20 @@ from analysis_functions import get_all_states, calc_HMM_states
 
 
 # %% State analysis global model
+REPOPATH = "C:\\Users\\gross\\OneDrive - UvA\\Documents\\MBCS Amsterdam\\Research_Project_2_Champalimaud\\Paper\\SerotoninAnaesthesiaModel"
+# move to that directory to avoid too long paths
+os.chdir(REPOPATH)
+output_dir = os.path.join('02_Data', 'extended_publication', 'firing_rates')
+output_dir = f"\\\\?\\{os.path.abspath(output_dir)}"
 
-output_dir = os.path.abspath(os.path.join(os.path.dirname(os.getcwd()),  os.pardir, 'ModelData', 'data', 'firing_rates'))
-
-G_params = [2]
-S_params = [0, 40]
+G_params = [0]
+S_params = [40]
 beta = 6
 thetaE = -1
 session_params = pd.DataFrame()
-extra = "RateAdj1_B_sessions"
+extra = "_sessions"
 filename_out = ''
-sessions = np.arange(0,10,1)
+sessions = np.arange(4,10,1)
 all_analyses = pd.DataFrame()
 
 # %% 

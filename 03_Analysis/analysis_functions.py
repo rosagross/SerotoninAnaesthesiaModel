@@ -258,7 +258,7 @@ def compute_transitions(output_dir, G_params, S_params, regions='all', window_le
                     states = pd.read_csv(os.path.join(file_dir, file_name+'_states.csv'), index_col=0)
                     states_region = states[states['region']==region]
                     # get the time window around the stimulation 
-                    times_array = pd.read_csv(os.path.join(file_dir, file_name+'_stimulation_times.csv')).to_numpy()
+                    times_array = pd.read_csv(os.path.join(file_dir, file_name+'_stimtimes.csv')).to_numpy()
                     # first check if all time windows are big enough 
                     # (e.g., sometimes the last simulation is too close to the end of the trial)
                     windows = []
