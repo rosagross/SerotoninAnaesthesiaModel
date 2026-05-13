@@ -66,7 +66,7 @@ def main():
         analysis_session.set_parameter()
         fig, _ = analysis_session.plot_phase_plane_perturbation_comparison(
             area=0,
-            external_input=10.0,
+            external_input=15.0,
             pop_x='E',
             pop_y='I',
             xlim=(-5, 8),
