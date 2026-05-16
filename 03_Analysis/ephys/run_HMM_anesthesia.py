@@ -136,7 +136,7 @@ for i in rec.index.values:
             else:
                 prob_mat[t, :] = posterior[:, 0]
             state_mat[t, :] = zhat
-            
+
         # Crop final timewindow        
         prob_mat = prob_mat[:, np.concatenate(([False], use_timepoints[:-1]))]  
         state_mat = state_mat[:, np.concatenate(([False], use_timepoints[:-1]))]  

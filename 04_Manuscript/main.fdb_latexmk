@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1775577231.48787 "main.aux" "main.bbl" "main" 1776235049.37687 0
+["bibtex main"] 1778916885.6859 "main.aux" "main.bbl" "main" 1778917113.25979 0
   "./pisikabst.bst" 1774340123 34645 aa74942a802431bd058560a63a31f7e2 ""
   "./serotonin_bib.bib" 1775142138 1285244 b541c7dc7d3dcf76d6cb0adff471d6e1 ""
-  "main.aux" 1776235048 19983 2c2109ba3d10843c253246be1b9b51ad "pdflatex"
+  "main.aux" 1778917112 20834 1523b5848a2c9c27d6b5cac9b7d6a93b "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1776235047.14072 "main.tex" "main.pdf" "main" 1776235049.37771 0
+["pdflatex"] 1778917111.62424 "main.tex" "main.pdf" "main" 1778917113.2605 0
   "C:/Users/guido/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1774453907 866931 c9f1e50dd79f385795ea45d1d24388d4 ""
   "C:/Users/guido/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1761723538 13321868 74406b6659bb71c6cc3f5e68c133401a ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -141,15 +141,16 @@
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/tools/dcolumn.sty" 1749468414 2758 67c3ad720591c53ba8fa03ee9fbf7375 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "img/Fig3_model.pdf" 1776234458 165057 91ffe3cef1b196e39770a5381d0dd083 ""
+  "img/Fig_Supplementary_Model.pdf" 1778916497 123478 b7d19ce7b9a41d869bb5dbef156f7afc ""
   "img/ephys_no_expression.pdf" 1774370764 436267 40411f9a7d05039dee2925ffd48098b2 ""
   "img/ephys_updown_states.pdf" 1774000093 2366102 3d0fa15e351d735f3ee76f640dca9864 ""
   "img/histology.pdf" 1774370764 2272746 325d2524f9b45a1c2ebe073ed291b557 ""
   "img/recordings_overview.pdf" 1774370764 1269938 426f53a934c2ac1ea0649f27487ad2f1 ""
   "img/supp_fig_correlations.pdf" 1775553029 461030 9b5ea5603f46bc58db3d384478878569 ""
-  "main.aux" 1776235048 19983 2c2109ba3d10843c253246be1b9b51ad "pdflatex"
-  "main.bbl" 1775577232 17570 5533dff7c33309c62d2e47a1ac52efe3 "bibtex main"
-  "main.out" 1776235048 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1776235046 43049 c6cbc4589b66348d214acf8dac5fcee3 ""
+  "main.aux" 1778917112 20834 1523b5848a2c9c27d6b5cac9b7d6a93b "pdflatex"
+  "main.bbl" 1778916885 15960 f71bed353d5c76f2072a3547bb27482f "bibtex main"
+  "main.out" 1778917112 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1778917107 44422 fc301e8ee042c4951192905931714ed1 ""
   (generated)
   "main.aux"
   "main.log"

@@ -15,7 +15,7 @@ import pandas as pd
 from matplotlib.patches import Rectangle
 from updown_functions import figure_style, paths, load_subjects, add_significance
 
-EXPRESSION = False
+EXPRESSION = True
 
 # Paths
 fig_path, save_path = paths()
