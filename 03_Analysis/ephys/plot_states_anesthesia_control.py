@@ -34,10 +34,10 @@ p_state_df = p_state_df.groupby(['pid', 'time', 'region', 'jittered']).mean(nume
 
 # %% Plot
 colors, dpi = figure_style()
-f, axs = plt.subplots(1, 8, figsize=(5.2, 1.75), dpi=dpi, sharey=True)
+f, axs = plt.subplots(1, 8, figsize=(7, 1.75), dpi=dpi, sharey=True)
 regions = ['Frontal cortex', 'Striatum', 'Amygdala', 'Piriform cortex', 'Visual cortex', 'Hippocampus',
            'Thalamus', 'Midbrain']
-titles = ['Frontal\ncortex', 'Striatum', 'Amygdala', 'Piriform\ncortex', 'Visual\ncortex', 'Hippocampus',
+titles = ['Frontal cortex', 'Striatum', 'Amygdala', 'Piriform cortex', 'Visual cortex', 'Hippocampus',
            'Thalamus', 'Midbrain']
 
 for i, region in enumerate(regions):
@@ -85,11 +85,11 @@ plt.show()
 
 # %% Plot
 colors, dpi = figure_style()
-f, axs = plt.subplots(1, 8, figsize=(5.2, 1.75), dpi=dpi, sharey=True)
+f, axs = plt.subplots(1, 8, figsize=(7, 1.75), dpi=dpi, sharey=True)
 #axs = np.concatenate(axs)
 regions = ['Frontal cortex', 'Striatum', 'Amygdala', 'Piriform cortex', 'Visual cortex', 'Hippocampus',
            'Thalamus', 'Midbrain']
-titles = ['Frontal\ncortex', 'Striatum', 'Amygdala', 'Piriform\ncortex', 'Visual\ncortex', 'Hippocampus',
+titles = ['Frontal cortex', 'Striatum', 'Amygdala', 'Piriform cortex', 'Visual cortex', 'Hippocampus',
            'Thalamus', 'Midbrain']
 for i, region in enumerate(regions):
 

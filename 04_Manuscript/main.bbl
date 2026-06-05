@@ -1,4 +1,4 @@
-\begin{thebibliography}{18}
+\begin{thebibliography}{21}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname bibnamefont\endcsname\relax
   \def\bibnamefont#1{#1}\fi
@@ -78,6 +78,24 @@
   }\href{http://dx.doi.org/10.1016/j.neuron.2017.05.015}{\textbf{\bibinfo{volume}{94}},
   \bibinfo{pages}{993}} (\bibinfo{year}{2017}), ISSN \bibinfo{issn}{0896-6273}.
 
+\bibitem[{\citenamefont{{de Filippo} et~al.}(2021)\citenamefont{{de Filippo},
+  Rost, Stumpf, Cooper, Tukker, Harms, Beed, and
+  Schmitz}}]{defilippoSomatostatinInterneuronsActivated2021}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{{de Filippo}}},
+  \bibinfo{author}{\bibfnamefont{B.~R.} \bibnamefont{Rost}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Stumpf}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Cooper}},
+  \bibinfo{author}{\bibfnamefont{J.~J.} \bibnamefont{Tukker}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Harms}},
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Beed}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Schmitz}},
+  \bibinfo{title}{Somatostatin interneurons activated by 5-{{HT2A}} receptor
+  suppress slow oscillations in medial entorhinal cortex},
+  \href{http://dx.doi.org/10.7554/eLife.66960}{\emph{\bibinfo{journal}{eLife}}
+  }\href{http://dx.doi.org/10.7554/eLife.66960}{\textbf{\bibinfo{volume}{10}},
+  \bibinfo{pages}{e66960}} (\bibinfo{year}{2021}), ISSN
+  \bibinfo{issn}{2050-084X}.
+
 \bibitem[{\citenamefont{Hamada et~al.}(2022)\citenamefont{Hamada, Abe, Takata,
   Taira, Tanaka, and Doya}}]{hamadaOptogeneticActivationDorsal2022}
 \bibinfo{author}{\bibfnamefont{H.~T.} \bibnamefont{Hamada}},
@@ -145,6 +163,37 @@
   \bibinfo{pages}{e71969}} (\bibinfo{year}{2021}), ISSN
   \bibinfo{issn}{2050-084X}.
 
+\bibitem[{\citenamefont{Oh et~al.}(2014)\citenamefont{Oh, Harris, Ng, Winslow,
+  Cain, Mihalas, Wang, Lau, Kuan, Henry et~al.}}]{oh_mesoscale_2014}
+\bibinfo{author}{\bibfnamefont{S.~W.} \bibnamefont{Oh}},
+  \bibinfo{author}{\bibfnamefont{J.~A.} \bibnamefont{Harris}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Ng}},
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Winslow}},
+  \bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Cain}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Mihalas}},
+  \bibinfo{author}{\bibfnamefont{Q.}~\bibnamefont{Wang}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Lau}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Kuan}},
+  \bibinfo{author}{\bibfnamefont{A.~M.} \bibnamefont{Henry}},
+  \bibnamefont{et~al.}, \bibinfo{title}{A mesoscale connectome of the mouse
+  brain}, \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{508}},
+  \bibinfo{pages}{207} (\bibinfo{year}{2014}), ISSN \bibinfo{issn}{1476-4687}.
+
+\bibitem[{\citenamefont{Knox et~al.}(2018)\citenamefont{Knox, Harris, Graddis,
+  Whitesell, Zeng, Harris, Shea-Brown, and
+  Mihalas}}]{knox_high-resolution_2018}
+\bibinfo{author}{\bibfnamefont{J.~E.} \bibnamefont{Knox}},
+  \bibinfo{author}{\bibfnamefont{K.~D.} \bibnamefont{Harris}},
+  \bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Graddis}},
+  \bibinfo{author}{\bibfnamefont{J.~D.} \bibnamefont{Whitesell}},
+  \bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Zeng}},
+  \bibinfo{author}{\bibfnamefont{J.~A.} \bibnamefont{Harris}},
+  \bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Shea-Brown}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Mihalas}},
+  \bibinfo{title}{High-resolution data-driven model of the mouse connectome},
+  \emph{\bibinfo{journal}{Network Neuroscience}} \textbf{\bibinfo{volume}{3}},
+  \bibinfo{pages}{217} (\bibinfo{year}{2018}), ISSN \bibinfo{issn}{2472-1751}.
+
 \bibitem[{\citenamefont{Jercog et~al.}(2017)\citenamefont{Jercog, Roxin,
   Barth{\'o}, Luczak, Compte, and
   De~La~Rocha}}]{jercogUPDOWNCorticalDynamics2017}
@@ -171,22 +220,6 @@
   \href{http://dx.doi.org/10.1016/j.neuron.2018.02.031}{\emph{\bibinfo{journal}{Neuron}}
   }\href{http://dx.doi.org/10.1016/j.neuron.2018.02.031}{\textbf{\bibinfo{volume}{98}},
   \bibinfo{pages}{222}} (\bibinfo{year}{2018}), ISSN \bibinfo{issn}{10974199}.
-
-\bibitem[{\citenamefont{Meijer et~al.}(2025)\citenamefont{Meijer, Catarino,
-  {Freitas-Silva}, Laranjeira, Laboratory, and
-  Mainen}}]{meijerSerotoninDrivesChoiceindependent2025}
-\bibinfo{author}{\bibfnamefont{G.~T.} \bibnamefont{Meijer}},
-  \bibinfo{author}{\bibfnamefont{J.~A.} \bibnamefont{Catarino}},
-  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{{Freitas-Silva}}},
-  \bibinfo{author}{\bibfnamefont{I.}~\bibnamefont{Laranjeira}},
-  \bibinfo{author}{\bibfnamefont{I.~B.} \bibnamefont{Laboratory}},
-  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{Z.~F.}
-  \bibnamefont{Mainen}}, \bibinfo{title}{Serotonin drives choice-independent
-  reconfiguration of distributed neural activity},
-  \href{http://dx.doi.org/10.1101/2025.08.01.668048}{\emph{\bibinfo{journal}{bioRxiv}}
-  }\href{http://dx.doi.org/10.1101/2025.08.01.668048}{
-  \bibinfo{pages}{2025.08.01.668048}} (\bibinfo{year}{2025}), ISSN
-  \bibinfo{issn}{2692-8205}.
 
 \bibitem[{\citenamefont{Deng et~al.}(2024)\citenamefont{Deng, Wan, Li, Dong,
   Xia, Wang, Li, Zhuang, Zheng, Liu et~al.}}]{deng_improved_2024}
@@ -238,6 +271,22 @@
   \href{http://dx.doi.org/10.1016/j.cell.2018.07.043}{\emph{\bibinfo{journal}{Cell}}
   }\href{http://dx.doi.org/10.1016/j.cell.2018.07.043}{\textbf{\bibinfo{volume}{175}},
   \bibinfo{pages}{472}} (\bibinfo{year}{2018}), ISSN \bibinfo{issn}{0092-8674}.
+
+\bibitem[{\citenamefont{Meijer et~al.}(2025)\citenamefont{Meijer, Catarino,
+  {Freitas-Silva}, Laranjeira, Laboratory, and
+  Mainen}}]{meijerSerotoninDrivesChoiceindependent2025}
+\bibinfo{author}{\bibfnamefont{G.~T.} \bibnamefont{Meijer}},
+  \bibinfo{author}{\bibfnamefont{J.~A.} \bibnamefont{Catarino}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{{Freitas-Silva}}},
+  \bibinfo{author}{\bibfnamefont{I.}~\bibnamefont{Laranjeira}},
+  \bibinfo{author}{\bibfnamefont{I.~B.} \bibnamefont{Laboratory}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{Z.~F.}
+  \bibnamefont{Mainen}}, \bibinfo{title}{Serotonin drives choice-independent
+  reconfiguration of distributed neural activity},
+  \href{http://dx.doi.org/10.1101/2025.08.01.668048}{\emph{\bibinfo{journal}{bioRxiv}}
+  }\href{http://dx.doi.org/10.1101/2025.08.01.668048}{
+  \bibinfo{pages}{2025.08.01.668048}} (\bibinfo{year}{2025}), ISSN
+  \bibinfo{issn}{2692-8205}.
 
 \bibitem[{\citenamefont{Laboratory et~al.}(2022)\citenamefont{Laboratory,
   Banga, Boussard, Chapius, Faulkner, Harris, Huntenburg, Hurwitz, Dong~Lee,

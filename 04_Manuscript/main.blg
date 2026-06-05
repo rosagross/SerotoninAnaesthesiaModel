@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d
+This is BibTeX, Version 0.99e
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 Reallocating 'name_of_file' (item size: 1) to 10 items.
@@ -7,50 +7,50 @@ Reallocating 'name_of_file' (item size: 1) to 14 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: serotonin_bib.bib
 Warning--entry type for "Linderman_SSM_Bayesian_Learning_2020" isn't style-file defined
---line 611 of file serotonin_bib.bib
+--line 671 of file serotonin_bib.bib
 Warning--I didn't find a database entry for "ohMesoscaleConnectomeMouse2014"
 Warning--I didn't find a database entry for "knoxHighresolutionDatadrivenModel2018"
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
-You've used 18 entries,
+You've used 21 entries,
             3447 wiz_defined-function locations,
-            838 strings with 11457 characters,
-and the built_in function-call counts, 18015 in all, are:
-= -- 909
-> -- 813
-< -- 104
-+ -- 734
-- -- 200
-* -- 2697
-:= -- 1710
-add.period$ -- 18
-call.type$ -- 18
-change.case$ -- 90
-chr.to.int$ -- 18
-cite$ -- 18
-duplicate$ -- 1655
-empty$ -- 1407
-format.name$ -- 454
-if$ -- 3350
+            860 strings with 12951 characters,
+and the built_in function-call counts, 21927 in all, are:
+= -- 1074
+> -- 1031
+< -- 131
++ -- 940
+- -- 254
+* -- 3309
+:= -- 2062
+add.period$ -- 21
+call.type$ -- 21
+change.case$ -- 105
+chr.to.int$ -- 21
+cite$ -- 21
+duplicate$ -- 2000
+empty$ -- 1701
+format.name$ -- 571
+if$ -- 4060
 int.to.chr$ -- 1
-int.to.str$ -- 19
-missing$ -- 231
-newline$ -- 69
-num.names$ -- 54
-pop$ -- 300
+int.to.str$ -- 22
+missing$ -- 282
+newline$ -- 78
+num.names$ -- 63
+pop$ -- 357
 preamble$ -- 1
-purify$ -- 72
+purify$ -- 84
 quote$ -- 0
-skip$ -- 714
+skip$ -- 867
 stack$ -- 0
-substring$ -- 392
-swap$ -- 1485
-text.length$ -- 102
+substring$ -- 466
+swap$ -- 1812
+text.length$ -- 129
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 108
+type$ -- 126
 warning$ -- 0
-while$ -- 50
+while$ -- 59
 width$ -- 0
-write$ -- 222
+write$ -- 258
 (There were 3 warnings)
