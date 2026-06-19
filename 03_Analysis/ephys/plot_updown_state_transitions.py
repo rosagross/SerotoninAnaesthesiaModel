@@ -10,7 +10,7 @@ from os.path import join
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from stim_functions import paths, figure_style
+from updown_functions import paths, figure_style
 
 # Get paths
 fig_path, save_path = paths()

@@ -15,7 +15,7 @@ import pandas as pd
 from matplotlib.patches import Rectangle
 from updown_functions import figure_style, paths, load_subjects, add_significance
 
-EXPRESSION = False
+EXPRESSION = True
 
 # Paths
 fig_path, save_path = paths()
@@ -84,34 +84,3 @@ else:
     plt.savefig(join(fig_path, 'no_expression', 'p_down_state_anesthesia_no_expression.pdf'))
 plt.show()
 
-
-# %% All regions together
-
-
-p_values = []
-for time in p_state_df['time'].unique():
-    _, p = ttest_1samp(p_state_df.loc[p_state_df['time'] == time, 'p_down_bl'], 0)
-    p_values.append(p)
-p_values = np.array(p_values)
-
-f, ax = plt.subplots(figsize=(1.75, 1.75), dpi=dpi)
-
-ax.add_patch(Rectangle((0, -0.1), 1, 0.45, color='royalblue', alpha=0.25, lw=0))
-ax.plot([-1, 4], [0, 0], lw=1, ls='--', color='grey')
-sns.lineplot(data=p_state_df, x='time', y='p_down_bl',
-             color='k', errorbar='se', err_kws={'lw': 0}, ax=ax)
-add_significance(p_state_df['time'].unique(), p_values=p_values, ax=ax, y_pos=0.34)
-ax.set(xlabel='Time (s)', yticks=[-0.1, 0, 0.35], yticklabels=[-10, 0, 35])
-ax.set_ylabel('Down state probability (%)', labelpad=0)
-ax.plot([0, 2], [-0.1, -0.1], color='k', lw=0.5)
-ax.text(1, -0.11, '2s', ha='center', va='top')
-ax.get_xaxis().set_visible(False)
-sns.despine(trim=True, bottom=True)
-#ax.get_yaxis().set_visible(False)
-#ax.axis('off')
-plt.tight_layout()
-if EXPRESSION:
-    plt.savefig(join(fig_path, 'ephys_updown_states', 'p_down_state_anesthesia_together.pdf'))
-else:
-    plt.savefig(join(fig_path, 'no_expression', 'p_down_state_anesthesia_together_no_expression.pdf'))
-plt.show()

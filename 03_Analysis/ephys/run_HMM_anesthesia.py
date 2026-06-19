@@ -31,7 +31,7 @@ PRE_TIME = 1  # final time window to use
 POST_TIME = 4
 HMM_PRE_TIME = 2  # time window to run HMM on
 HMM_POST_TIME = 5
-OVERWRITE = False
+OVERWRITE = True
 
 # Get path
 fig_path, save_path = paths()
@@ -136,7 +136,7 @@ for i in rec.index.values:
             else:
                 prob_mat[t, :] = posterior[:, 0]
             state_mat[t, :] = zhat
-            
+
         # Crop final timewindow        
         prob_mat = prob_mat[:, np.concatenate(([False], use_timepoints[:-1]))]  
         state_mat = state_mat[:, np.concatenate(([False], use_timepoints[:-1]))]  
@@ -146,7 +146,8 @@ for i in rec.index.values:
         p_down_bl = p_down - np.mean(p_down[time_ax < 0])
 
         up_down_state_df = pd.concat((up_down_state_df, pd.DataFrame(data={
-            'p_down': p_down, 'p_down_bl': p_down_bl, 'time': time_ax, 
+            'p_down': p_down, 'p_down_bl': p_down_bl,
+            'time': time_ax,
             'subject': subject, 'pid': pid, 'region': region,
             'expression': expression})))
 
