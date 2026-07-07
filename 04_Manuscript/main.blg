@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99e
+This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 Reallocating 'name_of_file' (item size: 1) to 10 items.
@@ -8,13 +8,11 @@ Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: serotonin_bib.bib
 Warning--entry type for "Linderman_SSM_Bayesian_Learning_2020" isn't style-file defined
 --line 671 of file serotonin_bib.bib
-Warning--I didn't find a database entry for "ohMesoscaleConnectomeMouse2014"
-Warning--I didn't find a database entry for "knoxHighresolutionDatadrivenModel2018"
 Reallocating 'wiz_functions' (item size: 4) to 6000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 You've used 21 entries,
             3447 wiz_defined-function locations,
-            860 strings with 12951 characters,
+            856 strings with 12817 characters,
 and the built_in function-call counts, 21927 in all, are:
 = -- 1074
 > -- 1031
@@ -53,4 +51,4 @@ warning$ -- 0
 while$ -- 59
 width$ -- 0
 write$ -- 258
-(There were 3 warnings)
+(There was 1 warning)
