@@ -9,11 +9,11 @@ Parameter:
   thetaE: -1
   thetaI: 0
   betaE: 6
-  betaI: 0
+  betaI: 0 # unused
   Eslope: [1,0.5,2,1,2,2,1,2,2,2,1,1,1,2] # adjusted firing rates (+/- 5 spikes close to mouse data)
-  Edesp: 5
+  Edesp: 5 # has no influence, cancels out in the formula
   Islope: [5,2,4,2,4,4,2,4,4,4,3,2,3,4] # adjusted firing rates 
-  Idesp: 25
+  Idesp: 25 # this affect thetaI, so thetaI is effectively Idesp - thetaI
 
   # thetaE and betaE for UP-state regions
   thetaE_UP: 0

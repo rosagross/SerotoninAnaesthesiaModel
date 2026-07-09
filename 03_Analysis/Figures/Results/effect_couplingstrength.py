@@ -14,6 +14,7 @@ import matplotlib.patheffects as PathEffects
 import matplotlib.patches as mpatches
 colors, dpi = figure_style()
 
+
 '''
 1) direct effect
 2) indrect effect visual cortex
@@ -44,6 +45,18 @@ serotonin_window = [0, 1]
 # Define logistic function
 def logistic_func(x, L, k, x0):
     return L / (1 + np.exp(-k * (x - x0)))
+
+def leave_one_out_correlation(x, y, labels):
+    """Drop each observation once, recompute Pearson r/p on the rest."""
+    x = np.asarray(x)
+    y = np.asarray(y)
+    labels = np.asarray(labels)
+    rows = []
+    for i in range(len(x)):
+        mask = np.arange(len(x)) != i
+        r_loo, p_loo = pearsonr(x[mask], y[mask])
+        rows.append({'dropped_region': labels[i], 'r': r_loo, 'p': p_loo})
+    return pd.DataFrame(rows)
 
 # %%
 # summarize regions according to higher level regions
@@ -90,6 +103,15 @@ print(f'p={p:.2f}, r={r:.2f}')
 ax.text(0.12, 0.3, f'r = {r:.2f}')
 ax.text(0.1, 0.82, f'**', fontsize=12, ha='center')
 
+# leave-one-out robustness check
+loo_df_g0 = leave_one_out_correlation(average_prob_df['drn_connect'], average_prob_df['p_down_delta'],
+                                       average_prob_df['abr_region_combined'])
+print('Leave-one-out (G=0):')
+print(loo_df_g0)
+print(f"LOO r range: [{loo_df_g0['r'].min():.2f}, {loo_df_g0['r'].max():.2f}], "
+      f"holds at p<0.05 in {(loo_df_g0['p'] < 0.05).sum()}/{len(loo_df_g0)} cases")
+loo_df_g0.to_csv(os.path.join(analysed_data_dir, 'loo_correlation_G0_S40.csv'), index=False)
+
 ax.set_title('Uncoupled network (G=0)')
 
 plt.yticks([0, 0.45, 0.9])
@@ -103,34 +125,61 @@ plt.tight_layout()
 plt.savefig(os.path.join(figure_dir, 'combined_regions_drnConnect_vs_pDown_G0_S40.pdf'), bbox_inches="tight")
 plt.show()
 
+# %% Plot leave-one-out robustness - uncoupled network (G=0) correlation survives
+
+loo_g0_sorted = loo_df_g0.sort_values(by='p', ascending=True).reset_index(drop=True)
+bar_colors = [colors[region] for region in loo_g0_sorted['dropped_region']]
+
+f, ax1 = plt.subplots(1, 1, figsize=(2, 1.75), dpi=dpi)
+sns.barplot(data=loo_g0_sorted, x='p', y='dropped_region', order=loo_g0_sorted['dropped_region'],
+            palette=bar_colors, ax=ax1)
+ax1.axvline(0.05, ls='--', color='k', lw=1)
+ax1.text(0.055, 0, 'p = 0.05', fontsize=6, rotation=90, va='top')
+for i, r_val in enumerate(loo_g0_sorted['r']):
+    ax1.text(0.002, i, f'r={r_val:.2f}', fontsize=6, va='center', ha='left', color='black')
+ax1.set(xlabel='Leave-one-out p-value', ylabel='', title='Uncoupled network (G=0)')
+sns.despine(trim=True)
+plt.tight_layout()
+plt.savefig(os.path.join(figure_dir, 'loo_pvalue_G0_S40.pdf'), bbox_inches="tight")
+plt.show()
+
 # %% Plot indirect effect - grouped regions
 
 # average delta p_down
 window_df = serotonin_df[serotonin_df['time'].between(serotonin_window[0], serotonin_window[1])]
-uncoupled_stimulation_df = window_df[(window_df['G'] == 3) & (window_df['S'] == 40)]
-average_prob_df = uncoupled_stimulation_df.groupby(['combined_region', 'abr_region_combined', 'time'], as_index=False).mean(numeric_only=True)
-average_prob_df = average_prob_df.groupby(['combined_region', 'abr_region_combined'], as_index=False).max(numeric_only=True)
-average_prob_df['color'] = [colors[i] for i in average_prob_df['abr_region_combined']]
+coupled_stimulation_df = window_df[(window_df['G'] == 3) & (window_df['S'] == 40)]
+coupled_average_prob_df = coupled_stimulation_df.groupby(['combined_region', 'abr_region_combined', 'time'], as_index=False).mean(numeric_only=True)
+coupled_average_prob_df = coupled_average_prob_df.groupby(['combined_region', 'abr_region_combined'], as_index=False).max(numeric_only=True)
+coupled_average_prob_df['color'] = [colors[i] for i in coupled_average_prob_df['abr_region_combined']]
 
 f, ax = plt.subplots(1, 1, figsize=(1.75, 1.75), dpi=dpi)
 (
-    so.Plot(average_prob_df, x='drn_connect', y='p_down_delta')
+    so.Plot(coupled_average_prob_df, x='drn_connect', y='p_down_delta')
     .add(so.Dot(pointsize=0))
     .add(so.Line(color='grey', linewidth=1), so.PolyFit(order=1))
     .on(ax)
     .plot()
 )
 
-for i in average_prob_df.index:
-    ax.text(average_prob_df.loc[i, 'drn_connect'], average_prob_df.loc[i, 'p_down_delta'],
-            average_prob_df.loc[i, 'abr_region_combined'],
-            color=average_prob_df.loc[i, 'color'], fontsize=8.5, fontweight='bold',
+for i in coupled_average_prob_df.index:
+    ax.text(coupled_average_prob_df.loc[i, 'drn_connect'], coupled_average_prob_df.loc[i, 'p_down_delta'],
+            coupled_average_prob_df.loc[i, 'abr_region_combined'],
+            color=coupled_average_prob_df.loc[i, 'color'], fontsize=8.5, fontweight='bold',
             ha='center', va='center')
 # ax.set(yticks=[0.25, 0.5, 0.75, 1], xticks=[-0.0, 0.1, 0.2])
-r, p = pearsonr(average_prob_df['drn_connect'], average_prob_df['p_down_delta'])
+r, p = pearsonr(coupled_average_prob_df['drn_connect'], coupled_average_prob_df['p_down_delta'])
 print(f'p={p:.2f}, r={r:.2f}')
 ax.text(0.12, 0.3, f'r = {r:.2f}')
 ax.text(0.1, 0.82, f'*', fontsize=12, ha='center')
+
+# leave-one-out robustness check
+loo_df_g3 = leave_one_out_correlation(coupled_average_prob_df['drn_connect'], coupled_average_prob_df['p_down_delta'],
+                                       coupled_average_prob_df['abr_region_combined'])
+print('Leave-one-out (G=3):')
+print(loo_df_g3)
+print(f"LOO r range: [{loo_df_g3['r'].min():.2f}, {loo_df_g3['r'].max():.2f}], "
+      f"holds at p<0.05 in {(loo_df_g3['p'] < 0.05).sum()}/{len(loo_df_g3)} cases")
+loo_df_g3.to_csv(os.path.join(analysed_data_dir, 'loo_correlation_G3_S40.csv'), index=False)
 
 plt.yticks([0, 0.45, 0.9])
 ax.set_yticklabels([0, 45, 90])
@@ -142,6 +191,24 @@ plt.ylabel('Down state probability (%)')
 sns.despine(offset={'left': 8}, trim=True)
 plt.tight_layout()
 plt.savefig(os.path.join(figure_dir, 'combined_regions_drnConnect_vs_pDown_G3_S40.pdf'), bbox_inches="tight")
+plt.show()
+
+# %% Plot leave-one-out robustness - coupled network (G=3) correlation does not survive
+
+loo_g3_sorted = loo_df_g3.sort_values(by='p', ascending=True).reset_index(drop=True)
+bar_colors = [colors[region] for region in loo_g3_sorted['dropped_region']]
+
+f, ax1 = plt.subplots(1, 1, figsize=(2, 1.75), dpi=dpi)
+sns.barplot(data=loo_g3_sorted, x='p', y='dropped_region', order=loo_g3_sorted['dropped_region'],
+            palette=bar_colors, ax=ax1)
+ax1.axvline(0.05, ls='--', color='k', lw=1)
+ax1.text(0.055, 0, 'p = 0.05', fontsize=6, rotation=90, va='top')
+for i, r_val in enumerate(loo_g3_sorted['r']):
+    ax1.text(0.002, i, f'r={r_val:.2f}', fontsize=6, va='center', ha='left', color='black')
+ax1.set(xlabel='Leave-one-out p-value', ylabel='', title='Connected network (G=3)')
+sns.despine(trim=True)
+plt.tight_layout()
+plt.savefig(os.path.join(figure_dir, 'loo_pvalue_G3_S40.pdf'), bbox_inches="tight")
 plt.show()
 
 
@@ -184,8 +251,10 @@ for region in serotonin_df['combined_region'].unique():
     max_time_df = mean_time_df.groupby(['G'], as_index=False).max(numeric_only=True)
     delta = np.abs(max_time_df.loc[max_time_df['G'] == 3, 'p_down_delta'].values
                    - max_time_df.loc[max_time_df['G'] == 0, 'p_down_delta'].values)
+    print('region', region, delta)
+    drn_connect = np.mean(np.unique(region_window_df['drn_connect']))
     plot_df = pd.concat((plot_df, pd.DataFrame(index=[plot_df.shape[0]], data={
-        'region_name':region, 'delta': delta})))
+        'region_name':region, 'abr_region_combined': region_df['abr_region_combined'].unique(),'delta': delta, 'drn_connect': drn_connect})))
 plot_df = plot_df.sort_values(by='delta', ascending=False)
 
 f, ax1 = plt.subplots(figsize=(2, 1.75), dpi=dpi)
@@ -197,10 +266,45 @@ plt.tight_layout()
 plt.savefig(os.path.join(figure_dir, f'combined_regions_delta_S40.pdf'))
 plt.show()
 
+# %%
+# plot computed delta by drn projection for each combined region
+# x axis: drn_connect
+# y axis: delta
+
+plot_df['color'] = [colors[i] for i in plot_df['abr_region_combined']]
+
+f, ax = plt.subplots(1, 1, figsize=(2, 1.75), dpi=dpi)
+(
+    so.Plot(plot_df, x='drn_connect', y='delta')
+    .add(so.Dot(pointsize=0))
+    .add(so.Line(color='grey', linewidth=1), so.PolyFit(order=1))
+    .on(ax)
+    .plot()
+)
+
+for i in plot_df.index:
+    ax.text(plot_df.loc[i, 'drn_connect'], plot_df.loc[i, 'delta'], plot_df.loc[i, 'abr_region_combined'],
+            color=plot_df.loc[i, 'color'], fontsize=8.5, fontweight='bold', ha='center', va='center')
+
+r, p = pearsonr(plot_df['drn_connect'], plot_df['delta'])
+print(f'p={p:.2f}, r={r:.2f}')
+ax.text(0.12, 0.3, f'r = {r:.2f}')
+ax.text(0.12, 0.26, f'p = {p:.2f}')
+
+ax.set_yticks([0, 0.2, 0.4])
+ax.set_yticklabels([0, 20, 40])
+ax.set_xticks([0, 0.1, 0.2])
+ax.set_xticklabels([0, 0.1, 0.2])
+ax.set_xlabel('Projection density (from DRN)')
+ax.set_ylabel(u'Δ down state (%)')
+sns.despine(trim=True)
+plt.tight_layout()
+plt.savefig(os.path.join(figure_dir, 'combined_regions_delta_vs_drnConnect_S40.pdf'), bbox_inches="tight")
+plt.show()
 
 # %%
 # Compute received projection density
-
+# the only addition to this plot here is that we color the regions by projection density from other regions!
 window_df['drn_connect'] = np.round(window_df['drn_connect'], 4)
 all_regions = np.unique(window_df['region_name'])
 incoming_projections = np.mean(connect_matrix, axis=0)
@@ -208,17 +312,20 @@ incoming_projections = np.mean(connect_matrix, axis=0)
 corr_df = pd.DataFrame()
 
 for i, region in enumerate(all_regions):
-    region_window_df = window_df[window_df['region_name']==region]
+    region_window_df = window_df[(window_df['region_name'] == region) & (window_df['S'] == 40)]
+    mean_time_df = region_window_df.groupby(['G', 'time'], as_index=False).mean(numeric_only=True)
+    max_time_df = mean_time_df.groupby(['G'], as_index=False).max(numeric_only=True)
 
     # calculate the difference between G0 and G3
-    g0 = region_window_df[region_window_df['G']==0]['p_down_delta'].mean()
-    g3 = region_window_df[region_window_df['G']==3]['p_down_delta'].mean()
-    g_diff = g3 - g0
-    r, p = pearsonr(region_window_df['G'], region_window_df['p_down_delta'])
+    g0 = max_time_df[max_time_df['G']==0]['p_down_delta'].mean()
+    g3 = max_time_df[max_time_df['G']==3]['p_down_delta'].mean()
+    g_diff = np.abs(g3 - g0)
+    print('region', region, g_diff)
+    r, p = pearsonr(max_time_df['G'], max_time_df['p_down_delta'])
 
     # collect the r and p values
-    drn_value = np.unique(region_window_df['drn_connect'])
-    corr_df = pd.concat((corr_df, pd.DataFrame(data={'region':region, 'r':r, 'p':p, 'drn_connect':drn_value[0], 'abr_region':acronyms[i],
+    drn_value = np.unique(max_time_df['drn_connect'])
+    corr_df = pd.concat((corr_df, pd.DataFrame(data={'region':region, 'r':r, 'p':p, 'drn_connect':drn_value[0], 'abr_region':region_window_df['abr_region'].unique()[0],
                                                      'combined_region':region_window_df['combined_region'].values[0], 'abr_region_combined':region_window_df['abr_region_combined'].values[0],
                                                      'g_diff' : g_diff, 'targeted':incoming_projections[i]}, index=[i])))
 
@@ -231,17 +338,16 @@ drn_order = corr_df.sort_values(by='drn_connect', ascending=False).abr_region.va
 corr_df_grouped = corr_df.groupby(['combined_region', 'abr_region_combined'], as_index=False).mean(numeric_only=True)
 corr_df_grouped['color'] = [colors[i] for i in corr_df_grouped['abr_region_combined']]
 # integrate info about coupling (projections targeting the area)
-corr_df_grouped.loc[corr_df_grouped['targeted']<0.05, 'target_grouped'] = '0.0-0.05'
-corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.05, 0.1), 'target_grouped'] = '0.05-0.1'
-corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.1, 0.15), 'target_grouped'] = '0.1-0.15'
-corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.15, 0.2), 'target_grouped'] = '0.15-0.2'
+corr_df_grouped.loc[corr_df_grouped['targeted']<0.02, 'target_grouped'] = '0.0-0.02'
+corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.02, 0.04), 'target_grouped'] = '0.02-0.04'
+corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.04, 0.06), 'target_grouped'] = '0.04-0.06'
+corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.06, 0.08), 'target_grouped'] = '0.06-0.08'
 
 colors_connect = sns.color_palette('Dark2')[0:4]
 corr_df_grouped.loc[corr_df_grouped['targeted']<0.05, 'target_color'] = rgb2hex(colors_connect[0])
-corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.05, 0.1), 'target_color'] = rgb2hex(colors_connect[1])
-corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.1, 0.15), 'target_color'] = rgb2hex(colors_connect[2])
-corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.15, 0.2), 'target_color'] = rgb2hex(colors_connect[3])
-
+corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.02, 0.04), 'target_color'] = rgb2hex(colors_connect[1])
+corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.04, 0.06), 'target_color'] = rgb2hex(colors_connect[2])
+corr_df_grouped.loc[corr_df_grouped['targeted'].between(0.06, 0.08), 'target_color'] = rgb2hex(colors_connect[3])
 
 
 colors, dpi = figure_style()
@@ -259,27 +365,37 @@ for i in corr_df_grouped.index:
     txt = ax1.text(corr_df_grouped.loc[i, 'drn_connect'], corr_df_grouped.loc[i, 'g_diff'], corr_df_grouped.loc[i, 'abr_region_combined'],
              color=corr_df_grouped.loc[i, 'target_color'], fontsize=8.5, fontweight='bold')
     txt.set_path_effects([PathEffects.withStroke(linewidth=1, foreground='w')])
-    r, p = pearsonr(corr_df_grouped['drn_connect'], corr_df_grouped['g_diff'])
-    ax1.text(0.09, 0.3, f'r = {r:.2f}', fontsize=6)
-    ax1.text(0.09, 0.24, f'p = {p:.2f}', fontsize=6)
-    
-labels = ['0.0-0.05', '0.05-0.1', '0.1-0.15', '0.15-0.2']
+
+r, p = pearsonr(corr_df_grouped['drn_connect'], corr_df_grouped['g_diff'])
+ax1.text(0.09, 0.3, f'r = {r:.2f}', fontsize=6)
+ax1.text(0.09, 0.24, f'p = {p:.2f}', fontsize=6)
+
+labels = ['0.0-0.02', '0.02-0.04', '0.04-0.06', '0.06-0.08']
 handles = []
 for color in colors_connect:
     dot = Line2D([0], [0], marker='o', color='w', markerfacecolor=color, markersize=6)
     handles.append(dot)
 
 patches = [mpatches.Patch(color=rgb2hex(color), label=label) for color, label in zip(colors_connect, labels)]
-ax1.set_yticks([0, 0.2, 0.4, 0.6])
-ax1.set_yticklabels([0, 20, 40, 60])
+ax1.set_yticks([0, 0.2, 0.4])
+ax1.set_yticklabels([0, 20, 40])
 ax1.set_xticks([0, 0.05, 0.1, 0.15, 0.2])
 ax1.set_xlabel('Projection density (from DRN)')
-ax1.set_ylabel(u'Coupling G 0 versus 3')
+ax1.set_ylabel(u'Δ down state (%)')
 sns.despine(trim=True)
 lgd = ax1.legend(title='Received projection density', handles=handles, labels=labels,
                 bbox_to_anchor=(0.3, 1, 1., .102),labelspacing=0.2)
 plt.savefig(os.path.join(figure_dir, f'combined_regions_coupling_effect_S40.pdf'), bbox_inches="tight")
 plt.show()
+
+# leave-one-out robustness check (combined regions, drn_connect vs g_diff)
+loo_df_combined_delta = leave_one_out_correlation(corr_df_grouped['drn_connect'], corr_df_grouped['g_diff'],
+                                                    corr_df_grouped['abr_region_combined'])
+print('Leave-one-out (combined regions, coupling effect):')
+print(loo_df_combined_delta)
+print(f"LOO r range: [{loo_df_combined_delta['r'].min():.2f}, {loo_df_combined_delta['r'].max():.2f}], "
+      f"holds at p<0.05 in {(loo_df_combined_delta['p'] < 0.05).sum()}/{len(loo_df_combined_delta)} cases")
+loo_df_combined_delta.to_csv(os.path.join(analysed_data_dir, 'loo_correlation_combined_coupling_effect_S40.csv'), index=False)
 
 # %% 
 # Specific regions
@@ -313,10 +429,19 @@ for i in corr_df.index:
     txt = ax1.text(corr_df.loc[i, 'drn_connect'], corr_df.loc[i, 'g_diff'], corr_df.loc[i, 'abr_region'],
              color=corr_df.loc[i, 'target_color'], fontsize=8.5, fontweight='bold')
     txt.set_path_effects([PathEffects.withStroke(linewidth=1, foreground='w')])
-    r, p = pearsonr(corr_df['drn_connect'], corr_df['g_diff'])
-    ax1.text(0.09, 0.3, f'r = {r:.2f}', fontsize=6)
-    ax1.text(0.09, 0.24, f'p = {p:.2f}', fontsize=6)
-    
+
+r, p = pearsonr(corr_df['drn_connect'], corr_df['g_diff'])
+ax1.text(0.09, 0.3, f'r = {r:.2f}', fontsize=6)
+ax1.text(0.09, 0.24, f'p = {p:.2f}', fontsize=6)
+
+# leave-one-out robustness check (specific regions, drn_connect vs g_diff)
+loo_df_specific_delta = leave_one_out_correlation(corr_df['drn_connect'], corr_df['g_diff'], corr_df['abr_region'])
+print('Leave-one-out (specific regions, coupling effect):')
+print(loo_df_specific_delta)
+print(f"LOO r range: [{loo_df_specific_delta['r'].min():.2f}, {loo_df_specific_delta['r'].max():.2f}], "
+      f"holds at p<0.05 in {(loo_df_specific_delta['p'] < 0.05).sum()}/{len(loo_df_specific_delta)} cases")
+loo_df_specific_delta.to_csv(os.path.join(analysed_data_dir, 'loo_correlation_specific_coupling_effect_S40.csv'), index=False)
+
 labels = ['0.0-0.05', '0.05-0.1', '0.1-0.15', '0.15-0.2']
 handles = []
 for color in colors_connect:
@@ -324,11 +449,11 @@ for color in colors_connect:
     handles.append(dot)
 
 patches = [mpatches.Patch(color=rgb2hex(color), label=label) for color, label in zip(colors_connect, labels)]
-ax1.set_yticks([0, 0.2, 0.4, 0.6])
-ax1.set_yticklabels([0, 20, 40, 60])
+ax1.set_yticks([0, 0.2, 0.4])
+ax1.set_yticklabels([0, 20, 40])
 ax1.set_xticks([0, 0.05, 0.1, 0.15, 0.2])
 ax1.set_xlabel('Projection density (from DRN)')
-ax1.set_ylabel(u'Coupling G 0 versus 3')
+ax1.set_ylabel(u'Δ down state (%)')
 sns.despine(trim=True)
 lgd = ax1.legend(title='Received projection density', handles=handles, labels=labels,
                 bbox_to_anchor=(0.3, 1, 1., .102),labelspacing=0.2)
