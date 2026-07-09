@@ -19,7 +19,7 @@ MIN_NEURONS_PER_MOUSE = 2
 MIN_MOD_NEURONS = 2
 MIN_NEURONS_PER_SES = 5
 MIN_REC = 2
-EXPRESSION = False
+EXPRESSION = True
 
 # Get paths
 fig_path, save_path = paths()
@@ -79,7 +79,7 @@ ordered_regions_pm = per_mouse_df.groupby('high_level_region').mean(numeric_only
 
 
 # %%
-f, ax1 = plt.subplots(1, 1, figsize=(1.9, 1.75), dpi=dpi)
+f, (ax1, ax2) = plt.subplots(1, 2, figsize=(3.3, 1.75), dpi=dpi, sharey=True)
 sns.barplot(x='perc_mod', y='high_level_region', data=per_ses_df,
             order=ordered_regions_ps['high_level_region'],
             color=[0.6, 0.6, 0.6], ax=ax1, errorbar=None,
@@ -91,29 +91,20 @@ ax1.set(xlabel='Modulated neurons (%)', ylabel='', xlim=[0, 102], xticks=np.aran
 #ax1.legend(frameon=False, bbox_to_anchor=(0.8, 1.1), prop={'size': 5}, title='Mouse',
 #           handletextpad=0.1)
 
-plt.tight_layout()
-#plt.subplots_adjust(left=0.35, bottom=0.2, right=0.95)
-sns.despine(trim=True)
-if EXPRESSION:
-    plt.savefig(join(fig_path, 'ephys_updown_states', 'perc_light_modulated_neurons_per_region.pdf'))
-else:
-    plt.savefig(join(fig_path, 'ephys_updown_states', 'perc_light_modulated_neurons_per_region_no_expression.pdf'))
-
-# %%
-
 PROPS = {'boxprops':{'facecolor':'none', 'edgecolor':'none'}, 'medianprops':{'color':'none'},
          'whiskerprops':{'color':'none'}, 'capprops':{'color':'none'}}
 ORDER = mod_neurons.groupby('high_level_region').mean(numeric_only=True)['mod_index'].sort_values(
     ascending=False).reset_index()['high_level_region']
 
-f, ax1 = plt.subplots(1, 1, figsize=(2, 1.75), dpi=dpi)
-sns.stripplot(x='mod_index', y='high_level_region', ax=ax1, data=mod_neurons, order=ORDER,
+sns.stripplot(x='mod_index', y='high_level_region', ax=ax2, data=mod_neurons,
+              order=ordered_regions_ps['high_level_region'],
               size=2, color='grey', zorder=1)
-sns.boxplot(x='mod_index', y='high_level_region', ax=ax1, data=mod_neurons, showmeans=True,
-            order=ORDER, meanprops={"marker": "|", "markeredgecolor": "red", "markersize": "8"},
+sns.boxplot(x='mod_index', y='high_level_region', ax=ax2, data=mod_neurons, showmeans=True,
+            order=ordered_regions_ps['high_level_region'],
+            meanprops={"marker": "|", "markeredgecolor": "red", "markersize": "8"},
             fliersize=0, zorder=2, **PROPS)
-ax1.plot([0, 0], ax1.get_ylim(), ls='--', color='black', zorder=0)
-ax1.set(ylabel='', xlabel='Modulation index', xlim=[-1.05, 1.05], xticks=[-1, 0, 1])
+ax2.plot([0, 0], ax1.get_ylim(), ls='--', color='black', zorder=0)
+ax2.set(ylabel='', xlabel='Modulation index', xlim=[-1.05, 1.05], xticks=[-1, 0, 1])
 #ax1.spines['bottom'].set_position(('data', np.floor(ax1.get_ylim()[0]) - 0.4))
 plt.tight_layout()
 sns.despine(trim=True)
