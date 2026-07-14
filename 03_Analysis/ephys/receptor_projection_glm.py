@@ -14,8 +14,8 @@ from os.path import join
 from updown_functions import paths, figure_style, load_subjects, remap
 
 # Config
-MIN_NEURONS = 5
-RECEPTORS = ['5-HT1a', '5-HT1b', '5-HT1f', '5-HT2a', '5-HT2c', '5-HT3a', '5-HT5a']
+MIN_NEURONS = 10
+RECEPTORS = ['5-HT1a', '5-HT1b', '5-HT2a', '5-HT2c']
 
 # Paths
 fig_path, data_path = paths()
@@ -84,7 +84,8 @@ analysis_df = merged_df[['region', 'mod_index'] + predictors].dropna().reset_ind
 analysis_df_std = analysis_df.copy()
 for col in predictors:
     analysis_df_std[col] = (analysis_df[col] - analysis_df[col].mean()) / analysis_df[col].std()
-analysis_df_std['mod_index'] = (analysis_df['mod_index'] - analysis_df['mod_index'].mean()) / analysis_df['mod_index'].std()
+#analysis_df_std['mod_index'] = np.abs(analysis_df_std['mod_index'])
+#analysis_df_std['mod_index'] = (analysis_df['mod_index'] - analysis_df['mod_index'].mean()) / analysis_df['mod_index'].std()
 
 # -----------------------------------------------------------------------------
 # 5. Fit GLM
