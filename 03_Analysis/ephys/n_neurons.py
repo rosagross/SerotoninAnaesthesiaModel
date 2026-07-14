@@ -10,17 +10,19 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 from os.path import join
-from updown_functions import paths, figure_style, high_level_regions
+from updown_functions import paths, figure_style, high_level_regions, load_subjects
 colors, dpi = figure_style()
 
 # Get paths
 fig_path, save_path = paths()
 
 # Load in results
+subjects = load_subjects()
 all_neurons = pd.read_csv(join(save_path, 'light_modulated_neurons.csv'))
 all_neurons['high_level_region'] = high_level_regions(all_neurons['region'], input_atlas='Beryl',
                                                       only_vis=True)
 all_neurons = all_neurons[all_neurons['high_level_region'] != 'root']
+all_neurons['expression'] = all_neurons['subject'].isin(subjects['subject'])
 grouped_neurons = all_neurons.groupby('high_level_region').size().reset_index()
 grouped_neurons = grouped_neurons.rename(columns={0: 'n_neurons'})
 grouped_neurons = grouped_neurons.sort_values(by='n_neurons', ascending=False)

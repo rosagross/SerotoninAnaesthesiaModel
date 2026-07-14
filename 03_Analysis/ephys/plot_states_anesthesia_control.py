@@ -107,8 +107,8 @@ for i, region in enumerate(regions):
                  hue='jittered', hue_order=[0, 1], palette=[colors['stim'], colors['no-stim']],
                  errorbar='se', err_kws={'lw': 0}, ax=axs[i])
     add_significance(p_state_df['time'].unique(), p_values=p_values, ax=axs[i], y_pos=0.34)
-    axs[i].set(xlabel='Time (s)', title=titles[i], ylim=[-0.15, 0.35],
-               yticks=[-0.15, 0, 0.35], yticklabels=[-15, 0, 35])
+    axs[i].set(xlabel='Time (s)', title=titles[i], ylim=[-0.2, 0.35],
+               yticks=[-0.2, 0, 0.35], yticklabels=[-20, 0, 35])
     if i == 0:
         axs[i].set_ylabel('Down state probability (%)', labelpad=0)
         axs[i].get_xaxis().set_visible(False)

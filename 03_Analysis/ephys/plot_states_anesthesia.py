@@ -29,9 +29,6 @@ for i, nickname in enumerate(np.unique(subjects['subject'])):
     p_state_df.loc[p_state_df['subject'] == nickname, 'expression'] = subjects.loc[subjects['subject'] == nickname, 'expression'].values[0]
 p_state_df = p_state_df[p_state_df['expression'] == int(EXPRESSION)]
 
-# Average over mice first
-p_state_df = p_state_df.groupby(['pid', 'time', 'region']).mean(numeric_only=True).reset_index()
-
 # Generate p-values for each region and timepoint
 p_values = dict()
 for region in p_state_df['region'].unique():
@@ -56,9 +53,9 @@ for i, region in enumerate(regions):
     axs[i].plot([-1, 4], [0, 0], lw=1, ls='--', color='grey')
     sns.lineplot(data=p_state_df[p_state_df['region'] == region], x='time', y='p_down_bl',
                  color='k', errorbar='se', err_kws={'lw': 0}, ax=axs[i])
-    add_significance(p_state_df['time'].unique(), p_values=p_values[region], ax=axs[i], y_pos=0.34)
-    axs[i].set(xlabel='Time (s)', title=titles[i], ylim=[-0.1, 0.3],
-               yticks=[-0.1, 0, 0.35], yticklabels=[-10, 0, 35])
+    add_significance(p_state_df['time'].unique(), p_values=p_values[region], ax=axs[i], y_pos=0.39)
+    axs[i].set(xlabel='Time (s)', title=titles[i], ylim=[-0.15, 0.4],
+               yticks=[-0.15, 0, 0.4], yticklabels=[-15, 0, 40])
     #n_sub = len(np.unique(p_state_df.loc[p_state_df['region'] == region, 'subject']))
     if i == 0:
         #axs[i].text(2, -0.22, f'n={n_sub} mice', ha='center', va='center')

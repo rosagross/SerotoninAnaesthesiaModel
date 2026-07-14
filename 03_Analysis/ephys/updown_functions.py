@@ -304,7 +304,7 @@ def query_ephys_sessions(only_expression=True, acronym=None, one=None):
     return rec
 
 
-def remap(acronyms, source='Allen', dest='Beryl', combine=False, split_thalamus=False,
+def remap(acronyms, source='Allen', dest='Beryl', combine=False,
           abbreviate=True, brainregions=None):
     """
     Remap a list of brain region acronyms from one mapping source to another.
@@ -330,12 +330,12 @@ def remap(acronyms, source='Allen', dest='Beryl', combine=False, split_thalamus=
     _, inds = ismember(br.acronym2id(acronyms), br.id[br.mappings[source]])
     remapped_acronyms = br.get(br.id[br.mappings[dest][inds]])['acronym']
     if combine:
-        return combine_regions(remapped_acronyms, split_thalamus=split_thalamus, abbreviate=abbreviate)
+        return combine_regions(remapped_acronyms, abbreviate=abbreviate)
     else:
         return remapped_acronyms
 
 
-def combine_regions(acronyms, split_thalamus=False, abbreviate=True):
+def combine_regions(acronyms, abbreviate=True):
     """
     Combines regions into groups, input Beryl atlas acronyms: use remap function first
     """
@@ -344,14 +344,7 @@ def combine_regions(acronyms, split_thalamus=False, abbreviate=True):
         regions[np.in1d(acronyms, ['ILA', 'PL', 'ACAd', 'ACAv'])] = 'mPFC'
         regions[np.in1d(acronyms, ['MOs'])] = 'M2'
         regions[np.in1d(acronyms, ['ORBl', 'ORBm'])] = 'OFC'
-        if split_thalamus:
-            regions[np.in1d(acronyms, ['PO'])] = 'PO'
-            regions[np.in1d(acronyms, ['LP'])] = 'LP'
-            regions[np.in1d(acronyms, ['LD'])] = 'LD'
-            regions[np.in1d(acronyms, ['RT'])] = 'RT'
-            regions[np.in1d(acronyms, ['VAL'])] = 'VAL'
-        else:
-            regions[np.in1d(acronyms, ['PO', 'LP', 'LD', 'RT', 'VAL'])] = 'Thal.'
+        regions[np.in1d(acronyms, ['PO', 'LP'])] = 'Thal.'
         regions[np.in1d(acronyms, ['SCm', 'SCs', 'SCig', 'SCsg', 'SCdg'])] = 'SC'
         regions[np.in1d(acronyms, ['RSPv', 'RSPd'])] = 'RSP'
         regions[np.in1d(acronyms, ['ZI'])] = 'ZI'
@@ -362,7 +355,7 @@ def combine_regions(acronyms, split_thalamus=False, abbreviate=True):
         # regions[np.in1d(acronyms, ['SNr', 'SNc', 'SNl'])] = 'SN'
         regions[np.in1d(acronyms, ['VISa', 'VISam', 'VISp', 'VISpm'])] = 'VIS'
         regions[np.in1d(acronyms, ['AId', 'AIv', 'AIp'])] = 'AI'
-        regions[np.in1d(acronyms, ['MEA', 'CEA', 'BLA', 'COAa'])] = 'Amyg.'
+        regions[np.in1d(acronyms, ['BMA', 'MEA', 'CEA', 'BLA'])] = 'Amyg.'
         regions[np.in1d(acronyms, ['AON', 'TTd', 'DP'])] = 'OLF'
         regions[np.in1d(acronyms, ['CP', 'STR', 'STRd', 'STRv'])] = 'Str.'
         regions[np.in1d(acronyms, ['CA1', 'CA3', 'DG'])] = 'HPC'
@@ -370,14 +363,7 @@ def combine_regions(acronyms, split_thalamus=False, abbreviate=True):
         regions[np.in1d(acronyms, ['ILA', 'PL', 'ACAd', 'ACAv'])] = 'Medial prefrontal cortex'
         regions[np.in1d(acronyms, ['MOs'])] = 'Secondary motor cortex'
         regions[np.in1d(acronyms, ['ORBl', 'ORBm'])] = 'Orbitofrontal cortex'
-        if split_thalamus:
-            regions[np.in1d(acronyms, ['PO'])] = 'Thalamus (PO)'
-            regions[np.in1d(acronyms, ['LP'])] = 'Thalamus (LP)'
-            regions[np.in1d(acronyms, ['LD'])] = 'Thalamus (LD)'
-            regions[np.in1d(acronyms, ['RT'])] = 'Thalamus (RT)'
-            regions[np.in1d(acronyms, ['VAL'])] = 'Thalamus (VAL)'
-        else:
-            regions[np.in1d(acronyms, ['PO', 'LP', 'LD', 'RT', 'VAL'])] = 'Thalamus'
+        regions[np.in1d(acronyms, ['PO', 'LP'])] = 'Thalamus'
         regions[np.in1d(acronyms, ['SCm', 'SCs', 'SCig', 'SCsg', 'SCdg'])] = 'Superior colliculus'
         regions[np.in1d(acronyms, ['RSPv', 'RSPd'])] = 'Retrosplenial cortex'
         regions[np.in1d(acronyms, ['AON', 'TTd', 'DP'])] = 'Olfactory areas'
@@ -389,7 +375,7 @@ def combine_regions(acronyms, split_thalamus=False, abbreviate=True):
         regions[np.in1d(acronyms, ['PIR'])] = 'Piriform'
         # regions[np.in1d(acronyms, ['SNr', 'SNc', 'SNl'])] = 'Substantia nigra'
         regions[np.in1d(acronyms, ['VISa', 'VISam', 'VISp', 'VISpm'])] = 'Visual cortex'
-        regions[np.in1d(acronyms, ['MEA', 'CEA', 'BLA', 'COAa'])] = 'Amygdala'
+        regions[np.in1d(acronyms, ['BMA', 'MEA', 'CEA', 'BLA', 'COAa'])] = 'Amygdala'
         regions[np.in1d(acronyms, ['CP', 'STR', 'STRd', 'STRv'])] = 'Striatum'
         regions[np.in1d(acronyms, ['CA1', 'CA3', 'DG'])] = 'Hippocampus'
     return regions
@@ -443,7 +429,7 @@ def high_level_regions(acronyms, merge_cortex=False, only_vis=True, input_atlas=
             regions[np.in1d(first_level_regions, ['Pir.', 'BC', 'VIS'])] = 'Sensory cortex'
     regions[cosmos_regions == 'MB'] = 'Midbrain'
     regions[cosmos_regions == 'HPF'] = 'Hippocampus'
-    regions[cosmos_regions == 'TH'] = 'Thalamus'
+    regions[np.in1d(first_level_regions, ['Thal.'])] = 'Thalamus'
     regions[np.in1d(first_level_regions, ['Amyg.'])] = 'Amygdala'
     regions[np.in1d(acronyms, ['CP', 'ACB', 'FS'])] = 'Striatum'
     return regions

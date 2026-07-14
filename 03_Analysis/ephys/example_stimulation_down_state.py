@@ -13,15 +13,15 @@ from os.path import join, realpath, dirname, split
 from matplotlib.colors import ListedColormap
 from matplotlib.patches import Rectangle
 from brainbox.io.one import SpikeSortingLoader
-from stim_functions import (load_passive_opto_times, get_neuron_qc, get_artifact_neurons, remap,
-                            high_level_regions, calculate_peths, figure_style, paths)
+from updown_functions import (load_passive_opto_times, get_neuron_qc, remap,
+                              high_level_regions, calculate_peths, figure_style, paths)
 from one.api import ONE
-from ibllib.atlas import AllenAtlas
+from iblatlas.atlas import AllenAtlas
 ba = AllenAtlas()
 one = ONE()
 
 # Settings
-AREA = 'Frontal cortex'  # Frontal cortex or Amygdala
+AREA = 'Thalamus'  
 PRE_TIME = 1  # final time window to use
 POST_TIME = 4
 HMM_PRE_TIME = 2  # time window to run HMM on
@@ -33,16 +33,15 @@ if AREA == 'Frontal cortex':
     PID = '542aa93b-4876-439c-93f7-dd77263e55e8'
 elif AREA == 'Amygdala':
     PID = '79f881cb-8140-47ed-8d1a-7cca7e66fb12'
+elif AREA == 'Thalamus':
+    PID = '366c7c11-5509-443f-b07b-dabc9dcfd53e'
 
 # Paths
 f_path, save_path = paths()
-fig_path = join(f_path, split(dirname(realpath(__file__)))[-1])
-
-# Load artifact neurons
-artifact_neurons = get_artifact_neurons()
+fig_path = join(f_path, 'ephys_updown_states')
 
 # Load opto times
-opto_times, _ = load_passive_opto_times(one.pid2eid(PID)[0], anesthesia=True, one=one)
+opto_times, _ = load_passive_opto_times(one.pid2eid(PID)[0], one=one)
 
 # Load in spikes
 sl = SpikeSortingLoader(pid=PID, one=one, atlas=ba)
@@ -52,10 +51,6 @@ clusters = sl.merge_clusters(spikes, clusters, channels)
 # Filter neurons that pass QC
 qc_metrics = get_neuron_qc(PID, one=one, ba=ba)
 clusters_pass = np.where(qc_metrics['label'] == 1)[0]
-
-# Exclude artifact neurons
-clusters_pass = np.array([i for i in clusters_pass if i not in artifact_neurons.loc[
-    artifact_neurons['pid'] == PID, 'neuron_id'].values])
 
 # Select QC pass neurons
 spikes.times = spikes.times[np.isin(spikes.clusters, clusters_pass)]
@@ -85,10 +80,11 @@ for i in range(binned_spikes.shape[0]):
     trial_data.append(np.transpose(binned_spikes[i, :, :]))
 
 # Initialize HMM
-simple_hmm = ssm.HMM(N_STATES, clusters_in_region.shape[0], observations='poisson')
+simple_hmm = ssm.HMM(N_STATES, clusters_in_region.shape[0], observations='poisson',
+                     transitions='sticky')
 
 # Fit HMM on all data
-lls = simple_hmm.fit(trial_data, method='em', transitions='sticky')
+lls = simple_hmm.fit(trial_data, method='em')
 
 p_down_mat = np.empty((len(trial_data), time_ax.shape[0]))
 state_mat = np.empty((len(trial_data), time_ax.shape[0])).astype(int)
@@ -114,7 +110,7 @@ for t in range(len(trial_data)):
 # %% Plot example trial
 trial = 3
 colors, dpi = figure_style()
-cmap = ListedColormap([colors['down-state'], colors['up-state']])
+cmap = ListedColormap(['darkorange', 'white'])
 f, ax = plt.subplots(1, 1, figsize=(1.8, 1.75), dpi=dpi)
 
 ax.add_patch(Rectangle((0, 0), 1, len(clusters_in_region), color='royalblue', alpha=0.25, lw=0))
@@ -135,12 +131,12 @@ elif AREA == 'Amygdala':
     ax.text(1, -1.75, '2s', ha='center', va='center')
 
 ax2 = ax.twinx()
-ax2.plot(time_ax, p_down_mat[trial, :], color=colors['down-state'], lw=0.75)
+ax2.plot(time_ax, p_down_mat[trial, :], color='darkorange', lw=0.75)
 ax2.set(ylim=[-0.01, 1.01])            
 ax2.set_ylabel('P(down state)', rotation=270, labelpad=10)
-ax2.yaxis.label.set_color(colors['down-state'])
-ax2.tick_params(axis='y', colors=colors['down-state'])            
-ax2.spines['right'].set_color(colors['down-state'])
+ax2.yaxis.label.set_color('darkorange')
+ax2.tick_params(axis='y', colors='darkorange')            
+ax2.spines['right'].set_color('darkorange')
 
 sns.despine(trim=True, right=False, bottom=True)
 plt.tight_layout()
