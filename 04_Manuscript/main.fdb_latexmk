@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1783339867.82633 "main.aux" "main.bbl" "main" 1783339870.52962 0
+["bibtex main"] 1784034419.41531 "main.aux" "main.bbl" "main" 1784034627.65773 0
   "./pisikabst.bst" 1774340123 34645 aa74942a802431bd058560a63a31f7e2 ""
-  "./serotonin_bib.bib" 1783327854 1287021 ba8ba9be96d1310b49d5d35caf1a1429 ""
-  "main.aux" 1783339869 23743 8ce2b6c29de39c34c21e7e403ac6a250 "pdflatex"
+  "./serotonin_bib.bib" 1783670217 1292395 161e47b600486d5d1c3e5b9b32089fc1 ""
+  "main.aux" 1784034625 25157 4abe0bcef6a2f095e03c0dc1f1879a7f "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1783339868.27688 "main.tex" "main.pdf" "main" 1783339870.53045 0
+["pdflatex"] 1784034623.65423 "main.tex" "main.pdf" "main" 1784034627.65947 0
   "C:/Users/guido/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1774453907 866931 c9f1e50dd79f385795ea45d1d24388d4 ""
   "C:/Users/guido/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1761723538 13321868 74406b6659bb71c6cc3f5e68c133401a ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -140,18 +140,18 @@
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/tools/bm.sty" 1749468414 13236 71253d8fde2c80ecebae7e3f7da0c2b0 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/tools/dcolumn.sty" 1749468414 2758 67c3ad720591c53ba8fa03ee9fbf7375 ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "img/Fig3_model.pdf" 1776234458 165057 91ffe3cef1b196e39770a5381d0dd083 ""
+  "img/Fig3_model.pdf" 1783670217 164874 03936f1a98a115b0494cefc4041f0268 ""
+  "img/Fig_S6.pdf" 1783670217 57072 f7ae62b0d765161fdf4230803058d87d ""
   "img/Fig_Supplementary_Model.pdf" 1778916497 123478 b7d19ce7b9a41d869bb5dbef156f7afc ""
   "img/ephys_no_expression.pdf" 1774370764 436267 40411f9a7d05039dee2925ffd48098b2 ""
   "img/ephys_updown_states.pdf" 1783333000 772685 bd457f9592f3e7cccdc8cbbc72b351ad ""
-  "img/ephys_updown_states_supp.pdf" 1783327854 442364 3b82951dc1528bf51af52f70c6d3710a ""
   "img/histology.pdf" 1774370764 2272746 325d2524f9b45a1c2ebe073ed291b557 ""
   "img/recordings_overview.pdf" 1783337935 2937715 65f2c4e018490cf64b22072747031a95 ""
   "img/supp_fig_correlations.pdf" 1775553029 461030 9b5ea5603f46bc58db3d384478878569 ""
-  "main.aux" 1783339869 23743 8ce2b6c29de39c34c21e7e403ac6a250 "pdflatex"
-  "main.bbl" 1783339868 18963 d4145ba3f0a019dff75d164207425960 "bibtex main"
-  "main.out" 1783339869 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1783339864 46449 e869de1778c980598c816d3d8fd7b762 ""
+  "main.aux" 1784034625 25157 4abe0bcef6a2f095e03c0dc1f1879a7f "pdflatex"
+  "main.bbl" 1784034420 18963 d4145ba3f0a019dff75d164207425960 "bibtex main"
+  "main.out" 1784034625 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1784034622 49098 a39f24b091087bf0ccfd30f8cd69141e ""
   (generated)
   "main.aux"
   "main.log"
