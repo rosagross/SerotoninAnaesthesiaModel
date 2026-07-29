@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1784034419.41531 "main.aux" "main.bbl" "main" 1784034627.65773 0
+["bibtex main"] 1784055016.31725 "main.aux" "main.bbl" "main" 1784056421.63204 0
   "./pisikabst.bst" 1774340123 34645 aa74942a802431bd058560a63a31f7e2 ""
   "./serotonin_bib.bib" 1783670217 1292395 161e47b600486d5d1c3e5b9b32089fc1 ""
-  "main.aux" 1784034625 25157 4abe0bcef6a2f095e03c0dc1f1879a7f "pdflatex"
+  "main.aux" 1784056420 25157 4abe0bcef6a2f095e03c0dc1f1879a7f "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1784034623.65423 "main.tex" "main.pdf" "main" 1784034627.65947 0
+["pdflatex"] 1784056419.42469 "main.tex" "main.pdf" "main" 1784056421.63326 0
   "C:/Users/guido/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1774453907 866931 c9f1e50dd79f385795ea45d1d24388d4 ""
   "C:/Users/guido/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1761723538 13321868 74406b6659bb71c6cc3f5e68c133401a ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -144,14 +144,14 @@
   "img/Fig_S6.pdf" 1783670217 57072 f7ae62b0d765161fdf4230803058d87d ""
   "img/Fig_Supplementary_Model.pdf" 1778916497 123478 b7d19ce7b9a41d869bb5dbef156f7afc ""
   "img/ephys_no_expression.pdf" 1774370764 436267 40411f9a7d05039dee2925ffd48098b2 ""
-  "img/ephys_updown_states.pdf" 1783333000 772685 bd457f9592f3e7cccdc8cbbc72b351ad ""
+  "img/ephys_updown_states.pdf" 1784053164 775101 911529fca142cef9bea37ff9221e9c13 ""
   "img/histology.pdf" 1774370764 2272746 325d2524f9b45a1c2ebe073ed291b557 ""
   "img/recordings_overview.pdf" 1783337935 2937715 65f2c4e018490cf64b22072747031a95 ""
   "img/supp_fig_correlations.pdf" 1775553029 461030 9b5ea5603f46bc58db3d384478878569 ""
-  "main.aux" 1784034625 25157 4abe0bcef6a2f095e03c0dc1f1879a7f "pdflatex"
-  "main.bbl" 1784034420 18963 d4145ba3f0a019dff75d164207425960 "bibtex main"
-  "main.out" 1784034625 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1784034622 49098 a39f24b091087bf0ccfd30f8cd69141e ""
+  "main.aux" 1784056420 25157 4abe0bcef6a2f095e03c0dc1f1879a7f "pdflatex"
+  "main.bbl" 1784055016 18963 d4145ba3f0a019dff75d164207425960 "bibtex main"
+  "main.out" 1784056420 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1784056418 49623 b0a4588e8d84422f2707f978ded66f90 ""
   (generated)
   "main.aux"
   "main.log"
