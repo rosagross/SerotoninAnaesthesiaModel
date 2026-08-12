@@ -16,6 +16,7 @@
 \usepackage[english]{babel}
 \usepackage{booktabs}
 \usepackage{textcomp}
+\usepackage[misc]{ifsym}
 
 \parindent 0.5cm    % paragraphs indent
 
@@ -79,9 +80,9 @@
 %--------------------------------------------------------------------------
 %  fill in the paper's title, author(s), and corresponding institutions
 %--------------------------------------------------------------------------
-
-\title{\textbf{Serotonin induces \textsc{down} states across the anesthetized mouse forebrain}}
-\author{Rosa Großmann\textsuperscript{1}, Jorge F. Mejias\textsuperscript{2}, International Brain Laboratory, Zachary F. Mainen\textsuperscript{3} \& Guido T. Meijer\textsuperscript{3,4}}
+	
+\title{\textbf{Serotonin induces \textsc{down} states across the anesthetized mouse brain}}
+\author{Rosa Großmann\textsuperscript{1}, Jorge F. Mejias\textsuperscript{2}, International Brain Laboratory, Zachary F. Mainen\textsuperscript{3} \& Guido T. Meijer\textsuperscript{3,4,}\thanks{Corresponding author: \href{mailto:guido.meijer@donders.ru.nl}{guido.meijer@donders.ru.nl}}}
 \affil{\textsuperscript{1}Max Planck Institute for Human Cognitive and Brain Science, Leipzig, Germany\newline
 \textsuperscript{2} Cognitive and Systems Neuroscience Group, Swammerdam Institute for Life Sciences, University of Amsterdam, Amsterdam, The Netherlands\newline
 \textsuperscript{3}Champalimaud Foundation, Lisbon, Portugal\newline
@@ -94,7 +95,7 @@
 %---------------------------------------------------------------------------
 %               Include abstract and keywords here
 %---------------------------------------------------------------------------
-Serotonergic neurons in the dorsal raphe nucleus (DRN) project extensively throughout the forebrain, yet their influence on global network states remains controversial. Serotonin is implicated in regulating slow-oscillations, so-called UP and DOWN states, which occur during sleep and light anesthesia. While optogenetic fMRI suggests that serotonin (5-HT) suppresses brain-wide activity, classical electrical stimulation studies report the induction of cortical UP states. To resolve this discrepancy, we combined optogenetic 5-HT stimulation with large-scale Neuropixel recordings across the forebrain of lightly anesthetized mice. We demonstrate that selective 5-HT release consistently induces DOWN states across the cortex and striatum, while leaving midbrain dynamics largely unaffected. A multi-area computational model constrained by biologically plausible connectivity, indicates that in certain regions the transitions arises from network-level synchronization rather than direct DRN input.
+Serotonergic neurons in the dorsal raphe nucleus (DRN) project extensively throughout the forebrain, yet their influence on global network states remains controversial. Serotonin is implicated in regulating slow-oscillations, so-called UP and DOWN states, which occur during sleep and light anesthesia. Previous work suggests that serotonin suppresses neural activity under anesthesia, however, the methods employed in these studies lack the temporal resolution to reveal how serotonin influences UP-DOWN state dynamics. Here, we combined optogenetic 5-HT stimulation with large-scale Neuropixel recordings across eight brain regions in lightly anesthetized mice. We demonstrate that selective 5-HT release rapidly truncates ongoing UP states and prolongs ongoing DOWN states across bi-stable forebrain networks (cortex, striatum, thalamus), while leaving midbrain dynamics unaffected. A multi-area computational model shows that direct inhibition of local excitatory populations accounts for these dynamics, driving network-level synchronization that forces regions which are weakly innervated by the DRN, such as the visual cortex, into DOWN states.
 
 \DOI{} % do not delete this line
 \end{abstract}
@@ -185,10 +186,16 @@ A surprising finding was that in the electrophysiological data there was no corr
 All data are openly available through the Open Neurophysiology Environment (ONE) protocol (https://int-brain-lab.github.io/ONE/). All the code used to generate the figures in this manuscript are on Github: https://github.com/rosagross/SerotoninAnaesthesiaModel/.
 
 \subsection*{Acknowledgments}
-We thank the staff of the International Brain Laboratory collaboration for their technical support. This work was supported by the Wellcome Trust (209558 and 216324) and the Simons Foundation.
+We thank the staff of the International Brain Laboratory collaboration for their technical support.
+
+\subsection*{Funding declaration}
+This work was supported by the Wellcome Trust (209558 and 216324) and the Simons Foundation.
 
 \subsection*{Declaration of interests}
 The authors declare no competing interests.
+
+\subsection*{Author contributions}
+G.M. did the experimental work, R.G. did the computational modelling in collaboration with J.M., R.G. and G.M. wrote the manuscript, Z.M. and J.M. provided scientific guidance and reviewed the manuscript.
 
 \section*{Material and methods}
 \vspace{-8pt}
