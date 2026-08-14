@@ -183,7 +183,7 @@ Besides serotonin, some serotonergic neurons in the DRN co-release glutamate. Al
 A surprising finding was that in the electrophysiological data there was no correlation between the strength of the 5-HT induced suppression and the projection strength of the DRN to that region (Fig. \ref{suppfig:receptor_expression}a). In the awake condition we found the same result \cite{meijerSerotoninDrivesChoiceindependent2025}. Our computational model provided a possible explanation; when increasing the inter-area connectivity in the model the correlation with DRN projection strength went down (Fig. \ref{fig:model_updown}f). In the computational model, however, the correlation with DRN input never completely disappeared. This was likely due to the fact that the model was a simplified version of reality which lacked physiological detail, such as serotonergic receptor expression patterns and volume transmission of serotonin across region boundaries. Regardless, the model showed that a subset of brain regions, lacking direct DRN input, are still transitioned into a DOWN state through network-level synchronization of neural activity. 
 
 \subsection*{Data and code availability}
-All data are openly available through the Open Neurophysiology Environment (ONE) protocol (https://int-brain-lab.github.io/ONE/). All the code used to generate the figures in this manuscript are on Github: https://github.com/rosagross/SerotoninAnaesthesiaModel/.
+All data are openly available through the Open Neurophysiology Environment (ONE) API, a description of the dataset including instructions on how to query and load the data with the API can be found on GitHub: \url{https://github.com/rosagross/SerotoninAnaesthesiaModel/}. This repository also includes all the code used to generate the figures.
 
 \subsection*{Acknowledgments}
 We thank the staff of the International Brain Laboratory collaboration for their technical support.
@@ -201,7 +201,7 @@ G.M. did the experimental work, R.G. did the computational modelling in collabor
 \vspace{-8pt}
 
 \subsection*{Animals}
-Seven SERT-Cre C57Bl/6 mice (four males and three females) were used for the purpose of this study. All experimental procedures were approved by the Portuguese Veterinary General Board.
+Seven SERT-Cre C57Bl/6 mice (four males and three females), bred in-house at the Champalimaud Institute, were used for the purpose of this study. All experimental procedures were approved by the Portuguese Veterinary General Board and all methods were performed in accordance with the relevant guidelines and regulations.
 
 \subsection*{Surgical procedures}
 Mice underwent two surgeries: (1) injection of the channelrhodopsin viral vector in the dorsal raphe nucleus and implantation of the optical fiber \& headbar, and (2) the creation of three small craniotomies in the skull. Both these surgical procedures were performed as previously described in \cite{meijerSerotoninDrivesChoiceindependent2025}. A minimum of two weeks was allowed for the virus to express and the mouse to recover after the first surgery. The second surgery was performed $\sim$12 hours preceding the first Neuropixel recording.
@@ -226,6 +226,9 @@ Acute anesthetized Neuropixel recordings were performed on four consecutive days
 
 \noindent
 Throughout the recording session, the isoflurane level was calibrated such that the mouse would not wake up but UP and DOWN states were visible in the electrophysiological recordings. Once mice were stable under light anesthesia, serotonergic neurons in the dorsal raphe nucleus were optogenetically stimulated with 1s pulse trains of blue light (465 nm) administered through the optical fiber. The light power was 5 mW, as measured at the tip of the optical fiber. Light pulses were 10 ms long and with a frequency of 1, 5, 10, or 25 Hz. Different frequencies were administered in a randomized order and repeated each 50 times. The inter-stimulus interval was drawn from a truncated exponential distribution with a factor of 6s, a minimum of 5s, and a maximum of 15s. The whole stimulation protocol lasted around 30 minutes, during this time the body temperature of the mice was kept from falling using hand warmer packages (electrical heating pads produced large artifacts in the electrophysiological recordings). After the protocol, the Neuropixels were retracted, the skull covered, and the animal was placed in a cage positioned on a heating pad to wake up.
+
+\subsection*{Post-mortem histology}
+Directly after the last recording, mice were perfused and the brain was post-fixed for 24 hours in 4\% PFA. The brains were shipped to the Sainsbury Wellcome Center (London, United Kingdom) where they underwent serial-sectioning two-photon microscopy. Full brain stacks were reconstructed, registered to the Allen Atlas, after which the fluorescent Neuropixel probe tracts were traced using Lasagna (\url{https://github.com/SainsburyWellcomeCentre/lasagna}).
 
 \subsection*{Processing of electrophysiological data}
 Pre-processing and spike sorting of raw electrophysiological data was performed with the fully automated pipeline developed by the International Brain Laboratory (IBL) \cite{international_brain_laboratory_spike_2022}. We only included neurons that passed all the IBL neuron-level quality control criteria. Additionally we excluded neurons with firing rates $<$ 0.1 spks/s over the whole recording.
