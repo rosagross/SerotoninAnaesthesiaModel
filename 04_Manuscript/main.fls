@@ -341,6 +341,7 @@ INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\public\mathpazo\zplm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\public\mathpazo\zplmr7y.vf
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplb7t.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\palatino\pplb7t.vf
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplb8r.tfm
@@ -361,7 +362,6 @@ INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\vf\public\mathpazo\zplm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplb7t.tfm
 INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\palatino\pplb7t.tfm
-INPUT C:\Users\guido\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
 INPUT .\main.bbl
 INPUT .\main.bbl
 INPUT main.bbl
