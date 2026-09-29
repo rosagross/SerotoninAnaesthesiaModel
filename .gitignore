@@ -4,5 +4,6 @@
 03_Analysis/ephys/paths.json
 03_Analysis/ephys/__pycache__/
 03_Analysis/__pycache__/
+03_Analysis/analysed_data/
 02_Data/extended_publication
 .idea/
