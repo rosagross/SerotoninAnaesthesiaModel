@@ -16,6 +16,7 @@ from scipy.signal import convolve
 from scipy.stats import binned_statistic_2d
 from scipy.signal.windows import gaussian
 import pathlib
+from brainbox.io.spikeglx import spikeglx
 from os.path import join, realpath, dirname, isfile
 from matplotlib import colors as matplotlib_colors
 import json
@@ -1110,3 +1111,68 @@ def peri_multiple_events_time_histogram(
     ax.spines['right'].set_visible(False)
     ax.set_xlabel('Time (s) after event')
     return
+
+
+def load_lfp(eid, probe, time_start, time_end, channels=slice(None, None, None),
+             relative_to='begin', destriped=False, one=None):
+    """Load a slice of local field potential (LFP) data for a specified time range.
+
+    Parameters
+    ----------
+    eid : str
+        Experiment ID for the session.
+    probe : str
+        Name of the probe (e.g., 'probe00').
+    time_start : float
+        Start time of the LFP slice in seconds.
+    time_end : float
+        End time of the LFP slice in seconds.
+    channels : list of int
+        List of channel indices to load from the LFP data. To select all channels input slice(None, None, None).
+    relative_to : {'begin', 'end'}, optional
+        Reference point for the time range. 'begin' means times are relative to the
+        start of the recording. 'end' means times are relative to the end.
+        Default is 'begin'.
+    destriped : bool, optional
+        If True, loads pre-destriped LFP data from a local cache. If False, downloads
+        the raw LFP data using ONE. Default is False.
+    one : one.api.ONE, optional
+        Instance of the ONE API. If None, a new instance is created.
+
+    Returns
+    -------
+    signal : numpy.ndarray
+        The LFP signal for the specified time range, with shape (n_channels, n_samples).
+    time : numpy.ndarray
+        Array of time points corresponding to the LFP signal samples.
+    """
+    one = one or ONE()
+    destriped_lfp_path = join(paths()[1], 'LFP')
+
+    # Download LFP data
+    if destriped:
+        ses_details = one.get_details(eid)
+        subject = ses_details['subject']
+        date = ses_details['start_time'][:10]
+        lfp_path = join(destriped_lfp_path, f'{subject}_{date}_{probe}_destriped_lfp.cbin')
+    else:
+        lfp_paths, _ = one.load_datasets(eid, download_only=True, datasets=[
+            '_spikeglx_ephysData_g*_t0.imec*.lf.cbin', '_spikeglx_ephysData_g*_t0.imec*.lf.meta',
+            '_spikeglx_ephysData_g*_t0.imec*.lf.ch'], collections=[f'raw_ephys_data/{probe}'] * 3)
+        lfp_path = lfp_paths[0]
+    sr = spikeglx.Reader(lfp_path)
+
+    # Convert time to samples
+    if relative_to == 'begin':
+        samples_start = int(time_start * sr.fs)
+        samples_end = int(time_end * sr.fs)
+    elif relative_to == 'end':
+        samples_start = sr.shape[0] - int(time_start * sr.fs)
+        samples_end = sr.shape[0] - int(time_end * sr.fs)
+
+    # Load in lfp slice
+    signal = sr.read(nsel=slice(samples_start, samples_end, None), csel=channels)[0]
+    signal = signal.T
+    time = np.arange(samples_start, samples_end) / sr.fs
+
+    return signal, time
