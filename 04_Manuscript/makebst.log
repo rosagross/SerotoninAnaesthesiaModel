@@ -1,0 +1,49 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=latex 2026.10.28)  28 OCT 2026 15:33
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/custom-bib/makebst.tex
+
+(C:/Users/guido/AppData/Local/Programs/MiKTeX/tex/latex/custom-bib/makebst.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-29>
+\outfile=\write3
+\ttyin=\read2
+\infile=\read3
+\ttyout=\write4
+\hours=\count275
+\minutes=\count276
+***********************************
+* This is Make Bibliography Style *
+***********************************
+It makes up a docstrip batch job to produce
+a customized .bst file for running with BibTeX
+Do you want a description of the usage? (NO)
+
+\yn=
+
+Enter the name of the MASTER file (default=merlin.mbs)
+
+\mfile=main.mbs
+*** Cannot find file `main.mbs'
+
+Enter the name of the MASTER file (default=merlin.mbs)
+
+\mfile=
+! Emergency stop.
+<read 2> 
+         
+l.231 ...me of the MASTER file}(merlin.mbs)i\mfile
+                                                  
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 77 strings out of 467872
+ 949 string characters out of 5418401
+ 433730 words of memory out of 5000000
+ 29053 multiletter control sequences out of 15000+600000
+ 627721 words of font info for 40 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 12i,0n,13p,156b,8s stack positions out of 10000i,1000n,20000p,200000b,200000s
+No pages of output.

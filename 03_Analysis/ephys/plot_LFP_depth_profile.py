@@ -149,17 +149,17 @@ lfp_smooth = np.where(weights > 0.5, lfp_smooth / weights, np.nan)
 
 # %% Plot
 extent = [time_ax[0], time_ax[-1], DEPTH_GRID[0], DEPTH_GRID[-1]]
-f, ax = plt.subplots(figsize=(3, 2), dpi=dpi)
+f, ax = plt.subplots(figsize=(3, 2.5), dpi=dpi)
 clim = np.nanpercentile(np.abs(lfp_smooth), 99)
 im = ax.imshow(lfp_smooth, aspect='auto', origin='lower', extent=extent, cmap='RdBu_r',
                vmin=-clim, vmax=clim, interpolation='bilinear')
 ax.axvline(0, color='k', lw=0.75, ls='--')
 ax.set(xlabel='Time from 5-HT stimulation (s)',
-       ylabel=f'Depth from layer 2/3 and\nlayer 5 boundary ($\mu$m)',
+       ylabel=f'Depth from L2/3 and L5 boundary ($\mu$m)',
        xticks=np.arange(-TIME_WIN[0], TIME_WIN[1] + 1),
-       xlim=[-1, 3], ylim=[-800, 500])
-cbar = f.colorbar(im, ax=ax, shrink=0.8)
-cbar.set_label('LFP ($\mu$V)')
+       xlim=[-1, 3], ylim=[-800, 500], title='Secondary motor cortex (M2)')
+cbar = f.colorbar(im, ax=ax, shrink=0.9)
+cbar.set_label('Evoked LFP ($\mu$V)', rotation=270, labelpad=10)
 
 plt.tight_layout()
 sns.despine(trim=False)

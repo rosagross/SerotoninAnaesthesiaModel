@@ -1,54 +1,50 @@
-This is BibTeX, Version 0.99d
+This is BibTeX, Version 0.99e
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
-Reallocating 'name_of_file' (item size: 1) to 10 items.
-The style file: pisikabst.bst
-Reallocating 'name_of_file' (item size: 1) to 14 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Database file #1: serotonin_bib.bib
-Warning--entry type for "Linderman_SSM_Bayesian_Learning_2020" isn't style-file defined
---line 747 of file serotonin_bib.bib
-Reallocating 'wiz_functions' (item size: 4) to 6000 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: abbrvnat.bst
+Reallocating 'name_of_file' (item size: 1) to 20 items.
+Database file #1: serotonin_bib_clean.bib
+Warning--I didn't find a database entry for "celada_serotonin_2013"
 You've used 21 entries,
-            3447 wiz_defined-function locations,
-            856 strings with 12817 characters,
-and the built_in function-call counts, 21927 in all, are:
-= -- 1074
-> -- 1031
-< -- 131
-+ -- 940
-- -- 254
-* -- 3309
-:= -- 2062
-add.period$ -- 21
+            2773 wiz_defined-function locations,
+            750 strings with 11619 characters,
+and the built_in function-call counts, 15354 in all, are:
+= -- 1216
+> -- 1546
+< -- 2
++ -- 517
+- -- 495
+* -- 1550
+:= -- 2508
+add.period$ -- 66
 call.type$ -- 21
-change.case$ -- 105
-chr.to.int$ -- 21
-cite$ -- 21
-duplicate$ -- 2000
-empty$ -- 1701
-format.name$ -- 571
-if$ -- 4060
-int.to.chr$ -- 1
-int.to.str$ -- 22
-missing$ -- 282
-newline$ -- 78
-num.names$ -- 63
-pop$ -- 357
+change.case$ -- 228
+chr.to.int$ -- 20
+cite$ -- 42
+duplicate$ -- 431
+empty$ -- 820
+format.name$ -- 518
+if$ -- 3024
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 20
+newline$ -- 116
+num.names$ -- 84
+pop$ -- 419
 preamble$ -- 1
-purify$ -- 84
+purify$ -- 207
 quote$ -- 0
-skip$ -- 867
+skip$ -- 420
 stack$ -- 0
-substring$ -- 466
-swap$ -- 1812
-text.length$ -- 129
+substring$ -- 450
+swap$ -- 23
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 126
+type$ -- 231
 warning$ -- 0
-while$ -- 59
+while$ -- 92
 width$ -- 0
-write$ -- 258
+write$ -- 284
 (There was 1 warning)

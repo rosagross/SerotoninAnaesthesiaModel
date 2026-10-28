@@ -1,316 +1,181 @@
 \begin{thebibliography}{21}
-\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
-\expandafter\ifx\csname bibnamefont\endcsname\relax
-  \def\bibnamefont#1{#1}\fi
-\expandafter\ifx\csname bibfnamefont\endcsname\relax
-  \def\bibfnamefont#1{#1}\fi
-\expandafter\ifx\csname citenamefont\endcsname\relax
-  \def\citenamefont#1{#1}\fi
-\expandafter\ifx\csname url\endcsname\relax
-  \def\url#1{\texttt{#1}}\fi
-\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{}\fi
-\providecommand{\bibinfo}[2]{#2}
-\providecommand{\eprint}[1]{\href{http://arxiv.org/abs/#1}{arXiv:#1}}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[{\citenamefont{Celada et~al.}(2013)\citenamefont{Celada,
-  Victoria~Puig, and Artigas}}]{celadaSerotoninModulationCortical2013}
-\bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Celada}},
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Victoria~Puig}},
-  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Artigas}},
-  \bibinfo{title}{Serotonin modulation of cortical neurons and networks},
-  \href{http://dx.doi.org/10.3389/FNINT.2013.00025/BIBTEX}{\emph{\bibinfo{journal}{Frontiers
-  in Integrative Neuroscience}}
-  }\href{http://dx.doi.org/10.3389/FNINT.2013.00025/BIBTEX}{\textbf{\bibinfo{volume}{7}},
-  \bibinfo{pages}{25}} (\bibinfo{year}{2013}), ISSN \bibinfo{issn}{16625145}.
+\bibitem[{de Filippo} et~al.(2021){de Filippo}, Rost, Stumpf, Cooper, Tukker,
+  Harms, Beed, and Schmitz]{defilippoSomatostatinInterneuronsActivated2021}
+R.~{de Filippo}, B.~R. Rost, A.~Stumpf, C.~Cooper, J.~J. Tukker, C.~Harms,
+  P.~Beed, and D.~Schmitz.
+\newblock Somatostatin interneurons activated by 5-{{HT2A}} receptor suppress
+  slow oscillations in medial entorhinal cortex.
+\newblock \emph{eLife}, 10:\penalty0 e66960, 2021.
 
-\bibitem[{\citenamefont{Steriade et~al.}(1993)\citenamefont{Steriade,
-  McCormick, and Sejnowski}}]{steriade_thalamocortical_1993}
-\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Steriade}},
-  \bibinfo{author}{\bibfnamefont{D.~A.} \bibnamefont{McCormick}},
-  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{T.~J.}
-  \bibnamefont{Sejnowski}}, \bibinfo{title}{Thalamocortical {Oscillations} in
-  the {Sleeping} and {Aroused} {Brain}},
-  \href{http://dx.doi.org/10.1126/science.8235588}{\emph{\bibinfo{journal}{Science}}
-  }\href{http://dx.doi.org/10.1126/science.8235588}{\textbf{\bibinfo{volume}{262}},
-  \bibinfo{pages}{679}} (\bibinfo{year}{1993}).
+\bibitem[Deng et~al.(2024)Deng, Wan, Li, Dong, Xia, Wang, Li, Zhuang, Zheng,
+  Liu, Yan, Feng, Zhao, Xie, and Li]{deng_improved_2024}
+F.~Deng, J.~Wan, G.~Li, H.~Dong, X.~Xia, Y.~Wang, X.~Li, C.~Zhuang, Y.~Zheng,
+  L.~Liu, Y.~Yan, J.~Feng, Y.~Zhao, H.~Xie, and Y.~Li.
+\newblock Improved green and red {GRAB} sensors for monitoring spatiotemporal
+  serotonin release in vivo.
+\newblock \emph{Nature Methods}, 21\penalty0 (4):\penalty0 692--702, 2024.
 
-\bibitem[{\citenamefont{Steriade et~al.}(2001)\citenamefont{Steriade, Timofeev,
-  and Grenier}}]{steriade_natural_2001}
-\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Steriade}},
-  \bibinfo{author}{\bibfnamefont{I.}~\bibnamefont{Timofeev}}, \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Grenier}},
-  \bibinfo{title}{Natural {Waking} and {Sleep} {States}: {A} {View} {From}
-  {Inside} {Neocortical} {Neurons}},
-  \href{http://dx.doi.org/10.1152/jn.2001.85.5.1969}{\emph{\bibinfo{journal}{Journal
-  of Neurophysiology}}
-  }\href{http://dx.doi.org/10.1152/jn.2001.85.5.1969}{\textbf{\bibinfo{volume}{85}},
-  \bibinfo{pages}{1969}} (\bibinfo{year}{2001}), ISSN \bibinfo{issn}{0022-3077,
-  1522-1598}.
+\bibitem[Fiáth et~al.(2016)Fiáth, Kerekes, Wittner, Tóth, Beregszászi,
+  Horváth, and Ulbert]{fiath_laminar_2016}
+R.~Fiáth, B.~P. Kerekes, L.~Wittner, K.~Tóth, P.~Beregszászi, D.~Horváth,
+  and I.~Ulbert.
+\newblock Laminar analysis of the slow wave activity in the somatosensory
+  cortex of anesthetized rats.
+\newblock \emph{European Journal of Neuroscience}, 44\penalty0 (3):\penalty0
+  1935--1951, 2016.
+\newblock ISSN 0953-816X, 1460-9568.
 
-\bibitem[{\citenamefont{Neske}(2015)}]{neskeSlowOscillationCortical2015}
-\bibinfo{author}{\bibfnamefont{G.~T.} \bibnamefont{Neske}}, \bibinfo{title}{The
-  {{Slow Oscillation}} in {{Cortical}} and {{Thalamic Networks}}:
-  {{Mechanisms}} and {{Functions}}},
-  \href{http://dx.doi.org/10.3389/fncir.2015.00088}{\emph{\bibinfo{journal}{Frontiers
-  in Neural Circuits}}
-  }\href{http://dx.doi.org/10.3389/fncir.2015.00088}{\textbf{\bibinfo{volume}{9}},
-  \bibinfo{pages}{88}} (\bibinfo{year}{2015}), ISSN \bibinfo{issn}{1662-5110}.
+\bibitem[Grandjean et~al.(2019)Grandjean, Corcoba, Kahn, Upton, Deneris,
+  Seifritz, Helmchen, Mann, Rudin, and
+  Saab]{grandjeanBrainwideFunctionalMap2019}
+J.~Grandjean, A.~Corcoba, M.~C. Kahn, A.~L. Upton, E.~S. Deneris, E.~Seifritz,
+  F.~Helmchen, E.~O. Mann, M.~Rudin, and B.~J. Saab.
+\newblock A brain-wide functional map of the serotonergic responses to acute
+  stress and fluoxetine.
+\newblock \emph{Nature Communications 2019 10:1}, 10\penalty0 (1):\penalty0
+  1--10, 2019.
 
-\bibitem[{\citenamefont{Wilson and Groves}(1981)}]{wilson_spontaneous_1981}
-\bibinfo{author}{\bibfnamefont{C.~J.} \bibnamefont{Wilson}} \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{P.~M.} \bibnamefont{Groves}},
-  \bibinfo{title}{Spontaneous firing patterns of identified spiny neurons in
-  the rat neostriatum},
-  \href{http://dx.doi.org/10.1016/0006-8993(81)90211-0}{\emph{\bibinfo{journal}{Brain
-  Research}}
-  }\href{http://dx.doi.org/10.1016/0006-8993(81)90211-0}{\textbf{\bibinfo{volume}{220}},
-  \bibinfo{pages}{67}} (\bibinfo{year}{1981}), ISSN \bibinfo{issn}{0006-8993}.
+\bibitem[Hamada et~al.(2024)Hamada, Abe, Takata, Taira, Tanaka, and
+  Doya]{hamadaOptogeneticActivationDorsal2022}
+H.~T. Hamada, Y.~Abe, N.~Takata, M.~Taira, K.~F. Tanaka, and K.~Doya.
+\newblock Optogenetic activation of dorsal raphe serotonin neurons induces
+  brain-wide activation.
+\newblock \emph{Nature Communications}, 15\penalty0 (1):\penalty0 4152, 2024.
 
-\bibitem[{\citenamefont{{Sanchez-Vives}
-  et~al.}(2017)\citenamefont{{Sanchez-Vives}, Massimini, and
-  Mattia}}]{sanchez-vivesShapingDefaultActivity2017}
-\bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{{Sanchez-Vives}}},
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Massimini}},
-  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Mattia}},
-  \bibinfo{title}{Shaping the {{Default Activity Pattern}} of the {{Cortical
-  Network}}},
-  \href{http://dx.doi.org/10.1016/j.neuron.2017.05.015}{\emph{\bibinfo{journal}{Neuron}}
-  }\href{http://dx.doi.org/10.1016/j.neuron.2017.05.015}{\textbf{\bibinfo{volume}{94}},
-  \bibinfo{pages}{993}} (\bibinfo{year}{2017}), ISSN \bibinfo{issn}{0896-6273}.
+\bibitem[Jercog et~al.(2017)Jercog, Roxin, Barth{\'o}, Luczak, Compte, and
+  De~La~Rocha]{jercogUPDOWNCorticalDynamics2017}
+D.~Jercog, A.~Roxin, P.~Barth{\'o}, A.~Luczak, A.~Compte, and J.~De~La~Rocha.
+\newblock {{UP-DOWN}} cortical dynamics reflect state transitions in a bistable
+  network.
+\newblock \emph{eLife}, 6, 2017.
 
-\bibitem[{\citenamefont{{de Filippo} et~al.}(2021)\citenamefont{{de Filippo},
-  Rost, Stumpf, Cooper, Tukker, Harms, Beed, and
-  Schmitz}}]{defilippoSomatostatinInterneuronsActivated2021}
-\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{{de Filippo}}},
-  \bibinfo{author}{\bibfnamefont{B.~R.} \bibnamefont{Rost}},
-  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Stumpf}},
-  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Cooper}},
-  \bibinfo{author}{\bibfnamefont{J.~J.} \bibnamefont{Tukker}},
-  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Harms}},
-  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Beed}}, \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Schmitz}},
-  \bibinfo{title}{Somatostatin interneurons activated by 5-{{HT2A}} receptor
-  suppress slow oscillations in medial entorhinal cortex},
-  \href{http://dx.doi.org/10.7554/eLife.66960}{\emph{\bibinfo{journal}{eLife}}
-  }\href{http://dx.doi.org/10.7554/eLife.66960}{\textbf{\bibinfo{volume}{10}},
-  \bibinfo{pages}{e66960}} (\bibinfo{year}{2021}), ISSN
-  \bibinfo{issn}{2050-084X}.
+\bibitem[Joglekar et~al.(2018)Joglekar, Mejias, Yang, and
+  Wang]{joglekarInterarealBalancedAmplification2018}
+M.~R. Joglekar, J.~F. Mejias, G.~R. Yang, and X.~J. Wang.
+\newblock Inter-areal {{Balanced Amplification Enhances Signal Propagation}} in
+  a {{Large-Scale Circuit Model}} of the {{Primate Cortex}}.
+\newblock \emph{Neuron}, 98\penalty0 (1):\penalty0 222--234.e8, 2018.
 
-\bibitem[{\citenamefont{Hamada et~al.}(2022)\citenamefont{Hamada, Abe, Takata,
-  Taira, Tanaka, and Doya}}]{hamadaOptogeneticActivationDorsal2022}
-\bibinfo{author}{\bibfnamefont{H.~T.} \bibnamefont{Hamada}},
-  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Abe}},
-  \bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Takata}},
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Taira}},
-  \bibinfo{author}{\bibfnamefont{K.~F.} \bibnamefont{Tanaka}},
-  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Doya}},
-  \bibinfo{title}{Optogenetic activation of dorsal raphe serotonin neurons
-  induces a brain-wide response in reward network},
-  \href{http://dx.doi.org/10.1101/2022.08.07.503074}{\emph{\bibinfo{journal}{bioRxiv}}
-  }\href{http://dx.doi.org/10.1101/2022.08.07.503074}{
-  \bibinfo{pages}{2022.08.07.503074}} (\bibinfo{year}{2022}).
+\bibitem[Knox et~al.(2018)Knox, Harris, Graddis, Whitesell, Zeng, Harris,
+  Shea-Brown, and Mihalas]{knox_high-resolution_2018}
+J.~E. Knox, K.~D. Harris, N.~Graddis, J.~D. Whitesell, H.~Zeng, J.~A. Harris,
+  E.~Shea-Brown, and S.~Mihalas.
+\newblock High-resolution data-driven model of the mouse connectome.
+\newblock \emph{Network Neuroscience}, 3\penalty0 (1):\penalty0 217--236, 2018.
 
-\bibitem[{\citenamefont{Grandjean et~al.}(2019)\citenamefont{Grandjean,
-  Corcoba, Kahn, Upton, Deneris, Seifritz, Helmchen, Mann, Rudin, and
-  Saab}}]{grandjeanBrainwideFunctionalMap2019}
-\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Grandjean}},
-  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Corcoba}},
-  \bibinfo{author}{\bibfnamefont{M.~C.} \bibnamefont{Kahn}},
-  \bibinfo{author}{\bibfnamefont{A.~L.} \bibnamefont{Upton}},
-  \bibinfo{author}{\bibfnamefont{E.~S.} \bibnamefont{Deneris}},
-  \bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Seifritz}},
-  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Helmchen}},
-  \bibinfo{author}{\bibfnamefont{E.~O.} \bibnamefont{Mann}},
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Rudin}}, \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{B.~J.} \bibnamefont{Saab}}, \bibinfo{title}{A
-  brain-wide functional map of the serotonergic responses to acute stress and
-  fluoxetine},
-  \href{http://dx.doi.org/10.1038/s41467-018-08256-w}{\emph{\bibinfo{journal}{Nature
-  Communications 2019 10:1}}
-  }\href{http://dx.doi.org/10.1038/s41467-018-08256-w}{\textbf{\bibinfo{volume}{10}},
-  \bibinfo{pages}{1}} (\bibinfo{year}{2019}), ISSN \bibinfo{issn}{2041-1723}.
+\bibitem[Laboratory et~al.(2022)Laboratory, Banga, Boussard, Chapius, Faulkner,
+  Harris, Huntenburg, Hurwitz, Dong~Lee, Paninski, Rossant, Roth, Steinmetz,
+  Windolf, and Winter]{international_brain_laboratory_spike_2022}
+I.~B. Laboratory, K.~Banga, J.~Boussard, G.~Chapius, M.~Faulkner, K.~D. Harris,
+  J.~Huntenburg, C.~Hurwitz, H.~Dong~Lee, L.~Paninski, C.~Rossant, N.~Roth,
+  N.~A. Steinmetz, C.~Windolf, and O.~Winter.
+\newblock Spike sorting pipeline for the {International} {Brain} {Laboratory},
+  2022.
 
-\bibitem[{\citenamefont{Montijn et~al.}(2021)\citenamefont{Montijn, Seignette,
-  Howlett, Cazemier, Kamermans, Levelt, and
-  Heimel}}]{montijn_parameter-free_2021}
-\bibinfo{author}{\bibfnamefont{J.~S.} \bibnamefont{Montijn}},
-  \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Seignette}},
-  \bibinfo{author}{\bibfnamefont{M.~H.} \bibnamefont{Howlett}},
-  \bibinfo{author}{\bibfnamefont{J.~L.} \bibnamefont{Cazemier}},
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Kamermans}},
-  \bibinfo{author}{\bibfnamefont{C.~N.} \bibnamefont{Levelt}},
-  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.~A.}
-  \bibnamefont{Heimel}}, \bibinfo{title}{A parameter-free statistical test for
-  neuronal responsiveness},
-  \href{http://dx.doi.org/10.7554/eLife.71969}{\emph{\bibinfo{journal}{eLife}}
-  }\href{http://dx.doi.org/10.7554/eLife.71969}{\textbf{\bibinfo{volume}{10}},
-  \bibinfo{pages}{e71969}} (\bibinfo{year}{2021}), ISSN
-  \bibinfo{issn}{2050-084X}.
+\bibitem[Meijer et~al.(2025)Meijer, Catarino, {Freitas-Silva}, Laranjeira,
+  Laboratory, and Mainen]{meijerSerotoninDrivesChoiceindependent2025}
+G.~T. Meijer, J.~A. Catarino, L.~{Freitas-Silva}, I.~Laranjeira, I.~B.
+  Laboratory, and Z.~F. Mainen.
+\newblock Serotonin drives choice-independent reconfiguration of distributed
+  neural activity.
+\newblock \emph{bioRxiv}, 2025.
+\newblock \doi{2025.08.01.668048}.
 
-\bibitem[{\citenamefont{Oh et~al.}(2014)\citenamefont{Oh, Harris, Ng, Winslow,
-  Cain, Mihalas, Wang, Lau, Kuan, Henry et~al.}}]{oh_mesoscale_2014}
-\bibinfo{author}{\bibfnamefont{S.~W.} \bibnamefont{Oh}},
-  \bibinfo{author}{\bibfnamefont{J.~A.} \bibnamefont{Harris}},
-  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Ng}},
-  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Winslow}},
-  \bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Cain}},
-  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Mihalas}},
-  \bibinfo{author}{\bibfnamefont{Q.}~\bibnamefont{Wang}},
-  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Lau}},
-  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Kuan}},
-  \bibinfo{author}{\bibfnamefont{A.~M.} \bibnamefont{Henry}},
-  \bibnamefont{et~al.}, \bibinfo{title}{A mesoscale connectome of the mouse
-  brain}, \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{508}},
-  \bibinfo{pages}{207} (\bibinfo{year}{2014}), ISSN \bibinfo{issn}{1476-4687}.
+\bibitem[Montijn et~al.(2021)Montijn, Seignette, Howlett, Cazemier, Kamermans,
+  Levelt, and Heimel]{montijn_parameter-free_2021}
+J.~S. Montijn, K.~Seignette, M.~H. Howlett, J.~L. Cazemier, M.~Kamermans, C.~N.
+  Levelt, and J.~A. Heimel.
+\newblock A parameter-free statistical test for neuronal responsiveness.
+\newblock \emph{eLife}, 10:\penalty0 e71969, 2021.
 
-\bibitem[{\citenamefont{Knox et~al.}(2018)\citenamefont{Knox, Harris, Graddis,
-  Whitesell, Zeng, Harris, Shea-Brown, and
-  Mihalas}}]{knox_high-resolution_2018}
-\bibinfo{author}{\bibfnamefont{J.~E.} \bibnamefont{Knox}},
-  \bibinfo{author}{\bibfnamefont{K.~D.} \bibnamefont{Harris}},
-  \bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Graddis}},
-  \bibinfo{author}{\bibfnamefont{J.~D.} \bibnamefont{Whitesell}},
-  \bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Zeng}},
-  \bibinfo{author}{\bibfnamefont{J.~A.} \bibnamefont{Harris}},
-  \bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Shea-Brown}},
-  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Mihalas}},
-  \bibinfo{title}{High-resolution data-driven model of the mouse connectome},
-  \emph{\bibinfo{journal}{Network Neuroscience}} \textbf{\bibinfo{volume}{3}},
-  \bibinfo{pages}{217} (\bibinfo{year}{2018}), ISSN \bibinfo{issn}{2472-1751}.
+\bibitem[Neske(2015)]{neskeSlowOscillationCortical2015}
+G.~T. Neske.
+\newblock The {{Slow Oscillation}} in {{Cortical}} and {{Thalamic Networks}}:
+  {{Mechanisms}} and {{Functions}}.
+\newblock \emph{Frontiers in Neural Circuits}, 9:\penalty0 88, 2015.
 
-\bibitem[{\citenamefont{Jercog et~al.}(2017)\citenamefont{Jercog, Roxin,
-  Barth{\'o}, Luczak, Compte, and
-  De~La~Rocha}}]{jercogUPDOWNCorticalDynamics2017}
-\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Jercog}},
-  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Roxin}},
-  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Barth{\'o}}},
-  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Luczak}},
-  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Compte}}, \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{De~La~Rocha}},
-  \bibinfo{title}{{{UP-DOWN}} cortical dynamics reflect state transitions in a
-  bistable network},
-  \href{http://dx.doi.org/10.7554/ELIFE.22425}{\emph{\bibinfo{journal}{eLife}}
-  }\href{http://dx.doi.org/10.7554/ELIFE.22425}{\textbf{\bibinfo{volume}{6}}}
-  (\bibinfo{year}{2017}), ISSN \bibinfo{issn}{2050084X}.
+\bibitem[Oh et~al.(2014)Oh, Harris, Ng, Winslow, Cain, Mihalas, Wang, Lau,
+  Kuan, Henry, Mortrud, Ouellette, Nguyen, Sorensen, Slaughterbeck, Wakeman,
+  Li, Feng, Ho, Nicholas, Hirokawa, Bohn, Joines, Peng, Hawrylycz, Phillips,
+  Hohmann, Wohnoutka, Gerfen, Koch, Bernard, Dang, Jones, and
+  Zeng]{oh_mesoscale_2014}
+S.~W. Oh, J.~A. Harris, L.~Ng, B.~Winslow, N.~Cain, S.~Mihalas, Q.~Wang,
+  C.~Lau, L.~Kuan, A.~M. Henry, M.~T. Mortrud, B.~Ouellette, T.~N. Nguyen,
+  S.~A. Sorensen, C.~R. Slaughterbeck, W.~Wakeman, Y.~Li, D.~Feng, A.~Ho,
+  E.~Nicholas, K.~E. Hirokawa, P.~Bohn, K.~M. Joines, H.~Peng, M.~J. Hawrylycz,
+  J.~W. Phillips, J.~G. Hohmann, P.~Wohnoutka, C.~R. Gerfen, C.~Koch,
+  A.~Bernard, C.~Dang, A.~R. Jones, and H.~Zeng.
+\newblock A mesoscale connectome of the mouse brain.
+\newblock \emph{Nature}, 508\penalty0 (7495):\penalty0 207--214, 2014.
 
-\bibitem[{\citenamefont{Joglekar et~al.}(2018)\citenamefont{Joglekar, Mejias,
-  Yang, and Wang}}]{joglekarInterarealBalancedAmplification2018}
-\bibinfo{author}{\bibfnamefont{M.~R.} \bibnamefont{Joglekar}},
-  \bibinfo{author}{\bibfnamefont{J.~F.} \bibnamefont{Mejias}},
-  \bibinfo{author}{\bibfnamefont{G.~R.} \bibnamefont{Yang}}, \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{X.~J.} \bibnamefont{Wang}},
-  \bibinfo{title}{Inter-areal {{Balanced Amplification Enhances Signal
-  Propagation}} in a {{Large-Scale Circuit Model}} of the {{Primate Cortex}}},
-  \href{http://dx.doi.org/10.1016/j.neuron.2018.02.031}{\emph{\bibinfo{journal}{Neuron}}
-  }\href{http://dx.doi.org/10.1016/j.neuron.2018.02.031}{\textbf{\bibinfo{volume}{98}},
-  \bibinfo{pages}{222}} (\bibinfo{year}{2018}), ISSN \bibinfo{issn}{10974199}.
+\bibitem[Puig et~al.(2010)Puig, Watakabe, Ushimaru, Yamamori, and
+  Kawaguchi]{puigSerotoninModulatesFastSpiking2010}
+M.~V. Puig, A.~Watakabe, M.~Ushimaru, T.~Yamamori, and Y.~Kawaguchi.
+\newblock Serotonin {{Modulates Fast-Spiking Interneuron}} and {{Synchronous
+  Activity}} in the {{Rat Prefrontal Cortex}} through 5-{{HT1A}} and 5-{{HT2A
+  Receptors}}.
+\newblock \emph{Journal of Neuroscience}, 30\penalty0 (6):\penalty0 2211--2222,
+  2010.
 
-\bibitem[{\citenamefont{Deng et~al.}(2024)\citenamefont{Deng, Wan, Li, Dong,
-  Xia, Wang, Li, Zhuang, Zheng, Liu et~al.}}]{deng_improved_2024}
-\bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Deng}},
-  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Wan}},
-  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Li}},
-  \bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Dong}},
-  \bibinfo{author}{\bibfnamefont{X.}~\bibnamefont{Xia}},
-  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Wang}},
-  \bibinfo{author}{\bibfnamefont{X.}~\bibnamefont{Li}},
-  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Zhuang}},
-  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Zheng}},
-  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Liu}}, \bibnamefont{et~al.},
-  \bibinfo{title}{Improved green and red {GRAB} sensors for monitoring
-  spatiotemporal serotonin release in vivo},
-  \href{http://dx.doi.org/10.1038/s41592-024-02188-8}{\emph{\bibinfo{journal}{Nature
-  Methods}}
-  }\href{http://dx.doi.org/10.1038/s41592-024-02188-8}{\textbf{\bibinfo{volume}{21}},
-  \bibinfo{pages}{692}} (\bibinfo{year}{2024}), ISSN \bibinfo{issn}{1548-7105}.
+\bibitem[Ren et~al.(2018)Ren, Friedmann, Xiong, Liu, Ferguson, Weerakkody,
+  DeLoach, Ran, Pun, Sun, Weissbourd, Neve, Huguenard, Horowitz, and
+  Luo]{ren_anatomically_2018}
+J.~Ren, D.~Friedmann, J.~Xiong, C.~D. Liu, B.~R. Ferguson, T.~Weerakkody, K.~E.
+  DeLoach, C.~Ran, A.~Pun, Y.~Sun, B.~Weissbourd, R.~L. Neve, J.~Huguenard,
+  M.~A. Horowitz, and L.~Luo.
+\newblock Anatomically {Defined} and {Functionally} {Distinct} {Dorsal} {Raphe}
+  {Serotonin} {Sub}-systems.
+\newblock \emph{Cell}, 175\penalty0 (2):\penalty0 472--487.e20, 2018.
 
-\bibitem[{\citenamefont{Torao-Angosto et~al.}(2021)\citenamefont{Torao-Angosto,
-  Manasanch, Mattia, and Sanchez-Vives}}]{torao-angosto_up_2021}
-\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Torao-Angosto}},
-  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Manasanch}},
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Mattia}}, \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{Sanchez-Vives}},
-  \bibinfo{title}{Up and {Down} {States} {During} {Slow} {Oscillations} in
-  {Slow}-{Wave} {Sleep} and {Different} {Levels} of {Anesthesia}},
-  \href{http://dx.doi.org/10.3389/fnsys.2021.609645}{\emph{\bibinfo{journal}{Frontiers
-  in Systems Neuroscience}}
-  }\href{http://dx.doi.org/10.3389/fnsys.2021.609645}{\textbf{\bibinfo{volume}{15}}}
-  (\bibinfo{year}{2021}), ISSN \bibinfo{issn}{1662-5137}.
+\bibitem[{Sanchez-Vives} et~al.(2017){Sanchez-Vives}, Massimini, and
+  Mattia]{sanchez-vivesShapingDefaultActivity2017}
+M.~V. {Sanchez-Vives}, M.~Massimini, and M.~Mattia.
+\newblock Shaping the {{Default Activity Pattern}} of the {{Cortical Network}}.
+\newblock \emph{Neuron}, 94\penalty0 (5):\penalty0 993--1001, 2017.
 
-\bibitem[{\citenamefont{Puig et~al.}(2010)\citenamefont{Puig, Watakabe,
-  Ushimaru, Yamamori, and Kawaguchi}}]{puigSerotoninModulatesFastSpiking2010}
-\bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{Puig}},
-  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Watakabe}},
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ushimaru}},
-  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Yamamori}}, \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Kawaguchi}},
-  \bibinfo{title}{Serotonin {{Modulates Fast-Spiking Interneuron}} and
-  {{Synchronous Activity}} in the {{Rat Prefrontal Cortex}} through 5-{{HT1A}}
-  and 5-{{HT2A Receptors}}},
-  \href{http://dx.doi.org/10.1523/JNEUROSCI.3335-09.2010}{\emph{\bibinfo{journal}{Journal
-  of Neuroscience}}
-  }\href{http://dx.doi.org/10.1523/JNEUROSCI.3335-09.2010}{\textbf{\bibinfo{volume}{30}},
-  \bibinfo{pages}{2211}} (\bibinfo{year}{2010}), ISSN
-  \bibinfo{issn}{0270-6474}.
+\bibitem[Steriade et~al.(1993{\natexlab{a}})Steriade, McCormick, and
+  Sejnowski]{steriade_thalamocortical_1993}
+M.~Steriade, D.~A. McCormick, and T.~J. Sejnowski.
+\newblock Thalamocortical {Oscillations} in the {Sleeping} and {Aroused}
+  {Brain}.
+\newblock \emph{Science}, 262\penalty0 (5134):\penalty0 679--685,
+  1993{\natexlab{a}}.
 
-\bibitem[{\citenamefont{Ren et~al.}(2018)\citenamefont{Ren, Friedmann, Xiong,
-  Liu, Ferguson, Weerakkody, DeLoach, Ran, Pun, Sun
-  et~al.}}]{ren_anatomically_2018}
-\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Ren}},
-  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Friedmann}},
-  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Xiong}},
-  \bibinfo{author}{\bibfnamefont{C.~D.} \bibnamefont{Liu}},
-  \bibinfo{author}{\bibfnamefont{B.~R.} \bibnamefont{Ferguson}},
-  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Weerakkody}},
-  \bibinfo{author}{\bibfnamefont{K.~E.} \bibnamefont{DeLoach}},
-  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Ran}},
-  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Pun}},
-  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Sun}}, \bibnamefont{et~al.},
-  \bibinfo{title}{Anatomically {Defined} and {Functionally} {Distinct} {Dorsal}
-  {Raphe} {Serotonin} {Sub}-systems},
-  \href{http://dx.doi.org/10.1016/j.cell.2018.07.043}{\emph{\bibinfo{journal}{Cell}}
-  }\href{http://dx.doi.org/10.1016/j.cell.2018.07.043}{\textbf{\bibinfo{volume}{175}},
-  \bibinfo{pages}{472}} (\bibinfo{year}{2018}), ISSN \bibinfo{issn}{0092-8674}.
+\bibitem[Steriade et~al.(1993{\natexlab{b}})Steriade, Nunez, and
+  Amzica]{steriade_novel_1993}
+M.~Steriade, A.~Nunez, and F.~Amzica.
+\newblock A novel slow ({\textless} 1 {Hz}) oscillation of neocortical neurons
+  in vivo: depolarizing and hyperpolarizing components.
+\newblock \emph{Journal of Neuroscience}, 13\penalty0 (8):\penalty0 3252--3265,
+  1993{\natexlab{b}}.
+\newblock ISSN 0270-6474, 1529-2401.
 
-\bibitem[{\citenamefont{Meijer et~al.}(2025)\citenamefont{Meijer, Catarino,
-  {Freitas-Silva}, Laranjeira, Laboratory, and
-  Mainen}}]{meijerSerotoninDrivesChoiceindependent2025}
-\bibinfo{author}{\bibfnamefont{G.~T.} \bibnamefont{Meijer}},
-  \bibinfo{author}{\bibfnamefont{J.~A.} \bibnamefont{Catarino}},
-  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{{Freitas-Silva}}},
-  \bibinfo{author}{\bibfnamefont{I.}~\bibnamefont{Laranjeira}},
-  \bibinfo{author}{\bibfnamefont{I.~B.} \bibnamefont{Laboratory}},
-  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{Z.~F.}
-  \bibnamefont{Mainen}}, \bibinfo{title}{Serotonin drives choice-independent
-  reconfiguration of distributed neural activity},
-  \href{http://dx.doi.org/10.1101/2025.08.01.668048}{\emph{\bibinfo{journal}{bioRxiv}}
-  }\href{http://dx.doi.org/10.1101/2025.08.01.668048}{
-  \bibinfo{pages}{2025.08.01.668048}} (\bibinfo{year}{2025}), ISSN
-  \bibinfo{issn}{2692-8205}.
+\bibitem[Steriade et~al.(2001)Steriade, Timofeev, and
+  Grenier]{steriade_natural_2001}
+M.~Steriade, I.~Timofeev, and F.~Grenier.
+\newblock Natural {Waking} and {Sleep} {States}: {A} {View} {From} {Inside}
+  {Neocortical} {Neurons}.
+\newblock \emph{Journal of Neurophysiology}, 85\penalty0 (5):\penalty0
+  1969--1985, 2001.
+\newblock ISSN 0022-3077, 1522-1598.
 
-\bibitem[{\citenamefont{Laboratory et~al.}(2022)\citenamefont{Laboratory,
-  Banga, Boussard, Chapius, Faulkner, Harris, Huntenburg, Hurwitz, Dong~Lee,
-  Paninski et~al.}}]{international_brain_laboratory_spike_2022}
-\bibinfo{author}{\bibfnamefont{I.~B.} \bibnamefont{Laboratory}},
-  \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Banga}},
-  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Boussard}},
-  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Chapius}},
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Faulkner}},
-  \bibinfo{author}{\bibfnamefont{K.~D.} \bibnamefont{Harris}},
-  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Huntenburg}},
-  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Hurwitz}},
-  \bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Dong~Lee}},
-  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Paninski}},
-  \bibnamefont{et~al.}, \bibinfo{title}{Spike sorting pipeline for the
-  {International} {Brain} {Laboratory}} (\bibinfo{year}{2022}).
+\bibitem[Torao-Angosto et~al.(2021)Torao-Angosto, Manasanch, Mattia, and
+  Sanchez-Vives]{torao-angosto_up_2021}
+M.~Torao-Angosto, A.~Manasanch, M.~Mattia, and M.~V. Sanchez-Vives.
+\newblock Up and {Down} {States} {During} {Slow} {Oscillations} in
+  {Slow}-{Wave} {Sleep} and {Different} {Levels} of {Anesthesia}.
+\newblock \emph{Frontiers in Systems Neuroscience}, 15, 2021.
 
-\bibitem[{\citenamefont{Linderman et~al.}()\citenamefont{Linderman, Antin,
-  Zoltowski, and Glaser}}]{Linderman_SSM_Bayesian_Learning_2020}
-\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Linderman}},
-  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Antin}},
-  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Zoltowski}},
-  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Glaser}},
-  \bibinfo{title}{{SSM}: Bayesian learning and inference for state space
-  models}, \urlprefix\url{https://github.com/lindermanlab/ssm}.
+\bibitem[Wilson and Groves(1981)]{wilson_spontaneous_1981}
+C.~J. Wilson and P.~M. Groves.
+\newblock Spontaneous firing patterns of identified spiny neurons in the rat
+  neostriatum.
+\newblock \emph{Brain Research}, 220\penalty0 (1):\penalty0 67--80, 1981.
 
 \end{thebibliography}
