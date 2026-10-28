@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1792659586.68746 "main.aux" "main.bbl" "main" 1792659699.12653 0
+["bibtex main"] 1792739149.59884 "main.aux" "main.bbl" "main" 1792739202.7021 0
   "./pisikabst.bst" 1774340123 34645 aa74942a802431bd058560a63a31f7e2 ""
   "./serotonin_bib.bib" 1783670217 1292395 161e47b600486d5d1c3e5b9b32089fc1 ""
-  "main.aux" 1792659698 25055 969de30902fd6a09f630aa5f60ea6b46 "pdflatex"
+  "main.aux" 1792739201 25381 3352dd4cab455d4f54bba09306ff0138 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1792659697.36831 "main.tex" "main.pdf" "main" 1792659699.12809 0
+["pdflatex"] 1792739200.53927 "main.tex" "main.pdf" "main" 1792739202.70324 0
   "C:/Users/guido/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1786949486 866931 c9f1e50dd79f385795ea45d1d24388d4 ""
   "C:/Users/guido/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1761723538 13321868 74406b6659bb71c6cc3f5e68c133401a ""
   "C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -157,10 +157,10 @@
   "img/histology.pdf" 1774370764 2272746 325d2524f9b45a1c2ebe073ed291b557 ""
   "img/recordings_overview.pdf" 1783337935 2937715 65f2c4e018490cf64b22072747031a95 ""
   "img/supp_fig_correlations.pdf" 1775553029 461030 9b5ea5603f46bc58db3d384478878569 ""
-  "main.aux" 1792659698 25055 969de30902fd6a09f630aa5f60ea6b46 "pdflatex"
-  "main.bbl" 1792659587 18963 d4145ba3f0a019dff75d164207425960 "bibtex main"
-  "main.out" 1792659698 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1792659696 55805 5a030e40d01036ed1521d63fab7d43a0 ""
+  "main.aux" 1792739201 25381 3352dd4cab455d4f54bba09306ff0138 "pdflatex"
+  "main.bbl" 1792739149 18963 0ff1b11ce0cbc72c301b367e4c79c935 "bibtex main"
+  "main.out" 1792739201 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1792739199 56446 c1389f121c3b2845a9dbed27f12208d6 ""
   (generated)
   "main.aux"
   "main.log"
