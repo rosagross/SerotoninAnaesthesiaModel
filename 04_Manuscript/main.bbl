@@ -130,22 +130,6 @@
   }\href{http://dx.doi.org/10.1038/s41467-018-08256-w}{\textbf{\bibinfo{volume}{10}},
   \bibinfo{pages}{1}} (\bibinfo{year}{2019}), ISSN \bibinfo{issn}{2041-1723}.
 
-\bibitem[{\citenamefont{Puig et~al.}(2010)\citenamefont{Puig, Watakabe,
-  Ushimaru, Yamamori, and Kawaguchi}}]{puigSerotoninModulatesFastSpiking2010}
-\bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{Puig}},
-  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Watakabe}},
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ushimaru}},
-  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Yamamori}}, \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Kawaguchi}},
-  \bibinfo{title}{Serotonin {{Modulates Fast-Spiking Interneuron}} and
-  {{Synchronous Activity}} in the {{Rat Prefrontal Cortex}} through 5-{{HT1A}}
-  and 5-{{HT2A Receptors}}},
-  \href{http://dx.doi.org/10.1523/JNEUROSCI.3335-09.2010}{\emph{\bibinfo{journal}{Journal
-  of Neuroscience}}
-  }\href{http://dx.doi.org/10.1523/JNEUROSCI.3335-09.2010}{\textbf{\bibinfo{volume}{30}},
-  \bibinfo{pages}{2211}} (\bibinfo{year}{2010}), ISSN
-  \bibinfo{issn}{0270-6474}.
-
 \bibitem[{\citenamefont{Montijn et~al.}(2021)\citenamefont{Montijn, Seignette,
   Howlett, Cazemier, Kamermans, Levelt, and
   Heimel}}]{montijn_parameter-free_2021}
@@ -252,6 +236,22 @@
   in Systems Neuroscience}}
   }\href{http://dx.doi.org/10.3389/fnsys.2021.609645}{\textbf{\bibinfo{volume}{15}}}
   (\bibinfo{year}{2021}), ISSN \bibinfo{issn}{1662-5137}.
+
+\bibitem[{\citenamefont{Puig et~al.}(2010)\citenamefont{Puig, Watakabe,
+  Ushimaru, Yamamori, and Kawaguchi}}]{puigSerotoninModulatesFastSpiking2010}
+\bibinfo{author}{\bibfnamefont{M.~V.} \bibnamefont{Puig}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Watakabe}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Ushimaru}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Yamamori}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Kawaguchi}},
+  \bibinfo{title}{Serotonin {{Modulates Fast-Spiking Interneuron}} and
+  {{Synchronous Activity}} in the {{Rat Prefrontal Cortex}} through 5-{{HT1A}}
+  and 5-{{HT2A Receptors}}},
+  \href{http://dx.doi.org/10.1523/JNEUROSCI.3335-09.2010}{\emph{\bibinfo{journal}{Journal
+  of Neuroscience}}
+  }\href{http://dx.doi.org/10.1523/JNEUROSCI.3335-09.2010}{\textbf{\bibinfo{volume}{30}},
+  \bibinfo{pages}{2211}} (\bibinfo{year}{2010}), ISSN
+  \bibinfo{issn}{0270-6474}.
 
 \bibitem[{\citenamefont{Ren et~al.}(2018)\citenamefont{Ren, Friedmann, Xiong,
   Liu, Ferguson, Weerakkody, DeLoach, Ran, Pun, Sun
