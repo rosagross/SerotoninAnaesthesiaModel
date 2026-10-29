@@ -1,50 +1,48 @@
-This is BibTeX, Version 0.99e
+This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: abbrvnat.bst
 Reallocating 'name_of_file' (item size: 1) to 20 items.
 Database file #1: serotonin_bib_clean.bib
-Warning--I didn't find a database entry for "celada_serotonin_2013"
-You've used 21 entries,
+You've used 22 entries,
             2773 wiz_defined-function locations,
-            750 strings with 11619 characters,
-and the built_in function-call counts, 15354 in all, are:
-= -- 1216
-> -- 1546
+            755 strings with 11787 characters,
+and the built_in function-call counts, 15800 in all, are:
+= -- 1257
+> -- 1576
 < -- 2
-+ -- 517
-- -- 495
-* -- 1550
-:= -- 2508
-add.period$ -- 66
-call.type$ -- 21
-change.case$ -- 228
-chr.to.int$ -- 20
-cite$ -- 42
-duplicate$ -- 431
-empty$ -- 820
-format.name$ -- 518
-if$ -- 3024
++ -- 527
+- -- 504
+* -- 1589
+:= -- 2586
+add.period$ -- 71
+call.type$ -- 22
+change.case$ -- 234
+chr.to.int$ -- 21
+cite$ -- 44
+duplicate$ -- 455
+empty$ -- 849
+format.name$ -- 528
+if$ -- 3113
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 20
-newline$ -- 116
-num.names$ -- 84
-pop$ -- 419
+missing$ -- 22
+newline$ -- 123
+num.names$ -- 88
+pop$ -- 424
 preamble$ -- 1
-purify$ -- 207
+purify$ -- 212
 quote$ -- 0
-skip$ -- 420
+skip$ -- 435
 stack$ -- 0
-substring$ -- 450
-swap$ -- 23
+substring$ -- 452
+swap$ -- 24
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 231
+type$ -- 242
 warning$ -- 0
-while$ -- 92
+while$ -- 95
 width$ -- 0
-write$ -- 284
-(There was 1 warning)
+write$ -- 301

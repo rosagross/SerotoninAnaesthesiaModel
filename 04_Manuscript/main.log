@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.1.14)  28 OCT 2026 16:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.29)  29 OCT 2026 15:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./main.tex
 (main.tex
-LaTeX2e <2025-11-01>
-L3 programming layer <2025-12-29>
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-10-09>
 (C:\Users\guido\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
 (C:\Users\guido\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
@@ -190,7 +190,7 @@ File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
 \Gin@req@height=\dimen153
 \Gin@req@width=\dimen154
 ) (C:\Users\guido\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
-Package: amsmath 2025/07/09 v2.17z AMS math features
+Package: amsmath 2025/06/16 v2.17y AMS math features
 \@mathmargin=\skip52
 For additional information on amsmath, use the `?' option.
 (C:\Users\guido\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
@@ -253,8 +253,8 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \multlinegap=\skip53
 \multlinetaggap=\skip54
 \mathdisplay@stack=\toks22
-LaTeX Info: Redefining \[ on input line 2950.
-LaTeX Info: Redefining \] on input line 2951.
+LaTeX Info: Redefining \[ on input line 2949.
+LaTeX Info: Redefining \] on input line 2950.
 )
 (C:\Users\guido\AppData\Local\Programs\MiKTeX\tex/latex/preprint\authblk.sty
 Package: authblk 2001/02/27 1.3 (PWD)
@@ -285,32 +285,34 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
 (C:\Users\guido\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
 (C:\Users\guido\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2025/12/30 v25.18 The multilingual framework for LuaLaTeX, pdfLa
+Package: babel 2025/10/22 v25.14 The multilingual framework for LuaLaTeX, pdfLa
 TeX and XeLaTeX
 \babel@savecnt=\count313
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input li
-ne 2068.
+ne 2050.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input li
-ne 2070.
+ne 2052.
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input lin
-e 2072.
+e 2054.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input lin
-e 2073.
+e 2055.
 LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) 
-on input line 2074.
+on input line 2056.
 LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) 
-on input line 2076.
+on input line 2058.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) 
-on input line 2101.
+on input line 2083.
 \U@D=\dimen172
 \l@unhyphenated=\language79
 
 (C:\Users\guido\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count314
-Package babel Info: Configuration files are deprecated, as
-(babel)             they can break document portability.
-(babel)             Reported on input line 4197.
+
+
+Package babel Warning: Configuration files are deprecated, as
+(babel)                they can break document portability.
+(babel)                Reported on input line 4172.
 
 *************************************
 * Local config file bblopts.cfg used
@@ -322,7 +324,7 @@ File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
 (C:\Users\guido\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/en\babel
 -english.tex)
 Package babel Info: Importing font and identification data for english
-(babel)             from babel-en.ini. Reported on input line 4321.
+(babel)             from babel-en.ini. Reported on input line 4295.
 
 (C:\Users\guido\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.l
 df
@@ -378,10 +380,10 @@ LaTeX Info: Redefining \addtolength on input line 87.
 \abstract@box=\box55
 
 (C:\Users\guido\AppData\Local\Programs\MiKTeX\tex/latex/tools\dcolumn.sty
-Package: dcolumn 2025/10/21 v1.06 decimal alignment package (DPC)
+Package: dcolumn 2023/07/08 v1.06 decimal alignment package (DPC)
 
 (C:\Users\guido\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
-Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
 \col@sep=\dimen188
 \ar@mcellbox=\box56
 \extrarowheight=\dimen189
@@ -425,7 +427,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@floatcapt=\box59
 )
 (C:\Users\guido\AppData\Local\Programs\MiKTeX\tex/latex/tools\bm.sty
-Package: bm 2025/10/21 v1.2g Bold Symbol Support (DPC/FMi)
+Package: bm 2023/12/19 v1.2f Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup5
 \symboldletters=\mathgroup6
 \symboldsymbols=\mathgroup7
@@ -605,9 +607,6 @@ LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 104.
 
 
-Package natbib Warning: Citation `celada_serotonin_2013' on page 1 undefined on
- input line 113.
-
 [1
 
 {C:/Users/guido/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/guid
@@ -615,101 +614,138 @@ o/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
 
 pdfTeX warning: pdflatex (file ./img/recordings_overview.pdf): PDF inclusion: f
 ound PDF version <1.6>, but at most version <1.5> allowed
-<img/recordings_overview.pdf, id=46, 372.35413pt x 386.43771pt>
+<img/recordings_overview.pdf, id=49, 372.35413pt x 386.43771pt>
 File: img/recordings_overview.pdf Graphic file (type pdf)
 <use img/recordings_overview.pdf>
 Package pdftex.def Info: img/recordings_overview.pdf  used on input line 123.
 (pdftex.def)             Requested size: 372.35321pt x 386.43675pt.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7.6> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 124.
-<img/lfp.pdf, id=57, 486.35501pt x 177.02637pt>
+<img/lfp.pdf, id=60, 501.53773pt x 390.28311pt>
 File: img/lfp.pdf Graphic file (type pdf)
 <use img/lfp.pdf>
 Package pdftex.def Info: img/lfp.pdf  used on input line 137.
-(pdftex.def)             Requested size: 486.35382pt x 177.02592pt.
-[2] [3 <./img/recordings_overview.pdf>]
-<img/ephys_updown_states.pdf, id=207, 512.14938pt x 507.12361pt>
+(pdftex.def)             Requested size: 501.53651pt x 390.28215pt.
+
+Overfull \hbox (12.14876pt too wide) in paragraph at lines 137--138
+ [][] 
+ []
+
+
+
+[2]
+
+[3 <./img/recordings_overview.pdf>]
+
+[4 <./img/lfp.pdf>]
+<img/ephys_updown_states.pdf, id=299, 512.14938pt x 507.12361pt>
 File: img/ephys_updown_states.pdf Graphic file (type pdf)
 <use img/ephys_updown_states.pdf>
 Package pdftex.def Info: img/ephys_updown_states.pdf  used on input line 153.
 (pdftex.def)             Requested size: 489.38776pt x 484.60455pt.
- [4 <./img/lfp.pdf>] [5 <./img/ephys_updown_states.pdf>]
-<img/Fig3_model.pdf, id=369, 379.5702pt x 289.91426pt>
+
+
+[5]
+
+[6 <./img/ephys_updown_states.pdf>]
+<img/Fig3_model.pdf, id=406, 379.5702pt x 289.91426pt>
 File: img/Fig3_model.pdf Graphic file (type pdf)
 <use img/Fig3_model.pdf>
 Package pdftex.def Info: img/Fig3_model.pdf  used on input line 167.
 (pdftex.def)             Requested size: 489.38776pt x 373.7963pt.
- [6] [7 <./img/Fig3_model.pdf>] [8] [9] [10] [11] [12]
-(main.bbl [13]
-LaTeX Font Info:    Trying to load font information for OML+ppl on input line 1
-53.
 
-(C:\Users\guido\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlppl.fd
+
+[7]
+
+[8 <./img/Fig3_model.pdf>]
+
+[9]
+
+[10]
+
+[11]
+
+[12]
+
+[13] (main.bbl
+
+[14]
+LaTeX Font Info:    Trying to load font information for OML+ppl on input line 1
+60.
+ (C:\Users\guido\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlppl.fd
 File: omlppl.fd 
 )
 LaTeX Font Info:    Font shape `OML/ppl/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 153.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 160.
 )
-[14]
+
+[15]
 
 pdfTeX warning: pdflatex (file ./img/histology.pdf): PDF inclusion: found PDF v
 ersion <1.6>, but at most version <1.5> allowed
-<img/histology.pdf, id=1246, 410.03188pt x 229.02464pt>
+<img/histology.pdf, id=1282, 410.03188pt x 229.02464pt>
 File: img/histology.pdf Graphic file (type pdf)
 <use img/histology.pdf>
 Package pdftex.def Info: img/histology.pdf  used on input line 321.
 (pdftex.def)             Requested size: 489.38776pt x 273.36742pt.
-[15 <./img/histology.pdf>]
+
+
+[16 <./img/histology.pdf>]
 
 pdfTeX warning: pdflatex (file ./img/ephys_no_expression.pdf): PDF inclusion: f
 ound PDF version <1.6>, but at most version <1.5> allowed
-<img/ephys_no_expression.pdf, id=1295, 393.32646pt x 130.11008pt>
+<img/ephys_no_expression.pdf, id=1331, 393.32646pt x 130.11008pt>
 File: img/ephys_no_expression.pdf Graphic file (type pdf)
 <use img/ephys_no_expression.pdf>
 Package pdftex.def Info: img/ephys_no_expression.pdf  used on input line 329.
 (pdftex.def)             Requested size: 489.38776pt x 161.8907pt.
-[16 <./img/ephys_no_expression.pdf>]
+
+
+[17 <./img/ephys_no_expression.pdf>]
 
 pdfTeX warning: pdflatex (file ./img/supp_fig_correlations.pdf): PDF inclusion:
  found PDF version <1.6>, but at most version <1.5> allowed
-<img/supp_fig_correlations.pdf, id=1342, 512.14938pt x 128.03734pt>
+<img/supp_fig_correlations.pdf, id=1378, 512.14938pt x 128.03734pt>
 File: img/supp_fig_correlations.pdf Graphic file (type pdf)
 <use img/supp_fig_correlations.pdf>
 Package pdftex.def Info: img/supp_fig_correlations.pdf  used on input line 337.
 
 (pdftex.def)             Requested size: 489.38776pt x 122.35176pt.
-[17 <./img/supp_fig_correlations.pdf>]
-<img/Fig_Supplementary_Model.pdf, id=1396, 735.58156pt x 252.57591pt>
+
+
+[18 <./img/supp_fig_correlations.pdf>]
+<img/Fig_Supplementary_Model.pdf, id=1432, 735.58156pt x 252.57591pt>
 File: img/Fig_Supplementary_Model.pdf Graphic file (type pdf)
 <use img/Fig_Supplementary_Model.pdf>
 Package pdftex.def Info: img/Fig_Supplementary_Model.pdf  used on input line 34
 5.
 (pdftex.def)             Requested size: 489.38776pt x 168.04178pt.
- [18 <./img/Fig_Supplementary_Model.pdf>]
-<img/Fig_S6.pdf, id=1910, 435.4739pt x 128.75693pt>
+
+
+[19 <./img/Fig_Supplementary_Model.pdf>]
+<img/Fig_S6.pdf, id=1947, 435.4739pt x 128.75693pt>
 File: img/Fig_S6.pdf Graphic file (type pdf)
 <use img/Fig_S6.pdf>
 Package pdftex.def Info: img/Fig_S6.pdf  used on input line 353.
 (pdftex.def)             Requested size: 489.38776pt x 144.69794pt.
 
-Package natbib Warning: There were undefined citations.
 
-[19 <./img/Fig_S6.pdf>] (main.aux)
+[20 <./img/Fig_S6.pdf>] (main.aux)
  ***********
-LaTeX2e <2025-11-01>
-L3 programming layer <2025-12-29>
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-10-09>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 14007 strings out of 467871
- 226883 string characters out of 5418376
- 675038 words of memory out of 5000000
- 42571 multiletter control sequences out of 15000+600000
+ 13995 strings out of 468080
+ 226701 string characters out of 5425771
+ 671838 words of memory out of 5000000
+ 42349 multiletter control sequences out of 15000+600000
  677188 words of font info for 178 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,9n,79p,2664b,595s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,9n,79p,2664b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
 cmmi10.pfb><C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmr10.pfb><C:/Users/guido/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -720,9 +756,9 @@ s/MiKTeX/fonts/type1/public/mathpazo/fplmri.pfb><C:/Users/guido/AppData/Local/P
 rograms/MiKTeX/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/guido/AppData/Loca
 l/Programs/MiKTeX/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/guido/AppData/L
 ocal/Programs/MiKTeX/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (19 pages, 7722170 bytes).
+Output written on main.pdf (20 pages, 7955704 bytes).
 PDF statistics:
- 2056 PDF objects out of 2073 (max. 8388607)
- 58 named destinations out of 1000 (max. 500000)
+ 2092 PDF objects out of 2487 (max. 8388607)
+ 60 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
