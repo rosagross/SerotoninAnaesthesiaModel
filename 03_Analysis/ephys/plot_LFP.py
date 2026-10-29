@@ -17,7 +17,7 @@ _, save_path = paths()
 NEURON_QC = True
 OPTO_PULSE_NR = 40
 TIME_WIN = [5, 5]
-PLOT_CORTEX = ['MOs', 'VIS', 'RSPd']
+PLOT_CORTEX = ['VISpm', 'VISa']
 
 # Query sessions
 rec = query_ephys_sessions(only_expression=False, one=one)
@@ -79,11 +79,6 @@ for i in rec.index.values:
         eid, probe=probe, time_start=opto_times[OPTO_PULSE_NR] - TIME_WIN[0],
         time_end=opto_times[OPTO_PULSE_NR] + TIME_WIN[1], channels=cortex_channels)
     channel_depths = channels['z'][cortex_channels] * 1e6
-
-    sampling_rate = 1 / np.median(np.diff(lfp_timestamps))
-    sos = butter(4, 300, btype='highpass', fs=sampling_rate, output='sos')
-    lfp_arr = sosfiltfilt(sos, lfp_arr, axis=-1)
-
     
     # Plot LFP
     f, ax = plt.subplots(figsize=(3, 2.5), dpi=300)

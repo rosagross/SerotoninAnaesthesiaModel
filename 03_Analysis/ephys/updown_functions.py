@@ -1172,7 +1172,7 @@ def load_lfp(eid, probe, time_start, time_end, channels=slice(None, None, None),
 
     # Load in lfp slice
     signal = sr.read(nsel=slice(samples_start, samples_end, None), csel=channels)[0]
-    signal = signal.T
+    signal = signal.T * 1e6 # Convert to microvolts
     time = np.arange(samples_start, samples_end) / sr.fs
 
     return signal, time

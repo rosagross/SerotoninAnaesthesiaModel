@@ -16,10 +16,13 @@ one = init_one()
 fig_path, save_path = paths()
 
 # Settings
-REGION = 'MOs'
-UPPER_LAYER, LOWER_LAYER = 'MOs2/3', 'MOs5'  # depth is centered on the boundary between these
+REGION = ['MOs']
+YLIM = [-800, 500]
+#REGION = ['VISa', 'VISpm']
+#YLIM = [-500, 300]
+UPPER_LAYER, LOWER_LAYER = '2/3', '5'  # depth is centered on the boundary between these
 TIME_WIN = [1, 4]  # s before and after pulse onset
-BASELINE = [-1, 0]  # baseline window (s) relative to pulse onset
+BASELINE = [-0.5, 0]  # baseline window (s) relative to pulse onset
 FILTER_PAD = 1  # extra seconds loaded on both sides to avoid filter edge effects
 LOWPASS = 40  # Hz, removes light artifacts
 DOWNSAMPLE = 10  # downsample factor after low-pass filtering (2500 Hz -> 250 Hz)
@@ -66,11 +69,12 @@ for i in rec.index.values:
 
     # Get MOs channels and the layer 2/3 - 5 boundary
     beryl_regions = remap(channels['acronym'], dest='Beryl')
-    region_channels = np.where(beryl_regions == REGION)[0]
-    upper_chan = channels['acronym'] == UPPER_LAYER
-    lower_chan = channels['acronym'] == LOWER_LAYER
-    if (np.sum(upper_chan) == 0) | (np.sum(lower_chan) == 0):
-        print(f'No {UPPER_LAYER} / {LOWER_LAYER} boundary found')
+    region_channels = np.where(np.isin(beryl_regions, REGION))[0]
+    # Only match the exact layer acronyms of the target region (e.g. MOs2/3 and MOs5)
+    upper_chan = np.where(np.isin(channels['acronym'], [r + UPPER_LAYER for r in REGION]))[0]
+    lower_chan = np.where(np.isin(channels['acronym'], [r + LOWER_LAYER for r in REGION]))[0]
+    if (region_channels.size == 0) or (upper_chan.size == 0) or (lower_chan.size == 0):
+        print(f'No regions found')
         continue
     boundary = (np.min(channels['axial_um'][upper_chan])
                 + np.max(channels['axial_um'][lower_chan])) / 2
@@ -149,7 +153,7 @@ lfp_smooth = np.where(weights > 0.5, lfp_smooth / weights, np.nan)
 
 # %% Plot
 extent = [time_ax[0], time_ax[-1], DEPTH_GRID[0], DEPTH_GRID[-1]]
-f, ax = plt.subplots(figsize=(3, 2.5), dpi=dpi)
+f, ax = plt.subplots(figsize=(3, 2.2), dpi=dpi)
 clim = np.nanpercentile(np.abs(lfp_smooth), 99)
 im = ax.imshow(lfp_smooth, aspect='auto', origin='lower', extent=extent, cmap='RdBu_r',
                vmin=-clim, vmax=clim, interpolation='bilinear')
@@ -157,12 +161,12 @@ ax.axvline(0, color='k', lw=0.75, ls='--')
 ax.set(xlabel='Time from 5-HT stimulation (s)',
        ylabel=f'Depth from L2/3 and L5 boundary ($\mu$m)',
        xticks=np.arange(-TIME_WIN[0], TIME_WIN[1] + 1),
-       xlim=[-1, 3], ylim=[-800, 500], title='Secondary motor cortex (M2)')
+       xlim=[-1, 3], ylim=YLIM)
 cbar = f.colorbar(im, ax=ax, shrink=0.9)
 cbar.set_label('Evoked LFP ($\mu$V)', rotation=270, labelpad=10)
 
 plt.tight_layout()
 sns.despine(trim=False)
-plt.savefig(join(fig_path, 'LFP', 'LFP_depth_profile_MOs.jpg'), dpi=600)
-plt.savefig(join(fig_path, 'LFP', 'LFP_depth_profile_MOs.pdf'))
+plt.savefig(join(fig_path, 'LFP', f'LFP_depth_profile_{REGION[0]}.jpg'), dpi=600)
+plt.savefig(join(fig_path, 'LFP', f'LFP_depth_profile_{REGION[0]}.pdf'))
 plt.show()
