@@ -16,15 +16,17 @@ one = init_one()
 fig_path, save_path = paths()
 
 # Settings
-REGION = ['MOs']
-YLIM = [-800, 500]
-#REGION = ['VISa', 'VISpm']
-#YLIM = [-500, 300]
-UPPER_LAYER, LOWER_LAYER = '2/3', '5'  # depth is centered on the boundary between these
+#REGION = ['MOs']
+#YLIM = [-800, 500]300]
+#UPPER_LAYER, LOWER_LAYER = '2/3', '5'
+REGION = ['VISa', 'VISpm']
+YLIM = [-500, 300]
+UPPER_LAYER, LOWER_LAYER = '2/3', '4'  
 TIME_WIN = [1, 4]  # s before and after pulse onset
 BASELINE = [-0.5, 0]  # baseline window (s) relative to pulse onset
 FILTER_PAD = 1  # extra seconds loaded on both sides to avoid filter edge effects
-LOWPASS = 40  # Hz, removes light artifacts
+HIGHPASS = 0.1  # Hz, removes slow drifts
+LOWPASS = 20  # Hz, removes light artifacts
 DOWNSAMPLE = 10  # downsample factor after low-pass filtering (2500 Hz -> 250 Hz)
 DEPTH_GRID = np.arange(-990, 1000, 20)  # um relative to layer boundary, positive is superficial
 CSD_SMOOTH = 1  # gaussian smoothing over depth (in grid bins) before computing the CSD
@@ -89,7 +91,7 @@ for i in rec.index.values:
 
         # Low-pass filter to get rid of light artifacts
         sampling_rate = 1 / np.median(np.diff(lfp_timestamps))
-        sos = butter(4, LOWPASS, btype='lowpass', fs=sampling_rate, output='sos')
+        sos = butter(4, [HIGHPASS, LOWPASS], btype='bandpass', fs=sampling_rate, output='sos')
         lfp_arr = sosfiltfilt(sos, lfp_arr, axis=-1)
 
         # Cut off padding and downsample
@@ -138,7 +140,7 @@ for i in rec.index.values:
 # Average over recordings
 print(f'\nIncluded {len(lfp_all)} recordings')
 power_avg = np.nanmean(np.stack(power_all), axis=0)
-lfp_avg = np.nanmean(np.stack(lfp_all), axis=0) * 1e6  # V -> uV
+lfp_avg = np.nanmean(np.stack(lfp_all), axis=0)
 csd_avg = np.nanmean(np.stack(csd_all), axis=0)
 np.savez(join(save_path, 'LFP_depth_profile_MOs.npz'), time=time_ax, depth=DEPTH_GRID,
          power=np.stack(power_all), lfp=np.stack(lfp_all), csd=np.stack(csd_all))
@@ -159,7 +161,7 @@ im = ax.imshow(lfp_smooth, aspect='auto', origin='lower', extent=extent, cmap='R
                vmin=-clim, vmax=clim, interpolation='bilinear')
 ax.axvline(0, color='k', lw=0.75, ls='--')
 ax.set(xlabel='Time from 5-HT stimulation (s)',
-       ylabel=f'Depth from L2/3 and L5 boundary ($\mu$m)',
+       ylabel=f'Depth from L{UPPER_LAYER} and L{LOWER_LAYER} boundary ($\mu$m)',
        xticks=np.arange(-TIME_WIN[0], TIME_WIN[1] + 1),
        xlim=[-1, 3], ylim=YLIM)
 cbar = f.colorbar(im, ax=ax, shrink=0.9)
